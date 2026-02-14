@@ -108,7 +108,7 @@ export function CheckingForm() {
         const cleanQuery = searchMode === 'cnpj' ? query.replace(/\D/g, '') : query.trim()
 
         try {
-            // New Server Action Logic (replacing external n8n webhook)
+            // New Server Action Logic (replacing external Core API webhook)
             if (searchMode === 'pi') {
                 const result = await searchPI({ pi: cleanQuery, cnpj: '00000000000000' }) // CNPJ mock for PI search
 
@@ -197,7 +197,7 @@ export function CheckingForm() {
 
         try {
             const xhr = new XMLHttpRequest()
-            xhr.open('POST', 'https://n8n.grupoom.com.br/webhook/CheckingCentral', true)
+            xhr.open('POST', 'https://Core API.nero27.com.br/webhook/CheckingCentral', true)
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {

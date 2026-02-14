@@ -17,7 +17,7 @@ O Nero Core Platform é uma infraestrutura empresarial desenvolvida para a nero2
 A plataforma utiliza as tecnologias mais recentes para garantir escalabilidade e segurança:
 
 - **Frontend**: React 19, TypeScript, TailwindCSS 4, Radix UI, TanStack Query, Axios, Recharts, Three.js, Webpack.
-- **Backend (n8n)**: Mecanismo de fluxo de trabalho para processamento de lógica de negócio.
+- **Backend (Core API)**: Mecanismo de fluxo de trabalho para processamento de lógica de negócio.
 - **Banco de Dados**: Google BigQuery para armazenamento persistente de dados estruturados.
 - **Armazenamento**: Google Drive API para gestão de arquivos e comprovações.
 - **Notificação**: Protocolos SMTP para envio de relatórios e notificações de status.
@@ -25,7 +25,7 @@ A plataforma utiliza as tecnologias mais recentes para garantir escalabilidade e
 ### Arquitetura de Alto Nível
 O sistema segue um modelo cliente-servidor desacoplado:
 1. **Camada de Apresentação**: Single Page Application (SPA) desenvolvida em React.
-2. **Camada de Orquestração**: Workflow Engine n8n atuando como gateway de API e controlador de lógica.
+2. **Camada de Orquestração**: Workflow Engine Core API atuando como gateway de API e controlador de lógica.
 3. **Camada de Dados e Serviços**: Integrações com Google Cloud Platform (BigQuery e Drive).
 
 ---
@@ -53,11 +53,11 @@ O sistema implementa quatro camadas de proteção para garantir a integridade do
 
 ---
 
-## 3. Integração com N8N (API Endpoints)
+## 3. Integração com Core API (API Endpoints)
 
 A comunicação entre o frontend e o motor de automação é realizada via Webhooks POST.
 
-**URL Base**: `https://n8n.grupoom.com.br/webhook/painel-aprovacao`
+**URL Base**: `https://Core API.nero27.com.br/webhook/painel-aprovacao`
 
 ### Actions Disponíveis
 
@@ -116,7 +116,7 @@ Localizado em `src/components/GlobalSearch.tsx`, este componente implementa uma 
    - **Reprovação**: O aprovador fornece o motivo, anexa documentação técnica opcional e o sistema notifica o fornecedor automaticamente, movendo o material para o histórico.
 
 ### Fluxo de Manutenção
-- **Adição de Funcionalidades**: Novas ações devem ser registradas no "Router de Ações" do n8n e consumidas via hooks personalizados no frontend (ex: `usePending.ts`).
+- **Adição de Funcionalidades**: Novas ações devem ser registradas no "Router de Ações" do Core API e consumidas via hooks personalizados no frontend (ex: `usePending.ts`).
 - **Layout**: O sistema utiliza o padrão Glassmorphism através de classes Tailwind customizadas (`bg-black/40 backdrop-blur-xl border-white/10`).
 
 ---
@@ -124,7 +124,7 @@ Localizado em `src/components/GlobalSearch.tsx`, este componente implementa uma 
 ## 6. Troubleshooting
 
 - **Falha de Carregamento de Dados**: Verificar conectividade com o Webhook e validade do token Bearer no Header.
-- **Erros de CORS**: Garantir que as configurações de cabeçalho no nó de resposta do n8n permitam a origem do frontend.
+- **Erros de CORS**: Garantir que as configurações de cabeçalho no nó de resposta do Core API permitam a origem do frontend.
 - **Session Expire**: O sistema redirecionará para o login caso o interceptor Axios identifique um status 401.
 
 ---

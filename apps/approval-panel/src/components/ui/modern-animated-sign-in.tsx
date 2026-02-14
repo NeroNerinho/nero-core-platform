@@ -288,7 +288,7 @@ type TechnologyOrbitDisplayProps = {
 
 const TechOrbitDisplay = memo(function TechOrbitDisplay({
     iconsArray,
-    text = 'Grupo OM',
+    text = 'nero27',
     children,
     className
 }: TechnologyOrbitDisplayProps) {

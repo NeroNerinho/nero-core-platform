@@ -4,7 +4,7 @@ import { createSafeAction } from "@/lib/actions"
 import { SupplierSearchSchema } from "@/lib/validation"
 import { z } from "zod"
 
-// Define types that match the UI expectations (Legacy n8n structure)
+// Define types that match the UI expectations (Legacy Core API structure)
 export interface SearchResult {
     success: boolean
     message?: string
@@ -37,7 +37,7 @@ async function searchPiLogic(data: z.infer<typeof SupplierSearchSchema>): Promis
         return { success: false, message: "PI não encontrada para este fornecedor." }
     }
 
-    // Success Response (Mocking the n8n structure)
+    // Success Response (Mocking the Core API structure)
     return {
         success: true,
         n_pi: data.pi,

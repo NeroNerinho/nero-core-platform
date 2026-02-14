@@ -7,7 +7,7 @@ import { api } from "@/lib/axios"
 /**
  * GlobalSearch Component
  * 
- * Provides a global search bar that searches across all checkings from the n8n API.
+ * Provides a global search bar that searches across all checkings from the Core API API.
  * Uses TanStack Query for data fetching and caching.
  * 
  * @description
@@ -39,7 +39,7 @@ interface SearchResult {
 }
 
 /**
- * Fetches all checkings from the n8n webhook
+ * Fetches all checkings from the Core API webhook
  * @returns Promise<CheckingItem[]> Array of checking items
  */
 const fetchAllCheckings = async (): Promise<CheckingItem[]> => {

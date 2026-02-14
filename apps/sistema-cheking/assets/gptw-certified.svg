@@ -1,7 +1,7 @@
 <svg width="240" height="420" viewBox="0 0 240 420" xmlns="http://www.w3.org/2000/svg">
   <!-- Top Brand Name -->
   <rect width="240" height="40" fill="#000"/>
-  <text x="120" y="25" fill="white" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">Grupo OM Comunicação Integrada</text>
+  <text x="120" y="25" fill="white" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">nero27 Comunicação Integrada</text>
 
   <!-- Background Shape -->
   <path d="M0 40H240V240H0V40Z" fill="#E31B23"/>

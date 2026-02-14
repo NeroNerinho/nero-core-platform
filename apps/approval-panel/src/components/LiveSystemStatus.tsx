@@ -58,7 +58,7 @@ export function LiveSystemStatus() {
             const newApi = health.bigquery?.latency || 150
 
             setMetrics(prev => ({
-                cpu: prev.cpu + (Math.random() - 0.5) * 0.5, // Simulated since n8n doesn't provide CPU
+                cpu: prev.cpu + (Math.random() - 0.5) * 0.5, // Simulated since Core API doesn't provide CPU
                 memory: prev.memory + (Math.random() - 0.5) * 2,
                 apiLatency: newApi
             }))
@@ -68,7 +68,7 @@ export function LiveSystemStatus() {
     }, [health])
 
     useEffect(() => {
-        // Simulate CPU and memory data since n8n doesn't provide these
+        // Simulate CPU and memory data since Core API doesn't provide these
         const interval = setInterval(() => {
             const newCpu = Math.max(0, Math.min(5, metrics.cpu + (Math.random() - 0.5)))
             const newMemory = Math.max(0, Math.min(100, 45 + Math.random() * 20))

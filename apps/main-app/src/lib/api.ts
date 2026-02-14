@@ -1,4 +1,4 @@
-export const API_URL = 'https://n8n.grupoom.com.br/webhook/CheckingCentral'
+export const API_URL = 'https://Core API.nero27.com.br/webhook/CheckingCentral'
 
 export async function apiRequest(action: string, payload: any = {}) {
     const response = await fetch(API_URL, {

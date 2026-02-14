@@ -110,7 +110,7 @@ export function exportToPDF(
         doc.setFontSize(8);
         doc.setTextColor(128);
         doc.text(
-            `Página ${i} de ${pageCount} | Grupo OM - Centro de Comando`,
+            `Página ${i} de ${pageCount} | nero27 - Centro de Comando`,
             doc.internal.pageSize.getWidth() / 2,
             doc.internal.pageSize.getHeight() - 10,
             { align: 'center' }

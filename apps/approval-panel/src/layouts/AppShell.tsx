@@ -46,7 +46,7 @@ export default function AppShell() {
                             <div className="flex items-center justify-center">
                                 <img
                                     src="/logo-grupoom.png"
-                                    alt="Grupo OM"
+                                    alt="nero27"
                                     className="h-8 w-auto object-contain brightness-0 invert"
                                 />
                             </div>

@@ -11,11 +11,11 @@ import { CheckCircle, Clock, AlertTriangle, ArrowRight } from "lucide-react"
  * Dashboard Component
  * 
  * Main dashboard page with WebGLShader background (same as login).
- * All data comes from n8n API - no mock data.
+ * All data comes from Core API API - no mock data.
  * 
  * Features:
  * - WebGLShader animated background
- * - Stats Grid with totals from n8n
+ * - Stats Grid with totals from Core API
  * - Charts with monthly trends and status distribution
  * - Quick action buttons
  * - Recent logs with PI search
@@ -34,15 +34,15 @@ export default function Dashboard() {
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-md">Painel de Aprovações</h1>
                     <p className="text-zinc-300 text-sm mt-1 drop-shadow-sm">
-                        Sistema de aprovação de materiais - Grupo OM
+                        Sistema de aprovação de materiais - nero27
                     </p>
                 </div>
             </div>
 
-            {/* Stats Grid - From n8n */}
+            {/* Stats Grid - From Core API */}
             <StatsGrid />
 
-            {/* Charts Section - From n8n */}
+            {/* Charts Section - From Core API */}
             <DashboardCharts />
 
             {/* Quick Actions */}
@@ -102,7 +102,7 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            {/* Recent Logs - From n8n */}
+            {/* Recent Logs - From Core API */}
             <RecentLogs />
 
             {/* Live System Status */}

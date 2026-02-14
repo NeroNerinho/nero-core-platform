@@ -78,7 +78,7 @@ export default {
         proxy: [
             {
                 context: ['/webhook'],
-                target: 'https://n8n.grupoom.com.br',
+                target: 'https://Core API.nero27.com.br',
                 changeOrigin: true,
                 secure: false,
             }

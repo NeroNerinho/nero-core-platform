@@ -44,7 +44,7 @@ Media definitions are managed in the `MEDIA_TYPE_CONFIG` object within `script.j
 The project is a static frontend. To run locally for testing purposes:
 1. Open the project in VS Code.
 2. Use the **Live Server** extension to host `index.html`.
-3. The production environment targets the **n8n Webhook** for orchestration.
+3. The production environment targets the **Core API Webhook** for orchestration.
 
 ---
 

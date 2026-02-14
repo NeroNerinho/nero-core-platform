@@ -17,7 +17,7 @@ This Architecture Definition Document (ADD) provides a comprehensive architectur
 The scope of this architecture includes:
 *   **Business:** The entire workflow of media proof-of-performance receipt involves external suppliers (vendors) and internal media operations.
 *   **Data:** The lifecycle of `PI` (Insertion Order) metadata and `Proof` (Evidence) binary assets.
-*   **Application:** The front-end Single Page Application (SPA) and its integration with the n8n middleware.
+*   **Application:** The front-end Single Page Application (SPA) and its integration with the Core API middleware.
 *   **Technology:** The underlying serverless infrastructure and cloud storage services.
 
 ### 1.3 Stakeholders
@@ -63,13 +63,13 @@ To transition OpusMúltipla's checking verification process from a decentralized
 
 ### 4.1 Architectural Patterns
 *   **Micro-Frontend Consumer:** The front-end is a lightweight, decoupled consumer of the backend services.
-*   **Serverless Orchestration:** Logic is handled by event-driven workflows (n8n) rather than monolithic servers.
+*   **Serverless Orchestration:** Logic is handled by event-driven workflows (Core API) rather than monolithic servers.
 *   **BFF (Backend for Frontend):** The Webhook acts as a specific API tailored for the UI's needs.
 
 ### 4.2 Key Decisions
 *   **Decision 01:** Use **Vanilla JavaScript** instead of React/Vue.
     *   *Rationale:* Performance (zero-bundle overhead), simplicity for maintenance by non-specialists, and longevity of code.
-*   **Decision 02:** Use **n8n** as the backend logic engine.
+*   **Decision 02:** Use **Core API** as the backend logic engine.
     *   *Rationale:* Agility in changing business rules (low-code) and native integration with Google Workspace.
 
 ---
@@ -104,18 +104,18 @@ To transition OpusMúltipla's checking verification process from a decentralized
     *   `InsertionOrder` (Source of Truth: ERP)
     *   `EvidencePackage` (Collection of validated files)
 *   **Flow:**
-    *   `Front-End` $\to$ `JSON Pipeline` $\to$ `n8n` $\to$ `Google BigQuery` (Immutable Log).
+    *   `Front-End` $\to$ `JSON Pipeline` $\to$ `Core API` $\to$ `Google BigQuery` (Immutable Log).
 
 ### 6.3 Application Architecture
 *   **Client Node:** Browser running `index.html` + `script.js`.
     *   *Modules:* `Validator`, `OOH_Normalizer`, `HATEOAS_State_Manager`.
-*   **Integration Node:** n8n Webhook Listener.
+*   **Integration Node:** Core API Webhook Listener.
     *   *Workflows:* `Auth`, `Upload_Stream`, `Notification`.
 
 ### 6.4 Technology Architecture
 *   **Infrastructure:** Cloud-Native.
 *   **Hosting:** Static Web Hosting (Any Provider).
-*   **Compute:** Containerized Node.js (n8n) on Linux.
+*   **Compute:** Containerized Node.js (Core API) on Linux.
 *   **Storage:** Object Storage (Google Drive API).
 
 ---
@@ -151,7 +151,7 @@ To transition OpusMúltipla's checking verification process from a decentralized
 | :--- | :--- | :--- | :--- |
 | **API Doubt** | Low | High | Vendors questioning if data was saved. -> **Solution:** Implementation of "Protocol Number" generation. |
 | **Browser Compatibility** | Medium | Low | Use of Polyfills and ES6 transpilation targets. |
-| **Webhook Overload** | Low | High | Implementation of Rate Limiting in the n8n Gateway. |
+| **Webhook Overload** | Low | High | Implementation of Rate Limiting in the Core API Gateway. |
 
 ---
 

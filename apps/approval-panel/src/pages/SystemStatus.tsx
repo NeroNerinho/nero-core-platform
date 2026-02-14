@@ -20,7 +20,7 @@ export default function SystemStatus() {
             name: 'API Gateway',
             status: health?.status || 'offline',
             icon: Activity,
-            description: 'Conexão principal com o backend N8N'
+            description: 'Conexão principal com o backend Core API'
         },
         {
             id: 'bigquery',
@@ -123,7 +123,7 @@ export default function SystemStatus() {
                             <div className="flex items-center justify-between text-sm p-3 bg-background rounded-lg border">
                                 <div className="flex items-center gap-3">
                                     <div className="h-2 w-2 rounded-full bg-blue-500" />
-                                    <span>Última sincronização com N8N</span>
+                                    <span>Última sincronização com Core API</span>
                                 </div>
                                 <span className="text-muted-foreground text-xs">
                                     {new Date(health.timestamp).toLocaleString()}

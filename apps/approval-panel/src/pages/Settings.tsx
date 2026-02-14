@@ -386,7 +386,7 @@ export default function Settings() {
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="text-sm font-medium text-muted-foreground">N8N Webhook</p>
+                                            <p className="text-sm font-medium text-muted-foreground">Core API Webhook</p>
                                             <Badge variant="outline" className="font-mono text-xs">Ativo</Badge>
                                         </div>
                                     </div>

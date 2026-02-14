@@ -55,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         try {
             console.log('Attempting login with:', { email })
 
-            // Call n8n API
+            // Call Core API API
             const response = await api.post('', {
                 action: 'login',
                 email,

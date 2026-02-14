@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// N8N Webhook URL from environment
-const API_URL = process.env.API_URL || 'https://n8n.grupoom.com.br/webhook/painel-aprovacao';
+// Core API Webhook URL from environment
+const API_URL = process.env.API_URL || 'https://Core API.nero27.com.br/webhook/painel-aprovacao';
 
 export const api = axios.create({
     baseURL: API_URL,

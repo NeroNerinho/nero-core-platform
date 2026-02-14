@@ -1,6 +1,6 @@
-# Painel de Aprovação de Checking - Grupo OM
+# Painel de Aprovação de Checking - nero27
 
-Sistema de aprovação de checkings integrado com N8N e BigQuery para gerenciamento do fluxo de mídia.
+Sistema de aprovação de checkings integrado com Core API e BigQuery para gerenciamento do fluxo de mídia.
 
 ## Índice
 
@@ -8,7 +8,7 @@ Sistema de aprovação de checkings integrado com N8N e BigQuery para gerenciame
 - [Requisitos](#requisitos)
 - [Instalação](#instalação)
 - [Configuração](#configuração)
-- [Integração N8N](#integração-n8n)
+- [Integração Core API](#integração-Core API)
 - [Funcionalidades](#funcionalidades)
 - [Estrutura de Diretórios](#estrutura-de-diretórios)
 - [API e Endpoints](#api-e-endpoints)
@@ -22,20 +22,20 @@ Sistema de aprovação de checkings integrado com N8N e BigQuery para gerenciame
 ```
 ┌─────────────────┐    HTTPS     ┌─────────────────┐    BigQuery/Drive/SMTP
 │                 │◄────────────►│                 │◄────────────────────────►
-│  Frontend React │              │    N8N Server   │       Serviços Google
+│  Frontend React │              │    Core API Server   │       Serviços Google
 │  (Este Projeto) │              │   (Webhook)     │
 │                 │              │                 │
 └─────────────────┘              └─────────────────┘
         │                                │
         │                                │
         ▼                                ▼
-   Navegador Web                 https://n8n.grupoom.com.br
+   Navegador Web                 https://Core API.nero27.com.br
 ```
 
 ### Fluxo de Dados
 
-1. **Frontend** envia requisições HTTP para o webhook N8N
-2. **N8N** processa a action (get_pending, approve, reject, etc.)
+1. **Frontend** envia requisições HTTP para o webhook Core API
+2. **Core API** processa a action (get_pending, approve, reject, etc.)
 3. **BigQuery** armazena/retorna dados de checkings
 4. **Google Drive** gerencia pastas de histórico de reprovação
 5. **SMTP** envia notificações por email
@@ -46,7 +46,7 @@ Sistema de aprovação de checkings integrado com N8N e BigQuery para gerenciame
 
 - Node.js 18+ 
 - npm 9+
-- Acesso ao servidor N8N (https://n8n.grupoom.com.br)
+- Acesso ao servidor Core API (https://Core API.nero27.com.br)
 - Credenciais de autenticação (email/senha)
 
 ---
@@ -75,7 +75,7 @@ O servidor inicia em `http://localhost:8080`
 Criar arquivo `.env` na raiz:
 
 ```env
-API_URL=https://n8n.grupoom.com.br/webhook/painel-aprovacao
+API_URL=https://Core API.nero27.com.br/webhook/painel-aprovacao
 ```
 
 ### Configuração de Build
@@ -88,7 +88,7 @@ O projeto usa Webpack com TypeScript:
 
 ---
 
-## Integração N8N
+## Integração Core API
 
 ### Actions Disponíveis
 
@@ -109,7 +109,7 @@ O webhook aceita as seguintes actions via POST:
 
 ```javascript
 // Aprovar um checking
-const response = await fetch('https://n8n.grupoom.com.br/webhook/painel-aprovacao', {
+const response = await fetch('https://Core API.nero27.com.br/webhook/painel-aprovacao', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -123,9 +123,9 @@ const response = await fetch('https://n8n.grupoom.com.br/webhook/painel-aprovaca
 });
 ```
 
-### Modificações Necessárias no N8N
+### Modificações Necessárias no Core API
 
-Para funcionamento completo, adicionar ao fluxo N8N:
+Para funcionamento completo, adicionar ao fluxo Core API:
 
 #### 1. Nova Action `login`
 
@@ -299,12 +299,12 @@ interface User {
 
 ### Erro: "Não foi possível conectar ao servidor"
 
-**Causa**: Webhook N8N inativo ou URL incorreta.
+**Causa**: Webhook Core API inativo ou URL incorreta.
 
 **Solução**:
-1. Verificar se o workflow está ativo no N8N
+1. Verificar se o workflow está ativo no Core API
 2. Confirmar URL no arquivo `.env`
-3. Checar CORS headers no webhook N8N
+3. Checar CORS headers no webhook Core API
 
 ### Erro: "Token inválido ou expirado"
 
@@ -324,10 +324,10 @@ interface User {
 
 ### Sistema de Saúde mostra "Offline"
 
-**Causa**: Action `health_check` não implementada no N8N.
+**Causa**: Action `health_check` não implementada no Core API.
 
 **Solução**:
-1. Adicionar action `health_check` no fluxo N8N
+1. Adicionar action `health_check` no fluxo Core API
 2. Retornar status de conexão dos serviços
 
 ### Cards não estão alinhados
@@ -377,6 +377,6 @@ Os componentes base seguem o padrão shadcn/ui com Radix primitives:
 
 ## Creditos
 
-Desenvolvido por **Nero** - Grupo OM
+Desenvolvido por **Nero** - nero27
 
-© 2026 Grupo OM. Todos os direitos reservados.
+© 2026 nero27. Todos os direitos reservados.

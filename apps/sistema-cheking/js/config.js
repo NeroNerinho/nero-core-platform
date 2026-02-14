@@ -1,7 +1,7 @@
 // configuracoes globais e estado compartilhado do app
 
-// endpoint da api (n8n webhook que processa tudo)
-export const API_ENDPOINT = 'https://n8n.grupoom.com.br/webhook/CheckingCentral';
+// endpoint da api (Core API webhook que processa tudo)
+export const API_ENDPOINT = 'https://Core API.nero27.com.br/webhook/CheckingCentral';
 
 // mapeamento dos tipos de meio com aliases e configuracoes
 export const MEDIA_TYPE_CONFIG = {

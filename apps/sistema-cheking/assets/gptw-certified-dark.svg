@@ -2,7 +2,7 @@
   <!-- Top Brand Name -->
   <!-- Top Brand Name -->
   <!-- Black header removed -->
-  <text x="120" y="25" fill="#000" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">Grupo OM Comunicação Integrada</text>
+  <text x="120" y="25" fill="#000" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">nero27 Comunicação Integrada</text>
 
   <!-- Background Shape -->
   <path d="M0 40H240V240H0V40Z" fill="#E31B23"/>
@@ -26,11 +26,11 @@
        Maybe the user means the black header bar in the SVG?
        "Top Brand Name" <rect ... fill="#000"/>
        
-       If I remove that rect, the text "Grupo OM..." (y=25) will be on transparent background.
+       If I remove that rect, the text "nero27..." (y=25) will be on transparent background.
        If footer is white (dark mode), this text needs to be Black.
        
        So:
-       1. Remove Top Rect. Change "Grupo OM" text to Black.
+       1. Remove Top Rect. Change "nero27" text to Black.
        2. Restore "Great Place To Work" text to WHITE (to sit on Red background).
        3. Restore "Certificada" text to WHITE (to sit on Blue background).
        4. Remove Bottom Rect. Change "Atualizado em..." text to Black (on transparent/white footer).

@@ -54,7 +54,7 @@ Requires 3 attachments + Insertion Count:
 
 ## 4. Support
 For technical issues or persistent errors:
-*   **Email:** checking@grupoom.com.br
+*   **Email:** checking@nero27.com.br
 *   *Please include a screenshot of the error and the PI number in your request.*
 
 **Group OM - OpusMúltipla**

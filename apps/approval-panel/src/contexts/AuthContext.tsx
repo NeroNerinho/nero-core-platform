@@ -57,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             console.log('Login response:', response.data)
 
             if (response.data.success) {
-                // Handle response - n8n may not return token, so we generate one locally
+                // Handle response - Core API may not return token, so we generate one locally
                 const userData = response.data.user
 
                 // Generate a session token if not provided by the server

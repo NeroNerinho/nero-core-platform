@@ -19,7 +19,7 @@ export function Footer() {
                     <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-2">
                             <span className="text-xs text-zinc-400 font-mono">
-                                Grupo OM | Motor de Inteligência
+                                nero27 | Motor de Inteligência
                             </span>
                             <span className="text-[10px] px-1.5 py-0.5 bg-white/10 text-white/70 rounded border border-white/10 font-mono">
                                 {version}
@@ -35,7 +35,7 @@ export function Footer() {
                         <div className="flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
                             <img
                                 src="/company-signatures.png"
-                                alt="Empresas do Grupo OM"
+                                alt="Empresas do nero27"
                                 className="h-6 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
                             />
                         </div>

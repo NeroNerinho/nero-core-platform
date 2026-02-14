@@ -16,7 +16,7 @@ This document provides a comprehensive architectural overview of the Central Che
 The Logical View describes how the system's functionality is structured.
 
 ### 2.1 Overview
-The system is designed as a **Single Page Application (SPA)** that interacts with a **Serverless Workflow Engine (n8n)**. The logic is decoupled into specific modules for validation, UI rendering, and data normalization.
+The system is designed as a **Single Page Application (SPA)** that interacts with a **Serverless Workflow Engine (Core API)**. The logic is decoupled into specific modules for validation, UI rendering, and data normalization.
 
 ### 2.2 Functional Decomposition
 *   **Search Steering Layer:** Handles the asynchronous fetching of PI data and manages the search mode (PI vs. CNPJ).
@@ -32,7 +32,7 @@ The Process View addresses the dynamic aspects of the system.
 ### 3.1 Data Acquisition Flow
 1.  **Input Trigger:** User enters a PI number.
 2.  **Debounce State:** JavaScript waits 500ms to minimize API thrashing.
-3.  **Authentication/Validation Call:** Fetch request to n8n webhook with the PI payload.
+3.  **Authentication/Validation Call:** Fetch request to Core API webhook with the PI payload.
 4.  **Status Evaluation:** Front-end parses the response. If status is `Ok/Falha/Problem`, the process branches to the `Block State`.
 5.  **Field Generation:** If valid, the `generateUploadFields` function constructs the DOM for specific media requirements.
 
@@ -48,7 +48,7 @@ The Development View describes the organization of the actual software modules.
 ### 4.1 Code Organization
 *   **Modular Vanilla JS:** The codebase avoids build-step complexity (no Webpack/Vite) to ensure maximum longevity and ease of audit.
 *   **CSS Design System:** Built using CSS Custom Properties (Variables) for theming and a mobile-first responsive grid.
-*   **Stateless Frontend:** The frontend maintains only the `currentPIStatus`, while all persistent state is handled by the n8n backend.
+*   **Stateless Frontend:** The frontend maintains only the `currentPIStatus`, while all persistent state is handled by the Core API backend.
 
 ---
 
@@ -58,7 +58,7 @@ The Physical View describes the mapping of software onto hardware.
 ### 5.1 System Topology
 *   **Client Node:** Any modern web browser (Edge, Chrome, Safari, Firefox).
 *   **Network:** HTTPS/TLS 1.2+ encrypted tunnel.
-*   **Integration Node:** n8n instance (SaaS or Private Cloud).
+*   **Integration Node:** Core API instance (SaaS or Private Cloud).
 *   **Storage Nodes:** 
     *   **Object Storage:** Google Drive (Managed SaaS).
     *   **Data Warehouse:** Google BigQuery (Managed SaaS).

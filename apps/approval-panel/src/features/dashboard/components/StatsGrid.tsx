@@ -11,9 +11,9 @@ interface StatsData {
 }
 
 /**
- * Fetches stats from n8n webhook
+ * Fetches stats from Core API webhook
  * Uses action: 'get_stats' to fetch dashboard statistics
- * NO MOCK DATA - all data comes from n8n
+ * NO MOCK DATA - all data comes from Core API
  */
 const fetchStats = async (): Promise<StatsData> => {
     const { data } = await api.post('', { action: 'get_stats' })

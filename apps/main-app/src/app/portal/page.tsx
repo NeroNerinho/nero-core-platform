@@ -64,8 +64,8 @@ export default function PortalPage() {
         }
         setUploading(true)
         try {
-            // Here implementation would send FormData to n8n webhook
-            // n8n handles binary data via multipart/form-data
+            // Here implementation would send FormData to Core API webhook
+            // Core API handles binary data via multipart/form-data
             const formData = new FormData()
             formData.append('action', 'submit_checking')
             formData.append('pi_id', piData.id)

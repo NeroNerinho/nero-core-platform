@@ -1,6 +1,6 @@
-# Documentação Completa - Painel de Aprovação Grupo OM
+# Documentação Completa - Painel de Aprovação nero27
 
-> **Desenvolvido por**: Nero - Grupo OM  
+> **Desenvolvido por**: Nero - nero27  
 > **Versão**: 2.0  
 > **Última atualização**: Fevereiro 2026
 
@@ -11,7 +11,7 @@
 1. [Introdução para Iniciantes](#1-introdução-para-iniciantes)
 2. [Visão Técnica do Sistema](#2-visão-técnica-do-sistema)
 3. [Arquitetura de Segurança](#3-arquitetura-de-segurança)
-4. [Integração com N8N](#4-integração-com-n8n)
+4. [Integração com Core API](#4-integração-com-Core API)
 5. [Estrutura de Componentes](#5-estrutura-de-componentes)
 6. [Fluxos de Operação](#6-fluxos-de-operação)
 7. [Guia de Manutenção](#7-guia-de-manutenção)
@@ -78,7 +78,7 @@ Frontend (Este Projeto)
 ├── Three.js          → Animações WebGL
 └── Webpack           → Bundler
 
-Backend (N8N)
+Backend (Core API)
 ├── Webhook           → Recebe requisições do frontend
 ├── BigQuery          → Banco de dados
 ├── Google Drive      → Armazenamento de arquivos
@@ -121,8 +121,8 @@ Backend (N8N)
                                     │ HTTPS (POST)
                                     ▼
 ┌────────────────────────────────────────────────────────────────────┐
-│                      N8N WEBHOOK SERVER                            │
-│                https://n8n.grupoom.com.br/webhook/                 │
+│                      Core API WEBHOOK SERVER                            │
+│                https://Core API.nero27.com.br/webhook/                 │
 │                                                                    │
 │  ┌──────────────────────────────────────────────────────────────┐  │
 │  │                     Router de Ações                          │  │
@@ -155,7 +155,7 @@ src/
 ├── index.css               # Estilos globais
 │
 ├── components/             # Componentes compartilhados
-│   ├── GlobalSearch.tsx    # Busca global (conectada ao n8n)
+│   ├── GlobalSearch.tsx    # Busca global (conectada ao Core API)
 │   ├── LiveSystemStatus.tsx# Monitor de saúde
 │   ├── ProtectedRoute.tsx  # Proteção de rotas
 │   ├── UserMenu.tsx        # Menu do usuário
@@ -229,7 +229,7 @@ src/
 ### Fluxo de Autenticação
 
 ```
-Usuário         Frontend           N8N            BigQuery
+Usuário         Frontend           Core API            BigQuery
    │                │               │                │
    │─── Email/Senha ──►│               │                │
    │                │── POST login ──►│                │
@@ -259,7 +259,7 @@ Usuário         Frontend           N8N            BigQuery
  * 
  * FLUXO DE LOGIN:
  * 1. Usuário chama login(email, password)
- * 2. AuthContext faz POST para n8n com action: 'login'
+ * 2. AuthContext faz POST para Core API com action: 'login'
  * 3. Se sucesso, armazena token e user no state e localStorage
  * 4. Componentes que usam useAuth() recebem isAuthenticated: true
  * 
@@ -295,11 +295,11 @@ Usuário         Frontend           N8N            BigQuery
 
 ---
 
-## 4. Integração com N8N
+## 4. Integração com Core API
 
 ### Configuração do Webhook
 
-**URL Base**: `https://n8n.grupoom.com.br/webhook/painel-aprovacao`
+**URL Base**: `https://Core API.nero27.com.br/webhook/painel-aprovacao`
 
 **Método**: POST (todas as actions)
 
@@ -317,7 +317,7 @@ Authorization: Bearer <token>
 // REQUEST
 {
     "action": "login",
-    "email": "usuario@grupoom.com.br",
+    "email": "usuario@nero27.com.br",
     "password": "senha123"
 }
 
@@ -326,7 +326,7 @@ Authorization: Bearer <token>
     "success": true,
     "user": {
         "name": "Nome do Usuário",
-        "email": "usuario@grupoom.com.br",
+        "email": "usuario@nero27.com.br",
         "role": "approver"
     }
 }
@@ -392,7 +392,7 @@ Authorization: Bearer <token>
 {
     "action": "approve",
     "id": "2026-02-04T10:30:00.000Z",
-    "approval_user": "aprovador@grupoom.com.br"
+    "approval_user": "aprovador@nero27.com.br"
 }
 
 // RESPONSE
@@ -410,7 +410,7 @@ Authorization: Bearer <token>
     "action": "reject",
     "id": "2026-02-04T10:30:00.000Z",
     "reason": "Imagem fora de foco",
-    "approval_user": "aprovador@grupoom.com.br",
+    "approval_user": "aprovador@nero27.com.br",
     "pdf_file": <arquivo PDF opcional>
 }
 
@@ -441,9 +441,9 @@ Authorization: Bearer <token>
 }
 ```
 
-### Workflow N8N Completo
+### Workflow Core API Completo
 
-**Arquivo de referência**: `n8n_workflow_updated.json`
+**Arquivo de referência**: `Core API_workflow_updated.json`
 
 O workflow processa as requisições assim:
 
@@ -507,7 +507,7 @@ export { Component }
 
 **Dependências**:
 - TanStack Query para cache de 1 minuto
-- Axios para requisição ao n8n
+- Axios para requisição ao Core API
 - useState/useEffect/useMemo para lógica
 
 ### StatCard
@@ -599,7 +599,7 @@ export { Component }
 ├──────────────────────────────────────────────────────────────────┤
 │ 3. BUSCA EXECUTA                                                  │
 │    ├─ Usa dados em cache (TanStack Query)                         │
-│    ├─ Se cache expirou, busca do n8n                              │
+│    ├─ Se cache expirou, busca do Core API                              │
 │    └─ Filtra por: cliente, PI, veículo, fornecedor                │
 ├──────────────────────────────────────────────────────────────────┤
 │ 4. DROPDOWN MOSTRA RESULTADOS                                     │
@@ -616,9 +616,9 @@ export { Component }
 
 ## 7. Guia de Manutenção
 
-### Adicionar Nova Action no N8N
+### Adicionar Nova Action no Core API
 
-1. **No N8N**: Abrir workflow `painel-aprovacao`
+1. **No Core API**: Abrir workflow `painel-aprovacao`
 2. Adicionar nova branch no "Router de Ações"
 3. Criar nodes de processamento
 4. Adicionar "Respond to Webhook" ao final
@@ -686,12 +686,12 @@ bg-white/5 border-white/10 text-white hover:bg-white/10
 **Sintoma**: Console mostra "Access-Control-Allow-Origin"
 
 **Solução**:
-1. Verificar se workflow N8N está ativo
+1. Verificar se workflow Core API está ativo
 2. Confirmar headers CORS no webhook
 3. Testar com curl para isolar problema
 
 ```bash
-curl -X POST https://n8n.grupoom.com.br/webhook/painel-aprovacao \
+curl -X POST https://Core API.nero27.com.br/webhook/painel-aprovacao \
   -H "Content-Type: application/json" \
   -d '{"action": "health_check"}'
 ```
@@ -704,7 +704,7 @@ curl -X POST https://n8n.grupoom.com.br/webhook/painel-aprovacao \
 1. Abrir DevTools (F12) → Console
 2. Verificar se há erros de rede
 3. Confirmar URL no `.env`
-4. Testar credenciais diretamente no N8N
+4. Testar credenciais diretamente no Core API
 
 ### Problema: Animação travada
 
@@ -722,7 +722,7 @@ curl -X POST https://n8n.grupoom.com.br/webhook/painel-aprovacao \
 **Solução**:
 1. Forçar refresh: Ctrl+Shift+R
 2. Limpar cache do TanStack Query
-3. Verificar conexão com N8N
+3. Verificar conexão com Core API
 
 ```javascript
 // No console do browser
@@ -750,4 +750,4 @@ rm -rf node_modules && npm install
 
 ---
 
-© 2026 Grupo OM - Desenvolvido por Nero
+© 2026 nero27 - Desenvolvido por Nero

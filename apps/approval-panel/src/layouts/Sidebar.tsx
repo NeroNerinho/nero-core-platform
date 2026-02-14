@@ -31,7 +31,7 @@ function InterfacesLogoSquare() {
         <div className="aspect-square grow min-h-px min-w-px overflow-hidden relative shrink-0 flex items-center justify-center">
             <img
                 src="/logo-grupoom.png"
-                alt="Grupo OM"
+                alt="nero27"
                 className="h-6 w-auto object-contain brightness-0 invert"
             />
         </div>

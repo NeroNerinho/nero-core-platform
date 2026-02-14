@@ -6,7 +6,7 @@ import { RefreshCw, Clock, User, FileText, FolderOpen, Search } from "lucide-rea
 import { useState, useMemo, useEffect } from "react"
 
 /**
- * Checking Interface from n8n get_pending action
+ * Checking Interface from Core API get_pending action
  * Represents a checking entry from BigQuery
  */
 interface Checking {
@@ -22,9 +22,9 @@ interface Checking {
 }
 
 /**
- * Fetches checkings from n8n webhook
+ * Fetches checkings from Core API webhook
  * Uses action: 'get_pending' to fetch checking list
- * ALL DATA FROM N8N - NO MOCK DATA
+ * ALL DATA FROM Core API - NO MOCK DATA
  */
 const fetchCheckings = async (): Promise<Checking[]> => {
     const { data } = await api.post('', { action: 'get_pending' })
@@ -35,7 +35,7 @@ const fetchCheckings = async (): Promise<Checking[]> => {
  * RecentLogs Component
  * 
  * Displays recent checkings (pending approvals) with search functionality.
- * All data comes from the n8n API (get_pending action).
+ * All data comes from the Core API API (get_pending action).
  * 
  * Features:
  * - Search by PI number, cliente, fornecedor
@@ -128,7 +128,7 @@ export function RecentLogs() {
                 <div className="text-center py-8 text-red-400">
                     <FileText className="h-12 w-12 mx-auto mb-3 opacity-50" />
                     <p>Erro ao carregar checkings</p>
-                    <p className="text-sm text-zinc-500 mt-1">Verifique a conexão com o n8n</p>
+                    <p className="text-sm text-zinc-500 mt-1">Verifique a conexão com o Core API</p>
                 </div>
             ) : filteredCheckings.length === 0 ? (
                 <div className="text-center py-8 text-zinc-400">

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // API Endpoint from sistema_cheking/approval-panel
-const API_ENDPOINT = 'https://n8n.grupoom.com.br/webhook/CheckingCentral'
+const API_ENDPOINT = 'https://Core API.nero27.com.br/webhook/CheckingCentral'
 
 export const api = axios.create({
     baseURL: API_ENDPOINT,
@@ -10,7 +10,7 @@ export const api = axios.create({
     }
 })
 
-// Interceptor to handle n8n response format (sometimes it returns 200 with error inside)
+// Interceptor to handle Core API response format (sometimes it returns 200 with error inside)
 api.interceptors.response.use(
     (response) => {
         return response

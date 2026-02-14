@@ -70,7 +70,7 @@ export default function Login() {
                     <div className="flex items-center gap-4">
                         <img
                             src="/logo-grupoom.png"
-                            alt="Grupo OM"
+                            alt="nero27"
                             className="h-12 w-auto object-contain brightness-0 invert"
                         />
                     </div>
@@ -78,7 +78,7 @@ export default function Login() {
                     {/* Center: Title and Company Signatures */}
                     <div className="flex flex-col justify-center mt-32">
                         <h1 className="text-8xl font-bold text-white mb-6 tracking-tighter mix-blend-exclusion">
-                            Grupo OM
+                            nero27
                         </h1>
                         <p className="text-3xl text-zinc-300 font-light tracking-widest uppercase mix-blend-exclusion mb-12">
                             Aprovação de Mídia
@@ -134,7 +134,7 @@ export default function Login() {
                             </p>
                             <img
                                 src="/company-signatures.png"
-                                alt="Empresas do Grupo OM"
+                                alt="Empresas do nero27"
                                 className="h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity"
                             />
                         </div>

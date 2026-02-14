@@ -14,7 +14,7 @@ export default function CheckingQueuePage() {
     const fetchCheckings = async () => {
         setLoading(true)
         try {
-            const res = await fetch('https://n8n.grupoom.com.br/webhook/CheckingCentral', {
+            const res = await fetch('https://Core API.nero27.com.br/webhook/CheckingCentral', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'get_pending' })
@@ -48,7 +48,7 @@ export default function CheckingQueuePage() {
             // Optimistic update
             setCheckings(prev => prev.filter(c => c.id !== id))
 
-            await fetch('https://n8n.grupoom.com.br/webhook/CheckingCentral', {
+            await fetch('https://Core API.nero27.com.br/webhook/CheckingCentral', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'approve', id, approval_user: 'admin@nero27.com' }) // Hardcoded user for now
@@ -64,7 +64,7 @@ export default function CheckingQueuePage() {
         try {
             setCheckings(prev => prev.filter(c => c.id !== id))
 
-            await fetch('https://n8n.grupoom.com.br/webhook/CheckingCentral', {
+            await fetch('https://Core API.nero27.com.br/webhook/CheckingCentral', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ action: 'reject', id, reason, approval_user: 'admin@nero27.com' })

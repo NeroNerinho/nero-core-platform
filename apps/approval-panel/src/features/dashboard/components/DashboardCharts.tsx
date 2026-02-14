@@ -16,7 +16,7 @@ import {
 } from "recharts"
 
 /**
- * Stats data from n8n get_stats action
+ * Stats data from Core API get_stats action
  */
 interface StatsData {
     total: number
@@ -26,9 +26,9 @@ interface StatsData {
 }
 
 /**
- * Fetches stats from n8n webhook
+ * Fetches stats from Core API webhook
  * Uses action: 'get_stats' to fetch dashboard statistics
- * ALL DATA FROM N8N - NO MOCK
+ * ALL DATA FROM Core API - NO MOCK
  */
 const fetchStats = async (): Promise<StatsData> => {
     const { data } = await api.post('', { action: 'get_stats' })
@@ -38,7 +38,7 @@ const fetchStats = async (): Promise<StatsData> => {
 /**
  * DashboardCharts Component
  * 
- * Displays charts with data from n8n API (get_stats action).
+ * Displays charts with data from Core API API (get_stats action).
  * Uses same data as StatsGrid to build visualizations.
  * 
  * Features:
@@ -69,13 +69,13 @@ export function DashboardCharts() {
                 <div className="rounded-xl border border-white/10 shadow-lg p-6 bg-black/30 backdrop-blur-xl">
                     <h3 className="text-lg font-semibold text-white mb-4">Visão Geral</h3>
                     <div className="h-64 flex items-center justify-center text-zinc-500">
-                        <p>Dados não disponíveis - Verifique a conexão com n8n</p>
+                        <p>Dados não disponíveis - Verifique a conexão com Core API</p>
                     </div>
                 </div>
                 <div className="rounded-xl border border-white/10 shadow-lg p-6 bg-black/30 backdrop-blur-xl">
                     <h3 className="text-lg font-semibold text-white mb-4">Distribuição por Status</h3>
                     <div className="h-64 flex items-center justify-center text-zinc-500">
-                        <p>Dados não disponíveis - Verifique a conexão com n8n</p>
+                        <p>Dados não disponíveis - Verifique a conexão com Core API</p>
                     </div>
                 </div>
             </div>
