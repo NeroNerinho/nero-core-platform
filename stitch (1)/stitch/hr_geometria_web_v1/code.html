@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HR Geometria Web V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "steel-dark": "#1c2631",
+                        "steel-light": "#2a3642",
+                        "grid-line": "#2a3642",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Space Grotesk", "monospace"] /* Using Space Grotesk for mono feel as requested */
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #2a3642 1px, transparent 1px), linear-gradient(to bottom, #2a3642 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101922; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a3642; 
+        }
+        
+        /* Grid background animation effect */
+        .bg-grid {
+            background-size: 40px 40px;
+        }
+        
+        .technical-border {
+            position: relative;
+        }
+        .technical-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 2px solid #0d7ff2;
+            border-right: 2px solid #0d7ff2;
+        }
+        .technical-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid #0d7ff2;
+            border-left: 2px solid #0d7ff2;
+        }
+
+        /* Connecting lines simulation */
+        .connector-h {
+            position: absolute;
+            height: 1px;
+            background-color: #2a3642;
+            z-index: 0;
+        }
+        .connector-v {
+            position: absolute;
+            width: 1px;
+            background-color: #2a3642;
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-display antialiased h-screen flex flex-col overflow-hidden selection:bg-primary selection:text-white">
+<!-- Header / HUD Top -->
+<header class="flex-none border-b border-gray-200 dark:border-steel-light bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-50">
+<div class="px-4 py-3 flex justify-between items-center">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-xl">architecture</span>
+<h1 class="font-bold text-lg tracking-tight uppercase">Geometria <span class="text-primary">Estrutural</span></h1>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 font-mono">System V1.0 Active</span>
+</div>
+</div>
+<button class="p-2 rounded hover:bg-gray-200 dark:hover:bg-steel-light transition-colors relative group">
+<span class="material-icons text-gray-500 dark:text-gray-400">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+</div>
+<!-- Status Bar Metric -->
+<div class="flex divide-x divide-gray-200 dark:divide-steel-light border-t border-gray-200 dark:border-steel-light text-[10px] font-mono uppercase text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-steel-dark">
+<div class="flex-1 py-1.5 text-center">
+                Net_Eff: <span class="text-primary font-bold">94.2%</span>
+</div>
+<div class="flex-1 py-1.5 text-center">
+                Active_Nodes: <span class="text-gray-800 dark:text-white font-bold">24/28</span>
+</div>
+<div class="flex-1 py-1.5 text-center">
+                Uptime: <span class="text-gray-800 dark:text-white font-bold">08:42:11</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace (Blueprint Canvas) -->
+<main class="flex-1 relative overflow-hidden bg-grid bg-background-light dark:bg-background-dark bg-grid-pattern">
+<!-- Floating Filter Controls -->
+<div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+<button class="bg-background-light dark:bg-steel-dark border border-gray-200 dark:border-steel-light p-2 rounded shadow-lg active:scale-95 transition-transform">
+<span class="material-icons text-primary text-sm">layers</span>
+</button>
+<button class="bg-background-light dark:bg-steel-dark border border-gray-200 dark:border-steel-light p-2 rounded shadow-lg active:scale-95 transition-transform">
+<span class="material-icons text-gray-400 text-sm">filter_alt</span>
+</button>
+<button class="bg-background-light dark:bg-steel-dark border border-gray-200 dark:border-steel-light p-2 rounded shadow-lg active:scale-95 transition-transform">
+<span class="material-icons text-gray-400 text-sm">zoom_in</span>
+</button>
+</div>
+<!-- Structural Diagram Container -->
+<div class="w-full h-full overflow-auto relative p-8 min-w-[350px]">
+<!-- Lines (Connectors) -->
+<!-- Root to L1 -->
+<div class="connector-v h-16 left-1/2 top-[80px] -translate-x-1/2"></div>
+<!-- L1 Horizontal -->
+<div class="connector-h w-[200px] left-1/2 top-[144px] -translate-x-1/2"></div>
+<!-- L1 Vertical Drops -->
+<div class="connector-v h-8 left-[calc(50%-100px)] top-[144px]"></div>
+<div class="connector-v h-8 left-[calc(50%+100px)] top-[144px]"></div>
+<!-- Root Node -->
+<div class="absolute left-1/2 -translate-x-1/2 top-4 flex flex-col items-center group cursor-pointer">
+<div class="w-16 h-16 bg-steel-dark border-2 border-primary rounded flex items-center justify-center shadow-[0_0_15px_rgba(13,127,242,0.3)] technical-border z-10 relative">
+<img alt="Portrait of Chief Engineer" class="w-14 h-14 object-cover opacity-90 grayscale group-hover:grayscale-0 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByTGxQn1Z24EQ3MoGJbWg0pSW4Wh-8uA7Ga06FoAO8ix_egNbNttOcgSbtvS0h7gshc9t6F38BEnZvClEGhewHs5ST1hEwvwMrG_w0zTnJZ51ICRZgPv6McEvpz5oRthIPEmvtUAYG2KLGUJu1V7TruNTB5GRVqASunifpR86GTV7cD4m-QpeC4RYmEIsSplTH3b8hC-mGiiNLJwfzMFbn49Ux9YTb108qgErcf3vzjDU44LSyHknKR7KOli7MceXmkcLKm8gIIPc"/>
+<div class="absolute -top-2 -right-2 w-3 h-3 bg-green-500 rounded-full border-2 border-background-dark"></div>
+</div>
+<div class="mt-2 bg-steel-dark/90 px-2 py-1 border border-primary/30 rounded backdrop-blur text-center">
+<p class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Lead_Eng</p>
+<p class="text-xs font-bold text-white">R. Mendes</p>
+</div>
+</div>
+<!-- Level 2 Nodes (Left) -->
+<div class="absolute left-[calc(50%-130px)] top-[176px] flex flex-col items-center group cursor-pointer">
+<div class="w-12 h-12 bg-steel-dark border border-gray-600 group-hover:border-primary rounded flex items-center justify-center relative z-10 transition-colors">
+<img alt="Portrait of Senior Engineer" class="w-10 h-10 object-cover opacity-80 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-CLL7afhj1Xzpm10cpdOnFPNgueCIFBx-f58baVi-6SJK3fGEI6_s3xk8-PsukwmEAkEGLhOhgIa3xNTryVNGD-T224puMkeheutyDXn3lCal7Aoh-8PA0lf36iZCfsgfa_OMlQkGWc8vT-SIv6uwwu3IDg-_zdGmG-rAJXsyLg-N_fJsNdyB73ZIIa7S72TQS3M2oKuqWuCsPGt1DC-JwiaZRb0hurADpOd_WDkriscthdkEhReikkS9-TLLtPwJXQ93Jf_MCKU"/>
+</div>
+<div class="mt-1 text-center">
+<p class="text-[10px] font-bold text-gray-300">A. Silva</p>
+<p class="text-[9px] text-primary font-mono">92% EFF</p>
+</div>
+<!-- Connector to child -->
+<div class="connector-v h-8 bg-gray-700 w-[1px] mt-0 mx-auto"></div>
+<!-- Child Node -->
+<div class="mt-0 w-8 h-8 bg-steel-dark border border-gray-700 rounded flex items-center justify-center">
+<span class="text-[8px] font-mono text-gray-500">OP-1</span>
+</div>
+</div>
+<!-- Level 2 Nodes (Right - Selected State) -->
+<div class="absolute left-[calc(50%+70px)] top-[176px] flex flex-col items-center z-20">
+<div class="relative">
+<!-- Selection Indicator Ring -->
+<div class="absolute -inset-2 border border-primary border-dashed rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="w-12 h-12 bg-steel-dark border-2 border-primary rounded flex items-center justify-center relative z-10 shadow-lg shadow-primary/20">
+<img alt="Portrait of Engineer Marco" class="w-10 h-10 object-cover opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWezi7LMNRAB15Z1KgeIO9CpsoUAPsxk8XGmoIB-ZJjuZ257zVyhFdwkEpFQnchKiJaYWh34Wa5MrgA0Rz8N4aGdSd2ELDmBSlultSUWepkd_6202LgMHIbppcAvE4Nw2MTps6DLGlsHWrJF9YgXVDWZ007f4w0HyZkvNTN0sslcNoYY4at4Rw9Mz3ZJf6BSjrUBeAolDRT6S5NnAKqgqrS0fDMHKbCUxGSe1bwFPaDSaXzyqSsoxXDF7jaqtU_Zs-n3lkzBgIEI"/>
+</div>
+</div>
+<div class="mt-1 text-center">
+<p class="text-[10px] font-bold text-white bg-primary/20 px-1 rounded">M. Rossi</p>
+<p class="text-[9px] text-primary font-mono font-bold animate-pulse">LIVE</p>
+</div>
+<!-- Connector to child -->
+<div class="connector-v h-8 bg-primary/50 w-[1px] mt-0 mx-auto"></div>
+<!-- Child Node Active -->
+<div class="mt-0 w-8 h-8 bg-primary/10 border border-primary rounded flex items-center justify-center">
+<span class="text-[8px] font-mono text-primary">OP-2</span>
+</div>
+</div>
+<!-- Background Decor elements for 'Blueprint' feel -->
+<div class="absolute top-[300px] left-10 opacity-20 pointer-events-none">
+<div class="w-32 h-32 border border-gray-500 rounded-full flex items-center justify-center">
+<div class="w-24 h-24 border border-dashed border-gray-500 rounded-full"></div>
+</div>
+<span class="absolute top-full mt-1 text-[8px] font-mono text-gray-500">ZONE_A_DETAIL</span>
+</div>
+</div>
+<!-- Detail Panel (Bottom Sheet style) -->
+<div class="absolute bottom-4 left-4 right-4 bg-background-light dark:bg-steel-dark/95 backdrop-blur-xl border border-gray-200 dark:border-steel-light rounded-lg shadow-2xl overflow-hidden z-30 flex flex-col animate-[slideUp_0.3s_ease-out]">
+<!-- Panel Header -->
+<div class="h-1 bg-primary w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-white/30 w-1/3 animate-[loading_2s_ease-in-out_infinite]"></div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<img alt="Small portrait of Marco" class="w-12 h-12 rounded object-cover border border-gray-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBkN1_3-m85DzNL4ARyPI-B4CKr2yaQaJy9VomQiFDgPL6vAAhCpl-Fe_Fg-eNHTagWbFB157ZEEFlbaV9SG7EhnhywOVPO-9y42Efsswejr_LnMzwDoBjgS7PpUGHC7AR47j6aPj2BlSYGPG2YxA85DXW9SeoBmd_8_kaYaeRNuv5M2tDr5925gj-d7ICL8_RZpV5oE1as9tMiAt9FZGdSwPUG801ICsj3iRKxKm4XOJJC1bzmiv7R9xVQw8SmaF0hThGWkCDkyA"/>
+<div>
+<h2 class="text-lg font-bold leading-tight">Eng. Rossi, Marco</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-mono text-gray-500 bg-gray-200 dark:bg-black/30 px-1 rounded">ID: GE-492</span>
+<span class="w-1 h-1 bg-gray-500 rounded-full"></span>
+<span class="text-xs text-primary font-medium">Structural Lead</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-gray-400 uppercase font-mono mb-0.5">Efficiency</p>
+<p class="text-xl font-bold font-mono text-primary">98.4%</p>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="bg-gray-50 dark:bg-black/20 border border-gray-200 dark:border-white/5 p-2 rounded relative overflow-hidden">
+<p class="text-[10px] text-gray-400 uppercase font-mono mb-1">Current Task</p>
+<p class="text-sm font-medium truncate">Load Analysis: Sector B</p>
+<div class="w-full bg-gray-700 h-0.5 mt-2">
+<div class="bg-primary h-0.5 w-[75%]"></div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-black/20 border border-gray-200 dark:border-white/5 p-2 rounded flex flex-col justify-between">
+<p class="text-[10px] text-gray-400 uppercase font-mono">Logged Today</p>
+<p class="text-sm font-mono font-bold text-white tracking-wider flex items-center gap-1">
+<span class="material-icons text-[10px] text-green-500 animate-pulse">circle</span>
+                            06:42:12
+                        </p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-2">
+<button class="flex-1 bg-primary hover:bg-blue-600 text-white py-2.5 rounded text-sm font-medium transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">chat</span> Message
+                    </button>
+<button class="flex-1 bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-white/5 text-gray-700 dark:text-gray-200 py-2.5 rounded text-sm font-medium transition-colors">
+                        View Log
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Utilitarian) -->
+<nav class="flex-none bg-background-light dark:bg-steel-dark border-t border-gray-200 dark:border-steel-light pb-safe">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center w-full h-full text-primary group">
+<span class="material-icons group-hover:-translate-y-0.5 transition-transform">hub</span>
+<span class="text-[10px] uppercase font-bold mt-1 tracking-wider">Struct</span>
+<span class="h-0.5 w-8 bg-primary mt-1 rounded-full"></span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-200 transition-colors group">
+<span class="material-icons group-hover:-translate-y-0.5 transition-transform">query_stats</span>
+<span class="text-[10px] uppercase font-bold mt-1 tracking-wider">Metrics</span>
+<span class="h-0.5 w-8 bg-transparent group-hover:bg-gray-600 mt-1 rounded-full transition-colors"></span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-200 transition-colors group">
+<span class="material-icons group-hover:-translate-y-0.5 transition-transform">schedule</span>
+<span class="text-[10px] uppercase font-bold mt-1 tracking-wider">Logs</span>
+<span class="h-0.5 w-8 bg-transparent group-hover:bg-gray-600 mt-1 rounded-full transition-colors"></span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-200 transition-colors group">
+<span class="material-icons group-hover:-translate-y-0.5 transition-transform">settings</span>
+<span class="text-[10px] uppercase font-bold mt-1 tracking-wider">Config</span>
+<span class="h-0.5 w-8 bg-transparent group-hover:bg-gray-600 mt-1 rounded-full transition-colors"></span>
+</button>
+</div>
+</nav>
+<script>
+        // Simple animation keyframes for loading bar
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes loading {
+                0% { left: -100%; }
+                50% { left: 100%; }
+                100% { left: 100%; }
+            }
+            @keyframes slideUp {
+                from { transform: translateY(100%); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quantum CRM Abstração</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "quantum-surface": "rgba(6, 232, 249, 0.05)",
+                        "quantum-border": "rgba(6, 232, 249, 0.2)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        "glow": "0 0 20px rgba(6, 232, 249, 0.3)",
+                        "glow-sm": "0 0 10px rgba(6, 232, 249, 0.2)",
+                    },
+                    backgroundImage: {
+                        'quantum-gradient': 'radial-gradient(circle at 50% 30%, rgba(6, 232, 249, 0.15) 0%, rgba(15, 33, 35, 0) 60%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for ethereal effects not covered by Tailwind utilities */
+        .glass-panel {
+            background: rgba(15, 33, 35, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .particle {
+            position: absolute;
+            background: #06e8f9;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .particle-urgent {
+            background: #ef4444; 
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+            100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+        }
+
+        /* Avatar glow pulse */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 232, 249, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(6, 232, 249, 0.5); }
+        }
+        
+        .avatar-glow {
+            animation: pulse-glow 4s infinite;
+        }
+
+        /* Hide scrollbar for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden h-screen w-full relative">
+<!-- Ambient Background Layer -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<!-- Main Quantum Gradient -->
+<div class="absolute inset-0 bg-quantum-gradient"></div>
+<!-- Floating Particles Background -->
+<div class="particle w-2 h-2 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+<div class="particle w-1 h-1 top-1/3 right-1/4" style="animation-delay: 2s;"></div>
+<div class="particle w-3 h-3 bottom-1/3 left-1/2" style="animation-delay: 4s;"></div>
+<div class="particle w-1 h-1 top-1/2 right-10" style="animation-delay: 1s;"></div>
+<!-- Sentiment shift effect (Subtle red tint for mixed sentiment) -->
+<div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-red-500/5 to-transparent mix-blend-overlay"></div>
+</div>
+<!-- Main Content Container -->
+<div class="relative z-10 h-full flex flex-col max-w-md mx-auto shadow-2xl bg-black/20 backdrop-blur-sm border-x border-white/5">
+<!-- Top HUD -->
+<header class="pt-12 px-6 flex justify-between items-center pb-4">
+<div class="flex items-center space-x-2">
+<span class="material-icons text-primary animate-pulse text-lg">all_inclusive</span>
+<span class="text-xs tracking-[0.2em] text-primary/80 uppercase font-bold">Quantum CRM</span>
+</div>
+<div class="flex space-x-4">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-icons text-white/60 text-xl">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors relative">
+<span class="absolute top-2 right-2 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+<span class="material-icons text-white/60 text-xl">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Visualization Area -->
+<main class="flex-1 flex flex-col relative overflow-hidden">
+<!-- Central Entity Visualization -->
+<div class="flex-shrink-0 flex flex-col items-center justify-center py-8 relative">
+<!-- Glowing Orb / Avatar -->
+<div class="relative w-48 h-48 flex items-center justify-center mb-6">
+<!-- Outer Rings -->
+<div class="absolute inset-0 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-4 border border-primary/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Core Glow -->
+<div class="absolute inset-0 rounded-full bg-primary/5 blur-xl avatar-glow"></div>
+<!-- Profile Image / Representation -->
+<div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-primary/50 shadow-glow">
+<img alt="Digital portrait of a woman with glowing blue lighting effects" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" data-alt="Digital portrait of a woman with glowing blue lighting effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEktwyWEinRBfhNwi6UHbDwwdElzoV6jG2Vb2-S1cfmwBCM3MhTr7JdCQbe6E93vOU5_4Lw9nNL42b7ploZEznOd7kSTvfVvX0mylFv6NxnHG1xycDIWDzLZL8_lLHM13um_QNrhk6BhwouvB35C3WQbCsutIEGXebZTkwLvjr9zLLNKrNRgz6TNtcfVt7NEZZebm8ksdBtLu1tUTpy_LbCRyVztccHgw5Hy_Gnj-i0n6QddtAXXeSSZtOVAXhMZIlUZ0-9QwDjRA"/>
+<!-- Holographic overlay -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay"></div>
+</div>
+<!-- Floating Stat Pills around avatar -->
+<div class="absolute -right-4 top-10 glass-panel px-3 py-1 rounded-full text-[10px] text-primary border-primary/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                        Active
+                    </div>
+</div>
+<!-- Entity Info -->
+<h1 class="text-3xl font-bold text-white tracking-wide mb-1 text-center">Elena Voss</h1>
+<p class="text-primary/60 text-xs tracking-widest uppercase mb-4">Entanglement Level: High</p>
+<!-- Sentiment Bar -->
+<div class="w-64 glass-panel rounded-full h-12 flex items-center justify-between px-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-green-500/10 via-primary/5 to-red-500/10 opacity-50"></div>
+<div class="flex items-center gap-2 z-10">
+<span class="material-icons text-green-400 text-sm">sentiment_satisfied</span>
+<div class="flex flex-col">
+<span class="text-[10px] text-white/60 uppercase tracking-wider">Sentiment</span>
+<span class="text-xs font-medium text-white">Optimistic (88%)</span>
+</div>
+</div>
+<!-- Animated Waveform Visual -->
+<div class="flex items-end gap-[2px] h-6 z-10">
+<div class="w-1 bg-primary/60 rounded-full h-3 animate-[pulse_1s_ease-in-out_infinite]"></div>
+<div class="w-1 bg-primary/80 rounded-full h-5 animate-[pulse_1.2s_ease-in-out_infinite]"></div>
+<div class="w-1 bg-primary rounded-full h-4 animate-[pulse_0.8s_ease-in-out_infinite]"></div>
+<div class="w-1 bg-primary/70 rounded-full h-2 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
+</div>
+</div>
+</div>
+<!-- Interaction Stream (Scrollable) -->
+<div class="flex-1 px-6 pb-24 overflow-y-auto no-scrollbar relative">
+<!-- Fade mask for top of scroll -->
+<div class="sticky top-0 h-8 bg-gradient-to-b from-background-dark to-transparent z-20 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-light text-white/50 uppercase tracking-widest">History Stream</h2>
+<span class="text-xs text-primary/70 bg-primary/10 px-2 py-1 rounded border border-primary/20">Syncing...</span>
+</div>
+<div class="space-y-4">
+<!-- History Card 1: Urgent -->
+<div class="glass-panel p-4 rounded-xl relative overflow-hidden group transition-all duration-300 hover:bg-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-orange-500"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-lg bg-red-500/20 text-red-400">
+<span class="material-icons text-sm">warning</span>
+</div>
+<span class="text-sm font-semibold text-white">Billing Alert</span>
+</div>
+<span class="text-[10px] text-white/40 font-mono">2h ago</span>
+</div>
+<p class="text-xs text-white/70 pl-2 leading-relaxed">
+                            Renewal payment method failed. Automated retry scheduled for <span class="text-white font-medium">08:00 AM</span>.
+                        </p>
+</div>
+<!-- History Card 2: Voice Call -->
+<div class="glass-panel p-4 rounded-xl relative overflow-hidden group transition-all duration-300 hover:bg-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-blue-600"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-lg bg-primary/20 text-primary">
+<span class="material-icons text-sm">graphic_eq</span>
+</div>
+<span class="text-sm font-semibold text-white">Quantum Voice</span>
+</div>
+<span class="text-[10px] text-white/40 font-mono">Yesterday</span>
+</div>
+<p class="text-xs text-white/70 pl-2 leading-relaxed">
+                            Discussed upgrade to <span class="text-primary font-medium">Enterprise Tier</span>. Client showed high interest in predictive AI modules.
+                        </p>
+<!-- Attached Media -->
+<div class="mt-3 ml-2 flex gap-2">
+<div class="h-10 w-16 rounded-lg overflow-hidden relative">
+<img alt="Abstract data visualization chart with blue lines" class="w-full h-full object-cover opacity-70" data-alt="Abstract data visualization chart with blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVm8MXqbSWR15tJFIQKdp351K24nuOpFC_WKcOlD3RQB77eNytdRKvloRIqONoexxF9DNwxAu1w_3Q-ORjv59039lmnrfKXxOobWtdjZFx6zxZ5BN7Cy-Pn_wcjGs1jiDoTp6oB4m_7rdtszAiIMmQBBr9YqTb32SeUZzWmKTKRj0P73fYn0igIEe_Qjv__2H7U50nwv50e48dEZJGkRa99Seuv8UVCcRJarXEHMoKK7KQ5hUIBZXXWLL9O7_xjkyKV4i1HTbLtGk"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40">
+<span class="material-icons text-white text-xs">play_arrow</span>
+</div>
+</div>
+<div class="h-10 flex-1 glass-panel rounded-lg flex items-center px-3 border border-white/5">
+<div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Card 3: Email -->
+<div class="glass-panel p-4 rounded-xl relative overflow-hidden group transition-all duration-300 hover:bg-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-white/20"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="p-1.5 rounded-lg bg-white/10 text-white/80">
+<span class="material-icons text-sm">alternate_email</span>
+</div>
+<span class="text-sm font-semibold text-white">System Email</span>
+</div>
+<span class="text-[10px] text-white/40 font-mono">3d ago</span>
+</div>
+<p class="text-xs text-white/70 pl-2 leading-relaxed">
+                            "Your Monthly Quantum Report" opened 3 times. Click-through rate: 25%.
+                        </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action & Nav Area -->
+<div class="absolute bottom-6 left-0 right-0 px-6 z-50">
+<div class="glass-panel p-1.5 rounded-full flex items-center justify-between shadow-glow-sm">
+<!-- Nav Items Left -->
+<div class="flex space-x-1 pl-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-primary bg-primary/10 hover:bg-primary/20 transition-colors">
+<span class="material-icons">dashboard</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors">
+<span class="material-icons">timeline</span>
+</button>
+</div>
+<!-- Main Action Button (Center) -->
+<button class="bg-primary text-background-dark font-bold px-6 h-12 rounded-full flex items-center gap-2 shadow-[0_0_20px_rgba(6,232,249,0.4)] transform hover:scale-105 transition-all">
+<span class="material-icons text-lg">add_call</span>
+<span class="text-sm tracking-wide">CONNECT</span>
+</button>
+<!-- Nav Items Right -->
+<div class="flex space-x-1 pr-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors">
+<span class="material-icons">folder_open</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors">
+<span class="material-icons">settings</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

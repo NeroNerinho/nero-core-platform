@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LOGO_ARCHITECTURE_V2.7 - Nero 27 Brand Manual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background-color: #0f2123;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .logo-wireframe {
+            filter: drop-shadow(0 0 8px rgba(6, 232, 249, 0.5));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+<!-- Header Terminal Bar -->
+<header class="flex items-center border-b border-primary/20 bg-background-dark/80 backdrop-blur-md p-4 sticky top-0 z-40">
+<div class="flex items-center gap-3">
+<div class="text-primary flex size-10 items-center justify-center bg-primary/10 rounded">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<h1 class="text-primary text-lg font-bold leading-tight tracking-wider uppercase">LOGO_ARCHITECTURE_V2.7</h1>
+<p class="text-[10px] text-primary/60 font-mono tracking-tighter">SYS_AUTH: NERO_COMMAND_CENTRAL // 2024.05.12_14:22:01</p>
+</div>
+</div>
+<div class="ml-auto flex items-center gap-6">
+<div class="hidden md:flex flex-col items-end">
+<span class="text-[10px] text-primary/40 uppercase">Connection Status</span>
+<span class="text-xs text-primary font-bold">LINK_ESTABLISHED</span>
+</div>
+<button class="flex items-center justify-center h-10 w-10 rounded border border-primary/20 bg-primary/5 hover:bg-primary/20 transition-colors text-primary">
+<span class="material-symbols-outlined">settings_input_component</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden">
+<!-- Left Panel: Telemetry & Data -->
+<aside class="w-full md:w-80 border-r border-primary/10 bg-background-dark/40 flex flex-col gap-4 p-4">
+<div class="space-y-4">
+<div class="flex flex-col gap-2 rounded p-4 border border-primary/30 bg-primary/5">
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Integrity</p>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<p class="text-white text-3xl font-bold leading-tight">100%</p>
+<div class="w-full bg-primary/10 h-1 mt-1">
+<div class="bg-primary h-full w-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded p-4 border border-primary/10 bg-background-dark/60">
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Symmetry</p>
+<span class="text-primary text-[10px] font-bold">CALIBRATED</span>
+</div>
+<p class="text-primary text-2xl font-bold leading-tight">ACTIVE</p>
+<p class="text-primary/40 text-[10px] font-mono leading-normal">X_AXIS: PARALLEL<br/>Y_AXIS: PARALLEL</p>
+</div>
+<div class="flex flex-col gap-2 rounded p-4 border border-primary/10 bg-background-dark/60">
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Status</p>
+<span class="bg-primary/20 text-primary text-[10px] px-1 rounded">STABLE</span>
+</div>
+<p class="text-white text-2xl font-bold leading-tight">OPTIMIZED</p>
+<div class="flex gap-1 mt-2">
+<div class="size-1.5 bg-primary"></div>
+<div class="size-1.5 bg-primary"></div>
+<div class="size-1.5 bg-primary"></div>
+<div class="size-1.5 bg-primary/20"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex-1">
+<h3 class="text-primary/60 text-[10px] font-bold tracking-widest uppercase border-b border-primary/10 pb-2 mb-3">Live_Coordinates</h3>
+<div class="font-mono text-[11px] text-primary/70 space-y-1">
+<div class="flex justify-between"><span class="text-primary/40">v1.pos_x:</span> <span>102.44</span></div>
+<div class="flex justify-between"><span class="text-primary/40">v1.pos_y:</span> <span>455.12</span></div>
+<div class="flex justify-between"><span class="text-primary/40">v2.pos_x:</span> <span>304.88</span></div>
+<div class="flex justify-between"><span class="text-primary/40">v2.pos_y:</span> <span>455.12</span></div>
+<div class="flex justify-between"><span class="text-primary/40">r_node.rad:</span> <span>22.000</span></div>
+<div class="flex justify-between mt-4 text-primary font-bold"><span class="">GLYPH_MATCH:</span> <span>0.9998</span></div>
+</div>
+</div>
+</aside>
+<!-- Center Content: Grid Canvas -->
+<section class="flex-1 relative grid-bg overflow-hidden min-h-[500px] flex items-center justify-center">
+<!-- X/Y Axes -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute left-1/2 top-0 bottom-0 w-px bg-primary/20"></div>
+<div class="absolute top-1/2 left-0 right-0 h-px bg-primary/20"></div>
+<div class="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] text-primary/40 uppercase font-mono tracking-[0.3em]">Vertical_Axis_Y</div>
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] text-primary/40 uppercase font-mono tracking-[0.3em] rotate-90 origin-left">Horizontal_Axis_X</div>
+</div>
+<!-- Main Glyph Container -->
+<div class="relative z-10 w-[300px] md:w-[450px] aspect-square flex items-center justify-center">
+<!-- Placeholder for N27 Glyph Construction -->
+<div class="relative w-full h-full border border-primary/40 rounded-full flex items-center justify-center">
+<!-- Visual representation of the logo geometry -->
+<div class="absolute inset-0 flex items-center justify-center opacity-80">
+<div class="w-3/4 h-3/4 border-2 border-primary logo-wireframe rotate-45 flex items-center justify-center">
+<span class="text-[120px] font-bold text-primary tracking-tighter -rotate-45 italic select-none">N27</span>
+</div>
+</div>
+<!-- Anchor points / Annotations -->
+<div class="absolute top-1/4 left-1/4 size-2 bg-primary rounded-full shadow-[0_0_8px_#06e8f9]"></div>
+<div class="absolute bottom-1/4 right-1/4 size-2 bg-primary rounded-full shadow-[0_0_8px_#06e8f9]"></div>
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-primary/50"></div>
+<div class="absolute left-1/2 top-0 h-full w-[1px] bg-primary/50"></div>
+<!-- Leader Lines and Labels -->
+<div class="absolute -top-12 -left-12 max-w-[140px] border-l border-t border-primary/40 p-2">
+<p class="text-primary text-[10px] font-bold uppercase mb-1">Node_Alpha</p>
+<p class="text-white/60 text-[9px] leading-tight">Vertex aligned to 1.618 golden ratio intersect.</p>
+</div>
+<div class="absolute -bottom-16 -right-16 max-w-[160px] border-r border-b border-primary/40 p-2 text-right">
+<p class="text-primary text-[10px] font-bold uppercase mb-1">Anatomical_Base</p>
+<p class="text-white/60 text-[9px] leading-tight">Proprietary baseline offset for maximum visual gravity.</p>
+</div>
+</div>
+</div>
+<!-- System Background Overlay -->
+<div class="absolute bottom-6 right-6 text-right">
+<p class="text-primary/20 text-6xl font-black uppercase italic select-none leading-none">NERO_27</p>
+<p class="text-primary/40 text-xs font-mono tracking-widest mt-2">TECHNICAL_DRAFT_VER_B</p>
+</div>
+</section>
+<!-- Right Panel: Analysis & Proportions -->
+<aside class="w-full md:w-80 border-l border-primary/10 bg-background-dark/40 p-4 flex flex-col gap-6">
+<div>
+<h3 class="text-primary text-sm font-bold leading-tight tracking-wider uppercase mb-4">Vitruvian_Proportions</h3>
+<div class="space-y-4">
+<div class="bg-background-dark/60 p-3 border border-primary/10 rounded">
+<p class="text-primary/60 text-[10px] font-bold uppercase mb-1">Geometric Logic</p>
+<p class="text-white/80 text-xs leading-relaxed">
+                                The N27 glyph is constructed using a base circle inscribed within a perfect square, derived from 21st-century modular architectural standards.
+                            </p>
+</div>
+<div class="bg-background-dark/60 p-3 border border-primary/10 rounded">
+<p class="text-primary/60 text-[10px] font-bold uppercase mb-1">Visual Weight</p>
+<p class="text-white/80 text-xs leading-relaxed">
+                                Counter-balance nodes are placed at 15-degree increments to ensure legibility across all atmospheric conditions and low-resolution holographic displays.
+                            </p>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-2">
+<div class="flex items-center gap-2 p-2 bg-primary/10 border border-primary/20 rounded">
+<span class="material-symbols-outlined text-primary text-sm">precision_manufacturing</span>
+<span class="text-primary text-[10px] font-bold uppercase tracking-tighter">Manufacturing Ready</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/80 text-background-dark font-bold py-3 uppercase text-xs tracking-widest transition-all rounded">
+                        EXPORT_SCHEMATIC_V2
+                    </button>
+<button class="w-full bg-transparent border border-primary/30 hover:bg-primary/10 text-primary font-bold py-3 uppercase text-xs tracking-widest transition-all rounded">
+                        RECALIBRATE_SYSTEM
+                    </button>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation / Status Bar -->
+<nav class="flex items-center border-t border-primary/20 bg-background-dark px-4 py-2">
+<div class="flex gap-4">
+<a class="flex items-center gap-2 text-primary group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">grid_view</span>
+<span class="hidden sm:inline text-[10px] font-bold uppercase tracking-widest">Layout</span>
+</a>
+<a class="flex items-center gap-2 text-primary/40 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">center_focus_weak</span>
+<span class="hidden sm:inline text-[10px] font-bold uppercase tracking-widest">Focus</span>
+</a>
+<a class="flex items-center gap-2 text-primary/40 hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">database</span>
+<span class="hidden sm:inline text-[10px] font-bold uppercase tracking-widest">Registry</span>
+</a>
+</div>
+<div class="ml-auto flex items-center gap-4 text-[10px] font-mono text-primary/60">
+<span class="flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-primary"></span>
+                    SCAN_CORE: RUNNING
+                </span>
+<span class="hidden md:inline">BUFF_LOAD: 12ms</span>
+<span class="bg-primary/20 text-primary px-2 py-0.5 rounded-full border border-primary/30">SECURE_TERMINAL</span>
+</div>
+</nav>
+<!-- Subtle Scanline Overlay -->
+<div class="scanline"></div>
+</div>
+<!-- Decorative Corner Accents -->
+<div class="fixed top-2 left-2 pointer-events-none opacity-50 text-primary">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="1" viewbox="0 0 24 24" width="24"><path d="M0 0h12M0 0v12"></path></svg>
+</div>
+<div class="fixed top-2 right-2 pointer-events-none opacity-50 text-primary">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="1" viewbox="0 0 24 24" width="24"><path d="M12 0h12M24 0v12"></path></svg>
+</div>
+<div class="fixed bottom-2 left-2 pointer-events-none opacity-50 text-primary">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="1" viewbox="0 0 24 24" width="24"><path d="M0 24h12M0 12v12"></path></svg>
+</div>
+<div class="fixed bottom-2 right-2 pointer-events-none opacity-50 text-primary">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="1" viewbox="0 0 24 24" width="24"><path d="M12 24h12M24 12v12"></path></svg>
+</div>
+</body></html>

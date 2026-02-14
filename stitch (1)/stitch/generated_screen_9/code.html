@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Renaissance Kinetic v2 - Nero 27</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Newsreader -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#9c2816',
+            parchment: '#f4f1ea',
+            charcoal: '#333333',
+          },
+          fontFamily: {
+            newsreader: ['Newsreader', 'serif'],
+          },
+          borderRadius: {
+            'custom': '1rem', // ROUND_FOUR equivalent
+          },
+          animation: {
+            'ink-bleed': 'ink-bleed 8s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite',
+            'parallax-slow': 'parallax 20s linear infinite',
+          },
+          keyframes: {
+            'ink-bleed': {
+              '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+              '50%': { opacity: '0.6', transform: 'scale(1.1)' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'parallax': {
+              '0%': { backgroundPosition: '0% 0%' },
+              '100%': { backgroundPosition: '100% 100%' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="renaissance-textures">.parchment-bg {
+    background-color: #f4f1ea;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBn5pwGH5Pfu_UjjEaONiwVTVsAMgR505AtBC7C-0nD-Ri-CkxTILVgxY1AxY1QrGG-d8kGe7d2oHsNfyT9DTXjZuujiezDFxg-y1oRZ_B6j9c8RMIHzK1eYyAamHoIk4z1oYdFxlJbu7PjFukWxGXyB80LmdbmBEL7w72jPfxHJolcbs2i2d7M6h8lzjMs0kJOicoS5O6hU_3vyATjhyFxtZ0UqBn8eGYIBiyvI0eV8MByTAFJ1nelKkLsjRqwohzsyn3G6sWPhEA)
+    }
+.ink-gradient {
+    background: radial-gradient(circle, rgba(51, 51, 51, 0.15) 0%, rgba(244, 241, 234, 0) 70%)
+    }
+.charcoal-sketch {
+    filter: grayscale(1) contrast(1.2) opacity(0.7);
+    mix-blend-mode: multiply
+    }
+/* Grainy texture overlay */
+.grain-overlay::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://www.transparenttextures.com/patterns/stardust.png);
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.2
+    }</style>
+<style data-purpose="canvas-styling">
+    canvas#mechanical-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="parchment-bg font-newsreader text-charcoal overflow-hidden h-screen w-screen selection:bg-brand selection:text-white grain-overlay">
+<!-- BEGIN: Background Elements -->
+<!-- Parallax Layers -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<!-- Animated Ink Bleed Blobs -->
+<div class="absolute -top-20 -left-20 w-96 h-96 ink-gradient animate-ink-bleed"></div>
+<div class="absolute top-1/2 -right-20 w-80 h-80 ink-gradient animate-ink-bleed" style="animation-delay: -2s;"></div>
+<!-- Background Canvas for Mechanical Diagrams -->
+<canvas data-purpose="background-mechanics" id="mechanical-bg"></canvas>
+</div>
+<!-- END: Background Elements -->
+<!-- BEGIN: Main Interface -->
+<main class="relative z-10 flex flex-col items-center justify-between h-full p-8 safe-area-inset">
+<!-- BEGIN: Header Section -->
+<header class="w-full flex justify-between items-start pt-4" data-purpose="top-navigation">
+<div class="text-xs tracking-widest uppercase opacity-60">
+        Anno MMXXIV <br/>
+        Technical Renaissance
+      </div>
+<div class="text-xs tracking-widest uppercase opacity-60 text-right">
+        Volume II <br/>
+        Kinetic v2
+      </div>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Center Brand Piece -->
+<section class="flex-grow flex flex-col items-center justify-center relative w-full" data-purpose="brand-centerpiece">
+<!-- Vitruvian Man Sketch (Animated) -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 mb-8">
+<!-- Mechanical Ring -->
+<div class="absolute inset-0 border border-charcoal rounded-full opacity-20 border-dashed animate-spin-slow"></div>
+<!-- Sketch Image Placeholder -->
+<img alt="Vitruvian Man Sketch" class="charcoal-sketch w-full h-full object-contain animate-float" id="vitruvian-sketch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDboPXCPdRvMXAM9WhQBeJiA1STU6cjwa-7syze3qoTCqaRALinFqY4jJn564m-23ZuTmgUReb0bPiXhP2gtqim7E8NeWJ10Txplz0fnRWsLdW21shTE7ueBzZNd0jyhQsYaRaryPufV5WgtzsU22TidSn7dVQjnDdFb7ovEK2pfhb-BPcw-jrJtWmoN2xbTawxEEAI_We9YgAlWdrLwZijoV-EWzVBaBfHlIvv_XxKkOH4QvdMG6XZoynSoLhutYDdIspWd07wdLU"/>
+<!-- Golden Ratio Overlay -->
+<svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewbox="0 0 100 100">
+<path d="M0,0 Q100,0 100,100 Q100,38.2 38.2,38.2 Q38.2,61.8 61.8,61.8 Q61.8,50 50,50" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+</svg>
+</div>
+<!-- Main Logo -->
+<div class="text-center space-y-2">
+<h1 class="text-5xl md:text-7xl font-light tracking-tighter text-brand" style="font-variant: small-caps;">
+          Nero 27
+        </h1>
+<div class="h-px w-24 bg-brand mx-auto opacity-40"></div>
+<p class="text-sm italic tracking-widest uppercase opacity-70">
+          The Art of Engineering
+        </p>
+</div>
+</section>
+<!-- END: Center Brand Piece -->
+<!-- BEGIN: Footer / Interactive Elements -->
+<footer class="w-full flex flex-col items-center gap-8 pb-12" data-purpose="interaction-footer">
+<!-- Action Button -->
+<button class="group relative px-10 py-4 overflow-hidden rounded-custom border border-brand/30 bg-transparent text-brand transition-all duration-500 hover:shadow-xl hover:shadow-brand/10">
+<span class="relative z-10 text-lg tracking-widest uppercase font-medium">Explore Codex</span>
+<!-- Button Fill Animation -->
+<div class="absolute inset-0 bg-brand translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out opacity-5"></div>
+<!-- Ornamental Corners -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand/50"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand/50"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand/50"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand/50"></div>
+</button>
+<!-- Bottom Indicators -->
+<nav class="flex gap-12 text-[10px] tracking-[0.2em] uppercase opacity-40 font-bold">
+<a class="hover:opacity-100 transition-opacity" href="#">Perspective</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Geometry</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Anatomy</a>
+</nav>
+</footer>
+<!-- END: Footer / Interactive Elements -->
+</main>
+<!-- END: Main Interface -->
+<!-- BEGIN: Interactive Canvas Script -->
+<script data-purpose="background-mechanics-logic">
+    const canvas = document.getElementById('mechanical-bg');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let lines = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class DiagramLine {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.length = Math.random() * 150 + 50;
+        this.angle = (Math.random() * Math.PI) / 2; // Diagonal angles
+        this.speed = Math.random() * 0.2 + 0.05;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(51, 51, 51, ${this.opacity})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(
+          this.x + Math.cos(this.angle) * this.length,
+          this.y + Math.sin(this.angle) * this.length
+        );
+        ctx.stroke();
+
+        // Small "measurement" tick marks
+        if (Math.random() > 0.95) {
+          ctx.fillText(Math.floor(this.length).toString(), this.x + 5, this.y - 5);
+        }
+
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+
+        if (this.x > width || this.y > height) {
+          this.init();
+          this.x = -100;
+        }
+      }
+    }
+
+    function setup() {
+      resize();
+      for (let i = 0; i < 25; i++) {
+        lines.push(new DiagramLine());
+      }
+      animate();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      lines.forEach(line => line.draw());
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    setup();
+  </script>
+<!-- END: Interactive Canvas Script -->
+</body></html>

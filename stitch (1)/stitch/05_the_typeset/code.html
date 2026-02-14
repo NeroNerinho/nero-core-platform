@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - The Typeset</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=IM+Fell+English+SC&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#2A231E",
+                        parchment: "#F0EAD6",
+                        wash: "#E6DCC3",
+                        sanguine: "#8A3324",
+                        graphite: "#8C8276",
+                        "faded-ink": "#5C4E43",
+                    },
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', "serif"],
+                        body: ['"IM Fell English SC"', "serif"],
+                        hand: ['"Reenie Beanie"', "cursive"],
+                    },
+                    backgroundImage: {
+                        'paper-grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom Styles for Texture and Ink Bleed */
+body {
+    background-color: #F0EAD6;
+    color: #2A231E
+    }
+.texture-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAWar2P18xueqwp_Xhqae2dc9LTsuLIWN11bW03GdDzvNVufIamZyAmMouLkWy3Nr4rioMNPJOFS15d1t3InbqBHKbyEGNjeniJPF3B4aLyzfbm86w80dxCYSGNzfA4DFXZhQPBfynobFemefvyPVjy3fLOMO-5bB_DWXyB_oeC-0ia_4IzkP1NFRSVdoz_KEhMLqB6leW_86N3BcCRdFyg3qT77RtVPEnHw6zj4d55FDujx3_KhxCEEZdzuaeZFePatqK2c-hpcwM);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 50;
+    mix-blend-mode: multiply
+    }
+.ink-bleed {
+    mix-blend-mode: multiply
+    }
+.notebook-lines {
+    background-attachment: local
+    }
+/* Handwritten underline animation */
+.hand-underline {
+    position: relative;
+    display: inline-block
+    }
+.hand-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #8A3324;
+    border-radius: 50% 50% 50% 50%/10% 10% 90% 90%;
+    transform: rotate(-1deg);
+    opacity: 0.8
+    }
+.drop-cap {
+    float: left;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 6.5rem;
+    line-height: 0.75;
+    padding-top: 0.1em;
+    padding-right: 0.15em;
+    padding-left: 0.05em;
+    font-weight: 700;
+    color: #2A231E;
+    position: relative
+    }
+.drop-cap::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border: 1px solid #8A3324;
+    opacity: 0.3;
+    border-radius: 50%;
+    z-index: -1
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased overflow-x-hidden min-h-screen flex flex-col notebook-lines relative">
+<!-- Paper Texture Overlay -->
+<div class="texture-overlay"></div>
+<!-- Header Navigation -->
+<header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur-sm border-b border-graphite/30 pt-4 pb-2 px-6">
+<div class="flex items-center justify-between max-w-lg mx-auto w-full">
+<button class="text-ink hover:text-sanguine transition-colors">
+<span class="material-symbols-outlined !text-[28px]">arrow_back</span>
+</button>
+<div class="text-center">
+<h2 class="font-display italic font-bold text-xl text-ink tracking-wide">Fig. 5: The Typeset</h2>
+<div class="h-0.5 w-16 bg-sanguine mx-auto mt-1 rounded-full opacity-60"></div>
+</div>
+<button class="text-sanguine font-hand text-xl font-bold tracking-wider hover:opacity-80">
+                Info
+            </button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-lg mx-auto px-6 py-8 relative z-10 flex flex-col gap-12">
+<!-- 1. The Specimen Paragraph with Drop Cap -->
+<section class="relative">
+<div class="absolute -left-4 top-0 -translate-x-full hidden sm:block">
+<span class="font-hand text-sanguine text-lg rotate-[-5deg] block w-24 text-right">Primary application</span>
+<span class="material-symbols-outlined text-sanguine text-3xl rotate-180 absolute -right-2 top-6">arrow_right_alt</span>
+</div>
+<div class="ink-bleed">
+<span class="drop-cap">N</span>
+<p class="font-display text-xl leading-relaxed text-ink text-justify">
+                    ature is the source of all true knowledge. She has her own logic, her own laws, she has no effect without cause nor invention without necessity. It is the business of little minds to shrink; but he whose heart is firm, and whose conscience approves his conduct, will pursue his principles unto death. Simplicity is the ultimate sophistication.
+                </p>
+</div>
+<p class="font-hand text-faded-ink/80 text-right mt-2 text-lg">— Leonardo da Vinci</p>
+</section>
+<!-- 2. The Glyph Set (Alphabet) -->
+<section class="border-t border-b border-double border-graphite/40 py-8 space-y-6 relative">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-parchment px-2 font-body text-xs text-graphite tracking-widest uppercase">The Glyph Set</span>
+<!-- Uppercase -->
+<div class="relative">
+<div class="font-display text-3xl tracking-[0.15em] leading-loose text-ink text-center ink-bleed break-words">
+                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                </div>
+<div class="absolute -right-2 top-0 font-hand text-sanguine text-base opacity-70 rotate-3">Uppercase</div>
+</div>
+<!-- Lowercase -->
+<div class="relative">
+<div class="font-display text-3xl italic font-normal tracking-[0.15em] leading-loose text-ink text-center ink-bleed break-words opacity-90">
+                    a b c d e f g h i j k l m n o p q r s t u v w x y z
+                </div>
+<div class="absolute -left-2 bottom-0 font-hand text-sanguine text-base opacity-70 -rotate-2">Lowercase Italic</div>
+</div>
+</section>
+<!-- 3. Numerals & Math -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between font-display text-ink ink-bleed border-b border-graphite/20 pb-2">
+<span class="text-4xl">0</span>
+<span class="font-hand text-sanguine px-1 text-xl">+</span>
+<span class="text-4xl">1</span>
+<span class="font-hand text-sanguine px-1 text-xl">=</span>
+<span class="text-4xl">1</span>
+<span class="font-hand text-sanguine px-1 text-xl">,</span>
+<span class="text-4xl">2</span>
+<span class="font-hand text-sanguine px-1 text-xl">,</span>
+<span class="text-4xl">3</span>
+<span class="font-hand text-sanguine px-1 text-xl">,</span>
+<span class="text-4xl">5</span>
+<span class="font-hand text-sanguine px-1 text-xl">...</span>
+<span class="text-4xl">8</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body text-xs text-faded-ink tracking-widest uppercase">Fibonacci Sequence</span>
+<span class="font-hand text-sanguine text-lg">Numerals 0-9</span>
+</div>
+</section>
+<!-- 4. Hierarchy Definition -->
+<section class="bg-wash/30 p-6 rounded border border-graphite/20 relative mt-4">
+<!-- Decorative corner marks -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-ink opacity-30"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-ink opacity-30"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-ink opacity-30"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-ink opacity-30"></div>
+<div class="space-y-8">
+<!-- H1 -->
+<div class="relative group">
+<h1 class="font-display italic font-bold text-4xl text-ink leading-tight ink-bleed">
+                        Principia Mathematica
+                    </h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="h-px w-8 bg-sanguine/50"></span>
+<p class="font-hand text-sanguine text-lg">Display H1 (32-40px)</p>
+</div>
+</div>
+<!-- H2 -->
+<div class="relative group">
+<h2 class="font-display italic font-semibold text-2xl text-ink leading-tight ink-bleed">
+                        The Golden Ratio
+                    </h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="h-px w-8 bg-sanguine/50"></span>
+<p class="font-hand text-sanguine text-lg">Heading H2 (24px)</p>
+</div>
+</div>
+<!-- Body -->
+<div class="relative group">
+<p class="font-body text-base text-ink/90 leading-relaxed ink-bleed">
+                        PROPORTION IS A CORRESPONDENCE AMONG THE MEASURES OF THE MEMBERS OF AN ENTIRE WORK, AND OF THE WHOLE TO A CERTAIN PART SELECTED AS STANDARD.
+                    </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="h-px w-8 bg-sanguine/50"></span>
+<p class="font-hand text-sanguine text-lg">Body Text (16px Small Caps)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Annotation -->
+<div class="mt-8 text-center pb-8">
+<div class="inline-block relative">
+<span class="font-hand text-2xl text-ink opacity-60 transform -rotate-2 block">
+                    Verified for print &amp; digital press.
+                 </span>
+<span class="absolute -right-8 -bottom-4 opacity-40">
+<svg fill="none" height="40" viewbox="0 0 100 100" width="40" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="45" stroke="#8A3324" stroke-width="2"></circle>
+<path d="M30 50L45 65L75 35" stroke="#8A3324" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (From provided component, styled to match) -->
+<nav class="fixed bottom-0 w-full z-40 bg-parchment border-t-2 border-double border-graphite/30 pb-4 pt-2">
+<div class="flex max-w-lg mx-auto w-full px-4">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">menu_book</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">architecture</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">palette</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-ink relative" href="#">
+<div class="absolute -top-3 w-8 h-8 rounded-full border border-sanguine/30 bg-sanguine/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-sanguine fill-current">text_fields</span>
+</div>
+<div class="h-6"></div> <!-- Spacer for absolute icon -->
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">layers</span>
+</a>
+</div>
+</nav>
+<div class="h-20"></div> <!-- Spacer for fixed nav -->
+</body></html>

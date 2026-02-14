@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Renaissance Kinetic V3 | The Golden Ratio in Motion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                        "sepia-ink": "#4a3728",
+                        "vellum": "#f2ede4",
+                        "gold-accent": "#c5a059"
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Newsreader", serif;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAVPDtcHJrpIlQlYZXTEyOWkPpPu2lZbpkLm0LvfVtiDNjajDB1od58_6B4mQ1KGxqVWL1lhT7_jsnoA4Loornco4PuDeSHB4y58K4yrKW1xkZJaaoZqXtaVxEKeU8eXxPjtKERJiMZb2bswsN5t3htmcnMP-5jSra_yvoDAB4_KA_PMPnsHLYoUvbxSFJQwJkr2NQc51148QOHGMmLeQyorRof65SM93ShFJLGDdE_DX3OJwSUs27v629aBP60s0rGrTfHR6m9btc);
+    background-attachment: fixed
+    }
+.golden-ratio-grid {
+    display: grid;
+    grid-template-columns: 1.618fr 1fr
+    }
+.sepia-line {
+    background-color: rgba(74, 55, 40, 0.15)
+    }
+.kinetic-gear {
+    animation: spin 20s linear infinite
+    }
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+        } to {
+        transform: rotate(360deg);
+        }
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-sepia-ink selection:bg-primary/20 selection:text-primary">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-sepia-ink/10 bg-background-light/90 backdrop-blur-sm px-6 lg:px-20 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<span class="material-symbols-outlined text-4xl">settings</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight uppercase">Renaissance Kinetic <span class="text-primary italic">V3</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+<a class="hover:text-primary transition-colors uppercase tracking-widest" href="#">The Vision</a>
+<a class="hover:text-primary transition-colors uppercase tracking-widest" href="#">The Mechanism</a>
+<a class="hover:text-primary transition-colors uppercase tracking-widest" href="#">Specifications</a>
+<a class="hover:text-primary transition-colors uppercase tracking-widest" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="hidden sm:block text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest shadow-lg hover:bg-primary/90 transition-all border border-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+                    Secure Codex
+                </button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative px-6 lg:px-20 py-20 lg:py-32 flex flex-col lg:flex-row items-center gap-16 max-w-7xl mx-auto">
+<div class="flex-1 space-y-8">
+<div class="inline-block border-l-2 border-primary pl-4">
+<span class="uppercase tracking-[0.3em] text-xs font-bold text-primary">Anno Domini MMXXIV</span>
+</div>
+<h2 class="text-6xl lg:text-8xl font-black leading-[0.9] text-sepia-ink">
+                        Artistry In <br/>
+<span class="italic text-primary">Perpetual</span><br/>
+                        Motion
+                    </h2>
+<p class="text-xl max-w-xl leading-relaxed italic opacity-80">
+                        "Simplicity is the ultimate sophistication." A kinetic masterpiece engineered using the Divine Proportion, where 15th-century mechanical philosophy meets aerospace precision.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-4 text-base font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform">
+                            Explore The Mechanism
+                        </button>
+<button class="border border-sepia-ink/20 px-8 py-4 text-base font-bold uppercase tracking-widest hover:bg-sepia-ink/5 transition-colors">
+                            View Blueprints
+                        </button>
+</div>
+</div>
+<div class="relative flex-1 aspect-square w-full max-w-xl group">
+<div class="absolute inset-0 border border-primary/20 rounded-full scale-110 animate-[pulse_4s_infinite]"></div>
+<div class="absolute inset-0 border border-primary/10 rounded-full scale-[1.2]"></div>
+<div class="w-full h-full bg-sepia-ink/5 rounded-full overflow-hidden flex items-center justify-center relative">
+<!-- Abstract Kinetic Gear Visual -->
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border-2 border-dashed border-sepia-ink/30 rounded-full kinetic-gear"></div>
+</div>
+<img alt="Luxury mechanical watch movement close up" class="w-[85%] h-[85%] object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl z-10" data-alt="Intricate golden clockwork gears and internal mechanisms" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAleaRJL0jStRWR548J4H8QBx1P8ct-FO0rRxGMvf2TmIUZLhxqiTwjvy90YdvCHw3PnKuf78-JW1cMmZCZTNgsKw15HAteV8jYbXV2AJClnwm3qohHLFkuFtAkzUzKADj4Obhta5tKINjljJnCEXRq71esknAo7ldd31CCgtqAZ84T7AeUI--IjLptZqC6LvJ4M7ExLJJS642wM-4ALxz-mHfOrrIY4TbE3eZ9iKl1ATVQi79wk6SXE1h-rV7eJWqkZlj5A4lb7j8"/>
+<!-- Handwritten Callouts -->
+<div class="absolute top-10 right-0 z-20 bg-vellum/90 p-3 border border-sepia-ink/10 shadow-sm max-w-[150px] rotate-3 translate-x-4">
+<p class="text-xs italic leading-tight text-primary">Note: Primary escapement aligns with Fibonacci arc #4.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Fibonacci Grid Features -->
+<section class="bg-vellum/50 py-24 border-y border-sepia-ink/10 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 lg:px-20">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h3 class="text-4xl font-bold uppercase tracking-tighter mb-2">The Codex Principles</h3>
+<p class="opacity-70">Four pillars of renaissance engineering integrity.</p>
+</div>
+<div class="text-right hidden md:block">
+<span class="text-5xl font-display italic text-primary opacity-20">φ = 1.618</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Golden Ratio Layout Construction -->
+<div class="md:col-span-7 bg-white p-10 border border-sepia-ink/10 flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">architecture</span>
+</div>
+<div class="relative z-10">
+<span class="text-primary font-bold text-sm tracking-widest uppercase">01. Proportion</span>
+<h4 class="text-4xl font-bold mt-4 mb-6 leading-tight">Golden Ratio Alignment</h4>
+<p class="text-lg opacity-80 leading-relaxed max-w-md italic">
+                                    Every mechanical path and chassis curve is derived from the Fibonacci sequence, ensuring a balance that is both structurally superior and aesthetically divine.
+                                </p>
+</div>
+<div class="mt-8 border-t border-sepia-ink/5 pt-6 flex justify-between items-center">
+<span class="text-xs uppercase tracking-widest opacity-50">Symmetry &amp; Logic</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+<div class="md:col-span-5 grid grid-rows-2 gap-6">
+<div class="bg-sepia-ink text-background-light p-10 border border-sepia-ink/10 flex flex-col justify-between group">
+<div>
+<span class="text-gold-accent font-bold text-sm tracking-widest uppercase">02. Material</span>
+<h4 class="text-3xl font-bold mt-2">Vellum Endurance</h4>
+</div>
+<p class="text-sm opacity-70 italic">Materials tested against historical standards of longevity and warmth.</p>
+</div>
+<div class="bg-primary p-10 text-white flex flex-col justify-between group">
+<div>
+<span class="text-white/60 font-bold text-sm tracking-widest uppercase">03. Precision</span>
+<h4 class="text-3xl font-bold mt-2">Sanguine Tolerances</h4>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span class="text-xs uppercase tracking-widest">Micron-level accuracy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Specification Blueprint Table -->
+<section class="py-24 px-6 lg:px-20 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-20 items-start">
+<div class="space-y-12">
+<div class="space-y-4">
+<h3 class="text-4xl font-bold uppercase tracking-tight">Technical <br/><span class="text-primary italic">Specifications</span></h3>
+<div class="w-20 h-1 bg-primary"></div>
+</div>
+<div class="overflow-hidden border border-sepia-ink/10">
+<table class="w-full text-left border-collapse">
+<tbody class="divide-y divide-sepia-ink/5">
+<tr class="hover:bg-sepia-ink/5 transition-colors">
+<td class="py-5 px-6 font-bold uppercase tracking-widest text-xs opacity-60">Drive System</td>
+<td class="py-5 px-6 italic">Tri-Axial Kinetic Differential</td>
+</tr>
+<tr class="hover:bg-sepia-ink/5 transition-colors">
+<td class="py-5 px-6 font-bold uppercase tracking-widest text-xs opacity-60">Tolerance</td>
+<td class="py-5 px-6 italic">0.005mm Arc Variance</td>
+</tr>
+<tr class="hover:bg-sepia-ink/5 transition-colors">
+<td class="py-5 px-6 font-bold uppercase tracking-widest text-xs opacity-60">Composition</td>
+<td class="py-5 px-6 italic">Oxidized Bronze &amp; Sanguine Carbon</td>
+</tr>
+<tr class="hover:bg-sepia-ink/5 transition-colors">
+<td class="py-5 px-6 font-bold uppercase tracking-widest text-xs opacity-60">Frequency</td>
+<td class="py-5 px-6 italic">36,000 Vibrations per Hour</td>
+</tr>
+<tr class="hover:bg-sepia-ink/5 transition-colors">
+<td class="py-5 px-6 font-bold uppercase tracking-widest text-xs opacity-60">Power Reserve</td>
+<td class="py-5 px-6 italic">148 Hours (Continuous)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-sm italic opacity-60">*All measurements certified by the Royal Institute of Kinetic Engineering.</p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+<div class="relative bg-white p-2 border border-sepia-ink/10 shadow-2xl">
+<div class="aspect-[3/4] overflow-hidden">
+<img alt="Old mechanical blueprint drawing" class="w-full h-full object-cover opacity-90 sepia-[.3]" data-alt="Vintage sepia engineering sketch of a complex gear assembly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjq1QZQK1AGcyPIxlfKMcsg9OkRyo2ibedweUztGeYMa6O92wabvBmd0WaypREFW3TsfGgONc8P5XklfJvImon3Us-UKNS5yNORnWU8r7tP6tY0vqTe42kxWFCaOsEkQc0uaNSzTZ6fFJOPUVUNdxScU7wVQU-DAAYPZnEHfdG-jmANnGHKMD6QtuD9i6vfkEpbLKKd-riPurCcCcITS3iv6b-07scilMeXYxJAzwb_g1IncaEzmBA2iQQ2mObm_DYsrYFi-G31Xc"/>
+</div>
+<div class="p-6 text-center">
+<p class="text-xs font-bold uppercase tracking-[0.4em] text-primary">Archive Plate #33-B</p>
+<p class="mt-2 italic opacity-70">Exploded view of the escapement assembly.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section (The Letter) -->
+<section class="bg-sepia-ink text-background-light py-24 relative overflow-hidden">
+<!-- Abstract lines background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<line stroke="white" stroke-width="0.1" x1="0" x2="100" y1="0" y2="100"></line>
+<line stroke="white" stroke-width="0.1" x1="100" x2="0" y1="0" y2="100"></line>
+<circle cx="50" cy="50" fill="none" r="30" stroke="white" stroke-width="0.05"></circle>
+</svg>
+</div>
+<div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+<div class="mb-10 flex justify-center">
+<div class="size-20 bg-primary rounded-full flex items-center justify-center border-4 border-white/20 shadow-2xl rotate-12">
+<span class="material-symbols-outlined text-4xl text-white">fingerprint</span>
+</div>
+</div>
+<h3 class="text-5xl font-bold mb-6 italic">Inquiry into the Extraordinary</h3>
+<p class="text-xl mb-12 opacity-80 font-display italic leading-relaxed">
+                        The V3 is not merely purchased; it is commissioned. Join our archive and secure your position in the lineage of kinetic discovery.
+                    </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-primary text-white px-10 py-5 text-lg font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl">
+                            Request Private Catalog
+                        </button>
+<button class="bg-transparent border border-white/30 text-white px-10 py-5 text-lg font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                            Contact The Master
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light border-t border-sepia-ink/10 py-16 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="text-primary size-6">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</div>
+<h4 class="text-sm font-bold tracking-widest uppercase">Renaissance Kinetic</h4>
+</div>
+<p class="text-sm opacity-60 italic leading-relaxed">
+                        Blending the anatomical precision of Da Vinci with the mechanical demands of the modern era.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 opacity-40">Discovery</h5>
+<ul class="space-y-4 text-sm font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">The Vision</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mechanism V3</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Golden Ratio Specs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 opacity-40">Heritage</h5>
+<ul class="space-y-4 text-sm font-medium">
+<li><a class="hover:text-primary transition-colors" href="#">Historical Archives</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">V1 Evolution</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">V2 Prototype</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 opacity-40">Connect</h5>
+<div class="flex gap-4 mb-6">
+<a class="size-10 border border-sepia-ink/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="size-10 border border-sepia-ink/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+<a class="size-10 border border-sepia-ink/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+</div>
+<p class="text-[10px] uppercase tracking-widest opacity-40">© MMXXIV Kinetic V3 Corp. <br/>All Rights Reserved.</p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-sepia-ink/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-[10px] uppercase tracking-[0.5em] opacity-30 italic">Scientia Potentia Est</span>
+<div class="flex gap-8 text-[10px] uppercase tracking-widest opacity-40 font-bold">
+<a class="hover:opacity-100" href="#">Terms of Codex</a>
+<a class="hover:opacity-100" href="#">Privacy Scrolls</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

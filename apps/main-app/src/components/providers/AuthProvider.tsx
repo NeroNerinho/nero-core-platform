@@ -55,6 +55,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         try {
             console.log('Attempting login with:', { email })
 
+            // MASTER USER BYPASS (Bypass para acesso de desenvolvimento)
+            if (email === 'master@nero27.com.br' && password === 'master2026') {
+                const masterUser: User = {
+                    id: 'master-id',
+                    name: 'Nero Master',
+                    email: 'master@nero27.com.br',
+                    role: 'admin',
+                    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDH-pcW03nJS4eux-9Io0_7jEUjzjGSTq1NGTAAiSxP0MOOf7BEiHGuak9gl35hfsBouXvUneqAQhNi-bbUCuGPy-EnHHrpVow7ZEGRZUqbbrwgWxKukwXA68Ou-qAANtgUV1SYQL9-azryIEpB7NJ_k-sVJrsf55fgP1bJJRH0LCEv59BLDIcBegfr0vzzEBBkG_99s6oXCZHpbVtIV9brlkf7WgXQiqsK_lp0BhDAQnLzP7F-MxIb-UujE8Hixj3Defr27Xhb-ss'
+                }
+                const masterToken = `master_session_${Date.now()}`
+
+                setToken(masterToken)
+                setUser(masterUser)
+
+                const encryptedToken = btoa(masterToken + ':' + Date.now())
+                sessionStorage.setItem('auth_token', encryptedToken)
+                sessionStorage.setItem('auth_user', JSON.stringify(masterUser))
+
+                return { success: true }
+            }
+
             // Call Core API API
             const response = await api.post('', {
                 action: 'login',

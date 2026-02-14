@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 | Cinephile Aesthetics</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Noir Aesthetic: Playfair Display (Serif) and JetBrains Mono (Technical) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'noir-black': '#0a0a0a',
+            'noir-gray': '#1a1a1a',
+            'noir-orange': '#f25b1b', // Brand accent from SCREEN_54
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+<style data-purpose="custom-animations">@keyframes grain {
+    0%, 100% {
+        transform: translate(0, 0);
+        } 10% {
+        transform: translate(-5%, -10%);
+        } 20% {
+        transform: translate(-15%, 5%);
+        } 30% {
+        transform: translate(7%, -25%);
+        } 40% {
+        transform: translate(-5%, 25%);
+        } 50% {
+        transform: translate(-15%, 10%);
+        } 60% {
+        transform: translate(15%, 0%);
+        } 70% {
+        transform: translate(0%, 15%);
+        } 80% {
+        transform: translate(3%, 35%);
+        } 90% {
+        transform: translate(-10%, 10%);
+        }
+    }
+/* Film Grain Overlay */
+.film-grain::after {
+    content: "";
+    position: fixed;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuD38_-IakSgszw8ZX9JgK5BQOE1B8aORFWl1q4ATvZwQRt7dNYGVEvco2T7Dm8Qw0Shf3UN-j3uKXgEj2fCkxSSiiKhSf3zsJSLdS6HqfHm-0otC4RtqPmJortprpn771rc8y7JGyoYQ86sWnG2WJkYCMsC3weF7u8TGjpzqs9a0M25g5kNgzxll0wF-GQVBvodnxCCVW4TPF7EqgxIz23SYzxVJK_kOoQjtyuqwYjJ_Fdmi0F3TS2bk-ZJKnO2CykNxw_p88Cgo7Y);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: grain 8s steps(10) infinite;
+    z-index: 50
+    }
+.spotlight-radial {
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%)
+    }
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05)
+    }</style>
+</head>
+<body class="bg-noir-black text-gray-300 font-mono film-grain selection:bg-noir-orange selection:text-white">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-0 w-full z-40 px-6 py-8 flex justify-between items-center bg-gradient-to-b from-noir-black to-transparent" data-purpose="top-navigation">
+<div class="flex items-center space-x-2">
+<div class="border border-white/20 p-2 text-xs font-bold leading-none">N</div>
+<span class="text-[10px] tracking-[0.3em] uppercase opacity-50">Est. MMXXIV</span>
+</div>
+<button class="p-2">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+</nav>
+<!-- END: Navigation -->
+<main>
+<!-- BEGIN: Hero Section -->
+<section class="relative min-height-[90vh] pt-32 pb-16 px-6 overflow-hidden flex flex-col items-center justify-center text-center" data-purpose="hero-section">
+<!-- Background Spotlight Effect -->
+<div class="absolute inset-0 spotlight-radial pointer-events-none"></div>
+<div class="relative z-10 space-y-8">
+<div class="inline-block border border-noir-orange/30 px-3 py-1 text-[10px] tracking-[0.4em] text-noir-orange uppercase mb-4">
+          Cinephile Optics V3
+        </div>
+<h1 class="font-serif text-7xl md:text-9xl text-white tracking-tighter leading-none" data-purpose="main-logo">
+          NERO<br/><span class="italic text-8xl md:text-[10rem] -mt-4 block">27</span>
+</h1>
+<div class="max-w-xs mx-auto space-y-4">
+<p class="text-[11px] tracking-widest uppercase text-white/60 leading-relaxed">
+            The Physics of Light <br/> Noir Cinema Creative Studio
+          </p>
+<div class="h-[1px] w-12 bg-noir-orange mx-auto opacity-50"></div>
+</div>
+<button class="mt-8 bg-noir-orange text-white px-10 py-4 font-bold text-xs tracking-[0.2em] uppercase transition-transform active:scale-95 shadow-[0_0_30px_rgba(242,91,27,0.3)]">
+          Enter Studio
+        </button>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Lens Metrics Section -->
+<section class="px-6 py-12" data-purpose="lens-metrics">
+<div class="glass-card p-8 rounded-sm space-y-10">
+<div class="flex justify-between items-end">
+<span class="text-[10px] tracking-widest uppercase text-white/40">Technical Specs</span>
+<span class="font-serif italic text-2xl text-white">f / 1.4</span>
+</div>
+<!-- Slider Placeholder 1 -->
+<div class="space-y-4">
+<div class="flex justify-between text-[10px] tracking-widest uppercase">
+<span>Exposure Control</span>
+<span class="text-noir-orange">60%</span>
+</div>
+<div class="relative h-[2px] bg-white/10 w-full">
+<div class="absolute top-0 left-0 h-full bg-noir-orange w-[60%]"></div>
+<div class="absolute top-1/2 left-[60%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-noir-orange bg-noir-black shadow-[0_0_10px_rgba(242,91,27,0.5)]"></div>
+</div>
+</div>
+<!-- Slider Placeholder 2 -->
+<div class="space-y-4">
+<div class="flex justify-between text-[10px] tracking-widest uppercase">
+<span>Contrast (Noir)</span>
+<span class="text-noir-orange">85%</span>
+</div>
+<div class="relative h-[2px] bg-white/10 w-full">
+<div class="absolute top-0 left-0 h-full bg-noir-orange w-[85%]"></div>
+<div class="absolute top-1/2 left-[85%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-noir-orange bg-noir-black shadow-[0_0_10px_rgba(242,91,27,0.5)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 text-center">
+<div class="border border-white/5 py-3">
+<span class="block text-[10px] opacity-40 uppercase mb-1">ISO Speed</span>
+<span class="text-xs">400 ASA</span>
+</div>
+<div class="border border-white/5 py-3">
+<span class="block text-[10px] opacity-40 uppercase mb-1">Shut. Ang.</span>
+<span class="text-xs">172.8°</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Lens Metrics Section -->
+<!-- BEGIN: Noir Stills Gallery -->
+<section class="py-16" data-purpose="featured-stills">
+<div class="px-6 mb-8 flex justify-between items-end">
+<h2 class="text-[10px] tracking-[0.5em] uppercase text-white/50">Featured Stills</h2>
+<span class="text-[10px] font-serif italic text-white/30">Vol. 01</span>
+</div>
+<div class="flex flex-col space-y-6 px-6">
+<!-- Gallery Item 1 -->
+<div class="relative group overflow-hidden" data-purpose="gallery-item">
+<img alt="Shadow Play" class="w-full grayscale brightness-75 group-hover:brightness-100 transition duration-700 aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBinmuKtL_Qwh6lhZ6OxgE9R6bjSZznoHzMRG7gdVBrls-QC28AHofhI_APNEtwzxoSw6sdDiOr7jmYZ_dH_P7-qPtPvVcdNaHyj6siNaEt9c1XonFM2Wx7VcDb9eK1_O1__litBysv98_l2rrs8C6Mjz2lDwkSolbSvQBklIGkju3t7hGO1hykUqGE1gcOtu70YMy5djuHhXyu64b2Xcu_mbDYGuLwNR6FGk6lz4D7o-NQUcpNpPGDX7wYd8Q-Ucovgr1p5vEm1w0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-noir-black via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<p class="text-noir-orange text-[9px] tracking-widest uppercase mb-1">Shadow Play</p>
+<h3 class="font-serif text-xl text-white tracking-wide">The Silhouette</h3>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="relative group overflow-hidden" data-purpose="gallery-item">
+<img alt="Optics V3" class="w-full grayscale brightness-50 group-hover:brightness-90 transition duration-700 aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYKxdkpV2Xrc464yfdRDw4FFqNCMaF5Ve81AIFVwoH8JvEYIYeaNqqkS7QsAF4_Nj0kVzMl2FUK5AwPmEf-sgqZx2HnZa9GGa-HfAl2ixShg6Pb222xgR_I8i2NoTWhFeJiJgzx9l_BPW9buud-Cjvhqjn10J8XXxMPL5cx5SjX6cavrFxyGhgBWT0HLjGu5zeiu1VMhlCR0bTO9e-9S4eI33pugk0WRRbXVfQNrVAI3CKv0iVLmrQw93bBd_qYjawkgDxVtwKg-o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-noir-black via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<p class="text-noir-orange text-[9px] tracking-widest uppercase mb-1">Optics V3</p>
+<h3 class="font-serif text-xl text-white tracking-wide">Wet Pavement</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Noir Stills Gallery -->
+<!-- BEGIN: Darkroom Entry CTA -->
+<section class="py-24 px-6 text-center bg-noir-gray/30" data-purpose="cta-section">
+<div class="max-w-xs mx-auto space-y-8">
+<p class="font-serif italic text-white/80 text-lg leading-relaxed">
+          "Capturing the physics of light through the lens of classic noir cinema."
+        </p>
+<button class="w-full border border-white/10 py-5 text-[10px] tracking-[0.4em] uppercase text-white hover:bg-white hover:text-noir-black transition duration-500">
+          Enter Darkroom
+        </button>
+</div>
+</section>
+<!-- END: Darkroom Entry CTA -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="pt-20 pb-32 px-10 bg-noir-black border-t border-white/5" data-purpose="site-footer">
+<div class="space-y-12">
+<div class="space-y-4">
+<h4 class="font-serif text-3xl text-white">Nero 27</h4>
+<p class="text-[10px] tracking-widest uppercase text-white/40 leading-relaxed max-w-[200px]">
+          Cinephile Aesthetics &amp; Noir Light Physics
+        </p>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-6">
+<h5 class="text-[10px] tracking-widest uppercase text-white">Focus</h5>
+<ul class="space-y-4 text-[11px] text-white/40">
+<li>The Lab</li>
+<li>Equipment</li>
+<li>Lighting</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-[10px] tracking-widest uppercase text-white">Develop</h5>
+<ul class="space-y-4 text-[11px] text-white/40">
+<li>Journal</li>
+<li>Contact</li>
+<li>Legal</li>
+</ul>
+</div>
+</div>
+<div class="flex justify-between items-end pt-12">
+<p class="text-[9px] tracking-widest text-white/20 uppercase">
+          © 2024 Nero 27 Studio
+        </p>
+<div class="flex space-x-2">
+<div class="w-4 h-4 border border-white/10 rotate-45"></div>
+<div class="w-4 h-4 border border-white/10 rotate-45"></div>
+<div class="w-4 h-4 border border-white/10 rotate-45"></div>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- BEGIN: Bottom Tab Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 z-50 pointer-events-none" data-purpose="bottom-navigation">
+<div class="max-w-sm mx-auto bg-noir-gray/80 backdrop-blur-xl border border-white/5 rounded-full px-8 py-3 flex justify-between items-center pointer-events-auto shadow-2xl">
+<button class="text-white p-2">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+</button>
+<button class="text-white/30 p-2">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- Central Floating Action Button -->
+<button class="bg-noir-orange text-white w-14 h-14 rounded-full flex items-center justify-center -mt-10 shadow-[0_10px_30px_rgba(242,91,27,0.4)] relative group transition-transform active:scale-90">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path></svg>
+<span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-noir-black border border-white/10 px-3 py-1 rounded text-[8px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition duration-300">Enter Theater</span>
+</button>
+<button class="text-white/30 p-2">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="text-white/30 p-2">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+<!-- END: Bottom Tab Bar -->
+</body></html>

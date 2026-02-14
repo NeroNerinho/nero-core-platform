@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UX Precision V3 Studio Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d9cee8;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#130d1c] antialiased">
+<div class="relative flex h-screen w-full overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-[#ece7f4] bg-white flex flex-col h-full shrink-0">
+<div class="p-6 flex items-center gap-3 border-b border-[#ece7f4]">
+<div class="size-8 bg-primary flex items-center justify-center rounded text-white">
+<span class="material-symbols-outlined text-xl">bolt</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-sm font-bold leading-tight tracking-tight uppercase">UX Precision</h2>
+<span class="text-[10px] text-primary font-bold tracking-widest uppercase">Studio V3.0</span>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto p-4 flex flex-col gap-1 custom-scrollbar">
+<p class="px-3 py-2 text-[10px] font-bold text-[#6c499c] uppercase tracking-widest">Main Menu</p>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary/10 text-primary border-l-2 border-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded hover:bg-[#ece7f4] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#6c499c] group-hover:text-primary transition-colors">grid_view</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded hover:bg-[#ece7f4] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#6c499c] group-hover:text-primary transition-colors">analytics</span>
+<span class="text-sm font-medium">Design Metrics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded hover:bg-[#ece7f4] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#6c499c] group-hover:text-primary transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Registry</span>
+</a>
+<p class="px-3 py-2 mt-6 text-[10px] font-bold text-[#6c499c] uppercase tracking-widest">System</p>
+<a class="flex items-center gap-3 px-3 py-2 rounded hover:bg-[#ece7f4] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#6c499c] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded hover:bg-[#ece7f4] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#6c499c] group-hover:text-primary transition-colors">help_outline</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[#ece7f4]">
+<div class="flex items-center gap-3 p-2 rounded hover:bg-[#ece7f4] cursor-pointer">
+<div class="size-10 rounded bg-primary/20 bg-cover bg-center" data-alt="User profile avatar icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOWiauZH4LA5KcJ7fIbVCj-21TRXuqj8EN58NYIqvAJvLX229SNHtxd9CNTq-DGCXWGAjZZBBmHYKIRIayrpfcBiJuFS-6NbroOHY-VM453bCU9SYBVWR4V-DAzVrPSafBnaFXIGu24-gCUAHEncXNmCF3NoyIIqJZm6b-b0mqXemWoedKBIzeLYRd_wbvgOMvbfeQud11QYNnkhBkPcqHxgqgfPnAdvFjmAIZhDRYcXLo61EUTEyg9bZAlo_R0ZSUMOwx92i8ZCQ')"></div>
+<div class="flex flex-col min-w-0">
+<p class="text-xs font-bold truncate">Alex Sterling</p>
+<p class="text-[10px] text-[#6c499c] truncate">Lead Architect</p>
+</div>
+<span class="material-symbols-outlined text-[18px] ml-auto text-[#6c499c]">logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col h-full bg-background-light overflow-hidden">
+<!-- Header / Command Bar -->
+<header class="h-16 border-b border-[#ece7f4] bg-white flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-[#6c499c]">search</span>
+<input class="w-full bg-[#fcfaff] border-none focus:ring-1 focus:ring-primary/20 rounded-lg pl-11 pr-4 py-2 text-sm placeholder:text-[#a189c4]" placeholder="Search patterns, projects, or metrics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded hover:bg-[#ece7f4] text-[#6c499c] relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<div class="h-6 w-[1px] bg-[#ece7f4] mx-2"></div>
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded text-sm font-bold shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Project</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Welcome Section -->
+<section>
+<h1 class="text-3xl font-black tracking-tight text-[#130d1c]">Project Orchestration</h1>
+<p class="text-[#6c499c] mt-1">Real-time design systems health and sprint velocity analytics.</p>
+</section>
+<!-- Metric Scorecards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white border border-[#ece7f4] p-6 rounded-xl flex flex-col justify-between hover:shadow-lg hover:shadow-primary/5 transition-all">
+<div class="flex items-start justify-between">
+<p class="text-[11px] font-bold text-[#6c499c] uppercase tracking-widest">Component Reusability</p>
+<span class="text-[#078845] text-xs font-bold flex items-center gap-1 bg-[#078845]/10 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 12%
+                            </span>
+</div>
+<div class="mt-4">
+<p class="text-4xl font-bold tracking-tighter">84.2<span class="text-lg text-[#6c499c] font-normal">%</span></p>
+<div class="w-full bg-[#f3eff7] h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[84%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white border border-[#ece7f4] p-6 rounded-xl flex flex-col justify-between hover:shadow-lg hover:shadow-primary/5 transition-all">
+<div class="flex items-start justify-between">
+<p class="text-[11px] font-bold text-[#6c499c] uppercase tracking-widest">Accessibility Score</p>
+<span class="text-[#078845] text-xs font-bold flex items-center gap-1 bg-[#078845]/10 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">check</span> Stable
+                            </span>
+</div>
+<div class="mt-4">
+<p class="text-4xl font-bold tracking-tighter">98<span class="text-lg text-[#6c499c] font-normal">/100</span></p>
+<div class="w-full bg-[#f3eff7] h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white border border-[#ece7f4] p-6 rounded-xl flex flex-col justify-between hover:shadow-lg hover:shadow-primary/5 transition-all">
+<div class="flex items-start justify-between">
+<p class="text-[11px] font-bold text-[#6c499c] uppercase tracking-widest">Sprint Velocity</p>
+<span class="text-[#e74408] text-xs font-bold flex items-center gap-1 bg-[#e74408]/10 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> 5%
+                            </span>
+</div>
+<div class="mt-4">
+<p class="text-4xl font-bold tracking-tighter">24.5<span class="text-lg text-[#6c499c] font-normal">pts</span></p>
+<div class="w-full bg-[#f3eff7] h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-amber-500 h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Projects Canvas -->
+<section class="bg-white border border-[#ece7f4] rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-[#ece7f4] flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-widest text-[#6c499c]">Active Projects Hybrid View</h3>
+<div class="flex gap-1 bg-[#f3eff7] p-1 rounded">
+<button class="px-3 py-1 text-xs font-bold rounded bg-white shadow-sm">Kanban</button>
+<button class="px-3 py-1 text-xs font-medium text-[#6c499c] rounded hover:bg-white/50">Grid</button>
+</div>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#fcfaff]">
+<!-- Project Card 1 -->
+<div class="bg-white border border-[#ece7f4] p-5 rounded hover:border-primary/40 transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div class="size-10 bg-primary/10 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<span class="px-2 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold uppercase rounded border border-amber-100">In Design</span>
+</div>
+<h4 class="font-bold text-base mb-1 group-hover:text-primary transition-colors">Mobile Core V2</h4>
+<p class="text-xs text-[#6c499c] mb-6 line-clamp-2">Re-architecting the primary mobile atomic system for cross-platform reactivity.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Team member avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwri6Ssnfi5c5Xri6_SMXWohhdofeuLCnH2uTm38d3nVJ9AEcfRmqFzKaS3d3oHhnkKwdCDNgXsxfnpeWkOvPTq2J6k0dUqzBR0WQspx-ESdQFTDfz70meyj4qRD2S95sTeu5jRMSzKIGcM0HmNK5iaVTAeTqyvfV3k2b2AS4sbDNwVLyTsEe_plAxk71fKPHcxZH7WUWJAr0agLJep_GOhsGm-OsS-ytzaD2HDPl1_1MTppVaoDpAaMk69EThCloe8y3F-cIiEp8')"></div>
+<div class="size-6 rounded-full border-2 border-white bg-slate-300 bg-cover" data-alt="Team member avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcO4LiFKTx_u2uxxqukxjJISxoeVrUUidtYe4G3ZBpFDATFwrY3THquDKXLjmyMY1SBtbXO1ypQ13mkeU3dI0Gcdj-gCaCQ6VNvu5vQDJjrCfzyNokRvcAOrsF0CNXc7bEZEY_8YqEozHbi4S8MxEmjoMkUniKddLzFZtoDO7dN7G4nQvuzMynv8m3EU9XVJYNvGc4Afka83GvleJm84hl9QVCid-ac2E6XAtabK_L2HvnjegHSvi50_OGcsHL8Tkos2qN5OSP0JQ')"></div>
+<div class="size-6 rounded-full border-2 border-white bg-primary text-[8px] flex items-center justify-center text-white font-bold">+4</div>
+</div>
+<div class="flex items-center gap-1 text-[#6c499c]">
+<span class="material-symbols-outlined text-[14px]">event</span>
+<span class="text-[10px] font-medium">Oct 24</span>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-white border border-[#ece7f4] p-5 rounded hover:border-primary/40 transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div class="size-10 bg-emerald-50 rounded flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase rounded border border-emerald-100">Handoff</span>
+</div>
+<h4 class="font-bold text-base mb-1 group-hover:text-primary transition-colors">Admin Dashboard Kit</h4>
+<p class="text-xs text-[#6c499c] mb-6 line-clamp-2">New high-density components for data-intensive enterprise interfaces.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-white bg-slate-400 bg-cover" data-alt="Team member avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfOLEA8qQAjhGR0LSVvjNegTVVZE2JvzplWNhGyUSzjz-B_NGr1rLlbhlflX1YMQmNXi5EVJh__C_C-ltlZ4xm7vvXR4IX7JrxioqDQZM4CTBun7a07eYSW3f7FwhD6xkz7FJDVo_fiLw2f6acAKbqWF9JzPLdzA1KfKTYgvGklzYAQcyIBlPvLrIm3_vpeHw-O5z3UiqqaA3WL8jDnbh5SVOLwRd9J6WIuGLlrxYpW0t7uh0kJSrUbQWU0I9QoLj_Pir6d_BezQ4')"></div>
+<div class="size-6 rounded-full border-2 border-white bg-slate-200 bg-cover" data-alt="Team member avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMFRmrd3hRE5_d-pNaJ6RZfvqWqQTQZqqHiQ9I7bmzAFxSNtERcdKpsP995v9OQ2-L-nmXpXRqe_w3A9cSt_mk_gJaKjGAs8vArN3mBPwK9Z0HRVklO7dsp8q7OftbgfeBbUVXiEiE3gddOi632Kv_qzVw7BZzeMkq0lSgrHpRTMFxhTqZDXIETHs0gjC8chem8q0bshZwm1CMPY8PTvRVAVt65eof2u083nJzYSfsQDVOtfD_g_tfB5SGQFSXyIRIkRK5ZThh3W4')"></div>
+</div>
+<div class="flex items-center gap-1 text-[#6c499c]">
+<span class="material-symbols-outlined text-[14px]">event</span>
+<span class="text-[10px] font-medium">Nov 02</span>
+</div>
+</div>
+</div>
+<!-- Project Card 3 (Empty State for New) -->
+<div class="border-2 border-dashed border-[#ece7f4] p-5 rounded flex flex-col items-center justify-center text-center hover:bg-[#f3eff7] hover:border-primary/20 transition-all cursor-pointer group">
+<div class="size-10 rounded-full bg-[#ece7f4] flex items-center justify-center mb-3 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+<p class="text-xs font-bold text-[#6c499c]">Initiate New Sprint</p>
+<p class="text-[10px] text-[#a189c4]">Add canvas to registry</p>
+</div>
+</div>
+</section>
+<!-- Component Registry Preview -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-[#6c499c]">Recent Library Updates</h3>
+<a class="text-primary text-xs font-bold hover:underline flex items-center gap-1" href="#">
+                            Full Registry <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white border border-[#ece7f4] rounded overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-[#fcfaff] border-b border-[#ece7f4]">
+<tr>
+<th class="px-6 py-3 text-[10px] font-bold uppercase text-[#6c499c]">Component Name</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase text-[#6c499c]">Category</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase text-[#6c499c]">Version</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase text-[#6c499c]">Status</th>
+<th class="px-6 py-3 text-[10px] font-bold uppercase text-[#6c499c]">Usage</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ece7f4]">
+<tr class="hover:bg-background-light transition-colors cursor-pointer group">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="size-8 rounded bg-primary/5 text-primary flex items-center justify-center border border-primary/10">
+<span class="material-symbols-outlined text-lg">smart_button</span>
+</div>
+<span class="text-sm font-bold">Action Button XL</span>
+</td>
+<td class="px-6 py-4 text-xs text-[#6c499c]">Atoms / Inputs</td>
+<td class="px-6 py-4 text-xs font-mono">v.2.4.1</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold">Stable</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex-1 w-24 bg-[#f3eff7] h-1 rounded-full">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+<span class="text-[10px] font-bold">92%</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-background-light transition-colors cursor-pointer group">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="size-8 rounded bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+</div>
+<span class="text-sm font-bold">Range Picker Core</span>
+</td>
+<td class="px-6 py-4 text-xs text-[#6c499c]">Molecules / Forms</td>
+<td class="px-6 py-4 text-xs font-mono">v.1.1.2</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[10px] font-bold">Updating</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex-1 w-24 bg-[#f3eff7] h-1 rounded-full">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+<span class="text-[10px] font-bold">45%</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Right Sidebar - Adaptive Grid Controller -->
+<aside class="w-72 border-l border-[#ece7f4] bg-white flex flex-col h-full shrink-0">
+<div class="p-6 border-b border-[#ece7f4] flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-widest text-[#130d1c]">Grid Canvas</h3>
+<button class="text-[#6c499c] hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">settings_accessibility</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+<!-- Grid Toggles -->
+<div class="space-y-4">
+<p class="text-[10px] font-bold text-[#6c499c] uppercase tracking-widest">Visibility</p>
+<div class="flex items-center justify-between p-3 rounded bg-[#fcfaff] border border-[#ece7f4]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">view_column</span>
+<span class="text-xs font-bold">Columns</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<div class="w-8 h-4 bg-primary rounded-full"></div>
+<div class="absolute left-4.5 top-0.5 size-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded bg-white border border-[#ece7f4]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6c499c]">view_headline</span>
+<span class="text-xs font-bold">Rows</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<div class="w-8 h-4 bg-[#ece7f4] rounded-full"></div>
+<div class="absolute left-0.5 top-0.5 size-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded bg-white border border-[#ece7f4]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#6c499c]">grid_4x4</span>
+<span class="text-xs font-bold">Baseline</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<div class="w-8 h-4 bg-[#ece7f4] rounded-full"></div>
+<div class="absolute left-0.5 top-0.5 size-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Parameters -->
+<div class="space-y-6">
+<p class="text-[10px] font-bold text-[#6c499c] uppercase tracking-widest">Gutter &amp; Margin</p>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold">
+<span>COLUMN WIDTH</span>
+<span class="text-primary">72px</span>
+</div>
+<input class="w-full h-1 bg-[#f3eff7] appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold">
+<span>GUTTER SIZE</span>
+<span class="text-primary">24px</span>
+</div>
+<input class="w-full h-1 bg-[#f3eff7] appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold">
+<span>MARGIN</span>
+<span class="text-primary">120px</span>
+</div>
+<input class="w-full h-1 bg-[#f3eff7] appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+</div>
+<!-- Presets -->
+<div class="space-y-4 pt-4 border-t border-[#ece7f4]">
+<p class="text-[10px] font-bold text-[#6c499c] uppercase tracking-widest">Layout Presets</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 text-[10px] font-bold border border-primary text-primary bg-primary/5 rounded">DESKTOP 1440</button>
+<button class="p-3 text-[10px] font-bold border border-[#ece7f4] text-[#6c499c] rounded hover:border-primary/20">MOBILE 375</button>
+<button class="p-3 text-[10px] font-bold border border-[#ece7f4] text-[#6c499c] rounded hover:border-primary/20">TABLET 768</button>
+<button class="p-3 text-[10px] font-bold border border-[#ece7f4] text-[#6c499c] rounded hover:border-primary/20">WIDESCREEN</button>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-[#ece7f4] bg-[#fcfaff]">
+<button class="w-full py-3 bg-white border border-[#ece7f4] rounded text-xs font-bold text-[#130d1c] shadow-sm hover:border-primary/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+                Export Grid Spec
+            </button>
+</div>
+</aside>
+</div>
+</body></html>

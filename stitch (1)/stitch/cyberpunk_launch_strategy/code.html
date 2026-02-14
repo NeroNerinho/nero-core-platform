@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 // MISSION CONTROL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .cyber-grid {
+            background-image: 
+                linear-gradient(to right, rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(6, 232, 249, 0.5);
+        }
+        .neon-border-glow {
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.2);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden cyber-grid">
+<!-- Top Navigation / HUD Header -->
+<header class="sticky top-0 z-50 border-b border-primary/30 bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-white uppercase leading-none">Nero 27</h1>
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Mission Control // The Grid</p>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 text-[11px] font-bold tracking-[0.2em] text-primary/60">
+<div class="flex items-center gap-2">
+<span class="size-2 bg-primary rounded-full"></span>
+                CORE UPLINK: ACTIVE
+            </div>
+<div class="flex items-center gap-2">
+<span class="size-2 bg-primary/30 rounded-full"></span>
+                USER PROXY: 12.8K
+            </div>
+</div>
+<button class="bg-primary/10 border border-primary text-primary px-4 py-1.5 text-xs font-bold uppercase hover:bg-primary hover:text-background-dark transition-all">
+            INITIATE PHASE
+        </button>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full p-4 md:p-8 flex flex-col gap-8">
+<!-- Mission Status Dashboard -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-primary/5 border border-primary/20 p-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl">sync</span>
+</div>
+<p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Sync Status</p>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-white neon-glow">98.2%</p>
+<p class="text-primary text-xs font-bold">+1.2% ▲</p>
+</div>
+<div class="mt-4 h-1 bg-primary/10 w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 98.2%"></div>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/20 p-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl">encrypted</span>
+</div>
+<p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Encryption Level</p>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-white neon-glow">L9</p>
+<p class="text-red-500 text-xs font-bold">SECURE</p>
+</div>
+<div class="mt-4 flex gap-1">
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/20 p-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl">bolt</span>
+</div>
+<p class="text-primary text-xs font-bold tracking-widest uppercase mb-2">Launch Readiness</p>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-white neon-glow">92%</p>
+<p class="text-primary text-xs font-bold">OPTIMAL</p>
+</div>
+<div class="mt-4 flex justify-between items-center text-[10px] text-primary/40 font-mono">
+<span>GRID LOAD: 42%</span>
+<span>PING: 14MS</span>
+</div>
+</div>
+</section>
+<!-- Main Timeline Content -->
+<section class="relative py-12">
+<!-- Timeline Line -->
+<div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/10 via-primary/50 to-primary/10 -translate-x-1/2 hidden md:block"></div>
+<div class="space-y-24 relative">
+<!-- Milestone 1 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12 text-left md:text-right order-2 md:order-1">
+<h3 class="text-primary text-sm font-bold tracking-widest mb-1">PHASE 1: NEURAL UPLINK</h3>
+<h2 class="text-3xl font-bold text-white uppercase tracking-tighter mb-4">COMMUNITY ENCRYPTION</h2>
+<p class="text-slate-400 text-sm leading-relaxed max-w-md ml-auto">Weeks 1-4 focus on deep-layer infiltration. Distribution of digital encryption keys to early adopters. Initial node saturation targets 40% global coverage.</p>
+<div class="mt-6 flex flex-wrap gap-2 md:justify-end">
+<span class="px-2 py-1 bg-primary/10 border border-primary/30 text-[10px] text-primary font-bold">DECRYPT_KEY</span>
+<span class="px-2 py-1 bg-primary/10 border border-primary/30 text-[10px] text-primary font-bold">NODE_01_ACTIVE</span>
+</div>
+</div>
+<div class="relative z-10 order-1 md:order-2">
+<div class="size-12 bg-background-dark border-4 border-primary rounded-full flex items-center justify-center neon-border-glow">
+<span class="material-symbols-outlined text-primary">key</span>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 order-3">
+<div class="bg-primary/5 border-l-2 border-primary p-4 max-w-xs">
+<p class="text-[10px] text-primary/60 font-mono">KPI: NODE SATURATION</p>
+<div class="h-24 flex items-end gap-1 mt-2">
+<div class="w-2 bg-primary/20 h-1/4"></div>
+<div class="w-2 bg-primary/30 h-1/3"></div>
+<div class="w-2 bg-primary/40 h-1/2"></div>
+<div class="w-2 bg-primary/60 h-2/3"></div>
+<div class="w-2 bg-primary h-5/6"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12 order-3 md:order-1">
+<div class="bg-primary/5 border-r-2 border-primary p-4 max-w-xs ml-auto text-right">
+<p class="text-[10px] text-primary/60 font-mono">KPI: BANDWIDTH ALLOCATION</p>
+<div class="mt-2 space-y-1">
+<div class="h-1.5 bg-primary w-full"></div>
+<div class="h-1.5 bg-primary w-3/4"></div>
+<div class="h-1.5 bg-primary/40 w-1/2"></div>
+</div>
+</div>
+</div>
+<div class="relative z-10 order-1 md:order-2">
+<div class="size-12 bg-background-dark border-4 border-primary rounded-full flex items-center justify-center neon-border-glow">
+<span class="material-symbols-outlined text-primary">hardware</span>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 order-2 md:order-3">
+<h3 class="text-primary text-sm font-bold tracking-widest mb-1">PHASE 2: SYSTEM BREACH</h3>
+<h2 class="text-3xl font-bold text-white uppercase tracking-tighter mb-4">HARDWARE REVEAL</h2>
+<p class="text-slate-400 text-sm leading-relaxed max-w-md">Weeks 5-8 reveal the physical components of the Nero 27 ecosystem. Beta testing sequences initiated across major tech hubs. hardware parity confirmed.</p>
+<button class="mt-6 flex items-center gap-2 group">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">View Blueprints</span>
+<span class="material-symbols-outlined text-sm text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12 text-left md:text-right order-2 md:order-1">
+<h3 class="text-primary text-sm font-bold tracking-widest mb-1">PHASE 3: GO-LIVE</h3>
+<h2 class="text-3xl font-bold text-white uppercase tracking-tighter mb-4">GLOBAL SYNC</h2>
+<p class="text-slate-400 text-sm leading-relaxed max-w-md ml-auto">Zero-hour deployment. The Grid goes live globally. Full synchronization of all neural uplinks. Total market disruption protocol engaged.</p>
+<div class="mt-6">
+<div class="bg-primary text-background-dark px-4 py-2 inline-block font-bold text-sm skew-x-[-12deg]">
+<span class="block skew-x-[12deg]">T-MINUS 04:12:08:55</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 order-1 md:order-2">
+<div class="size-12 bg-primary border-4 border-primary rounded-full flex items-center justify-center neon-border-glow">
+<span class="material-symbols-outlined text-background-dark fill-1 font-bold">language</span>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 order-3">
+<div class="relative group">
+<div class="absolute -inset-1 bg-primary/20 blur-sm group-hover:bg-primary/40 transition-all"></div>
+<img alt="Futuristic digital world map" class="relative w-full aspect-video object-cover border border-primary/40 grayscale hover:grayscale-0 transition-all" data-alt="Cyberpunk digital world map with neon connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRaLBIdepit50pXAoZVTj-znirrAb_uLnq2rTF3OQzb9DMyZlld4DG0CSa95sX6kD-0HWDtdlTAJFC6MopxFlQaJbV2I6Rgnw-fyYqIB_F9fAl6y7I7tEDb8FKV5L5VykTLnldaIO04JtnLoN4EkUlZ31V1hzYpYYq9vZVnEjRgZxV0aaRAiYIpgFlIZ-BVk0r43hQRWAw9Ak8xaeXqP7EfC8a4s6JKXyh0vcQzIp8aly82Eot7PqSNLHmCKUNdjvNnR53G8yvIlo"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical HUD Overlay / Data Footer -->
+<footer class="mt-12 border-t border-primary/20 pt-8 pb-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<p class="text-[10px] text-primary/60 font-bold tracking-widest uppercase mb-4">Transmission Log</p>
+<ul class="text-[9px] font-mono space-y-2 text-slate-500">
+<li class="flex gap-2"><span class="text-primary">09:44</span> DATA_PACK_RCV</li>
+<li class="flex gap-2"><span class="text-primary">09:42</span> UPLINK_STABLE</li>
+<li class="flex gap-2"><span class="text-primary">09:38</span> PROXY_CONN_88</li>
+</ul>
+</div>
+<div>
+<p class="text-[10px] text-primary/60 font-bold tracking-widest uppercase mb-4">Coordinates</p>
+<p class="text-xs font-mono text-white">35.6895° N, 139.6917° E</p>
+<p class="text-[9px] text-slate-500 font-mono mt-1">SECTOR: TOKYO_01</p>
+</div>
+<div>
+<p class="text-[10px] text-primary/60 font-bold tracking-widest uppercase mb-4">System Health</p>
+<div class="flex items-center gap-1">
+<div class="h-1 w-3 bg-primary"></div>
+<div class="h-1 w-3 bg-primary"></div>
+<div class="h-1 w-3 bg-primary"></div>
+<div class="h-1 w-3 bg-primary"></div>
+<div class="h-1 w-3 bg-primary/20"></div>
+<span class="text-[9px] text-primary ml-2">80%</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-primary/60 font-bold tracking-widest uppercase mb-4">Protocol</p>
+<p class="text-xs font-bold text-white">NERO_OS v2.7.4</p>
+<p class="text-[9px] text-slate-500 font-mono mt-1">ENCRYPTION: AES-512</p>
+</div>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/90 backdrop-blur-lg border-t border-primary/30 px-6 py-2">
+<div class="max-w-md mx-auto flex items-center justify-between gap-2">
+<a class="flex flex-col items-center justify-center p-2 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[8px] font-bold mt-1 uppercase tracking-tighter">HQ</span>
+</a>
+<a class="flex flex-col items-center justify-center p-2 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[8px] font-bold mt-1 uppercase tracking-tighter">Grid</span>
+</a>
+<div class="flex items-center justify-center p-2">
+<div class="size-10 bg-primary rounded-sm flex items-center justify-center text-background-dark shadow-[0_0_15px_rgba(6,232,249,0.5)]">
+<span class="material-symbols-outlined font-bold">add</span>
+</div>
+</div>
+<a class="flex flex-col items-center justify-center p-2 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="text-[8px] font-bold mt-1 uppercase tracking-tighter">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center p-2 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[8px] font-bold mt-1 uppercase tracking-tighter">Ops</span>
+</a>
+</div>
+</nav>
+<!-- Decorative Corner Elements -->
+<div class="fixed top-0 left-0 p-1 pointer-events-none opacity-50">
+<div class="w-12 h-12 border-t border-l border-primary"></div>
+</div>
+<div class="fixed top-0 right-0 p-1 pointer-events-none opacity-50">
+<div class="w-12 h-12 border-t border-r border-primary"></div>
+</div>
+<div class="fixed bottom-16 left-0 p-1 pointer-events-none opacity-50">
+<div class="w-12 h-12 border-b border-l border-primary"></div>
+</div>
+<div class="fixed bottom-16 right-0 p-1 pointer-events-none opacity-50">
+<div class="w-12 h-12 border-b border-r border-primary"></div>
+</div>
+</body></html>

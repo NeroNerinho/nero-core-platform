@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Noir Cinephile V3 | Technical Physics Docs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#120d0b",
+                        "surface-dark": "#221610",
+                        "border-dark": "#3a2820",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .noir-gradient {
+            background: linear-gradient(180deg, rgba(18,13,11,0) 0%, rgba(18,13,11,0.95) 100%);
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(rgba(236, 91, 19, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-72 border-r border-slate-200 dark:border-border-dark flex flex-col fixed h-full bg-background-light dark:bg-background-dark z-50">
+<div class="p-6 border-b border-slate-200 dark:border-border-dark flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">settings_input_component</span>
+</div>
+<div>
+<h2 class="text-sm font-black tracking-tighter uppercase leading-none">Noir Cinephile</h2>
+<span class="text-[10px] text-primary font-bold uppercase tracking-widest">Tech Specs V3.0</span>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto p-4 space-y-6">
+<div>
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest px-4 mb-3">Core Physics</p>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-primary bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">wb_sunny</span>
+                        Light Physics
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">lens_blur</span>
+                        Refractive Indices
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">architecture</span>
+                        Anamorphic Distortion
+                    </a>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest px-4 mb-3">Analysis Tools</p>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">monitoring</span>
+                        Spectral Data
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">functions</span>
+                        Optical Formulas
+                    </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-dark rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">center_focus_weak</span>
+                        MTF Analysis
+                    </a>
+</div>
+</div>
+</nav>
+<div class="p-6 border-t border-slate-200 dark:border-border-dark">
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+                Export Full Spec
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 relative min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-border-dark px-8 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-slate-400 dark:text-slate-500">SECTION // 04</span>
+<span class="h-4 w-px bg-slate-300 dark:bg-border-dark"></span>
+<h1 class="text-sm font-bold uppercase tracking-tight">Monochromatic Spectrum Analysis</h1>
+</div>
+<div class="flex items-center gap-4">
+<label class="relative hidden lg:block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+<span class="material-symbols-outlined text-lg">search</span>
+</span>
+<input class="bg-slate-100 dark:bg-surface-dark border-none rounded-lg py-2 pl-10 pr-4 text-xs w-64 focus:ring-1 focus:ring-primary" placeholder="Search physics variables..."/>
+</label>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="size-8 rounded-full bg-slate-200 dark:bg-surface-dark border border-slate-300 dark:border-border-dark" data-alt="User profile avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVtIf7Sq3bw3HpqVl8r_dBXIU41pYSXsyogAWUcTIqOZUn_saHI0xxPpDugzsMl5YocWHyUhMueZHI1rKOkGRa21cbizp0x9wgrl_pjTXFacYfA5RoLWmfPfj1nBhFmylYx7YZkBVb8nYnnvYOYbJIa4nEWvXkmkfBkW4Il8b8PcNxRhmONlNcccVklu568qV97uTLMw4i2N0XEYBHrZdtJq036Sv5JWEDk9rOHf0HqLW6T-CyY-2LI7DxcKEEMuJn0l3SwmDCufs'); background-size: cover;"></div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[600px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close up of a professional vintage cinema lens with light reflections" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhj_PWZnKs2i8-dMEwzvLSC3uKn7E2oSuOU4_3wMFCKZUDddY_B4a5WOY4VBK-zmdIFpO9pQbhPcRHzXr8SDZEajxWgGceoK5W4i-JN8hNOixWiErtBsC-D8eEUm5npRhHKi56VV_3SL5um0OhXMwf23bsPoXKiluoFGN_rCUdVyOOHKsr1gLwT8D5rEU0FwVFqAZTYu2Og2SyQdVoMHO3WueOOM-OpM9JSUyhdKjoixEPHU6tnzi-M9jY4wMH-mb0VzuxVA11W5s');"></div>
+<div class="absolute inset-0 noir-gradient"></div>
+<div class="relative h-full flex flex-col justify-end p-12 max-w-5xl">
+<div class="space-y-4">
+<span class="inline-block px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded">Technical Paper #882</span>
+<h2 class="text-6xl font-black text-white leading-none tracking-tighter">The Physics of <br/><span class="text-primary">Noir</span>: Light &amp; Optics</h2>
+<p class="text-slate-300 max-w-xl text-lg leading-relaxed">
+                        A technical breakdown of spectral sensitivity, light behavior on high-contrast film stock, and the mathematical modeling of shadows in monochromatic sensors.
+                    </p>
+<div class="flex gap-8 pt-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Wavelength Range</span>
+<span class="text-2xl font-black text-white">400 - 700 nm</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">T-Stop Precision</span>
+<span class="text-2xl font-black text-white">±0.02</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Sensor Format</span>
+<span class="text-2xl font-black text-white">35mm Ortho</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Grid -->
+<section class="p-12 grid grid-cols-12 gap-12">
+<!-- Main Editorial Body -->
+<div class="col-span-12 lg:col-span-8 space-y-12">
+<div class="prose dark:prose-invert max-w-none">
+<h3 class="text-3xl font-black tracking-tight mb-6">Monochromatic Sensitivity Breakdown</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                        Traditional monochromatic analysis relies heavily on the sensor's ability to interpret luminous flux without the interpolation of a Bayer filter. In Noir cinematography, we specifically examine the <strong>Orthochromatic sensitivity</strong> curve which peaks in the blue-green spectrum, significantly darkening red tones and creating the high-contrast skeletal skin tones classic to the genre.
+                    </p>
+<!-- Formula Block -->
+<div class="bg-slate-100 dark:bg-surface-dark border-l-4 border-primary p-8 rounded-r-xl my-10 relative overflow-hidden blueprint-grid">
+<div class="relative z-10">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest block mb-4">Lumen Calculation Formula</span>
+<div class="text-2xl font-mono text-slate-800 dark:text-slate-200">
+                                Φ<sub>v</sub> = K<sub>m</sub> ∫<sub>380</sub><sup>780</sup> Φ<sub>e,λ</sub>(λ)V(λ) dλ
+                            </div>
+<p class="text-xs text-slate-500 mt-4 font-medium italic">Equation 4.1: Calculation of luminous flux based on spectral radiant flux and the photopic luminous efficiency function.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-5 text-primary">functions</span>
+</div>
+<h4 class="text-xl font-bold mb-4">The Behavior of Shadows (Umbra/Penumbra)</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Modeling the transition from light to shadow requires calculating the solid angle subtended by the light source. In a hard-light "Noir" setup, the penumbra width (p) is defined by the distance from the occluder to the surface (d) and the source diameter (s) over source distance (D).
+                    </p>
+</div>
+<!-- Data Visualization Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<h5 class="text-sm font-black uppercase tracking-tight">Spectral Sensitivity</h5>
+<span class="material-symbols-outlined text-primary">legend_toggle</span>
+</div>
+<div class="h-48 flex items-end gap-2 border-b border-l border-slate-200 dark:border-border-dark p-2">
+<!-- Mock Histogram/Graph -->
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors h-1/4 rounded-t-sm" title="400nm"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors h-2/4 rounded-t-sm" title="450nm"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary transition-colors h-3/4 rounded-t-sm" title="500nm"></div>
+<div class="flex-1 bg-primary/80 hover:bg-primary transition-colors h-full rounded-t-sm" title="550nm"></div>
+<div class="flex-1 bg-primary/60 hover:bg-primary transition-colors h-4/5 rounded-t-sm" title="600nm"></div>
+<div class="flex-1 bg-primary/30 hover:bg-primary transition-colors h-2/5 rounded-t-sm" title="650nm"></div>
+<div class="flex-1 bg-primary/10 hover:bg-primary transition-colors h-1/5 rounded-t-sm" title="700nm"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-400">
+<span>400nm</span>
+<span>550nm</span>
+<span>700nm</span>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<h5 class="text-sm font-black uppercase tracking-tight">MTF Resolution Curve</h5>
+<span class="material-symbols-outlined text-primary">show_chart</span>
+</div>
+<div class="h-48 relative overflow-hidden flex items-center justify-center">
+<!-- Mock Curve SVG -->
+<svg class="w-full h-full" viewbox="0 0 200 100">
+<path d="M 0 10 C 50 10, 100 40, 200 90" fill="none" stroke="#ec5b13" stroke-width="3"></path>
+<path d="M 0 30 C 50 30, 120 60, 200 95" fill="none" opacity="0.4" stroke="#ec5b13" stroke-dasharray="4" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-400">
+<span>Center</span>
+<span>Mid-Field</span>
+<span>Corners</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Spec Sheet Sidebar -->
+<aside class="col-span-12 lg:col-span-4">
+<div class="sticky top-24 space-y-6">
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden shadow-xl">
+<div class="bg-primary px-6 py-4">
+<h4 class="text-white font-black uppercase text-sm tracking-widest">Active Lens Spec</h4>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-border-dark">
+<span class="text-xs font-bold text-slate-400 uppercase">Model</span>
+<span class="text-sm font-black italic">Bausch &amp; Lomb Baltar</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-border-dark">
+<span class="text-xs font-bold text-slate-400 uppercase">Focal Length</span>
+<span class="text-sm font-black">50mm</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-border-dark">
+<span class="text-xs font-bold text-slate-400 uppercase">Max Aperture</span>
+<span class="text-sm font-black">f/2.3</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-border-dark">
+<span class="text-xs font-bold text-slate-400 uppercase">Elements/Groups</span>
+<span class="text-sm font-black">6 / 4</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-border-dark">
+<span class="text-xs font-bold text-slate-400 uppercase">Glass Density</span>
+<span class="text-sm font-black">3.24 g/cm³</span>
+</div>
+<div class="pt-4">
+<img class="w-full h-48 object-cover rounded-lg filter grayscale contrast-125" data-alt="Technical cross section of lens elements diagram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGG2XbpvuncUOaW_BV8O2erMpsGdI2ksnIomyz5taUAlpyzhSg6LfmveNKdgjpkhr9VDWznycVF2qXFu4uzfuS9AV23Iud5svXuUIGZfUwr0T8c3u8ULW-hFvUbEehqOdJJhYLRjQI0r7CP_satq02vD6Gh0RAO3zj3QZGaDgQh8fsxX2HqsG5LtsncHG9rk4mmR9_rR3-gUXkZ4gZlahpTKh_WOxvin3CtWklpotrqeBZRRPZ8zwtP1coIxBh8UAxGdsS26_hTI8"/>
+<p class="text-[10px] text-center mt-2 text-slate-400 italic">Fig 2.1: Double-Gauss Optical Design (Schematic)</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-900 text-white p-6 rounded-xl border border-border-dark shadow-inner">
+<h4 class="text-xs font-black text-primary uppercase tracking-widest mb-4">Quick Insights</h4>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm">info</span>
+<p class="text-xs text-slate-400 leading-relaxed">Increasing the contrast ratio beyond 8:1 requires sensor-level recalibration of the gamma curve.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm">warning</span>
+<p class="text-xs text-slate-400 leading-relaxed">Ultraviolet bleed may occur if older coatings are used without a 2A filter.</p>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+</section>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-border-dark p-12 bg-slate-50 dark:bg-background-dark/50">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-primary/20 text-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">experiment</span>
+</div>
+<div>
+<p class="text-sm font-black uppercase tracking-tight">Cine-Physics Lab 2024</p>
+<p class="text-xs text-slate-400">Advanced Optical Engineering Unit</p>
+</div>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-bold text-slate-400 hover:text-primary transition-colors" href="#">PRIVACY</a>
+<a class="text-xs font-bold text-slate-400 hover:text-primary transition-colors" href="#">LEGAL</a>
+<a class="text-xs font-bold text-slate-400 hover:text-primary transition-colors" href="#">TECHNICAL INDEX</a>
+<a class="text-xs font-bold text-slate-400 hover:text-primary transition-colors" href="#">API ACCESS</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

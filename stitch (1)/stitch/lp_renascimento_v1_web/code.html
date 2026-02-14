@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LP Renascimento V1 Web</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5", // Ivory-ish
+                        "background-dark": "#221e10",
+                        "deep-navy": "#0a1128", // Custom deep navy for text/accents
+                        "ivory-dark": "#e8e8e0", // Slightly darker ivory for contrast areas
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Newsreader", "serif"], // Enforcing serif everywhere as per 'editorial' vibe
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'texture-grain': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f8f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f2b90d;
+        }
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            font-weight: 700;
+            padding-right: 0.5rem;
+            color: #f2b90d;
+        }
+        .golden-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .golden-grid {
+                grid-template-columns: 1fr 1.618fr; /* Approximation of Golden Ratio */
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-deep-navy dark:text-gray-100 font-display antialiased selection:bg-primary/30 relative">
+<!-- Grain Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none z-50 bg-texture-grain mix-blend-multiply dark:mix-blend-overlay opacity-50"></div>
+<!-- Sticky Navigation -->
+<nav class="fixed top-0 w-full z-40 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/20 transition-all duration-300">
+<div class="max-w-md mx-auto px-6 py-4 flex justify-between items-center">
+<!-- Emblem Logo -->
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 border border-deep-navy dark:border-primary flex items-center justify-center rounded-full transition-transform group-hover:rotate-180 duration-700">
+<span class="text-xs font-bold tracking-tighter">RT</span>
+</div>
+<span class="uppercase tracking-[0.2em] text-xs font-bold hidden sm:block">Renascimento</span>
+</a>
+<!-- Hamburger Menu -->
+<button class="p-2 -mr-2 text-deep-navy dark:text-white hover:text-primary transition-colors">
+<span class="material-icons text-3xl">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="max-w-md mx-auto pt-20 pb-12 overflow-hidden bg-background-light dark:bg-background-dark min-h-screen border-x border-primary/10 shadow-2xl shadow-black/5">
+<!-- Hero Section -->
+<section class="relative px-6 pt-8 pb-16">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary"></span>
+                Vol. 01 / 2024
+            </p>
+<h1 class="text-5xl leading-[1.1] font-normal mb-8 text-deep-navy dark:text-white">
+                The Art <br/>
+<span class="italic font-light text-6xl ml-4">of</span> <br/> 
+                Management
+            </h1>
+<div class="relative w-full aspect-[4/5] overflow-hidden rounded mb-8 group">
+<img alt="Abstract minimalist architecture with golden light" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" data-alt="Abstract minimalist architecture with golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIAy0IKqo_NXVAIVkD-57uCinAYe0kfEzc84w90Umw2_o-zmLGx_LsgYynnlZ347qFt7cSAyORzC0SnbiiZBsnDDIl74pT-oBh0Dd397Bz-g90ZVGaKRqK0-B033wR2V10HGrQGuN_MQ4fOlBZUIhkYpyQo0bIb4y2G7JkdmKztcAgVRvhFWZLpe_AnFgBbn8FnqGRL_p1UpQJe2MZ_rhUygPUSfW0_hflWZGvkkWSRgLR1C3V3kTsZ_I3E7Hvvra4eAxus6mJOGs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-navy/40 to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 text-white border-l-2 border-primary pl-4">
+<p class="uppercase text-xs tracking-widest mb-1 opacity-80">Issue 01</p>
+<p class="font-serif italic text-lg">Structure &amp; Soul</p>
+</div>
+</div>
+</section>
+<!-- Manifesto / Introduction -->
+<section class="px-8 py-12 bg-ivory-dark dark:bg-black/20 relative">
+<div class="absolute left-6 top-12 bottom-12 w-[1px] bg-deep-navy/10 dark:bg-white/10"></div>
+<div class="pl-8">
+<h2 class="text-2xl font-serif italic mb-6 text-deep-navy dark:text-primary">The Renaissance of Technique</h2>
+<p class="drop-cap text-lg leading-relaxed text-deep-navy/80 dark:text-gray-300 font-light text-justify">
+                    In an era of relentless speed, we pause to rediscover the architecture of leadership. True management is not merely a function of logistics, but a delicate balance of aesthetic vision and rigorous execution. We invite you to explore the intersection where strategy meets soul.
+                </p>
+<div class="mt-8 pt-8 border-t border-deep-navy/10 dark:border-white/10 flex justify-between items-end">
+<span class="font-serif italic text-sm text-primary">Est. 2024</span>
+<a class="text-xs uppercase tracking-widest border-b border-deep-navy dark:border-white pb-1 hover:text-primary hover:border-primary transition-all" href="#">Read Manifesto</a>
+</div>
+</div>
+</section>
+<!-- Value Proposition Pillars -->
+<section class="py-16 px-6">
+<div class="text-center mb-12">
+<span class="material-icons text-primary text-3xl mb-2">auto_awesome</span>
+<h3 class="text-xl uppercase tracking-widest text-deep-navy dark:text-white">The Triad</h3>
+</div>
+<div class="space-y-12">
+<!-- Pillar 1 -->
+<div class="flex flex-col gap-4">
+<div class="w-full h-48 overflow-hidden rounded relative">
+<img alt="Minimalist store interior shelving detail" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Minimalist store interior shelving detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ0lTllbEr8RppPHWay0rjhelJyz20-h5BsW68yGNhfCd6sRQ6UNC1K4nAhU1H469lCUTcJ9X8L5cpP1FBAVao6hZrkDslWIV8Ejr7AFXDti_ETLQgqz-N2StpHTZETieb5CGryx1Qu9fJdAFLTDG-rCBXRhodBMf0UPifWgx2e9oJnqwSasVcMoL767rPaDGACy2gGkVrV9vOPTU0mAuhOCnydouJOSMJYY7EWDE0IpYvkYW7jckHrvkkYbSFltvQD_xMzGt8t8s"/>
+<div class="absolute top-4 right-4 bg-background-light dark:bg-background-dark px-3 py-1 text-xs font-bold tracking-widest rounded-full shadow-lg">01</div>
+</div>
+<div>
+<h4 class="text-2xl font-serif italic mb-2">Strategy</h4>
+<p class="text-sm leading-relaxed text-deep-navy/70 dark:text-gray-400">The blueprint of ambition. Calculating the unseen path forward.</p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="flex flex-col gap-4">
+<div class="w-full h-48 overflow-hidden rounded relative">
+<img alt="Golden spiral staircase abstract view" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Golden spiral staircase abstract view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFX8IE8G8NstNLbmR-ICA7sehnqbx1rHFqZZps-rtZG8QHq6Wn2waOXfBSOHLy8O0iwF5tjC3SdIFqmArpNZyR96fGdYut-GweTepZb5vRiXf5oOFkGUFdhNyI1KiomAtctPmZAJIslkJ-bfW6cZTY7VzDtTPvyV7Ea07U0eYi61mMThwuevioKV0--F3UjDBtzuwzKTO-Gk59FrSY_X5-0xHAPjQtRkFv6mbU140J4T66TRodad2KOms_Gol-9Hgnd5MmuNgbVuk"/>
+<div class="absolute top-4 right-4 bg-background-light dark:bg-background-dark px-3 py-1 text-xs font-bold tracking-widest rounded-full shadow-lg">02</div>
+</div>
+<div>
+<h4 class="text-2xl font-serif italic mb-2">Aesthetics</h4>
+<p class="text-sm leading-relaxed text-deep-navy/70 dark:text-gray-400">Beauty as a function. Where form elevates the mundane to the magnificent.</p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="flex flex-col gap-4">
+<div class="w-full h-48 overflow-hidden rounded relative">
+<img alt="Modern corporate building glass facade" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern corporate building glass facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUBPkptu6I6KuNAe56JwL6mxVNvoFXFZiablcatwWCthfNGjGabIrNczOUptYeWXJl_gLkOraCBYoykEt40NNBfDPmRciNJ2qdvkZZMXa81N9tW0XEzwmcdVe-4Y70V1PiNFWZ1DXOZvew_TTfuzg_AWoiug-da83PhZ2TG38qkqR8QUIVMD4Ju2Y7mCtCB08m5zot1V5qUeEAcZpoyq4-iyYODBP1IrQe1gBOAKkUWvc8dO3TZGXy9YbRUvQ_WVhMgRn9x975gs"/>
+<div class="absolute top-4 right-4 bg-background-light dark:bg-background-dark px-3 py-1 text-xs font-bold tracking-widest rounded-full shadow-lg">03</div>
+</div>
+<div>
+<h4 class="text-2xl font-serif italic mb-2">Execution</h4>
+<p class="text-sm leading-relaxed text-deep-navy/70 dark:text-gray-400">Precision in motion. The disciplined act of bringing vision to life.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Showcase / Editorial Spread -->
+<section class="bg-deep-navy text-background-light py-16 px-0 relative overflow-hidden">
+<!-- Background decorative element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="px-6 relative z-10">
+<div class="border-t border-primary/30 w-12 mb-6"></div>
+<h3 class="text-3xl mb-6 font-light">
+                    The <span class="text-primary italic">Executive</span> <br/> Suite
+                </h3>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<img alt="Man in suit adjusting cufflinks close up" class="w-full aspect-[3/4] object-cover rounded shadow-lg border border-white/10" data-alt="Man in suit adjusting cufflinks close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7iZ_TkH3qK35tnJo6hiLDtcJACbJuS3pwbzkZiStx3_7pKPqJehaRV4JTbaH4M9BrrVev03PSxbuj_KqOY9FeDogsGgeIfd6D873bvGNl--y7Q38iN194H0CNhyGKLHzXuxsxecwvRWR44gCYQqnq7RO3y47Vra3F1_1JFW4kqu1k9COlx_onGEtQPnqLW4Jk9wLAphkvaSZyOT_zvcZTlbUlDIUf0ZYWP2w4b5OE85atYLKx1L_vVOjl_l7qe71h1H1mVM0Ikxw"/>
+<div class="flex flex-col justify-between py-2">
+<p class="text-sm font-light text-white/70 leading-relaxed">
+                            A curated program designed for the modern polymath. Redefine your approach to leadership.
+                        </p>
+<button class="group flex items-center gap-2 text-primary text-sm mt-4">
+<span class="uppercase tracking-widest text-[10px] group-hover:underline decoration-primary underline-offset-4">Explore</span>
+<span class="material-icons text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-white/5 p-6 backdrop-blur-sm border border-white/10 rounded relative">
+<span class="absolute -top-3 left-4 bg-primary text-deep-navy text-[10px] font-bold uppercase px-2 py-0.5 rounded-sm">New Entry</span>
+<h4 class="font-serif text-xl mb-2">Masterclass: Fiscal Elegance</h4>
+<p class="text-xs text-white/60 mb-4">Starting Oct 2024 • Limited Seats</p>
+<a class="block w-full py-3 border border-primary/50 text-center text-primary text-xs uppercase tracking-widest hover:bg-primary hover:text-deep-navy transition-colors rounded-lg" href="#">
+                        View Details
+                    </a>
+</div>
+</div>
+</section>
+<!-- Social Proof / Quote -->
+<section class="py-20 px-8 text-center relative">
+<span class="absolute top-12 left-1/2 -translate-x-1/2 text-9xl font-serif text-primary/10 select-none">"</span>
+<blockquote class="relative z-10">
+<p class="text-2xl md:text-3xl font-serif italic leading-tight text-deep-navy dark:text-white mb-8">
+                    "Management is the unseen art that turns chaos into a symphony. Renascimento teaches you to be the conductor."
+                </p>
+<cite class="not-italic flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary p-0.5">
+<img alt="Portrait of a professional woman" class="w-full h-full object-cover rounded-full" data-alt="Portrait of a professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwC1Zi12GiuzA5wWDm21cVZ-7Vg1Yubs-xghr1ihkXeHfTMmCDb61PiEspckdb5qKDu0KYqx3AL70tuff8s_W9cd8TDL6eLpYgbC06l4w6_fsQdRKjttr8W98MKhtVydDweVTsnVecJ4cDBqMAPX01yXx2UowCwHmt-G4WY1C3GDd1DAnOWn28YW2wqAEWX5hH7ntbs7cNvp7EVR05P_HXNsuLLIqlA5P5VMYz6Ps0KQFwLZm0IObxs76Tw_Rs6V2bvMG6P3-dWjk"/>
+</div>
+<div>
+<span class="block text-xs font-bold uppercase tracking-widest">Elena Vance</span>
+<span class="block text-[10px] text-deep-navy/50 dark:text-white/50">Chief Architect, Modern Living</span>
+</div>
+</cite>
+</blockquote>
+</section>
+<!-- Newsletter / Footer -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-primary/20 pt-16 pb-8 px-6">
+<div class="mb-12">
+<h3 class="font-serif text-3xl italic text-deep-navy dark:text-white mb-2">Join the Inner Circle</h3>
+<p class="text-sm text-deep-navy/60 dark:text-gray-400 mb-6 font-light">Curated insights on leadership, style, and strategy delivered to your inbox.</p>
+<form class="flex flex-col gap-4">
+<input class="w-full bg-transparent border-b border-deep-navy/20 dark:border-white/20 py-3 text-deep-navy dark:text-white placeholder:text-deep-navy/30 focus:border-primary focus:ring-0 px-0 transition-colors font-serif text-lg" placeholder="Your professional email" type="email"/>
+<button class="mt-2 w-full py-4 bg-deep-navy dark:bg-primary text-white dark:text-deep-navy text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-opacity rounded-sm" type="button">
+                        Subscribe
+                    </button>
+</form>
+</div>
+<div class="grid grid-cols-2 gap-8 border-t border-deep-navy/5 dark:border-white/5 pt-8 mb-8">
+<div>
+<h4 class="text-[10px] uppercase tracking-widest font-bold mb-4 text-primary">Sitemap</h4>
+<ul class="space-y-2 text-sm font-serif">
+<li><a class="hover:text-primary transition-colors" href="#">Journal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Manifesto</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-widest font-bold mb-4 text-primary">Connect</h4>
+<ul class="space-y-2 text-sm font-serif">
+<li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 text-center border-t border-deep-navy/5 dark:border-white/5 pt-8">
+<div class="w-6 h-6 border border-deep-navy/20 dark:border-white/20 flex items-center justify-center rounded-full">
+<span class="text-[8px] font-bold">RT</span>
+</div>
+<p class="text-[10px] text-deep-navy/40 dark:text-gray-500 uppercase tracking-widest">
+                    © 2024 Renascimento Técnico.<br/>All rights reserved.
+                </p>
+</div>
+</footer>
+</main>
+</body></html>

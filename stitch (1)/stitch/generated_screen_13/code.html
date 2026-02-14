@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cinephile Optics v2 - Nero 27</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            noir: {
+              black: '#0a0a0a',
+              dark: '#1a1a1a',
+              smoke: '#2d2d2d',
+              paper: '#e5e5e5'
+            },
+            cinematic: {
+              gold: '#c5a059',
+              flare: '#4da6ff'
+            }
+          },
+          animation: {
+            'film-roll': 'film-roll 10s linear infinite',
+            'flare-pulse': 'flare-pulse 4s ease-in-out infinite',
+            'title-reveal': 'title-reveal 2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            'dust-float': 'dust-float 8s ease-in-out infinite'
+          },
+          keyframes: {
+            'film-roll': {
+              '0%': { transform: 'translateY(0)' },
+              '100%': { transform: 'translateY(-50%)' }
+            },
+            'flare-pulse': {
+              '0%, 100%': { opacity: '0.3', transform: 'scale(1) translateX(-50%)' },
+              '50%': { opacity: '0.6', transform: 'scale(1.1) translateX(-48%)' }
+            },
+            'title-reveal': {
+              '0%': { letterSpacing: '0.5em', opacity: '0', filter: 'blur(10px)' },
+              '100%': { letterSpacing: '0.1em', opacity: '1', filter: 'blur(0)' }
+            },
+            'dust-float': {
+              '0%, 100%': { transform: 'translate(0, 0)', opacity: '0' },
+              '50%': { transform: 'translate(15px, -20px)', opacity: '0.4' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Effects -->
+<style data-purpose="cinematic-effects">.anamorphic-mask {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none
+    }
+.film-grain {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuA_vooV4-kAEqXI5UyzYxkgxMOSxzqJV0jrPGvlJh-PwqfpeQsN5GgeBdFyrDOOYR7kxK6z2XijnUd_ejCoqA7r5EYGt5sHUoKpHH9w-MmV7b_wpOtetvQQBsPHKrGBi1AmrX_c9y-dYbX4yde4esI10ITP7XP_326SRymtFrBUcqC9v7S-voP2tIqYdU5E3mrgR9hBTBV3IeE9sYPhfIaLyxlNmr0Th3UPw8zKnLl_91SZG2fHHGWrelXo9rhG5oXw0J8PimlsFR8);
+    opacity: 0.05;
+    pointer-events: none
+    }
+.vignette {
+    background: radial-gradient(circle, transparent 40%, black 150%);
+    pointer-events: none
+    }
+.sprocket-hole {
+    width: 12px;
+    height: 16px;
+    background: #000;
+    border-radius: 2px;
+    margin: 10px auto
+    }
+.lens-flare {
+    background: radial-gradient(ellipse at center, rgba(77, 166, 255, 0.4) 0%, rgba(77, 166, 255, 0) 70%);
+    filter: blur(20px)
+    }</style>
+</head>
+<body class="bg-noir-black text-noir-paper overflow-hidden h-screen w-screen flex flex-col font-serif">
+<!-- BEGIN: Film Grain Overlay -->
+<div class="fixed inset-0 z-50 film-grain pointer-events-none" data-purpose="texture-overlay"></div>
+<!-- END: Film Grain Overlay -->
+<!-- BEGIN: Anamorphic Frame -->
+<div class="fixed inset-0 z-40 anamorphic-mask" data-purpose="letterbox-effect"></div>
+<div class="fixed inset-0 z-30 vignette" data-purpose="vignette-effect"></div>
+<!-- END: Anamorphic Frame -->
+<!-- BEGIN: Vertical Film Strips -->
+<!-- Left Strip -->
+<div class="fixed left-4 top-0 bottom-0 w-8 bg-noir-dark opacity-30 z-10 overflow-hidden" data-purpose="film-strip-left">
+<div class="animate-film-roll">
+<!-- Generated sprocket holes -->
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+</div>
+</div>
+<!-- Right Strip -->
+<div class="fixed right-4 top-0 bottom-0 w-8 bg-noir-dark opacity-30 z-10 overflow-hidden" data-purpose="film-strip-right">
+<div class="animate-film-roll">
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+<div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div><div class="sprocket-hole"></div>
+</div>
+</div>
+<!-- END: Vertical Film Strips -->
+<!-- BEGIN: Main Content -->
+<main class="relative z-20 flex-grow flex flex-col items-center justify-center p-6 text-center" data-purpose="brand-presentation">
+<!-- BEGIN: Visual Centerpiece -->
+<div class="relative mb-12" data-purpose="optical-center">
+<!-- Lens Flare Element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[60px] lens-flare animate-flare-pulse" data-purpose="flare-glow"></div>
+<!-- Brand Logo Title Sequence -->
+<div class="relative">
+<h2 class="text-xs uppercase tracking-[0.5em] mb-4 opacity-60 animate-title-reveal" style="animation-delay: 0.5s;">A Nero 27 Production</h2>
+<h1 class="text-6xl md:text-8xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-noir-paper to-noir-smoke animate-title-reveal" id="brand-title">
+          NERO 27
+        </h1>
+<div class="w-full h-px bg-gradient-to-r from-transparent via-noir-paper to-transparent mt-4 opacity-40 scale-x-0 transition-transform duration-1000 origin-center" id="divider-line"></div>
+</div>
+</div>
+<!-- END: Visual Centerpiece -->
+<!-- BEGIN: Metadata Section -->
+<div class="max-w-xs space-y-6 opacity-0 animate-title-reveal" style="animation-delay: 1.5s; animation-fill-mode: forwards;">
+<div class="space-y-2">
+<p class="text-[10px] uppercase tracking-[0.3em] text-cinematic-gold">Current Presentation</p>
+<p class="text-2xl font-light italic">Cinephile Optics v2</p>
+</div>
+<div class="grid grid-cols-3 gap-4 border-y border-white/10 py-4">
+<div class="flex flex-col">
+<span class="text-[8px] uppercase opacity-50">FPS</span>
+<span class="text-sm">24.00</span>
+</div>
+<div class="flex flex-col border-x border-white/10">
+<span class="text-[8px] uppercase opacity-50">Lens</span>
+<span class="text-sm">35mm</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[8px] uppercase opacity-50">ISO</span>
+<span class="text-sm">800</span>
+</div>
+</div>
+</div>
+<!-- END: Metadata Section -->
+</main>
+<!-- END: Main Content -->
+<!-- BEGIN: Interaction Footer -->
+<footer class="relative z-20 p-8 flex justify-center items-center" data-purpose="navigation-footer">
+<button class="group relative px-8 py-3 overflow-hidden border border-noir-paper/20 rounded-sm hover:border-noir-paper/50 transition-colors duration-500">
+<span class="relative z-10 text-[10px] uppercase tracking-[0.4em] group-hover:text-cinematic-gold transition-colors">Enter Theater</span>
+<div class="absolute inset-0 bg-noir-paper/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+</footer>
+<!-- END: Interaction Footer -->
+<!-- BEGIN: Ambient Dust Particles (Canvas) -->
+<canvas class="fixed inset-0 z-[15] pointer-events-none opacity-40" data-purpose="ambient-particles" id="dust-canvas"></canvas>
+<!-- END: Ambient Dust Particles -->
+<script data-purpose="canvas-animation">
+    const canvas = document.getElementById('dust-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+    for(let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random() * 0.5
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.fillStyle = `rgba(229, 229, 229, ${p.opacity})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+<script data-purpose="visual-triggers">
+    window.addEventListener('DOMContentLoaded', () => {
+      const line = document.getElementById('divider-line');
+      setTimeout(() => {
+        line.style.transform = 'scaleX(1)';
+      }, 1000);
+    });
+  </script>
+</body></html>

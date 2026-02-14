@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Little Darkness V3 - Occult Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                        "neutral-dark": "#1a1310",
+                        "neutral-border": "#2d1b14",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>.glow-border {
+    box-shadow: 0 0 10px rgba(236, 91, 19, 0.2)
+    }
+.glow-text {
+    text-shadow: 0 0 8px rgba(236, 91, 19, 0.5)
+    }
+.scanlines {
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.2) 50%);
+    background-size: 100% 4px;
+    pointer-events: none
+    }
+.hex-grid {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDLpPriHE7FZ2Mjuq4PSOCFAKc8KHxmtEtQZhCVQ8NE47BfyNsny82CjRNGQYwUypAqBClFljZrZoJqUqXbRMsaUB0UWZuPBmNNSbYN6Nfd5OyowxyLaAW0urvEZ1FuGX-nn-wcqHsyZpzmkxOjmv9zyBOFAU-qsOgOw2C8TBT1GbhECPLFu_o2Zga07ORnD65z2qYQaDcsEgDA0sUBkx5DnNIbRfMwDj8EoIFmFNYAGeT5Pts8-IzZNLaplBJWwrr2WmuJ6oczU7g);
+    opacity: 0.1
+    }
+.thin-line {
+    stroke-width: 1px
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-800 dark:text-neutral-200 overflow-hidden h-screen flex flex-col">
+<!-- Header / Top Bar -->
+<header class="flex items-center justify-between px-6 py-3 border-b border-neutral-border bg-neutral-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">account_tree</span>
+</div>
+<div>
+<h2 class="text-primary font-bold tracking-widest text-sm uppercase glow-text">Little Darkness V3</h2>
+<p class="text-[10px] text-primary/60 uppercase tracking-[0.2em]">Sacred Engineering OS</p>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-6 border-l border-neutral-border pl-6">
+<a class="text-xs font-bold uppercase tracking-tighter text-primary" href="#">Terminal</a>
+<a class="text-xs font-bold uppercase tracking-tighter text-neutral-400 hover:text-primary transition-colors" href="#">Geometry</a>
+<a class="text-xs font-bold uppercase tracking-tighter text-neutral-400 hover:text-primary transition-colors" href="#">Aetheric</a>
+<a class="text-xs font-bold uppercase tracking-tighter text-neutral-400 hover:text-primary transition-colors" href="#">Void Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end px-3">
+<span class="text-[10px] text-neutral-500 uppercase">Entropy Threshold</span>
+<span class="text-xs font-mono text-primary">0.61803398</span>
+</div>
+<div class="h-8 w-[1px] bg-neutral-border"></div>
+<button class="text-neutral-400 hover:text-primary"><span class="material-symbols-outlined">settings</span></button>
+<button class="text-neutral-400 hover:text-primary"><span class="material-symbols-outlined">notifications</span></button>
+<div class="size-8 rounded-full border border-primary/40 p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="Avatar of an occult mathematician" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDH-pcW03nJS4eux-9Io0_7jEUjzjGSTq1NGTAAiSxP0MOOf7BEiHGuak9gl35hfsBouXvUneqAQhNi-bbUCuGPy-EnHHrpVow7ZEGRZUqbbrwgWxKukwXA68Ou-qAANtgUV1SYQL9-azryIEpB7NJ_k-sVJrsf55fgP1bJJRH0LCEv59BLDIcBegfr0vzzEBBkG_99s6oXCZHpbVtIV9brlkf7WgXQiqsK_lp0BhDAQnLzP7F-MxIb-UujE8Hixj3Defr27Xhb-ss");'></div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden relative">
+<div class="absolute inset-0 hex-grid pointer-events-none"></div>
+<div class="absolute inset-0 scanlines pointer-events-none"></div>
+<!-- Sidebar Navigation -->
+<aside class="w-16 border-r border-neutral-border bg-neutral-dark flex flex-col items-center py-6 gap-8 z-10">
+<div class="group relative flex flex-col items-center gap-6">
+<button class="p-2 rounded-xl bg-primary/10 text-primary glow-border">
+<span class="material-symbols-outlined">pentagon</span>
+</button>
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">change_history</span>
+</button>
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">radio_button_checked</span>
+</button>
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">hive</span>
+</button>
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+<div class="mt-auto flex flex-col items-center gap-4 pb-4">
+<div class="w-1 h-12 bg-primary/20 rounded-full relative overflow-hidden">
+<div class="absolute top-0 w-full h-1/2 bg-primary shadow-[0_0_8px_#ec5b13]"></div>
+</div>
+<button class="text-primary/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bolt</span>
+</button>
+</div>
+</aside>
+<!-- Fractal Viewport (Center) -->
+<section class="flex-1 flex flex-col relative">
+<div class="flex-1 p-4 flex gap-4">
+<!-- Central Visualization -->
+<div class="flex-[2] relative rounded-xl border border-neutral-border bg-black/40 overflow-hidden">
+<div class="absolute top-4 left-4 z-20">
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-primary/80 mb-1">Architecture Viewport</h3>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-primary/20 text-[9px] border border-primary/40 text-primary rounded uppercase">Active Sigil: Λ-7</span>
+<span class="px-2 py-0.5 bg-neutral-900 text-[9px] border border-neutral-700 text-neutral-400 rounded uppercase">Geometry: Fractal-NonEuclidean</span>
+</div>
+</div>
+<!-- Placeholder for Fractal Render -->
+<div class="size-full flex items-center justify-center p-12">
+<div class="relative w-full h-full border border-primary/10 flex items-center justify-center">
+<svg class="w-full h-full text-primary/40" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="100" cy="100" fill="none" r="80" stroke="currentColor" stroke-dasharray="4 2" stroke-width="0.5"></circle>
+<path d="M100 20 L180 160 L20 160 Z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M100 40 L160 140 L40 140 Z" fill="none" opacity="0.6" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M100 60 L140 120 L60 120 Z" fill="none" opacity="0.3" stroke="currentColor" stroke-width="0.5"></path>
+<circle class="glow-text" cx="100" cy="100" fill="currentColor" r="2"></circle>
+<line stroke="currentColor" stroke-width="0.2" x1="100" x2="100" y1="20" y2="180"></line>
+<line stroke="currentColor" stroke-width="0.2" x1="20" x2="180" y1="100" y2="100"></line>
+</svg>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+<div class="absolute bottom-6 right-6 flex flex-col items-end">
+<p class="text-[10px] text-neutral-500 font-mono">X: 14.8821</p>
+<p class="text-[10px] text-neutral-500 font-mono">Y: 2.1105</p>
+<p class="text-[10px] text-neutral-500 font-mono">Z: 87.0092</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Metrics Column -->
+<div class="flex-1 flex flex-col gap-4 max-w-sm">
+<!-- Gauge 1 -->
+<div class="p-4 rounded-xl border border-neutral-border bg-neutral-dark/40 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400">Aetheric Frequency</span>
+<span class="text-[10px] text-primary font-mono">+0.04%</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative size-16 flex items-center justify-center">
+<svg class="size-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-neutral-800" cx="18" cy="18" fill="none" r="16" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary" cx="18" cy="18" fill="none" r="16" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="2"></circle>
+</svg>
+<span class="absolute text-xs font-mono text-primary">432</span>
+</div>
+<div class="flex-1">
+<div class="h-1 w-full bg-neutral-800 rounded-full overflow-hidden mb-1">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+<div class="h-1 w-full bg-neutral-800 rounded-full overflow-hidden mb-1">
+<div class="h-full bg-primary/40 w-[42%]"></div>
+</div>
+<p class="text-[9px] text-neutral-500 uppercase mt-2">Hertz Resonance Level</p>
+</div>
+</div>
+</div>
+<!-- Chart Widget -->
+<div class="p-4 rounded-xl border border-neutral-border bg-neutral-dark/40 flex-1 flex flex-col">
+<span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 mb-4">Void Density Gradient</span>
+<div class="flex-1 flex items-end gap-1">
+<div class="flex-1 bg-primary/10 border-t border-primary/40 h-[60%]"></div>
+<div class="flex-1 bg-primary/20 border-t border-primary/50 h-[80%]"></div>
+<div class="flex-1 bg-primary/10 border-t border-primary/40 h-[40%]"></div>
+<div class="flex-1 bg-primary/30 border-t border-primary/60 h-[90%] shadow-[0_0_15px_rgba(236,91,19,0.3)]"></div>
+<div class="flex-1 bg-primary/10 border-t border-primary/40 h-[50%]"></div>
+<div class="flex-1 bg-primary/20 border-t border-primary/50 h-[70%]"></div>
+<div class="flex-1 bg-primary/10 border-t border-primary/40 h-[30%]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[8px] text-neutral-600 font-mono">0.00</span>
+<span class="text-[8px] text-neutral-600 font-mono">MAX_VOID</span>
+</div>
+</div>
+<!-- Ritual Status Card -->
+<div class="p-4 rounded-xl border border-primary/30 bg-primary/5 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] uppercase font-bold text-primary tracking-widest">Synthesis in Progress</span>
+</div>
+<p class="text-[11px] text-neutral-400">Ritual subroutine "Fibonacci Spiral" is 87% converged with current aetheric field.</p>
+<button class="mt-2 w-full py-2 bg-primary text-background-dark text-[10px] font-bold uppercase rounded-lg tracking-widest hover:brightness-110 transition-all">
+                            Initiate Ritual
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bottom Console / Terminal -->
+<div class="h-64 border-t border-neutral-border bg-neutral-dark/60 backdrop-blur-sm p-4 flex gap-4">
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex justify-between border-b border-neutral-border pb-1">
+<span class="text-[10px] uppercase font-bold text-neutral-400">Ritual Logs.stdout</span>
+<span class="text-[10px] font-mono text-neutral-500">LINE: 402</span>
+</div>
+<div class="flex-1 overflow-y-auto font-mono text-[10px] text-neutral-400 space-y-1 scrollbar-hide">
+<p><span class="text-primary">[INIT]</span> Sacred Engineering Module V3.0.4 loaded...</p>
+<p><span class="text-neutral-500">14:22:01</span> Calculating golden ratio variance: <span class="text-primary">1.41421356</span></p>
+<p><span class="text-neutral-500">14:22:05</span> Warning: Entropy spike detected in sector G-9</p>
+<p><span class="text-neutral-500">14:22:12</span> Sigil synthesis converging at <span class="text-primary">87%</span></p>
+<p><span class="text-neutral-500">14:22:18</span> Invoking algorithmic circle... Success.</p>
+<p><span class="text-neutral-500">14:22:25</span> Aetheric connection stable. Latency: 4ms.</p>
+<p class="animate-pulse">_</p>
+</div>
+<div class="flex items-center gap-2 mt-2 bg-black/40 px-3 py-1.5 rounded border border-neutral-border">
+<span class="text-primary text-[10px] font-bold">INVOKE &gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-[10px] font-mono text-primary placeholder:text-neutral-700 w-full p-0" placeholder="enter command or runic sequence..." type="text"/>
+</div>
+</div>
+<!-- Small Grid Metrics -->
+<div class="w-72 grid grid-cols-2 grid-rows-2 gap-3">
+<div class="p-3 border border-neutral-border rounded bg-neutral-dark/40 flex flex-col justify-between">
+<span class="text-[8px] uppercase text-neutral-500">Sigil Quality</span>
+<div class="flex items-end gap-1">
+<span class="text-lg font-mono text-primary leading-none">94.2</span>
+<span class="text-[8px] text-neutral-600 mb-0.5">%</span>
+</div>
+</div>
+<div class="p-3 border border-neutral-border rounded bg-neutral-dark/40 flex flex-col justify-between">
+<span class="text-[8px] uppercase text-neutral-500">Delta Drift</span>
+<div class="flex items-end gap-1">
+<span class="text-lg font-mono text-primary leading-none">0.003</span>
+</div>
+</div>
+<div class="p-3 border border-neutral-border rounded bg-neutral-dark/40 flex flex-col justify-between">
+<span class="text-[8px] uppercase text-neutral-500">Nodes</span>
+<div class="flex items-end gap-1">
+<span class="text-lg font-mono text-primary leading-none">1,024</span>
+</div>
+</div>
+<div class="p-3 border border-neutral-border rounded bg-neutral-dark/40 flex flex-col justify-between">
+<span class="text-[8px] uppercase text-neutral-500">Convergence</span>
+<div class="flex items-end gap-1">
+<span class="text-lg font-mono text-primary leading-none">FAIR</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Status -->
+<footer class="h-8 bg-primary/10 border-t border-primary/20 px-4 flex items-center justify-between z-20">
+<div class="flex items-center gap-4 text-[9px] uppercase tracking-widest text-primary font-bold">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px]">sensors</span>
+                OS_STABLE
+            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px]">security</span>
+                ENCRYPTION_RUNE_SET
+            </div>
+</div>
+<div class="flex items-center gap-6 text-[9px] font-mono text-primary/60">
+<span>UPTIME: 332:11:05:59</span>
+<span>LAT: 42.1105</span>
+<span>LONG: -71.0422</span>
+<span class="text-primary font-bold">SYS_VERSION: 3.0.4-VOID</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Infrastructure v2 - Nero 27</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for custom colors and animations -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nero: {
+              dark: '#020617',
+              deep: '#0f172a',
+              accent: '#3b82f6',
+              glow: '#60a5fa',
+              success: '#10b981'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+            'flow': 'flow 10s linear infinite',
+            'scan': 'scan 5s linear infinite',
+          },
+          keyframes: {
+            flow: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
+            },
+            scan: {
+              '0%': { top: '0%' },
+              '100%': { top: '100%' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom CSS for specialized visual effects -->
+<style data-purpose="background-effects">
+    .grid-bg {
+      background-image: 
+        linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .node-glow {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+    }
+    .mask-radial {
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+    }
+    .text-glow {
+      text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-nero-dark text-slate-100 font-sans min-h-screen overflow-hidden select-none">
+<!-- BEGIN: HeroBackground -->
+<!-- Main immersive background layer with grid and gradient -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" data-purpose="immersive-background">
+<div class="absolute inset-0 grid-bg opacity-30"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-nero-deep/50 to-nero-dark"></div>
+<!-- Ambient glowing orbs representing global nodes -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-nero-accent/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+<div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-900/20 rounded-full blur-[120px] animate-pulse"></div>
+</div>
+<!-- END: HeroBackground -->
+<!-- BEGIN: MainInterface -->
+<main class="relative z-10 flex flex-col items-center justify-between min-h-screen p-6" data-purpose="app-shell">
+<!-- BEGIN: TopBar -->
+<header class="w-full flex justify-between items-start pt-4" data-purpose="header-navigation">
+<div class="flex flex-col">
+<span class="text-[10px] tracking-[0.2em] text-nero-glow font-bold uppercase">System Status</span>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-nero-success animate-pulse"></div>
+<span class="text-xs font-mono">GLOBAL_NET_ACTIVE</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] tracking-[0.2em] text-slate-500 font-bold uppercase">Infrastructure v2.0</span>
+<div class="text-xs font-mono text-slate-400">SECURE_NODE_27</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: CentralVisualizer -->
+<!-- The core animation piece: Global connectivity map -->
+<section class="flex-grow flex flex-col items-center justify-center w-full relative" data-purpose="global-map-visualizer">
+<!-- Logo Container -->
+<div class="relative z-20 flex flex-col items-center mb-8" data-purpose="brand-identity">
+<div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+<!-- Logo Physics-based structure representation -->
+<svg class="w-full h-full fill-none stroke-nero-glow stroke-2" viewbox="0 0 100 100">
+<circle class="opacity-20" cx="50" cy="50" r="45"></circle>
+<path class="opacity-40" d="M50 5 L50 95 M5 50 L95 50"></path>
+<rect class="stroke-nero-accent fill-nero-accent/10" height="30" width="30" x="35" y="35"></rect>
+<path class="opacity-30" d="M20 20 L80 80 M80 20 L20 80"></path>
+<!-- Animated nodes on the logo -->
+<circle class="fill-nero-glow animate-ping" cx="50" cy="50" r="3"></circle>
+</svg>
+</div>
+<h1 class="text-4xl font-black tracking-tighter text-white text-glow">NERO <span class="text-nero-accent">27</span></h1>
+<p class="text-slate-400 text-[10px] tracking-[0.4em] uppercase mt-2">Global Infrastructure</p>
+</div>
+<!-- Global Connectivity Canvas Background -->
+<div class="absolute inset-0 flex items-center justify-center opacity-40 pointer-events-none" data-purpose="connectivity-map">
+<div class="relative w-full max-w-lg aspect-square">
+<!-- Simulated Map Nodes -->
+<div class="absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-nero-glow rounded-full node-glow"></div>
+<div class="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-nero-glow rounded-full node-glow"></div>
+<div class="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-nero-glow rounded-full node-glow"></div>
+<div class="absolute top-1/4 right-1/3 w-1.5 h-1.5 bg-nero-glow rounded-full node-glow"></div>
+<!-- Connections (SVG Lines) -->
+<svg class="w-full h-full" viewbox="0 0 400 400">
+<g class="stroke-nero-accent/30 stroke-[0.5] fill-none">
+<path d="M100,133 L200,200 L300,266 L266,100 L100,133"></path>
+<circle class="stroke-dashed opacity-10" cx="200" cy="200" r="150" stroke-dasharray="5,5"></circle>
+</g>
+</svg>
+</div>
+</div>
+</section>
+<!-- END: CentralVisualizer -->
+<!-- BEGIN: DataMetrics -->
+<!-- Bottom monitoring UI panels -->
+<footer class="w-full grid grid-cols-2 gap-4 pb-8" data-purpose="server-monitoring-ui">
+<!-- Panel 1: Throughput -->
+<div class="bg-slate-900/40 border border-slate-800 rounded-lg p-3 backdrop-blur-md">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[9px] uppercase font-bold text-slate-500">Net Throughput</span>
+<span class="text-[9px] font-mono text-nero-glow">84.2 GB/S</span>
+</div>
+<div class="h-12 flex items-end gap-1" data-purpose="sparkline">
+<div class="flex-1 bg-nero-accent/20 h-[40%] rounded-t-sm animate-pulse"></div>
+<div class="flex-1 bg-nero-accent/40 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-nero-accent/30 h-[50%] rounded-t-sm animate-pulse"></div>
+<div class="flex-1 bg-nero-accent/60 h-[90%] rounded-t-sm"></div>
+<div class="flex-1 bg-nero-accent/40 h-[60%] rounded-t-sm animate-pulse"></div>
+<div class="flex-1 bg-nero-accent/50 h-[75%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Panel 2: Latency -->
+<div class="bg-slate-900/40 border border-slate-800 rounded-lg p-3 backdrop-blur-md">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[9px] uppercase font-bold text-slate-500">Latency Avg</span>
+<span class="text-[9px] font-mono text-nero-glow">12MS</span>
+</div>
+<div class="relative h-12 flex items-center justify-center overflow-hidden">
+<!-- Circular Radar/Pulse effect -->
+<div class="absolute w-10 h-10 border border-nero-accent/30 rounded-full animate-ping-slow"></div>
+<div class="w-2 h-2 bg-nero-accent rounded-full"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-[1px] bg-nero-accent/10 absolute top-1/2 -translate-y-1/2 overflow-hidden">
+<div class="h-full w-1/3 bg-nero-glow/50 animate-flow shadow-[0_0_10px_#60a5fa]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Wide Panel: Footer Info -->
+<div class="col-span-2 flex justify-between items-center px-1">
+<div class="text-[8px] text-slate-500 uppercase tracking-widest">
+          © 2024 NERO 27 INFRASTRUCTURE GROUP
+        </div>
+<div class="text-[8px] text-slate-500 font-mono">
+          LOC: GLOBAL_CLUSTER_ALPHA_01
+        </div>
+</div>
+</footer>
+<!-- END: DataMetrics -->
+<!-- Scanner Overlay Effect -->
+<div class="fixed inset-0 pointer-events-none z-50">
+<div class="w-full h-[2px] bg-nero-accent/10 absolute animate-scan"></div>
+</div>
+</main>
+<!-- END: MainInterface -->
+<!-- BEGIN: Logic -->
+<script data-purpose="ui-interactions">
+    // Simple logic to add minor variation to data visuals if needed
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Nero 27 Infrastructure System Initialized...');
+      
+      // Potential for future interaction: haptic feedback or sound toggle
+    });
+  </script>
+<!-- END: Logic -->
+</body></html>

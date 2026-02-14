@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Structural Blueprint V3 - Technical Documentation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "neutral-light": "#ece7f4",
+                        "neutral-dark": "#2d243a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #4c09aa22 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .isometric-canvas {
+            transform: skewY(-5deg) rotateX(15deg);
+        }
+        .technical-line {
+            position: relative;
+        }
+        .technical-line::before {
+            content: '';
+            position: absolute;
+            background: #4c09aa;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-dark dark:text-neutral-light selection:bg-primary selection:text-white">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex h-16 items-center justify-between border-b border-primary/10 bg-white/80 dark:bg-neutral-dark/80 px-6 backdrop-blur-md z-50">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded">
+<svg class="size-6 text-white" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-sm font-bold uppercase tracking-widest text-primary leading-tight">Structural Blueprint</h1>
+<p class="text-[10px] font-mono opacity-60">SYSTEM ENGINE V3.0.4</p>
+</div>
+</div>
+<div class="h-8 w-px bg-primary/20"></div>
+<div class="relative hidden lg:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary text-xl">search</span>
+<input class="h-9 w-64 rounded bg-primary/5 border-none pl-10 text-xs focus:ring-1 focus:ring-primary" placeholder="Search specs, rules, assets..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-xs font-bold uppercase hover:text-primary transition-colors" href="#">Blueprints</a>
+<a class="text-xs font-bold uppercase text-primary border-b-2 border-primary pb-0.5" href="#">Rules</a>
+<a class="text-xs font-bold uppercase hover:text-primary transition-colors" href="#">Repository</a>
+<a class="text-xs font-bold uppercase hover:text-primary transition-colors" href="#">Industrial Specs</a>
+</nav>
+<div class="flex items-center gap-2 ml-4">
+<button class="flex items-center gap-2 bg-primary text-white text-[10px] font-bold uppercase px-4 py-2 rounded-lg hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">architecture</span>
+                        Export to CAD
+                    </button>
+<button class="flex items-center justify-center p-2 rounded bg-neutral-light dark:bg-neutral-dark text-primary border border-primary/20">
+<span class="material-symbols-outlined text-lg">settings</span>
+</button>
+<div class="size-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="size-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdbJwrJdAozuT3E-q_DuClClUtsPjq4Wiy_k1sUkfpStZBF9ky7Tn3UCzgYF6G1K_OdH50jB6kJ77A3-pymkvP_slnA8bRu40-ism4Wtg8DeKzyTtlWWC7j9gb8_Hhs4VMHHJDpub2PmoAUGeUud83XDtlcIlWng23LhrsOFD35AT2tDr7mkZjfVXAqZOh6baroHSXxu4zlK1AEoENqeUgYwxO_Bd-uwBlGu6esizj7f65icO1gjyF65CutVwAWI4hg3qVYj3yMWU"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Sidebar: Hierarchical Navigation -->
+<aside class="w-72 border-r border-primary/10 bg-white/50 dark:bg-neutral-dark/50 flex flex-col overflow-y-auto">
+<div class="p-4 border-b border-primary/5">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold uppercase tracking-tighter opacity-50">Project Files</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">filter_list</span>
+</div>
+<ul class="space-y-1">
+<li>
+<div class="flex items-center gap-2 px-2 py-1.5 rounded bg-primary/10 text-primary cursor-pointer">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="text-xs font-medium uppercase">Logotype Rules</span>
+<span class="material-symbols-outlined text-sm ml-auto">expand_more</span>
+</div>
+<ul class="ml-6 mt-1 space-y-1 border-l border-primary/10 pl-2">
+<li class="px-2 py-1 text-xs hover:bg-primary/5 cursor-pointer text-primary font-bold">Construction Grid</li>
+<li class="px-2 py-1 text-xs hover:bg-primary/5 cursor-pointer opacity-70">X-Height Standards</li>
+<li class="px-2 py-1 text-xs hover:bg-primary/5 cursor-pointer opacity-70">Clearspace Radius</li>
+<li class="px-2 py-1 text-xs hover:bg-primary/5 cursor-pointer opacity-70">Color Compliance</li>
+</ul>
+</li>
+<li>
+<div class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-primary/5 cursor-pointer">
+<span class="material-symbols-outlined text-lg">view_in_ar</span>
+<span class="text-xs font-medium uppercase">Isometric Layouts</span>
+<span class="material-symbols-outlined text-sm ml-auto">chevron_right</span>
+</div>
+</li>
+<li>
+<div class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-primary/5 cursor-pointer">
+<span class="material-symbols-outlined text-lg">manufacturing</span>
+<span class="text-xs font-medium uppercase">Industrial Specs</span>
+<span class="material-symbols-outlined text-sm ml-auto">chevron_right</span>
+</div>
+</li>
+<li>
+<div class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-primary/5 cursor-pointer">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span class="text-xs font-medium uppercase">Asset Repository</span>
+<span class="material-symbols-outlined text-sm ml-auto">chevron_right</span>
+</div>
+</li>
+<li>
+<div class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-primary/5 cursor-pointer">
+<span class="material-symbols-outlined text-lg">history</span>
+<span class="text-xs font-medium uppercase">Revision History</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="mt-auto p-4 bg-primary/5 border-t border-primary/10">
+<p class="text-[10px] font-mono opacity-50 uppercase mb-2">System Status</p>
+<div class="flex items-center gap-2 mb-3">
+<div class="size-1.5 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Drafting Engine Online</span>
+</div>
+<button class="w-full flex items-center justify-between px-3 py-2 rounded border border-primary/20 bg-white dark:bg-neutral-dark text-[10px] font-bold uppercase hover:bg-primary hover:text-white transition-all">
+                        Documentation Help
+                        <span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 flex flex-col bg-background-light dark:bg-background-dark overflow-hidden blueprint-grid relative">
+<!-- Utility Bar -->
+<div class="h-12 border-b border-primary/10 bg-white/40 dark:bg-neutral-dark/40 flex items-center justify-between px-6 backdrop-blur-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-[10px] uppercase font-bold text-primary">
+<span>Documents</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Rules</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="opacity-50">Logotype Construction</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 bg-white dark:bg-neutral-dark rounded border border-primary/10">
+<span class="text-[10px] font-bold uppercase">Grid</span>
+<div class="w-8 h-4 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-0.5 top-0.5 size-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-white dark:bg-neutral-dark rounded border border-primary/10">
+<span class="material-symbols-outlined text-sm">zoom_in</span>
+<span class="text-[10px] font-mono">150%</span>
+<span class="material-symbols-outlined text-sm">zoom_out</span>
+</div>
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Technical Viewport -->
+<div class="flex-1 relative overflow-hidden flex items-center justify-center p-12">
+<!-- Isometric Canvas Placeholder -->
+<div class="relative w-full max-w-4xl aspect-[16/9] bg-white/80 dark:bg-neutral-dark/80 rounded border border-primary/20 shadow-2xl flex items-center justify-center group">
+<!-- Drawing Layer -->
+<div class="absolute inset-0 blueprint-grid opacity-20 pointer-events-none"></div>
+<!-- Main Diagram (Isometric Placeholder) -->
+<div class="relative flex items-center justify-center isometric-canvas transition-transform duration-700 hover:scale-110">
+<div class="relative w-64 h-24 border-2 border-primary/40 flex items-center justify-center bg-primary/5">
+<span class="text-4xl font-black text-primary tracking-tighter uppercase">SYSTEM</span>
+<!-- Technical Annotations -->
+<div class="absolute -top-12 left-0 w-full h-px bg-primary/30 flex items-center justify-center">
+<div class="absolute -left-1 -top-1 size-2 border border-primary rounded-full bg-white"></div>
+<div class="absolute -right-1 -top-1 size-2 border border-primary rounded-full bg-white"></div>
+<span class="bg-white dark:bg-neutral-dark px-2 text-[8px] font-mono text-primary -translate-y-4">256.00mm [±0.05]</span>
+</div>
+<div class="absolute -left-12 top-0 h-full w-px bg-primary/30 flex flex-col items-center justify-center">
+<div class="absolute -left-1 -top-1 size-2 border border-primary rounded-full bg-white"></div>
+<div class="absolute -left-1 -bottom-1 size-2 border border-primary rounded-full bg-white"></div>
+<span class="bg-white dark:bg-neutral-dark px-1 text-[8px] font-mono text-primary -rotate-90 -translate-x-6">96.00mm</span>
+</div>
+<div class="absolute top-0 right-0 translate-x-12 -translate-y-12">
+<div class="flex flex-col gap-1 items-start">
+<div class="w-16 h-px bg-primary/40"></div>
+<span class="text-[8px] font-mono text-primary opacity-60">X-HEIGHT REF</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Float Labels -->
+<div class="absolute top-6 left-6 flex flex-col gap-1">
+<span class="text-[10px] font-black uppercase text-primary">Logotype Schematic V3.1</span>
+<span class="text-[8px] font-mono opacity-50 italic">Drafted: 24.OCT.2023 / AUTH: R.CHEN</span>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<button class="px-4 py-2 bg-neutral-light dark:bg-neutral-dark text-primary border border-primary/20 text-[10px] font-bold uppercase rounded flex items-center gap-2 hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">edit</span>
+                                Drafting Mode
+                            </button>
+</div>
+</div>
+<!-- Overlay Controls (Sidebar Floating) -->
+<div class="absolute right-6 top-6 flex flex-col gap-2">
+<div class="p-2 bg-white/90 dark:bg-neutral-dark/90 rounded border border-primary/10 shadow-lg flex flex-col gap-2">
+<button class="size-8 flex items-center justify-center rounded bg-primary text-white"><span class="material-symbols-outlined text-lg">layers</span></button>
+<button class="size-8 flex items-center justify-center rounded hover:bg-primary/10 transition-colors"><span class="material-symbols-outlined text-lg">info</span></button>
+<button class="size-8 flex items-center justify-center rounded hover:bg-primary/10 transition-colors"><span class="material-symbols-outlined text-lg">history</span></button>
+<div class="h-px bg-primary/10 mx-1"></div>
+<button class="size-8 flex items-center justify-center rounded hover:bg-primary/10 transition-colors"><span class="material-symbols-outlined text-lg">share</span></button>
+</div>
+</div>
+</div>
+<!-- Specs/Asset Panel (Collapsible Bottom) -->
+<div class="h-64 border-t border-primary/10 bg-white dark:bg-neutral-dark/80 backdrop-blur-md overflow-x-auto p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-6">
+<h3 class="text-xs font-black uppercase tracking-widest text-primary border-b-2 border-primary">Asset Repository</h3>
+<h3 class="text-xs font-black uppercase tracking-widest opacity-30 cursor-pointer hover:opacity-100 transition-opacity">Technical Metadata</h3>
+</div>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold uppercase px-3 py-1 rounded bg-primary/10 text-primary">Download All (.SVG)</button>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<!-- Asset Card 1 -->
+<div class="p-3 border border-primary/10 rounded-lg hover:border-primary/40 transition-all bg-background-light/50 group cursor-pointer">
+<div class="aspect-video bg-white dark:bg-neutral-dark mb-3 rounded border border-primary/5 overflow-hidden flex items-center justify-center relative">
+<img class="size-12 opacity-40" data-alt="Technical blueprint icon for logo mark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYS8enjkJNX9fy_1JZH7xGbbYkWf3ZEQnobMkykkS1MgE9Uz0McXEY8W2CwsWtZ36_hIRgD_eZxI-VlHbKQmHtku-twRsO167lgBSwYZIOHXwZkV6ZpB7t3xyoIR_N-YoWU80Z4EvNHlJ9t1xIAhKADvhmYEOJvsWjDj2GH-DeFEu5R8WA8aX5v2LvuYPnAIP1LTq5ZZnWG4akX5OnZReAsn-6CamPGl2xlXRZZhAK9SVhzmvhJIi-0unp97GK-HKdRiqxycOuTEQ"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-primary/10 text-[8px] font-mono text-primary uppercase">SVG</div>
+</div>
+<p class="text-[10px] font-bold uppercase mb-1 truncate">V3_Mark_Monotone.svg</p>
+<div class="flex justify-between items-center opacity-50">
+<span class="text-[8px] font-mono">24KB / 512px</span>
+<span class="material-symbols-outlined text-sm group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="p-3 border border-primary/10 rounded-lg hover:border-primary/40 transition-all bg-background-light/50 group cursor-pointer">
+<div class="aspect-video bg-white dark:bg-neutral-dark mb-3 rounded border border-primary/5 overflow-hidden flex items-center justify-center relative">
+<img class="size-12 opacity-40" data-alt="Structural drawing of logotype" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGCXqskfn9zMzTv5ihBObl7mybuyGw-PrORQ0SmfhjbO9wSs6ffBVj-7loTE3kSBCLqzLttfiLCisbY2wFoQdjhCQn5kK3Bg_eiVaS9eFqYr3AfAtP7pfrQz2xvO-N2pIV8Y2LF0oOfER5-wP8OnFR2l-HgJ5mKL0CcbQjOf-hBfYnyItVStVSmmY5vC0jVa7Ik_a1LkVO4LznSVxf1Lanl7Tz3oTYLcwOBeO7eTFekAYDIT1EqwDpFR4uCnrb8hRkUJj1xTzH-4Q"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-primary/10 text-[8px] font-mono text-primary uppercase">CAD</div>
+</div>
+<p class="text-[10px] font-bold uppercase mb-1 truncate">V3_Blueprint_Full.dwg</p>
+<div class="flex justify-between items-center opacity-50">
+<span class="text-[8px] font-mono">1.2MB / Vector</span>
+<span class="material-symbols-outlined text-sm group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<!-- Asset Card 3 -->
+<div class="p-3 border border-primary/10 rounded-lg hover:border-primary/40 transition-all bg-background-light/50 group cursor-pointer">
+<div class="aspect-video bg-white dark:bg-neutral-dark mb-3 rounded border border-primary/5 overflow-hidden flex items-center justify-center relative">
+<img class="size-12 opacity-40" data-alt="Typography spec guide illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_GvcyZdec7zelNDcQ2ONly-rWzWBuc23mx0OpIL0NSo1TWzeeqB8oJiwUDAl4bwrEc9WRI5GWyJJW-wGswRc0xXTpRlGjxcXRaix9PHhwDxnL8BuSFqrJZo3J02L33W-gyamPxqusOwrP3WP_cRMdeWfTWiUOpRl8E4LL4Tvxzy7VV97ThVHftAD3cSAKaaItQaWeHvkR1-Lkw1f8JpSsYyksc6USCxSwObsxVrkx0PtarVCLp7A0cLKdWMIS_h6jfJ9Bem3dYuU"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-primary/10 text-[8px] font-mono text-primary uppercase">PDF</div>
+</div>
+<p class="text-[10px] font-bold uppercase mb-1 truncate">Typography_Grid_System.pdf</p>
+<div class="flex justify-between items-center opacity-50">
+<span class="text-[8px] font-mono">4.5MB / 12 Pages</span>
+<span class="material-symbols-outlined text-sm group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<!-- Asset Card 4 -->
+<div class="p-3 border border-primary/10 rounded-lg hover:border-primary/40 transition-all bg-background-light/50 group cursor-pointer">
+<div class="aspect-video bg-white dark:bg-neutral-dark mb-3 rounded border border-primary/5 overflow-hidden flex items-center justify-center relative">
+<img class="size-12 opacity-40" data-alt="Color swatch technical chart" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAnZ49ltf-6AvjPLOWvHfZsLM--xhYeL52xsVjuzykaKRe2didsdWp_qwSbt0TgX-zHJtsHRmpCOJKLTPjpaDUWCAS7yg087e0dpeHc_ysUv4y9DoBGUPgEhw69uUC9ucikxSkXo4pRjSyMjnnOv-Vy7xs6toQcGSAUDh_xuK3Pcd6Syl-HWMFpSh49GDR8_e0FpazbFJuhVBMyuOLWvio-gNMhOFLsI-ar1FOkl8u_C-rtHC4j2i1km7Fqvom0f64bTwTv5ZzPKM"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-primary/10 text-[8px] font-mono text-primary uppercase">JSON</div>
+</div>
+<p class="text-[10px] font-bold uppercase mb-1 truncate">Color_Palettes_Technical.json</p>
+<div class="flex justify-between items-center opacity-50">
+<span class="text-[8px] font-mono">8KB / Tokens</span>
+<span class="material-symbols-outlined text-sm group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metadata/Spec Sidebar (Right) -->
+<aside class="w-80 border-l border-primary/10 bg-white/80 dark:bg-neutral-dark flex flex-col overflow-y-auto">
+<div class="p-6 border-b border-primary/10">
+<h2 class="text-xs font-black uppercase tracking-widest text-primary mb-4">Construction Specs</h2>
+<div class="space-y-4">
+<div class="space-y-1">
+<p class="text-[10px] font-bold uppercase opacity-50">Component Type</p>
+<p class="text-sm font-medium">Geometric Logotype (Primary)</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold uppercase opacity-50">Grid Ratio</p>
+<p class="text-sm font-mono text-primary">1 : 1.618 (Golden Mean)</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold uppercase opacity-50">Safety Clearance</p>
+<p class="text-sm font-mono">0.5X (X = Logotype Height)</p>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xs font-black uppercase tracking-widest text-primary">Code Implementation</h2>
+<span class="material-symbols-outlined text-sm opacity-50 cursor-pointer hover:opacity-100 transition-opacity">content_copy</span>
+</div>
+<div class="bg-neutral-light dark:bg-background-dark/50 p-3 rounded font-mono text-[10px] leading-relaxed border border-primary/5">
+<span class="text-primary">.v3-logotype</span> {<br/>
+                          <span class="opacity-50">height</span>: <span class="text-blue-500">var(--unit-x)</span>;<br/>
+                          <span class="opacity-50">padding</span>: <span class="text-blue-500">calc(var(--unit-x) * 0.5)</span>;<br/>
+                          <span class="opacity-50">fill</span>: <span class="text-blue-500">#4c09aa</span>;<br/>
+                          <span class="opacity-50">transition</span>: <span class="text-blue-500">cubic-bezier(0.4, 0, 0.2, 1)</span>;<br/>
+                        }
+                    </div>
+<div class="mt-8">
+<h2 class="text-xs font-black uppercase tracking-widest text-primary mb-4">Industrial Compliance</h2>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<div>
+<p class="text-[10px] font-bold uppercase">Accessibility WCAG 2.1</p>
+<p class="text-[9px] opacity-60">Contrast ratio 7.2:1 passed.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<div>
+<p class="text-[10px] font-bold uppercase">SVG Optimization</p>
+<p class="text-[9px] opacity-60">Path simplification &lt; 100 nodes.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-orange-500 text-sm">warning</span>
+<div>
+<p class="text-[10px] font-bold uppercase">Print Separation</p>
+<p class="text-[9px] opacity-60">CMYK profiles pending validation.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="p-6 mt-auto">
+<div class="flex items-center gap-3 p-3 bg-primary text-white rounded-lg">
+<span class="material-symbols-outlined">verified_user</span>
+<div>
+<p class="text-[10px] font-bold uppercase leading-none mb-1">Authenticated Blueprint</p>
+<p class="text-[8px] opacity-80 leading-none">SHA-256: 4e9c8...f3a2</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

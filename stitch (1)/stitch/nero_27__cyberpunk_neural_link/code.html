@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_LINK // NERO_27</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "accent": "#fdf500",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050505",
+                        "terminal-bg": "#0a1213",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .glitch-text {
+            text-shadow: 2px 0 #fdf500, -2px 0 #06e8f9;
+        }
+        .border-glow {
+            box-shadow: 0 0 10px rgba(6, 232, 249, 0.3);
+        }
+        .cyber-grid {
+            background-image: linear-gradient(to right, rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display uppercase tracking-widest selection:bg-primary selection:text-black">
+<div class="scanlines"></div>
+<!-- HUD Overlay Top -->
+<div class="fixed top-0 left-0 w-full z-40 bg-background-dark/80 backdrop-blur-md border-b border-primary/30 px-4 py-2 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<h1 class="text-xs font-bold text-primary glitch-text">NEURAL_LINK // NERO_27</h1>
+</div>
+<div class="flex items-center gap-4 text-[10px] text-primary/70">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>SYNC_ACTIVE</span>
+</div>
+<div class="hidden sm:flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">signal_cellular_4_bar</span>
+<span>99%_UL</span>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="relative pt-16 pb-24 px-4 max-w-lg mx-auto cyber-grid min-h-screen">
+<!-- Hero Section: Cyber-Vitruvian -->
+<section class="relative my-8 border border-primary/20 bg-primary/5 p-1 rounded-sm overflow-hidden group">
+<div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary"></div>
+<div class="relative h-80 w-full flex items-center justify-center overflow-hidden">
+<!-- Abstract Representation of Cyber-Vitruvian Hologram -->
+<div class="absolute inset-0 flex items-center justify-center opacity-40">
+<div class="w-64 h-64 border border-primary/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute w-48 h-48 border border-accent/20 rotate-45"></div>
+<div class="absolute w-72 h-72 border-t border-primary/20 rounded-full animate-ping"></div>
+</div>
+<img alt="Biomechanical schematic of a humanoid figure with glowing internal circuits" class="relative z-10 h-64 w-auto mix-blend-screen opacity-90 drop-shadow-[0_0_15px_rgba(6,232,249,0.8)]" data-alt="Biomechanical humanoid schematic hologram with glowing circuitry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6f7ek3T2UVGH_Cz39B4jwP1xaIWhi5zQh0D0dyfWdxi1lrsyLiKLxNfaTLFBqNB25kqXwlK08k7FjKg_kVmOXtGbIT4yWWtls5C-ksDl7iqrJM9rEdY-TvD1NHkiG-PoaMBWDKRgabyx0NbFr91GBCOCVVDECtEC5mnBkwEDDgv2lOdsdwQL62zI1Wdrxmty9L-oVfe6wpe3tuaqrcdg_pYkAVOkMqYj-VVIC8JPf4hQpXOQtGINq1jE6UnoivXAJjEat5Slq5I"/>
+<div class="absolute bottom-4 left-4 text-[10px] text-primary/80 font-mono">
+                    [REF: BIOM_V_2.7]<br/>
+                    STATUS: OPTIMIZED
+                </div>
+</div>
+<div class="bg-primary/10 border-t border-primary/20 p-3 flex justify-between items-center">
+<p class="text-[12px] font-bold text-white">SYSTEM_ACTIVE</p>
+<div class="flex gap-1">
+<div class="w-1 h-1 bg-primary"></div>
+<div class="w-1 h-1 bg-primary"></div>
+<div class="w-1 h-1 bg-primary/20"></div>
+</div>
+</div>
+</section>
+<!-- System Diagnostics -->
+<section class="mb-8">
+<h2 class="text-accent text-sm font-bold mb-4 flex items-center gap-2">
+<span class="w-2 h-4 bg-accent"></span> [01] SYSTEM_DIAGNOSTICS
+            </h2>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-background-dark border border-primary/30 p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[1px] bg-primary/50 group-hover:top-full transition-all duration-700"></div>
+<p class="text-[10px] text-primary/60 mb-1">BIO-PHOTON FREQUENCY</p>
+<p class="text-primary text-xl font-bold tracking-tight">#06E8F9</p>
+<div class="mt-4 flex items-end gap-[1px] h-6">
+<div class="bg-primary w-1 h-[20%]"></div>
+<div class="bg-primary w-1 h-[40%]"></div>
+<div class="bg-primary w-1 h-[80%]"></div>
+<div class="bg-primary w-1 h-[50%]"></div>
+<div class="bg-primary w-1 h-[90%]"></div>
+<div class="bg-primary w-1 h-[30%]"></div>
+<div class="bg-primary w-1 h-[60%]"></div>
+</div>
+</div>
+<div class="bg-background-dark border border-accent/30 p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[1px] bg-accent/50 group-hover:top-full transition-all duration-700"></div>
+<p class="text-[10px] text-accent/60 mb-1">NEURAL-SURGE LEVEL</p>
+<p class="text-accent text-xl font-bold tracking-tight">#FDF500</p>
+<div class="mt-4 flex items-end gap-[1px] h-6">
+<div class="bg-accent w-1 h-[40%]"></div>
+<div class="bg-accent w-1 h-[70%]"></div>
+<div class="bg-accent w-1 h-[30%]"></div>
+<div class="bg-accent w-1 h-[90%]"></div>
+<div class="bg-accent w-1 h-[20%]"></div>
+<div class="bg-accent w-1 h-[60%]"></div>
+<div class="bg-accent w-1 h-[40%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hardware Specs (Typography) -->
+<section class="mb-8">
+<h2 class="text-primary text-sm font-bold mb-4 flex items-center gap-2">
+<span class="w-2 h-4 bg-primary"></span> [02] HARDWARE_SPECS
+            </h2>
+<div class="bg-terminal-bg border border-primary/20 p-6 rounded-sm font-mono text-xs leading-relaxed">
+<div class="flex justify-between border-b border-primary/10 pb-2 mb-4">
+<span class="text-primary/50">CORE_TYPEFACE:</span>
+<span class="text-white">SPACE_GROTESK</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="text-primary">WGT_01</span>
+<div class="flex-1">
+<p class="text-lg font-bold">NERO_HEAVY_700</p>
+<p class="text-[10px] text-primary/40">ABCDEFGHIJKLMN 1234567890</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="text-primary">WGT_02</span>
+<div class="flex-1">
+<p class="text-lg font-medium">NERO_MEDIUM_500</p>
+<p class="text-[10px] text-primary/40">OPQRSTUVWXYZ!@# $%^&amp;*()_+</p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-primary/10 text-[10px] text-accent animate-pulse">
+                    &gt; DECODING_FONT_METRICS... SUCCESS
+                </div>
+</div>
+</section>
+<!-- Data Uplink (Assets) -->
+<section class="mb-8">
+<h2 class="text-accent text-sm font-bold mb-4 flex items-center gap-2">
+<span class="w-2 h-4 bg-accent"></span> [03] DATA_UPLINK
+            </h2>
+<div class="space-y-3">
+<div class="bg-primary/5 border border-primary/20 p-3 flex items-center justify-between group hover:bg-primary/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">folder_zip</span>
+<div>
+<p class="text-[11px] font-bold">V_LOGO_ASSETS.PKT</p>
+<p class="text-[9px] text-primary/50">4.2 MB // ENCRYPTED</p>
+</div>
+</div>
+<button class="bg-primary text-black px-3 py-1 text-[10px] font-bold hover:bg-white transition-colors">
+                        EXTRACT
+                    </button>
+</div>
+<div class="bg-accent/5 border border-accent/20 p-3 flex items-center justify-between group hover:bg-accent/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent">description</span>
+<div>
+<p class="text-[11px] font-bold">BRAND_GUIDELINES.DOC</p>
+<p class="text-[9px] text-accent/50">1.8 MB // READ_ONLY</p>
+</div>
+</div>
+<button class="bg-accent text-black px-3 py-1 text-[10px] font-bold hover:bg-white transition-colors">
+                        OPEN
+                    </button>
+</div>
+<div class="bg-primary/5 border border-primary/20 p-3">
+<div class="flex justify-between items-center mb-2">
+<p class="text-[11px] font-bold text-primary">SYNCING_ASSETS...</p>
+<p class="text-[10px] text-primary">64%</p>
+</div>
+<div class="w-full bg-primary/20 h-1">
+<div class="bg-primary h-full w-[64%] animate-[pulse_1s_infinite]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Terminal Footer Activity -->
+<footer class="mt-12 border-t border-primary/20 pt-6">
+<div class="font-mono text-[9px] text-primary/40 space-y-1">
+<p>&gt; TRACING_IP... 192.168.0.27</p>
+<p>&gt; BYPASSING_FIREWALL... [OK]</p>
+<p>&gt; ACCESS_LEVEL: OVERRIDE</p>
+<p>&gt; TIMESTAMP: 2077.08.12_14:23:01</p>
+<p class="text-accent animate-pulse">&gt; SESSION_SECURE_LINK_ESTABLISHED</p>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-40 bg-background-dark border-t border-primary/30 pb-6 pt-2">
+<div class="flex justify-around items-center px-4 max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl">monitor_heart</span>
+<span class="text-[8px] font-bold">CORE</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">memory</span>
+<span class="text-[8px] font-bold">SPECS</span>
+</a>
+<div class="relative -top-6">
+<div class="bg-primary w-14 h-14 rounded-full flex items-center justify-center border-4 border-background-dark shadow-[0_0_15px_rgba(6,232,249,0.6)]">
+<span class="material-symbols-outlined text-black text-3xl">hub</span>
+</div>
+</div>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">database</span>
+<span class="text-[8px] font-bold">DATA</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">share</span>
+<span class="text-[8px] font-bold">SYNC</span>
+</a>
+</div>
+</nav>
+</body></html>

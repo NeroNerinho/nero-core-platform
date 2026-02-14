@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Color Spectrometry</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "tech-paper": "#F0F2F5",
+                        "tech-ink": "#0F172A",
+                        "tech-orange": "#FF4500",
+                        "tech-grid": "#E2E8F0",
+                        "tech-muted": "#94A3B8"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #E2E8F0 1px, transparent 1px), linear-gradient(to bottom, #E2E8F0 1px, transparent 1px)",
+                    },
+                    backgroundSize: {
+                        'grid': '20px 20px',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities for Blueprint Aesthetic */
+        .blueprint-border {
+            border: 1px solid #E2E8F0;
+        }
+        .corner-mark {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: #4c09aa;
+            z-index: 10;
+        }
+        .corner-mark-tl {
+            top: -1px;
+            left: -1px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+        .corner-mark-tr {
+            top: -1px;
+            right: -1px;
+            border-top: 1px solid;
+            border-right: 1px solid;
+        }
+        .corner-mark-bl {
+            bottom: -1px;
+            left: -1px;
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+        }
+        .corner-mark-br {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+        }
+        
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        
+        /* Toast Animation */
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-enter {
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-tech-ink font-display antialiased h-screen overflow-hidden flex flex-col">
+<!-- Grid Background -->
+<div class="fixed inset-0 pointer-events-none z-0 bg-grid-pattern bg-grid opacity-60"></div>
+<!-- Header -->
+<header class="relative z-10 bg-background-light/90 backdrop-blur-sm border-b border-tech-grid">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 border border-tech-grid bg-white hover:border-primary hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-none tracking-tight">04. CHROMATICS</h2>
+<span class="text-[10px] font-mono text-tech-muted tracking-widest mt-1">MODULE // SPECTROMETRY</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<p class="text-xs font-bold tracking-widest text-primary">SYSTEM: ONLINE</p>
+</div>
+</div>
+<!-- Usage Ratio Visualization -->
+<div class="px-4 pb-6 pt-2">
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="text-sm font-bold tracking-widest text-tech-ink">USAGE RATIO</h3>
+<span class="font-mono text-[10px] text-tech-muted">SCALE 1:100</span>
+</div>
+<!-- Ratio Bar -->
+<div class="relative h-12 w-full flex border border-tech-ink/20">
+<!-- Ruler marks overlay -->
+<div class="absolute top-0 left-0 w-full h-full flex justify-between px-[1px] pointer-events-none z-20">
+<!-- Generating ruler ticks -->
+<div class="h-2 w-px bg-black/20"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div>
+<div class="h-2 w-px bg-black/20"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div>
+<div class="h-2 w-px bg-black/20"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div>
+<div class="h-2 w-px bg-black/20"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div><div class="h-1 w-px bg-black/10"></div>
+<div class="h-2 w-px bg-black/20"></div>
+</div>
+<!-- Colors -->
+<div class="h-full bg-white w-[60%] border-r border-tech-ink/10 relative group">
+<span class="absolute bottom-1 left-2 text-[9px] font-mono font-bold text-tech-ink opacity-0 group-hover:opacity-100 transition-opacity">BASE: 60%</span>
+</div>
+<div class="h-full bg-tech-paper w-[20%] border-r border-tech-ink/10 relative group">
+<span class="absolute bottom-1 left-2 text-[9px] font-mono font-bold text-tech-ink opacity-0 group-hover:opacity-100 transition-opacity">SEC: 20%</span>
+</div>
+<div class="h-full bg-primary w-[15%] border-r border-tech-ink/10 relative group">
+<span class="absolute bottom-1 left-2 text-[9px] font-mono font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity">PRI: 15%</span>
+</div>
+<div class="h-full bg-tech-orange w-[5%] relative group">
+<span class="absolute bottom-1 right-1 text-[9px] font-mono font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity">ACC: 5%</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto relative z-0 p-4 pb-24 space-y-4">
+<!-- Swatch Card: Primary -->
+<div class="bg-white border border-tech-grid relative group hover:border-primary transition-colors">
+<!-- Corner Marks (Visible on Hover) -->
+<div class="corner-mark corner-mark-tl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-tr opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-bl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-br opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex h-32">
+<!-- Color Block -->
+<div class="w-24 shrink-0 bg-primary border-r border-tech-grid flex items-end justify-center pb-2">
+<span class="text-white/50 text-[10px] font-mono -rotate-90 origin-center mb-4">Sample A-01</span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-primary">Primary Purple</h3>
+<p class="text-xs text-tech-muted font-mono mt-1">Core Identity / Interaction</p>
+</div>
+<button class="text-tech-muted hover:text-primary transition-colors" onclick="showToast('#4c09aa')">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">HEX CODE</span>
+<span class="block text-sm font-mono text-tech-ink">#4C09AA</span>
+</div>
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">CMYK</span>
+<span class="block text-sm font-mono text-tech-ink">82, 94, 0, 0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Swatch Card: Background Light -->
+<div class="bg-white border border-tech-grid relative group hover:border-primary transition-colors">
+<!-- Corner Marks -->
+<div class="corner-mark corner-mark-tl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-tr opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-bl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-br opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex h-32">
+<!-- Color Block -->
+<div class="w-24 shrink-0 bg-background-light border-r border-tech-grid flex items-end justify-center pb-2">
+<span class="text-tech-ink/50 text-[10px] font-mono -rotate-90 origin-center mb-4">Sample B-02</span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-tech-ink">Drafting Paper</h3>
+<p class="text-xs text-tech-muted font-mono mt-1">Surface / Background</p>
+</div>
+<button class="text-tech-muted hover:text-primary transition-colors" onclick="showToast('#f7f5f8')">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">HEX CODE</span>
+<span class="block text-sm font-mono text-tech-ink">#F7F5F8</span>
+</div>
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">CMYK</span>
+<span class="block text-sm font-mono text-tech-ink">1, 1, 0, 2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Swatch Card: Tech Ink -->
+<div class="bg-white border border-tech-grid relative group hover:border-primary transition-colors">
+<!-- Corner Marks -->
+<div class="corner-mark corner-mark-tl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-tr opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-bl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-br opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex h-32">
+<!-- Color Block -->
+<div class="w-24 shrink-0 bg-tech-ink border-r border-tech-grid flex items-end justify-center pb-2">
+<span class="text-white/50 text-[10px] font-mono -rotate-90 origin-center mb-4">Sample C-03</span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-tech-ink">Ink Black</h3>
+<p class="text-xs text-tech-muted font-mono mt-1">Typography / Contrast</p>
+</div>
+<button class="text-tech-muted hover:text-primary transition-colors" onclick="showToast('#0F172A')">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">HEX CODE</span>
+<span class="block text-sm font-mono text-tech-ink">#0F172A</span>
+</div>
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">CMYK</span>
+<span class="block text-sm font-mono text-tech-ink">83, 68, 46, 62</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Swatch Card: Safety Orange -->
+<div class="bg-white border border-tech-grid relative group hover:border-tech-orange transition-colors">
+<!-- Corner Marks -->
+<div class="corner-mark corner-mark-tl opacity-0 group-hover:opacity-100 transition-opacity border-tech-orange"></div>
+<div class="corner-mark corner-mark-tr opacity-0 group-hover:opacity-100 transition-opacity border-tech-orange"></div>
+<div class="corner-mark corner-mark-bl opacity-0 group-hover:opacity-100 transition-opacity border-tech-orange"></div>
+<div class="corner-mark corner-mark-br opacity-0 group-hover:opacity-100 transition-opacity border-tech-orange"></div>
+<div class="flex h-32">
+<!-- Color Block -->
+<div class="w-24 shrink-0 bg-tech-orange border-r border-tech-grid flex items-end justify-center pb-2">
+<span class="text-white/50 text-[10px] font-mono -rotate-90 origin-center mb-4">Sample D-04</span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-tech-orange">Safety Orange</h3>
+<p class="text-xs text-tech-muted font-mono mt-1">Alerts / Calibration</p>
+</div>
+<button class="text-tech-muted hover:text-tech-orange transition-colors" onclick="showToast('#FF4500')">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">HEX CODE</span>
+<span class="block text-sm font-mono text-tech-ink">#FF4500</span>
+</div>
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">CMYK</span>
+<span class="block text-sm font-mono text-tech-ink">0, 85, 100, 0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Swatch Card: Graphite (Muted) -->
+<div class="bg-white border border-tech-grid relative group hover:border-primary transition-colors">
+<!-- Corner Marks -->
+<div class="corner-mark corner-mark-tl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-tr opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-bl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="corner-mark corner-mark-br opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex h-32">
+<!-- Color Block -->
+<div class="w-24 shrink-0 bg-tech-muted border-r border-tech-grid flex items-end justify-center pb-2">
+<span class="text-white/50 text-[10px] font-mono -rotate-90 origin-center mb-4">Sample E-05</span>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-tech-muted">Graphite</h3>
+<p class="text-xs text-tech-muted font-mono mt-1">Inactive / Secondary</p>
+</div>
+<button class="text-tech-muted hover:text-primary transition-colors" onclick="showToast('#94A3B8')">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">HEX CODE</span>
+<span class="block text-sm font-mono text-tech-ink">#94A3B8</span>
+</div>
+<div class="border border-tech-grid p-2 bg-background-light/50">
+<span class="block text-[9px] text-tech-muted font-mono uppercase mb-1">CMYK</span>
+<span class="block text-sm font-mono text-tech-ink">35, 19, 13, 0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-300" id="toast">
+<div class="bg-tech-ink text-white px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] flex items-center gap-3 border border-white/20">
+<span class="material-symbols-outlined text-tech-orange text-sm">terminal</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-white/60 tracking-wider">SYSTEM NOTIFICATION</span>
+<span class="text-sm font-mono font-bold" id="toast-message">VALUE COPIED</span>
+</div>
+</div>
+</div>
+<script>
+        function showToast(value) {
+            const toast = document.getElementById('toast');
+            const message = document.getElementById('toast-message');
+            
+            message.textContent = `COPIED: ${value}`;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('toast-enter');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                toast.classList.remove('toast-enter');
+            }, 2500);
+        }
+    </script>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logistics Grid Geometria</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "primary-dim": "rgba(6, 232, 249, 0.15)",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "surface-dark": "#162a2d",
+                        "surface-border": "#233d41",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #233d41 1px, transparent 1px), linear-gradient(to bottom, #233d41 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scanline Effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            opacity: 0.15;
+        }
+        
+        /* Hide Scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased overflow-hidden h-screen flex flex-col relative">
+<!-- Subtle Background Grid -->
+<div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none bg-[size:20px_20px]"></div>
+<!-- Scanline Overlay -->
+<div class="scanlines"></div>
+<!-- Header -->
+<header class="pt-12 pb-4 px-6 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-surface-border flex justify-between items-center sticky top-0">
+<div>
+<div class="text-[10px] tracking-[0.2em] text-primary uppercase mb-1">Grid Control // V.4.0</div>
+<h1 class="text-xl font-bold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#06e8f9]"></span>
+                Geometria
+            </h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="px-2 py-1 bg-surface-dark border border-surface-border rounded text-xs text-primary font-mono">SYS: NOMINAL</div>
+<button class="relative p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="absolute top-2 right-2 w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span class="material-icons text-xl">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar relative z-10 pb-24">
+<!-- Interactive System Map (Hero) -->
+<section class="p-4">
+<div class="relative w-full h-64 bg-surface-dark rounded-xl border border-surface-border overflow-hidden group">
+<!-- Map Background Image -->
+<img alt="Abstract dark world map with network nodes" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale mix-blend-overlay" data-alt="Dark abstract digital map with network nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZGFfi1g1fdci9oTs4AeNDK29TwLnkVj8WDtSEFgIDBgx3V-ewkhoxj8E17TPOaIx5cRrXMUZluJuvhVKC4pGkz87RebuddoIIsJZTCBPGfXI0pMdonbS2_riISETXlIsx3WdRrpm0T3CyeG3E3VW0bMKidP7ahu1SM31OSuARwjXKB3xxgQxnQw9cISeYpfdmnyCJ04RyeILFy5T03UP8Wkqsutv0OO23SuORcTM8ZdTavxV5mya2HLyMlNuWmM0Dcj22pGB4pLU"/>
+<!-- SVG Overlay for Rigid Lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<!-- Connection Lines -->
+<path class="opacity-40" d="M50 120 L 150 120 L 180 80" fill="none" stroke="#06e8f9" stroke-width="1.5"></path>
+<path class="opacity-60" d="M180 80 L 250 80 L 280 140" fill="none" stroke="#06e8f9" stroke-width="1.5"></path>
+<path class="opacity-30" d="M180 80 L 180 180 L 100 180" fill="none" stroke="#06e8f9" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<!-- Nodes -->
+<circle cx="50" cy="120" fill="#0f2123" r="3" stroke="#06e8f9" stroke-width="2"></circle>
+<circle class="animate-pulse shadow-[0_0_15px_#06e8f9]" cx="180" cy="80" fill="#06e8f9" r="6"></circle>
+<circle cx="280" cy="140" fill="#0f2123" r="3" stroke="#06e8f9" stroke-width="2"></circle>
+<circle cx="100" cy="180" fill="#0f2123" r="3" stroke="#555" stroke-width="2"></circle>
+</svg>
+<!-- Floating Data Points on Map -->
+<div class="absolute top-4 left-4 bg-background-dark/80 backdrop-blur border border-surface-border p-2 rounded text-[10px] uppercase tracking-widest text-gray-400">
+<span class="text-primary font-bold">HUB ALPHA</span> <br/>
+                    COORD: 34.05.91
+                </div>
+<div class="absolute bottom-4 right-4 flex items-center gap-2">
+<span class="text-[10px] text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">LIVE FEED</span>
+</div>
+</div>
+</section>
+<!-- Status Ticker -->
+<div class="w-full bg-surface-dark border-y border-surface-border py-2 overflow-hidden mb-6">
+<div class="whitespace-nowrap animate-[marquee_20s_linear_infinite] text-xs font-mono text-slate-400 flex gap-8">
+<span>&gt;&gt; INBOUND: UNIT-04 [DELAYED]</span>
+<span>&gt;&gt; WEATHER ALERT: SECTOR 7</span>
+<span>&gt;&gt; FLEET EFFICIENCY: 94.2%</span>
+<span>&gt;&gt; NEW NODE DETECTED: WAREHOUSE_C</span>
+<span>&gt;&gt; SYSTEM UPDATE SCHEDULED: 0300</span>
+</div>
+</div>
+<!-- Metric Summary -->
+<section class="px-6 mb-6 grid grid-cols-3 gap-3">
+<div class="bg-surface-dark border border-surface-border p-3 rounded-lg">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Active</div>
+<div class="text-xl font-bold text-white">24</div>
+<div class="w-full h-1 bg-surface-border mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+</div>
+<div class="bg-surface-dark border border-surface-border p-3 rounded-lg">
+<div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Pending</div>
+<div class="text-xl font-bold text-white">08</div>
+<div class="w-full h-1 bg-surface-border mt-2 rounded-full overflow-hidden">
+<div class="h-full bg-slate-500 w-1/4"></div>
+</div>
+</div>
+<div class="bg-surface-dark border border-surface-border p-3 rounded-lg relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5"></div>
+<div class="text-[10px] text-primary uppercase tracking-wider mb-1">Efficiency</div>
+<div class="text-xl font-bold text-primary">98%</div>
+<span class="material-icons absolute bottom-1 right-1 text-primary/20 text-3xl">bolt</span>
+</div>
+</section>
+<!-- Section Header -->
+<div class="px-6 mb-4 flex items-end justify-between">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400">Logistics Grid</h2>
+<button class="text-xs text-primary hover:text-white transition-colors flex items-center gap-1">
+                FILTER <span class="material-icons text-sm">filter_list</span>
+</button>
+</div>
+<!-- Data Grid (Masonry-ish Layout) -->
+<section class="px-4 grid grid-cols-2 gap-3 mb-8">
+<!-- Card 1: Shipment Priority -->
+<div class="col-span-2 bg-surface-dark border border-primary/30 rounded-lg p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="text-white font-bold text-lg">SHIPMENT #8842</h3>
+<p class="text-xs text-slate-400 font-mono">LAT: 40.7128 | LON: -74.0060</p>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-black uppercase">Transit</span>
+</div>
+<div class="flex items-center justify-between text-xs text-slate-300 mb-2">
+<span>Origin: Sector 4</span>
+<span class="text-primary">&gt;&gt;&gt;</span>
+<span>Dest: Hub Alpha</span>
+</div>
+<div class="w-full bg-surface-border h-1.5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%] shadow-[0_0_10px_#06e8f9]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-slate-500 uppercase font-mono">
+<span>ETA: 45 MIN</span>
+<span>PKG: HAZMAT</span>
+</div>
+</div>
+<!-- Card 2: Fleet Status -->
+<div class="bg-surface-dark border border-surface-border rounded-lg p-3 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center mb-2">
+<span class="material-icons text-slate-500 text-sm">local_shipping</span>
+<span class="text-[10px] text-primary font-mono">ID: FL-09</span>
+</div>
+<div class="text-sm font-bold text-white mb-1">Fleet 09</div>
+<div class="grid grid-cols-2 gap-2 text-[10px] text-slate-400">
+<div>
+<span class="block text-slate-600">FUEL</span>
+<span class="text-white">84%</span>
+</div>
+<div>
+<span class="block text-slate-600">LOAD</span>
+<span class="text-white">12T</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Node Status (Alert) -->
+<div class="bg-surface-dark border border-orange-500/30 rounded-lg p-3 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-8 h-8 bg-orange-500/10 rounded-bl-xl flex items-center justify-center">
+<span class="material-icons text-orange-500 text-xs">warning</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="material-icons text-slate-500 text-sm">warehouse</span>
+</div>
+<div class="text-sm font-bold text-white mb-1">Whse B</div>
+<div class="text-[10px] text-orange-400 uppercase font-bold tracking-wide">
+                    High Traffic
+                </div>
+<div class="mt-2 text-[10px] text-slate-500">
+                    Queue: 14 Trucks
+                </div>
+</div>
+<!-- Card 4: Detailed Route -->
+<div class="col-span-2 bg-surface-dark border border-surface-border rounded-lg p-3 flex items-center gap-4">
+<div class="w-12 h-12 bg-black rounded border border-surface-border flex items-center justify-center relative">
+<img alt="Drone view of container port" class="w-full h-full object-cover opacity-60" data-alt="Drone view of container port" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLB7JV_rGEEJnzSbFz7sDhMTYtxxmWkQNa4_lwRXV4iPmKtGEdJMCitCXIqQVRUMsGbK3gwaYWrGh7aNV0tRl-uWzcpDH8iKAP26_O6rKkZ8SORuHKCLiMZyb1mhptBtKhfNKfk6xlYvtz16gTF3Gz8eojPbgC51FaCHoGEzgZcrYEExOabX6yFmXSRmZByvHMJBBEgVvpfUqKUNuH_BVjp6eFiLv3oF7OKqorV9aZub1hEplzQl1Bhncm41GhSHWO6E18NrQRm9I"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="text-white text-sm font-bold">Route 66-Alpha</h4>
+<span class="text-[10px] text-green-400">ON TIME</span>
+</div>
+<div class="text-xs text-slate-500 mt-1">
+                        Currently passing Checkpoint Delta. No obstructions.
+                    </div>
+</div>
+<button class="w-8 h-8 rounded bg-surface-border flex items-center justify-center hover:bg-primary hover:text-black transition-colors text-white">
+<span class="material-icons text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Card 5: Drone Unit -->
+<div class="bg-surface-dark border border-surface-border rounded-lg p-3 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center mb-2">
+<span class="material-icons text-slate-500 text-sm">smart_toy</span>
+<span class="text-[10px] text-primary font-mono">DR-X1</span>
+</div>
+<div class="text-sm font-bold text-white mb-1">Drone X1</div>
+<div class="text-[10px] text-slate-400">Last Ping: 2s ago</div>
+<div class="mt-2 flex gap-1">
+<span class="h-1 flex-1 bg-primary rounded-full"></span>
+<span class="h-1 flex-1 bg-primary rounded-full"></span>
+<span class="h-1 flex-1 bg-primary rounded-full"></span>
+<span class="h-1 flex-1 bg-surface-border rounded-full"></span>
+</div>
+</div>
+<!-- Card 6: Empty Slot -->
+<div class="bg-surface-dark border border-surface-border border-dashed rounded-lg p-3 flex flex-col items-center justify-center text-slate-600 hover:text-primary hover:border-primary transition-colors cursor-pointer group">
+<span class="material-icons mb-1 group-hover:scale-110 transition-transform">add</span>
+<span class="text-[10px] uppercase tracking-wide">Add Node</span>
+</div>
+</section>
+<div class="h-8"></div> <!-- Spacer for Fab -->
+</main>
+<!-- Bottom Navigation (Floating Segmented Control) -->
+<div class="fixed bottom-6 left-6 right-6 z-40">
+<nav class="bg-surface-dark/90 backdrop-blur border border-surface-border rounded-full p-1 shadow-2xl shadow-black flex items-center justify-between">
+<button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-primary text-background-dark font-bold text-sm transition-all shadow-[0_0_15px_rgba(6,232,249,0.3)]">
+<span class="material-icons text-lg">map</span>
+<span class="hidden sm:inline">Grid</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-full text-slate-400 hover:text-white transition-colors">
+<span class="material-icons text-lg">list</span>
+<span class="hidden sm:inline">Manifest</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-full text-slate-400 hover:text-white transition-colors">
+<span class="material-icons text-lg">ssid_chart</span>
+<span class="hidden sm:inline">Analytics</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-full text-slate-400 hover:text-white transition-colors">
+<span class="material-icons text-lg">settings</span>
+</button>
+</nav>
+</div>
+<!-- Tailwind Config for Custom Keyframes -->
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</body></html>

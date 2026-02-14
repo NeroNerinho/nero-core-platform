@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - The Mark</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;family=IM+Fell+English+SC&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8A3324", // Sanguine
+                        "ink": "#2A231E", // Deep Sepia
+                        "parchment": "#F0EAD6", // Aged Vellum
+                        "wash": "#E6DCC3",
+                        "graphite": "#8C8276",
+                        "faded-ink": "#5C4E43",
+                        "background-light": "#F0EAD6",
+                        "background-dark": "#211311",
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "body": ["IM Fell English SC", "serif"],
+                        "hand": ["Reenie Beanie", "cursive"],
+                        "newsreader": ["Newsreader", "serif"],
+                    },
+                    backgroundImage: {
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom styles for that da Vinci feel */
+.ink-bleed {
+    mix-blend-mode: multiply
+    }
+.texture-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAwXp1gjKLgRc1eVqW1vXFScKR_t4UJTLQ5DB4VWiYYuEV9j7hJB_N0lTeZYwfs6mfCE10R7XQQmeJLTQJKPQG37Uv9wdULg0gQkhjZ6Pdj-VvDHhx75ieVNs89nF6L38lcbA9J3CK7O8to6CI3eAIHizbyk9jGdaUufEYJEsWBILXRkBcnwKUrp9I2i24x6gikcxXTH2KGBiLOB1nuoJ33cAlIG2V11fiy8l3HBRlWuu4jmen6jr9czHCIasVYxc8dx0m7wO8t5cA);
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    pointer-events: none
+    }
+.double-border-bottom {
+    border-bottom: 3px double #8C8276
+    }
+.grid-bg {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, rgba(140, 130, 118, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(140, 130, 118, 0.1) 1px, transparent 1px)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-parchment text-ink antialiased min-h-screen flex flex-col font-display relative overflow-hidden">
+<!-- Global Texture Overlay -->
+<div class="fixed inset-0 texture-overlay z-50"></div>
+<!-- Navigation Header -->
+<header class="relative z-10 flex items-center justify-between px-6 pt-6 pb-4 border-b border-graphite/30 ink-bleed">
+<button class="flex items-center text-ink/70 hover:text-primary transition-colors gap-2">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+<span class="font-body text-sm tracking-wider">Index</span>
+</button>
+<div class="w-12 h-12 flex items-center justify-center opacity-80">
+<!-- Small Wax Seal Icon -->
+<svg class="w-8 h-8 text-primary/80" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-4-8-8s4-8 8-8 8 4 8 8-4 8-8 8zm-2.5-5.5l1.5-1.5 3.5 3.5 3.5-3.5 1.5 1.5-5 5-5-5z" opacity="0.5"></path>
+<circle class="text-primary" cx="12" cy="12" r="5"></circle>
+</svg>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col relative z-0">
+<!-- Section Title -->
+<div class="px-6 py-6 ink-bleed">
+<div class="flex items-baseline gap-3 mb-2">
+<span class="text-primary font-body text-lg">Fig. 2</span>
+<div class="h-px bg-primary flex-1 opacity-30"></div>
+</div>
+<h1 class="text-4xl md:text-5xl font-display font-bold italic tracking-tight text-ink">
+                Reduction &amp; Scale
+            </h1>
+<p class="mt-2 text-faded-ink font-body text-sm leading-relaxed max-w-md">
+                An examination of the mark's legibility across diminishing physical dimensions.
+            </p>
+</div>
+<!-- Technical Drawing Area -->
+<div class="flex-1 px-6 py-8 relative">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+<!-- Content Container -->
+<div class="relative h-full flex flex-col items-center justify-center gap-12 py-10">
+<!-- 128px Variant -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="relative w-40 h-40 border border-graphite bg-parchment flex items-center justify-center shadow-[2px_2px_0px_#8C8276] transition-transform hover:-translate-y-1">
+<!-- Crosshairs for technical feel -->
+<div class="absolute top-0 bottom-0 left-1/2 w-px bg-graphite/20"></div>
+<div class="absolute left-0 right-0 top-1/2 h-px bg-graphite/20"></div>
+<!-- Logo 128px -->
+<div class="w-32 h-32 rounded-full border-2 border-ink flex items-center justify-center ink-bleed relative z-10">
+<span class="font-display font-bold text-5xl tracking-tighter text-ink">N27</span>
+</div>
+<!-- Measurement marks -->
+<div class="absolute -right-6 top-0 bottom-0 flex flex-col justify-between text-[10px] font-body text-graphite">
+<span>128</span>
+<span>0</span>
+</div>
+</div>
+<span class="font-body text-faded-ink text-sm">Master (100%)</span>
+</div>
+<!-- Lower Row: 64px and 32px -->
+<div class="flex items-end gap-16 relative">
+<!-- 64px Variant -->
+<div class="flex flex-col items-center gap-4">
+<div class="relative w-24 h-24 border border-graphite bg-parchment flex items-center justify-center shadow-[2px_2px_0px_#8C8276]">
+<!-- Logo 64px -->
+<div class="w-16 h-16 rounded-full border-[1.5px] border-ink flex items-center justify-center ink-bleed">
+<span class="font-display font-bold text-2xl tracking-tighter text-ink">N27</span>
+</div>
+</div>
+<span class="font-body text-faded-ink text-xs">Half-Scale</span>
+</div>
+<!-- 32px Variant -->
+<div class="flex flex-col items-center gap-4 relative">
+<div class="relative w-16 h-16 border border-graphite bg-parchment flex items-center justify-center shadow-[2px_2px_0px_#8C8276]">
+<!-- Logo 32px -->
+<div class="w-8 h-8 rounded-full border border-ink flex items-center justify-center ink-bleed">
+<span class="font-display font-bold text-[10px] tracking-tighter text-ink leading-none mt-0.5">N27</span>
+</div>
+</div>
+<span class="font-body text-faded-ink text-xs">Favicon</span>
+<!-- Handwritten Annotation (Sanguine) -->
+<div class="absolute -right-32 -top-8 w-32 rotate-[-6deg] z-20 pointer-events-none">
+<span class="font-hand text-2xl text-primary leading-none block ml-4">Legible at 16px</span>
+<svg class="w-16 h-12 text-primary fill-none stroke-current stroke-2 ml-0 -mt-1" viewbox="0 0 100 60">
+<path d="M70,10 C60,25 40,35 10,45" stroke-dasharray="100" stroke-dashoffset="0" stroke-linecap="round"></path>
+<path d="M10,45 L20,38 M10,45 L22,50" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Bottom Nav Placeholder -->
+<div class="border-t border-graphite/30 bg-parchment px-4 pb-4 pt-2 relative z-10">
+<div class="flex gap-2">
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<p class="text-xs font-body tracking-wider">Cover</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">pentagon</span>
+<p class="text-xs font-body tracking-wider">Emblem</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-ink" href="#">
+<span class="material-symbols-outlined text-2xl font-bold fill-current">verified</span>
+<p class="text-xs font-body tracking-wider font-bold">Mark</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-faded-ink hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">palette</span>
+<p class="text-xs font-body tracking-wider">Palette</p>
+</a>
+</div>
+</div>
+</main>
+</body></html>

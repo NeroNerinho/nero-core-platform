@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Contemporary Antique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1a1a1a",
+                        "charcoal": "#221610",
+                        "sand": "#d9c5b2",
+                        "gold": "#c5a059",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .marble-bg {
+            background: linear-gradient(135deg, rgba(34, 22, 16, 0.97) 0%, rgba(45, 30, 22, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .gold-leaf-text {
+            background: linear-gradient(72deg, #c5a059 0%, #f9f0b5 45%, #c5a059 60%, #8e6d34 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 197, 178, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-charcoal dark:text-sand transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col dark:bg-charcoal group/design-root overflow-x-hidden marble-bg">
+<!-- Top Navigation -->
+<div class="flex items-center p-6 justify-between sticky top-0 z-50 bg-charcoal/80 backdrop-blur-md border-b border-sand/10">
+<div class="text-sand flex size-10 shrink-0 items-center cursor-pointer" data-icon="menu">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h1 class="text-white text-2xl font-black leading-tight tracking-[0.2em] flex-1 text-center gold-leaf-text">NERO 27</h1>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 pb-24">
+<!-- Hero Section -->
+<div class="@container p-4">
+<div class="@[480px]:py-3">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[450px] relative group" data-alt="High-end fashion editorial with Roman architecture backdrop" style='background-image: linear-gradient(to top, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxgA9fsoqKYIKYMHixw5fgcwpWByjNyXzc9ybLT9h1Mrip5yjcceup41K6TCjrlC8pZ-1d2tFJM8hlkMzrFZ10j5yFcoJC26n5DadelETNLLu3eq8j4iJKViDPKdNKunBxDFYFalLZqhBQmPuTz6ricsCLtXZwnhTVcdXL-PiTR2V-yiK8OV_BJ2fGgaWSvI8XvEAI5UL3WPof-ySwEymseO89KD9ebdz2mvfaAvEVcCgtYk5Qvpj1Yu_rJg1WXg4OFTTmiOgKkx0");'>
+<div class="absolute inset-0 border-[1px] border-gold/20 m-4 rounded-lg pointer-events-none"></div>
+<div class="flex flex-col p-8 gap-2 relative z-10">
+<p class="text-gold text-xs font-bold tracking-[0.4em] uppercase">Autumn MMXXIV</p>
+<h2 class="text-white tracking-tighter text-4xl font-black leading-none uppercase">CONTEMPORARY <br/>ANTIQUE V3</h2>
+<div class="mt-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-bold text-sm tracking-widest uppercase transition-all">
+                                Explore Collection
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Title -->
+<div class="px-6 pt-8 pb-4 flex justify-between items-end">
+<div>
+<h2 class="text-sand/60 text-xs font-bold tracking-[0.3em] uppercase mb-1">Curation</h2>
+<h3 class="text-white text-2xl font-bold tracking-tight">The Imperial Line</h3>
+</div>
+<a class="text-primary text-sm font-bold tracking-wider underline decoration-2 underline-offset-4" href="#">View All</a>
+</div>
+<!-- Horizontal Scroll Section -->
+<div class="flex overflow-y-auto pb-4 [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex items-stretch px-4 gap-4">
+<!-- Card 1 -->
+<div class="flex h-full flex-1 flex-col gap-4 glass-card p-3 rounded-xl min-w-[280px]">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-lg flex flex-col" data-alt="Minimalist fashion photography in muted sand tones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCO7GrllPe00RgyzaRGcF2HqkjrDn9s8ekkrDWIWUdmLIRhcndimjwVoWryGjRM8agl85SEdwvlshD9J3ZOM56YCvvXTk7MUUjNUvPTkt0FBrIj8RO4wcqchSGHWRSlalkVlgSeX49Qyjmf9Xv5hNPKf3si61hgqL8d6MMl18g2zKcUI3J11VwYWJ2Qaucwoy5KYiplTOaALy1JXVg3DO34peivIRJoAYH-uKh1rt-HxdLQfix7R0IPnFtuG2lo9EovBwU8R40QNZ8");'></div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start">
+<p class="text-white text-lg font-bold leading-tight">Aureum Toga</p>
+<span class="text-gold font-bold">$1,240</span>
+</div>
+<p class="text-sand/50 text-xs font-medium tracking-widest uppercase mt-1">Gold Leaf Finishes</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex h-full flex-1 flex-col gap-4 glass-card p-3 rounded-xl min-w-[280px]">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-lg flex flex-col" data-alt="Sleek modern apparel with Roman influence" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDP7lEQ_lPnUKSiczj2v1T8IUY8_Dx0fbcIJvjY26bw00cG-OaBHmoQdCpytLA2nzjxKyerVqj1UnaQSyDkgR0M2ViC4riiXZI7wzxDDrNVSMbgaSCbX4KfIMBBwh4i5f_jcUEpNcqrEv6K3RHLwEb0TpAIGL741Cx-wUu6AY86gTmy25Rw0NNBOtyr2SyBljFTi6er6GU8jKgH-jzRgLrlToY4ieuRvGxmNi_8Ij6XBVbKZM0jDcb4QIjYXtQKdd1FDV5DH3BiU8s");'></div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start">
+<p class="text-white text-lg font-bold leading-tight">Digital Pillar</p>
+<span class="text-gold font-bold">$890</span>
+</div>
+<p class="text-sand/50 text-xs font-medium tracking-widest uppercase mt-1">Modern Minimalist</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex h-full flex-1 flex-col gap-4 glass-card p-3 rounded-xl min-w-[280px]">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-lg flex flex-col" data-alt="High-end fabric texture with gold accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4jLXEM1CSc9VLYY5BwUDKrDV0tVTQ0ZbjG1mRKHVVbs_2tdiK5fz0NduLgJj4p54wjIiy58JhNT7AjaA4ng2kAih-kST0dkDr0pEBXXAVvCl3jpt5CiWZxB7C_ej934MFqqEeJ00Pnjo6aCpXmIbapFUQ2X7X0p0qsD_NPQjaOPH6Iy4RjI-n1lxyyj1oB3PpwoTJNr0tFFhM_qcD30axFbP2Yv-rFmIynhlJXvOQQvdWW3rGO6shWgJ-dxid3VNMW8WKNH3St7E");'></div>
+<div class="px-1 pb-2">
+<div class="flex justify-between items-start">
+<p class="text-white text-lg font-bold leading-tight">Forum Coat</p>
+<span class="text-gold font-bold">$2,100</span>
+</div>
+<p class="text-sand/50 text-xs font-medium tracking-widest uppercase mt-1">Roman Grandeur</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Section -->
+<div class="mt-8 px-4">
+<div class="glass-card rounded-xl overflow-hidden border-gold/30">
+<div class="p-8">
+<h2 class="text-gold text-xs font-bold tracking-[0.5em] uppercase mb-4">The Editorial</h2>
+<h3 class="text-white text-3xl font-black tracking-tight leading-tight mb-4 uppercase">Blending Grandeur <br/>With Digital Clarity</h3>
+<p class="text-sand/70 text-sm leading-relaxed mb-6">
+                        Explore the V3 philosophy where historical monumentality meets the precision of the digital age. A dialogue between stone and screen.
+                    </p>
+<button class="flex items-center gap-2 text-white font-bold text-xs tracking-widest uppercase group">
+                        Read Philosophy 
+                        <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="h-64 w-full bg-cover bg-center" data-alt="Abstract marble and light digital pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWw5zCGMoAyJkOzAhSqTsZFg80_T5zNr7LQN1rw-UVZNSchA5Zct1CVpqa78QvK1h5f6yXhamaCiM5BgmESKeVtzw3JAulomYbLN1a8v_O0qKnha5TnVKUtBih2kAphxsVdkaebdlh9sSu-qD-PQ-PBmQKszmLxbk16pJYPZHwkck8Rf0t9AHbo1SlxpZOxcIPZv-EtkNvhz6z7bjNFefpCJAeM622ZR76wcMBkpCHijpvHMbe0ShB53GBx2t1jVDo7q-HlX-G-_o");'></div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-xl border-t border-sand/10 px-6 pb-8 pt-4">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">home</span>
+<p class="text-[10px] font-bold tracking-widest uppercase">Atelier</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-sand/40 hover:text-sand transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">search</span>
+<p class="text-[10px] font-bold tracking-widest uppercase">Search</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-sand/40 hover:text-sand transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<p class="text-[10px] font-bold tracking-widest uppercase">Editorial</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-sand/40 hover:text-sand transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">person_outline</span>
+<p class="text-[10px] font-bold tracking-widest uppercase">Profile</p>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

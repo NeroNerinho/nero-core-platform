@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Quantum Grid</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        void: "#030304",
+                        surface: "#0F1115",
+                        border: "#2A2F3A",
+                        neon: "#00F0FF",
+                        purple: "#7000FF",
+                        text: "#F0F2F5",
+                        carbon: "#8890A0",
+                        error: "#FF003C",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #2A2F3A 1px, transparent 1px), linear-gradient(to bottom, #2A2F3A 1px, transparent 1px)",
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px -3px rgba(0, 240, 255, 0.3)',
+                        'error': '0 0 15px -3px rgba(255, 0, 60, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030304;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2F3A;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF;
+        }
+
+        /* Grid Background Animation Utility */
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Neon Text Glow */
+        .text-neon-glow {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        /* Scanline effect */
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-void text-text font-body antialiased min-h-screen relative overflow-x-hidden selection:bg-neon selection:text-void">
+<!-- Scanline Overlay -->
+<div class="fixed inset-0 scanline z-50 opacity-10 pointer-events-none"></div>
+<!-- Main Container -->
+<div class="relative flex flex-col min-h-screen w-full max-w-md mx-auto bg-void border-x border-border/30 shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-void/90 backdrop-blur-md border-b border-border">
+<div class="flex items-center justify-between px-5 py-4">
+<button class="flex items-center justify-center w-8 h-8 rounded-sm text-carbon hover:text-neon transition-colors duration-200">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-sm font-display font-bold tracking-[0.1em] text-white">QUANTUM GRID</h1>
+<span class="text-[10px] font-mono text-neon tracking-widest opacity-80">SYS.IMG.05</span>
+</div>
+<div class="w-8 flex justify-end">
+<span class="material-symbols-outlined text-carbon text-[20px]">grid_4x4</span>
+</div>
+</div>
+<!-- Progress Line -->
+<div class="h-[1px] w-full bg-border relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-neon shadow-neon"></div>
+</div>
+</header>
+<!-- Content Scroll Area -->
+<main class="flex-1 px-5 py-6 space-y-12 pb-24">
+<!-- Intro Text -->
+<section>
+<p class="font-mono text-xs text-neon mb-2 uppercase tracking-widest">// 01. THE GEOMETRY</p>
+<h2 class="text-2xl font-display font-bold text-white mb-3">The Golden Ratio</h2>
+<p class="text-carbon text-sm leading-relaxed">
+                    All layouts within the Nero 27 ecosystem must adhere to the 1.618 sequence. Structure is not random; it is calculated precision.
+                </p>
+</section>
+<!-- Golden Ratio Diagram -->
+<section class="relative">
+<div class="relative w-full aspect-[4/5] bg-surface border border-border rounded-sm overflow-hidden group">
+<!-- Grid Background -->
+<div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+<!-- Diagram SVG -->
+<div class="absolute inset-0 p-8 flex items-center justify-center">
+<svg class="w-full h-full drop-shadow-[0_0_8px_rgba(0,240,255,0.3)]" viewbox="0 0 200 300">
+<!-- Outer Frame -->
+<rect fill="none" height="280" stroke="#2A2F3A" stroke-width="1" width="180" x="10" y="10"></rect>
+<!-- Golden Spiral Approximation Lines -->
+<path d="M10 10 H190 V290 H10 V10" fill="none" stroke="#00F0FF" stroke-opacity="0.3" stroke-width="0.5"></path>
+<line stroke="#00F0FF" stroke-width="0.5" x1="10" x2="190" y1="120" y2="120"></line>
+<line stroke="#00F0FF" stroke-width="0.5" x1="120" x2="120" y1="120" y2="290"></line>
+<line stroke="#00F0FF" stroke-width="0.5" x1="120" x2="10" y1="220" y2="220"></line>
+<line stroke="#00F0FF" stroke-width="0.5" x1="50" x2="50" y1="220" y2="120"></line>
+<!-- The Spiral -->
+<path d="M190 10 A 180 180 0 0 0 10 190" fill="none" stroke="#00F0FF" stroke-width="1.5"></path>
+<path d="M10 120 A 110 110 0 0 1 120 230" fill="none" stroke="#00F0FF" stroke-dasharray="4 2" stroke-opacity="0.5" stroke-width="1"></path>
+<!-- Data Points -->
+<circle cx="120" cy="120" fill="#00F0FF" r="2"></circle>
+<circle cx="50" cy="220" fill="#00F0FF" r="2"></circle>
+<!-- Labels -->
+<text fill="#8890A0" font-family="monospace" font-size="8" text-anchor="end" x="195" y="125">1.618</text>
+<text fill="#00F0FF" font-family="monospace" font-size="8" x="15" y="25">PHI</text>
+</svg>
+</div>
+<!-- Overlay Detail -->
+<div class="absolute bottom-3 left-3 px-2 py-1 bg-void/80 border border-border rounded-[2px] backdrop-blur-sm">
+<span class="text-[10px] font-mono text-neon">FIG 01.0 // RATIO</span>
+</div>
+</div>
+</section>
+<!-- Visual Tone Section -->
+<section class="space-y-6">
+<div>
+<p class="font-mono text-xs text-neon mb-2 uppercase tracking-widest">// 02. VISUAL TONE</p>
+<h2 class="text-2xl font-display font-bold text-white mb-3">Do's &amp; Don'ts</h2>
+<p class="text-carbon text-sm leading-relaxed">
+                        Images must be treated with the Nero Cyan Duotone map. High contrast is mandatory. Warm temperatures are strictly prohibited.
+                    </p>
+</div>
+<!-- Grid of Examples -->
+<div class="grid grid-cols-1 gap-6">
+<!-- DO Example -->
+<div class="relative group">
+<div class="relative h-48 w-full bg-surface border border-border rounded-sm overflow-hidden">
+<!-- Correct Image -->
+<div class="absolute inset-0 bg-cover bg-center grayscale mix-blend-luminosity opacity-80" data-alt="Futuristic architectural robot rendered in high contrast black and white" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3O4EPOc4Og20AYhbbZYHjPD2H5ZzbsRBM9u4qj8IYz3s2o5snMXMZfSh844oIcI2mTwMT1uFHPPBYuAhBOzyPe0-nB3rMr4u2t3_uo2LCiiEQkceqlLUnHfT93KxwBjC_YvEDZ_2tZRJm74kSlKx4eb13TBXJ11bEDtsmnNopHp2EHUby5C1qV7YXDkNCn_uRHxBa6xbzuWMIzWsWlAw-cWdR7NLhfka-XHwPTFWBwdOwDoBXArXJsmj2OEWwqGWpsVeDJt-NfVU');"></div>
+<div class="absolute inset-0 bg-neon/20 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-90"></div>
+<!-- Checkmark Badge -->
+<div class="absolute top-3 right-3 h-8 w-8 bg-void/90 rounded-full border border-neon/50 flex items-center justify-center shadow-[0_0_10px_rgba(0,255,148,0.4)]">
+<span class="material-symbols-outlined text-[#00FF94] text-lg">check</span>
+</div>
+<!-- Label -->
+<div class="absolute bottom-3 left-3">
+<span class="px-2 py-1 bg-[#00FF94]/10 border border-[#00FF94]/30 rounded-[2px] text-[#00FF94] text-[10px] font-mono font-bold tracking-wider">
+                                    APPROVED :: DUOTONE
+                                </span>
+</div>
+</div>
+</div>
+<!-- DON'T Example -->
+<div class="relative group">
+<div class="relative h-48 w-full bg-surface border border-error/30 rounded-sm overflow-hidden">
+<!-- Incorrect Image (Warm/Sepia) -->
+<div class="absolute inset-0 bg-cover bg-center sepia opacity-80" data-alt="Warm toned cozy wooden interior with soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVOPC8Nyur8jTN9QLIjaYvAcPT9HddkSeP1dtEiZhZawNQ0Zu9elTAE4vuW3doDLsF6hGozdVTcIoKbt7TBwGZzVEMwLu_Dnw9ujez7I8j-sA7efYZ7gASpPNrQ4T_oAOu23TbfKW4nC3tXUV-AB2JYEi1OKSpbZGNoZ0vCR6BheiCGYQnpk8pfbC9ViPzcAkgtUs7ct_GCRhXAGicwNrBFkYe9eGtkIsxhF6F5blbiDDSw9_Ds53CKLivM141qPJhObFi5JboY8k');"></div>
+<div class="absolute inset-0 bg-orange-500/10 mix-blend-color"></div>
+<!-- X Badge -->
+<div class="absolute top-3 right-3 h-8 w-8 bg-void/90 rounded-full border border-error/50 flex items-center justify-center shadow-error">
+<span class="material-symbols-outlined text-error text-lg">close</span>
+</div>
+<!-- Label -->
+<div class="absolute bottom-3 left-3">
+<span class="px-2 py-1 bg-error/10 border border-error/30 rounded-[2px] text-error text-[10px] font-mono font-bold tracking-wider">
+                                    REJECTED :: THERMAL VAR
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Exclusion Zones Section -->
+<section class="space-y-6">
+<div>
+<p class="font-mono text-xs text-neon mb-2 uppercase tracking-widest">// 03. EXCLUSION ZONES</p>
+<h2 class="text-2xl font-display font-bold text-white mb-3">Clearspace Physics</h2>
+<p class="text-carbon text-sm leading-relaxed">
+                        The Entity requires a vacuum. Maintain 2x logo height clearspace. No visual interference permitted within the bounding box.
+                    </p>
+</div>
+<!-- Clearspace Diagram -->
+<div class="p-8 bg-surface border border-border rounded-sm relative overflow-hidden flex items-center justify-center min-h-[240px]">
+<!-- Background Grid for Precision Feel -->
+<div class="absolute inset-0 bg-[linear-gradient(rgba(42,47,58,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(42,47,58,0.3)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+<!-- Diagram Container -->
+<div class="relative z-10">
+<!-- The Logo Block (Center) -->
+<div class="w-16 h-16 bg-void border border-neon flex items-center justify-center relative z-20 shadow-neon">
+<span class="material-symbols-outlined text-neon text-3xl animate-pulse">atm</span>
+</div>
+<!-- Horizontal Dimension Line -->
+<div class="absolute top-1/2 -translate-y-1/2 -left-12 w-8 h-[1px] bg-carbon"></div>
+<div class="absolute top-1/2 -translate-y-1/2 -right-12 w-8 h-[1px] bg-carbon"></div>
+<!-- Vertical Dimension Line -->
+<div class="absolute left-1/2 -translate-x-1/2 -top-12 h-8 w-[1px] bg-carbon"></div>
+<div class="absolute left-1/2 -translate-x-1/2 -bottom-12 h-8 w-[1px] bg-carbon"></div>
+<!-- Outer Exclusion Zone Box (Dashed) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-dashed border-carbon/50 z-10 flex items-start justify-start p-1">
+<span class="text-[8px] font-mono text-carbon">SAFE_ZONE</span>
+</div>
+<!-- Measurement Labels -->
+<div class="absolute -right-10 top-0 h-full flex items-center">
+<span class="text-[10px] font-mono text-neon bg-surface px-1 border border-border">x</span>
+</div>
+<div class="absolute -right-10 -top-12 h-12 flex items-center border-l border-carbon pl-1">
+<span class="text-[10px] font-mono text-carbon">2x</span>
+</div>
+<div class="absolute -right-10 -bottom-12 h-12 flex items-center border-l border-carbon pl-1">
+<span class="text-[10px] font-mono text-carbon">2x</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Component Reuse) -->
+<div class="fixed bottom-0 w-full max-w-md z-50 border-t border-border bg-[#1b2727] px-4 pb-6 pt-2">
+<div class="flex gap-2 justify-between">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#9bb9bb] hover:text-white transition-colors group" href="#">
+<div class="text-[#9bb9bb] group-hover:text-white group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] flex h-8 items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[24px]">atm</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-wide uppercase font-mono">Nucleus</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#9bb9bb] hover:text-white transition-colors group" href="#">
+<div class="text-[#9bb9bb] group-hover:text-white transition-colors flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-wide uppercase font-mono">Palette</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#9bb9bb] hover:text-white transition-colors group" href="#">
+<div class="text-[#9bb9bb] group-hover:text-white transition-colors flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">text_fields</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-wide uppercase font-mono">Type</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#9bb9bb] hover:text-white transition-colors group" href="#">
+<div class="text-[#9bb9bb] group-hover:text-white transition-colors flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">folder_open</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-wide uppercase font-mono">Vault</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-neon" href="#">
+<div class="text-neon flex h-8 items-center justify-center drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">
+<span class="material-symbols-outlined text-[24px] fill-current">grid_on</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-wide uppercase font-mono text-neon drop-shadow-[0_0_5px_rgba(0,240,255,0.4)]">Grid</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

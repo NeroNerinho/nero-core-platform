@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UX Precision V3 | Swiss Design Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "serif": ["Newsreader", "serif"],
+                        "mono": ["Space Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .hairline-border { border: 1px solid rgba(76, 9, 170, 0.1); }
+        .grid-bg { background-size: 40px 40px; background-image: radial-gradient(circle, #4c09aa10 1px, transparent 1px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#130d1c] dark:text-[#f7f5f8] antialiased transition-colors duration-300">
+<!-- Technical Spec Ticker (Top) -->
+<div class="w-full border-b hairline-border bg-white dark:bg-background-dark/50 py-2 px-6 overflow-hidden whitespace-nowrap">
+<div class="flex items-center gap-8 animate-none">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">System Status: Optimal</span>
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-40">Version: 3.0.4.R2</span>
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-40">Build: 2024.05.12</span>
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-40">Latency: 0.02ms</span>
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-40">Grid: 100% Active</span>
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Architecture: Verified</span>
+</div>
+</div>
+<!-- Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b hairline-border">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<span class="material-symbols-outlined text-white text-xl">architecture</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight uppercase">UX Precision <span class="text-primary">V3</span></h2>
+</div>
+<nav class="hidden md:flex items-center">
+<div class="flex items-center">
+<a class="px-6 py-2 text-sm font-medium hover:text-primary transition-colors border-r hairline-border" href="#">System</a>
+<a class="px-6 py-2 text-sm font-medium hover:text-primary transition-colors border-r hairline-border" href="#">Metrics</a>
+<a class="px-6 py-2 text-sm font-medium hover:text-primary transition-colors border-r hairline-border" href="#">Grid Logic</a>
+<a class="px-6 py-2 text-sm font-medium hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex px-6 py-2 border hairline-border text-xs font-mono uppercase tracking-widest hover:bg-primary/5 transition-colors">
+                    Initialize
+                </button>
+<button class="bg-primary text-white px-6 py-2 text-sm font-bold rounded-sm hover:brightness-110 active:scale-95 transition-all">
+                    Get Started
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<!-- Hero Section: Modular Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 min-h-[80vh] border-x hairline-border">
+<div class="lg:col-span-7 flex flex-col justify-center p-8 lg:p-16 border-b lg:border-b-0 lg:border-r hairline-border bg-white dark:bg-transparent">
+<div class="space-y-6">
+<span class="font-mono text-xs uppercase tracking-[0.3em] text-primary font-bold">A Masterclass in Swiss Principles</span>
+<h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight">
+                        The Standard of <br/><i class="font-serif italic">Digital</i> Architecture.
+                    </h1>
+<p class="max-w-lg text-lg opacity-80 leading-relaxed">
+                        Rigorous grid-based layouts, mathematical consistency, and high-contrast typography designed for technical professionals.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-6">
+<button class="bg-primary text-white h-14 px-10 flex items-center gap-3 text-sm font-bold uppercase tracking-widest rounded-sm">
+                            Initialize V3.0.4
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border hairline-border h-14 px-10 flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:bg-white dark:hover:bg-primary/10 transition-colors">
+                            View Blueprint
+                        </button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 grid-bg flex items-center justify-center p-8 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+<!-- Abstract Data Viz (Placeholder style) -->
+<div class="relative w-full aspect-square border-2 border-primary/20 rounded-lg flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-90 transition-transform duration-700 group-hover:scale-105" data-alt="Abstract geometric glass architectural structure" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIdVILb-CydgegT5XUAp3cNyN9g9UEJXbzoK5NsnBbQOmwA8UFOX0waj263NvgIMu7gx8oYhsoEKQjROYqA27Bd18uXsAwjSsOUYxAVd6M9CbQy5TLe31e-LljzlinPVvaCyR1TDmZe_cwt-j-XyKVitW2QjQ6TXZZSG7bL7R6M7r1OiDxOavyvhiu1rLCXOq2M_jdajry9SzsszXW1egvGxhuQtcsvcB1v5s5N2R3nIKIG76K0Dsm_2Y7aD634b0O0diQG5Gt61E');">
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4/5 h-4/5 border hairline-border backdrop-blur-sm bg-white/10 flex flex-col p-6 font-mono text-[10px] uppercase justify-between">
+<div class="flex justify-between">
+<span>Ref: GRID_001</span>
+<span>Scale: 1:1</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="w-full h-1 bg-primary/40"></div>
+<div class="w-2/3 h-1 bg-primary/20"></div>
+<div class="w-full h-1 bg-primary/10"></div>
+</div>
+<div class="flex justify-between items-end">
+<span>Coord: 52.5200° N, 13.4050° E</span>
+<span class="text-primary font-bold">Precision Active</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Calculated Section: Metrics -->
+<section class="border-x border-b hairline-border grid grid-cols-2 md:grid-cols-4">
+<div class="p-8 border-r hairline-border flex flex-col gap-2">
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-50">Latency</span>
+<span class="text-3xl font-bold font-display">0.02ms</span>
+<span class="text-xs text-red-500 font-mono">-0.01%</span>
+</div>
+<div class="p-8 md:border-r hairline-border flex flex-col gap-2">
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-50">Grid Accuracy</span>
+<span class="text-3xl font-bold font-display">100%</span>
+<span class="text-xs text-green-500 font-mono">+0.00%</span>
+</div>
+<div class="p-8 border-r hairline-border flex flex-col gap-2">
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-50">Consistency</span>
+<span class="text-3xl font-bold font-display">99.9%</span>
+<span class="text-xs text-green-500 font-mono">+0.04%</span>
+</div>
+<div class="p-8 flex flex-col gap-2">
+<span class="font-mono text-[10px] uppercase tracking-widest opacity-50">Nodes</span>
+<span class="text-3xl font-bold font-display">1,402</span>
+<span class="text-xs text-primary font-mono">STABLE</span>
+</div>
+</section>
+<!-- The Calculated Core: Pillars -->
+<section class="py-24 border-x hairline-border px-8 lg:px-16">
+<div class="max-w-4xl mb-16">
+<h2 class="font-serif text-4xl md:text-5xl mb-6">Mathematical Consistency</h2>
+<p class="text-xl opacity-70">Built on a strict functional hierarchy where every element serves a specific intent within the grid-based logic.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border hairline-border">
+<div class="p-10 border-b md:border-b-0 md:border-r hairline-border hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">grid_view</span>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">Grid Logic</h3>
+<p class="text-sm opacity-60 leading-relaxed mb-8">Mathematical alignment across every viewport. No pixel is placed without purpose or alignment to the core 12-column foundation.</p>
+<a class="font-mono text-[10px] uppercase tracking-widest flex items-center gap-2 group-hover:text-primary" href="#">
+                        Read Module <span class="material-symbols-outlined text-xs">north_east</span>
+</a>
+</div>
+<div class="p-10 border-b md:border-b-0 md:border-r hairline-border hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">layers</span>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">Functional Hierarchy</h3>
+<p class="text-sm opacity-60 leading-relaxed mb-8">Clear visual priority through a careful mix of newsreader serif for impact and geometric mono for technical data.</p>
+<a class="font-mono text-[10px] uppercase tracking-widest flex items-center gap-2 group-hover:text-primary" href="#">
+                        Inspect Flow <span class="material-symbols-outlined text-xs">north_east</span>
+</a>
+</div>
+<div class="p-10 hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl group-hover:scale-110 transition-transform">filter_none</span>
+<h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">Swiss Minimalism</h3>
+<p class="text-sm opacity-60 leading-relaxed mb-8">Generous negative space combined with hairline borders ensures clarity and professional sophistication at scale.</p>
+<a class="font-mono text-[10px] uppercase tracking-widest flex items-center gap-2 group-hover:text-primary" href="#">
+                        System Specs <span class="material-symbols-outlined text-xs">north_east</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Bento Feature Highlight -->
+<section class="border-x border-t hairline-border grid grid-cols-1 lg:grid-cols-2">
+<div class="p-8 lg:p-16 border-b lg:border-b-0 lg:border-r hairline-border">
+<div class="sticky top-32">
+<span class="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4 block">Visual Evolution</span>
+<h2 class="font-serif text-5xl mb-8 leading-tight">From Blueprints to <i class="font-serif italic">Operational</i> Excellence.</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 border hairline-border bg-white dark:bg-white/5">
+<span class="font-mono text-primary font-bold">V1</span>
+<div>
+<p class="font-bold text-sm uppercase">Foundational Grid</p>
+<p class="text-xs opacity-60">Initial implementation of the 8pt system.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 border hairline-border bg-white dark:bg-white/5 opacity-60">
+<span class="font-mono text-primary font-bold">V2</span>
+<div>
+<p class="font-bold text-sm uppercase">Adaptive Logic</p>
+<p class="text-xs opacity-60">Dynamic viewport recalculations.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 border-2 border-primary bg-primary/5">
+<span class="font-mono text-primary font-bold">V3</span>
+<div>
+<p class="font-bold text-sm uppercase">Swiss Precision</p>
+<p class="text-xs opacity-60">Current standard of high-fidelity architecture.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-transparent overflow-hidden">
+<div class="aspect-square w-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Modern minimalist office space with sharp lines" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpYgTCt7FoqJwWD7GewEDXR-1TeBtLdp4z87-zgwmYn0s7jO8n2QiNKHIBBrKZT-zBG96pLT5AQ88vWm2LF2WpUcDU5A-ZkbfRjBz87pa5e35tvAC-Pr31q4bHl6eNm-dRRciI5lvNnfHAEDE2YdgeSm_3M50aYzFMgS4GjzyXGzQ7DjAlO82LRE7aHY5PgtPjIgfggcgiIHdeUsl33qTU5_5dlDopJkCGAF1ymRS-JXXzcVCC9yigweSLrlBU1AO74cbQghFlxY4');">
+</div>
+<div class="p-8 border-t hairline-border grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<p class="font-mono text-[10px] uppercase opacity-50">Reference</p>
+<p class="text-sm font-bold leading-tight">Zürich Design Lab Performance Metrics</p>
+</div>
+<div class="space-y-2">
+<p class="font-mono text-[10px] uppercase opacity-50">Year</p>
+<p class="text-sm font-bold leading-tight">2024 Release Cycle</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t hairline-border bg-white dark:bg-background-dark/30 mt-24">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+<div class="col-span-2 space-y-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1 rounded-sm">
+<span class="material-symbols-outlined text-white text-lg">architecture</span>
+</div>
+<h2 class="text-base font-bold tracking-tight uppercase">UX Precision <span class="text-primary">V3</span></h2>
+</div>
+<p class="text-sm opacity-60 max-w-xs leading-relaxed">
+                        The definitive framework for digital precision. Built on the principles of Swiss minimalism and architectural integrity.
+                    </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-sm border hairline-border flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+<a class="w-8 h-8 rounded-sm border hairline-border flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+</a>
+<a class="w-8 h-8 rounded-sm border hairline-border flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-sm">lan</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Structure</h4>
+<ul class="text-sm space-y-2 opacity-70">
+<li><a class="hover:text-primary" href="#">Architecture</a></li>
+<li><a class="hover:text-primary" href="#">Grid Systems</a></li>
+<li><a class="hover:text-primary" href="#">Layout Logic</a></li>
+<li><a class="hover:text-primary" href="#">Typography</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Metrics</h4>
+<ul class="text-sm space-y-2 opacity-70">
+<li><a class="hover:text-primary" href="#">Benchmarking</a></li>
+<li><a class="hover:text-primary" href="#">Case Studies</a></li>
+<li><a class="hover:text-primary" href="#">Live Data</a></li>
+<li><a class="hover:text-primary" href="#">Reporting</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Company</h4>
+<ul class="text-sm space-y-2 opacity-70">
+<li><a class="hover:text-primary" href="#">Philosophy</a></li>
+<li><a class="hover:text-primary" href="#">The Team</a></li>
+<li><a class="hover:text-primary" href="#">Partners</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">Legal</h4>
+<ul class="text-sm space-y-2 opacity-70">
+<li><a class="hover:text-primary" href="#">Privacy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+<li><a class="hover:text-primary" href="#">Licensing</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t hairline-border flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-mono text-[10px] uppercase tracking-widest opacity-40">
+                    © 2024 UX Precision. All rights reserved. Mathematical Grid Certified.
+                </div>
+<div class="flex items-center gap-4 text-[10px] font-mono opacity-40">
+<span>47.3769° N, 8.5417° E (ZRH)</span>
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+<span>System Operational</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

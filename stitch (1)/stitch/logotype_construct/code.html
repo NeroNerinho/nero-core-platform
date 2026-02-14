@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Logotype Construct</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "secondary": "#06B6D4", // Added for the cyan construction lines
+                        "accent": "#FF4500", // Safety Orange from PRD
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "border-tech": "#e2e8f0",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utility Classes for Technical Brutalism */
+        .tech-border {
+            border: 1px solid #e2e8f0;
+        }
+        .tech-border-dashed {
+            border: 1px dashed #e2e8f0;
+        }
+        .corner-mark {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: #FF4500;
+            border-style: solid;
+            pointer-events: none;
+        }
+        .corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+        .corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+        .corner-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+        .corner-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+        
+        /* Grid Background Size */
+        .bg-grid {
+            background-size: 20px 20px;
+        }
+
+        /* SVG Overlay Animations */
+        .construction-line {
+            stroke-dasharray: 4;
+            animation: dash 30s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 1000; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Header Section -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-border-tech sticky top-0 z-20">
+<a aria-label="Go Back" class="text-primary hover:bg-primary/5 p-2 rounded transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</a>
+<div class="flex flex-col items-center">
+<h2 class="text-[#130d1c] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] text-center uppercase">Logotype Construct</h2>
+<span class="text-xs font-mono text-slate-500 tracking-widest uppercase">Geometry_Analysis_v1</span>
+</div>
+<div class="flex w-12 items-center justify-end">
+<span class="text-primary text-xs font-bold leading-normal tracking-[0.05em] shrink-0 border border-primary px-1 rounded-sm">03</span>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-4 gap-6 relative">
+<!-- The Stage: Logo Visualization Area -->
+<section class="relative w-full">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xs font-bold tracking-widest text-slate-500 uppercase">01. Visual Mainframe</h3>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">SCALE: 1:1</span>
+</div>
+<!-- Graph Paper Container -->
+<div class="relative h-[320px] w-full bg-white dark:bg-[#0f0a16] tech-border bg-grid bg-grid-pattern overflow-hidden group">
+<!-- Corner Marks -->
+<div class="corner-mark corner-tl"></div>
+<div class="corner-mark corner-tr"></div>
+<div class="corner-mark corner-bl"></div>
+<div class="corner-mark corner-br"></div>
+<!-- Center Crosshair -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+<div class="w-full h-[1px] bg-primary"></div>
+<div class="h-full w-[1px] bg-primary absolute"></div>
+</div>
+<!-- Logo & Construction Lines Container -->
+<div class="absolute inset-0 flex items-center justify-center">
+<!-- Construction Lines (Grid View) -->
+<!-- Visible by default for this demo, controlled via JS in real app, simulated here via opacity -->
+<svg class="absolute w-64 h-64 z-0 opacity-100 transition-opacity duration-300 pointer-events-none" fill="none" id="construction-layer" viewbox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+<!-- Golden Ratio Circles -->
+<circle class="opacity-40" cx="128" cy="128" r="100" stroke="#06B6D4" stroke-dasharray="4 4" stroke-width="1"></circle>
+<circle class="opacity-60" cx="88" cy="128" r="60" stroke="#06B6D4" stroke-dasharray="2 2" stroke-width="1"></circle>
+<circle class="opacity-60" cx="168" cy="128" r="60" stroke="#06B6D4" stroke-dasharray="2 2" stroke-width="1"></circle>
+<!-- Angular Guides -->
+<line class="opacity-30" stroke="#06B6D4" stroke-width="1" x1="28" x2="228" y1="128" y2="128"></line>
+<line class="opacity-30" stroke="#06B6D4" stroke-width="1" x1="128" x2="128" y1="28" y2="228"></line>
+<line class="opacity-50" stroke="#06B6D4" stroke-dasharray="4 4" stroke-width="1" x1="58" x2="198" y1="200" y2="56"></line>
+<!-- Measurement Arrows -->
+<path d="M40 240 H216" marker-end="url(#arrow)" marker-start="url(#arrow)" stroke="#FF4500" stroke-width="1"></path>
+<text fill="#FF4500" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="128" y="252">256px</text>
+</svg>
+<!-- The Logo (Main Subject) -->
+<!-- Using Pentagram icon as placeholder for custom Nero 27 Logo -->
+<div class="relative z-10 text-primary w-32 h-32 flex items-center justify-center transition-all duration-300" id="logo-entity">
+<svg class="drop-shadow-xl" fill="currentColor" height="100%" viewbox="0 0 256 256" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-20.69,83.31L139.31,180a16,16,0,0,1-22.62,0L60.69,123.31a16,16,0,0,1,0-22.62L116.69,44a16,16,0,0,1,22.62,0l56,56.69A16,16,0,0,1,195.31,123.31Z" fill-rule="evenodd" opacity="0.9"></path>
+<!-- Inner negative space representing 27 geometry -->
+<path class="dark:fill-[#171022]" d="M128,64L80,112l48,48l48-48Z" fill="#ffffff"></path>
+</svg>
+</div>
+</div>
+<!-- Coordinate Label -->
+<div class="absolute bottom-2 left-2 bg-white dark:bg-[#171022] px-2 py-1 border border-border-tech text-[10px] font-mono text-slate-400">
+                    X: 128.00 Y: 128.00
+                </div>
+</div>
+</section>
+<!-- Controls Section -->
+<section class="flex flex-col gap-4">
+<!-- Opacity Slider -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wide">Opacity Level</label>
+<span class="font-mono text-xs text-primary">90%</span>
+</div>
+<div class="relative h-6 w-full flex items-center">
+<!-- Custom Range Input Styles -->
+<input class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none focus:ring-0 [&amp;::-webkit-slider-thumb]:appearance-none [&amp;::-webkit-slider-thumb]:h-4 [&amp;::-webkit-slider-thumb]:w-4 [&amp;::-webkit-slider-thumb]:bg-primary [&amp;::-webkit-slider-thumb]:rounded-full [&amp;::-webkit-slider-thumb]:border-2 [&amp;::-webkit-slider-thumb]:border-white shadow-sm" max="100" min="0" type="range" value="90"/>
+<!-- Ticks -->
+<div class="absolute top-3 left-0 w-full flex justify-between px-1 pointer-events-none">
+<div class="h-1 w-[1px] bg-slate-300"></div>
+<div class="h-1 w-[1px] bg-slate-300"></div>
+<div class="h-1 w-[1px] bg-slate-300"></div>
+<div class="h-1 w-[1px] bg-slate-300"></div>
+<div class="h-1 w-[1px] bg-slate-300"></div>
+</div>
+</div>
+</div>
+<!-- View Toggles -->
+<div class="bg-slate-100 dark:bg-slate-800 p-1 rounded-lg flex border border-border-tech">
+<button class="flex-1 py-2 px-3 text-xs font-bold text-slate-500 hover:text-primary transition-colors uppercase tracking-wide text-center">Solid</button>
+<button class="flex-1 py-2 px-3 text-xs font-bold text-slate-500 hover:text-primary transition-colors uppercase tracking-wide text-center border-l border-slate-200 dark:border-slate-700">Outline</button>
+<button class="flex-1 py-2 px-3 text-xs font-bold bg-white dark:bg-[#171022] text-primary shadow-sm rounded border border-border-tech uppercase tracking-wide text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">grid_4x4</span>
+                    Grid
+                </button>
+</div>
+</section>
+<!-- Specifications Section -->
+<section class="grid grid-cols-1 gap-4">
+<h3 class="text-xs font-bold tracking-widest text-slate-500 uppercase mt-2">02. Specifications</h3>
+<!-- Clearance Card -->
+<div class="flex flex-col tech-border bg-white dark:bg-[#171022] p-4 relative">
+<div class="absolute top-0 left-0 bg-primary text-white text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider">Clearance Zones</div>
+<div class="mt-4 flex items-center justify-center p-6 border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 relative">
+<!-- Safe Zone Markers -->
+<div class="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-primary font-bold">1x</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-primary font-bold">1x</div>
+<div class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-primary font-bold">1x</div>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-primary font-bold">1x</div>
+<!-- Inner Logo Small -->
+<div class="w-16 h-16 text-slate-800 dark:text-white">
+<svg fill="currentColor" height="100%" viewbox="0 0 256 256" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM128,160a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"></path>
+</svg>
+</div>
+<!-- Blue Safe Zone Box -->
+<div class="absolute inset-6 border border-primary/30 pointer-events-none"></div>
+</div>
+<p class="text-[11px] text-slate-500 mt-3 leading-tight">
+                    Minimum clearance is defined by <span class="font-mono bg-slate-100 dark:bg-slate-800 px-1 rounded text-primary">1x</span>, where 'x' is the height of the brand mark glyph.
+                </p>
+</div>
+<!-- Data Table -->
+<div class="tech-border bg-white dark:bg-[#171022]">
+<div class="flex justify-between items-center p-3 border-b border-border-tech">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Parameter</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">Value</span>
+</div>
+<div class="flex justify-between items-center p-3 border-b border-border-tech hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="text-xs text-slate-500 font-mono">Aspect Ratio</span>
+<span class="text-xs text-primary font-mono">1:1 (Square)</span>
+</div>
+<div class="flex justify-between items-center p-3 border-b border-border-tech hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="text-xs text-slate-500 font-mono">Min Width (Print)</span>
+<span class="text-xs text-primary font-mono">15 mm</span>
+</div>
+<div class="flex justify-between items-center p-3 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+<span class="text-xs text-slate-500 font-mono">Min Width (Digital)</span>
+<span class="text-xs text-primary font-mono">32 px</span>
+</div>
+</div>
+</section>
+<!-- Footer Spacer -->
+<div class="h-20"></div>
+</main>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 border-t border-border-tech bg-background-light dark:bg-background-dark px-4 pb-6 pt-2 z-50">
+<div class="flex gap-2">
+<!-- Nav Item: Construct (Active) -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-lg text-primary bg-primary/5 py-1" href="#">
+<span class="material-symbols-outlined text-2xl">pentagon</span>
+<p class="text-xs font-bold tracking-wide">LOGO</p>
+</a>
+<!-- Nav Item: Color -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-2xl">palette</span>
+<p class="text-xs font-medium tracking-wide">COLOR</p>
+</a>
+<!-- Nav Item: Type -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-2xl">text_fields</span>
+<p class="text-xs font-medium tracking-wide">TYPE</p>
+</a>
+<!-- Nav Item: Assets -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 hover:text-primary transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-2xl">folder_zip</span>
+<p class="text-xs font-medium tracking-wide">ASSETS</p>
+</a>
+</div>
+</div>
+</body></html>

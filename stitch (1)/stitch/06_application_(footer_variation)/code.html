@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&amp;family=IM+Fell+English+SC&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8A3324", /* Sanguine from PRD */
+                        "background-light": "#F0EAD6", /* Aged Vellum from PRD */
+                        "background-dark": "#211311",
+                        "ink": "#2A231E", /* Deep Sepia */
+                        "wash": "#E6DCC3",
+                        "vellum": "#F0EAD6",
+                        "sanguine": "#8A3324",
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "body": ["IM Fell English SC", "serif"],
+                        "hand": ["Reenie Beanie", "cursive"],
+                        "sans": ["Newsreader", "serif"], /* Mapping Newsreader as requested in prompt, though design uses serif logic */
+                    },
+                    backgroundImage: {
+                        'paper-grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                        'noise': "url('https://www.transparenttextures.com/patterns/stardust.png')"
+                    },
+                    boxShadow: {
+                        'hard': '2px 2px 0px #2A231E',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for paper texture effects */
+        .bg-texture-grain {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjRjBFQUQ2Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiIG9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+');
+        }
+        
+        /* Simulating ink bleed */
+        .text-bleed {
+            text-shadow: 0 0 1px rgba(42, 35, 30, 0.1);
+        }
+
+        /* Handwritten note pin effect */
+        .pin-shadow {
+            box-shadow: 2px 3px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-ink antialiased font-display relative min-h-screen flex flex-col justify-between overflow-x-hidden">
+<!-- Top Section (Context: The previous screen ending) -->
+<main class="flex-grow flex flex-col items-center justify-center p-8 pb-16 relative bg-texture-grain">
+<!-- Header for Section 06 -->
+<div class="w-full max-w-md mb-12 relative z-10">
+<h1 class="text-ink text-[48px] font-bold leading-tight italic tracking-tight font-display border-b-2 border-sanguine/30 pb-4 mb-2">
+                06 Application
+            </h1>
+<p class="text-ink/80 text-xl font-body leading-normal">
+                Contextual placement &amp; substrate inversion.
+            </p>
+</div>
+<!-- Visual spacer to represent scrolling -->
+<div class="w-[1px] h-24 bg-ink/20 mb-8"></div>
+</main>
+<!-- 06 Application (Footer Variation) Section -->
+<footer class="relative w-full bg-ink text-vellum pt-16 pb-12 px-6 overflow-hidden">
+<!-- Texture overlay for the dark background to give it leather/heavy paper feel -->
+<div class="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACu1qGohEdB7SjfepLe-g4xeVht9myAoCQtJ8BMleeBlUNJHUEFTcn4u_Zu5ZzVbjEO3WmYoEc4BR91fC_q6cItddmNyOC07EVVk0rVI4-z7Muc-pNZKGy6yJrpLPl6VDVxu9hYJhsIqNGLg6OS_LZPXKnX9O8a_xZm4CyuhPuFbW6pnmPgmg-gqz1xdW-Wi5PjbleLr1snCwWQt4xbTNquGAZSM4XMU9AknBwabqhKKEAK1w1Ki3Y3JJEELsX5A1KPgj3K_ef4cU');"></div>
+<!-- The "Pinned Note" Component -->
+<!-- Pinned via CSS to top right as requested -->
+<div class="absolute top-0 right-4 sm:right-12 -mt-6 transform rotate-2 z-20 group cursor-pointer transition-transform hover:-rotate-1 hover:-mt-7 duration-300">
+<!-- The Pin -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 z-30 w-4 h-4 rounded-full bg-[#C5A059] shadow-sm border border-[#8C6D3B]">
+<div class="absolute top-1 left-1 w-1 h-1 bg-white/60 rounded-full"></div>
+</div>
+<!-- The Paper Note -->
+<div class="bg-[#Fdfbf7] p-4 pt-6 pb-4 shadow-hard max-w-[160px] border border-ink/10 relative">
+<!-- Paper texture -->
+<div class="absolute inset-0 bg-texture-grain opacity-50 pointer-events-none"></div>
+<p class="font-hand text-sanguine text-2xl leading-none -rotate-1">
+                    Inversion for dark substrates
+                </p>
+<!-- Scribble line -->
+<svg class="w-full h-2 mt-2 text-sanguine/40" fill="none" viewbox="0 0 100 10" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 5C15 2 20 8 35 5C50 2 60 8 80 5C90 3 95 6 98 5" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Main Footer Content Container -->
+<div class="max-w-md mx-auto relative z-10 flex flex-col items-center text-center space-y-10">
+<!-- Logo Linear Variant -->
+<div class="w-full border-b border-vellum/20 pb-10">
+<div class="flex items-center justify-center space-x-4 opacity-90 hover:opacity-100 transition-opacity">
+<!-- Icon Part -->
+<div class="w-10 h-10 border border-vellum rounded-full flex items-center justify-center relative">
+<!-- Geometric decorative lines -->
+<div class="absolute inset-0 border border-vellum/30 rounded-full scale-75"></div>
+<span class="font-display font-bold text-lg tracking-widest">N</span>
+</div>
+<!-- Wordmark -->
+<h2 class="text-4xl font-display font-bold tracking-widest uppercase text-vellum">
+                        Nero 27
+                    </h2>
+</div>
+</div>
+<!-- Footer Navigation Links -->
+<nav class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-10">
+<a class="group relative px-2 py-1" href="#">
+<span class="font-body text-lg text-vellum/60 tracking-wider hover:text-vellum transition-colors">Legal</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-sanguine transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="group relative px-2 py-1" href="#">
+<span class="font-body text-lg text-vellum/60 tracking-wider hover:text-vellum transition-colors">Contact</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-sanguine transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="group relative px-2 py-1" href="#">
+<span class="font-body text-lg text-vellum/60 tracking-wider hover:text-vellum transition-colors">Blueprints</span>
+<span class="absolute bottom-0 left-0 w-0 h-[1px] bg-sanguine transition-all duration-300 group-hover:w-full"></span>
+</a>
+</nav>
+<!-- Copyright / Secondary Info -->
+<div class="pt-6 w-full flex justify-between items-end border-t border-vellum/10">
+<div class="flex flex-col items-start text-left">
+<span class="font-body text-xs text-vellum/30 uppercase tracking-widest mb-1">Established</span>
+<span class="font-display italic text-vellum/50">MMXIV</span>
+</div>
+<!-- Social Icons using Material Symbols -->
+<div class="flex space-x-4">
+<a class="text-vellum/40 hover:text-sanguine transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="text-vellum/40 hover:text-sanguine transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">fingerprint</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Decorative Construction Lines (Subtle background geometry) -->
+<div class="absolute bottom-0 left-0 w-full h-full pointer-events-none opacity-5 overflow-hidden">
+<!-- Circle overlay -->
+<div class="absolute -bottom-24 -left-24 w-64 h-64 border border-vellum rounded-full"></div>
+<div class="absolute -bottom-20 -left-20 w-56 h-56 border border-vellum rounded-full border-dashed"></div>
+<!-- Grid lines -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-vellum"></div>
+<div class="absolute top-0 left-1/2 h-full w-[1px] bg-vellum"></div>
+</div>
+</footer>
+</body></html>

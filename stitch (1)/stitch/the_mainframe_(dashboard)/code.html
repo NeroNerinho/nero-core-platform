@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - The Mainframe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "primary-dark": "#36067a",
+                        "accent": "#ff4500",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#0f172a",
+                        "grid-line": "#e2e8f0",
+                        "text-main": "#0f172a",
+                        "text-muted": "#64748b",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for the technical aesthetic */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .tech-border {
+            position: relative;
+            border: 1px solid #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .tech-border:hover {
+            border-color: #4c09aa;
+            background-color: rgba(76, 9, 170, 0.02);
+        }
+        .corner-mark {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .corner-mark::before, .corner-mark::after {
+            content: '';
+            position: absolute;
+            background-color: #cbd5e1;
+            transition: background-color 0.3s ease;
+        }
+        /* Top Left */
+        .corner-tl { top: -1px; left: -1px; }
+        .corner-tl::before { width: 8px; height: 1px; top: 0; left: 0; }
+        .corner-tl::after { width: 1px; height: 8px; top: 0; left: 0; }
+        
+        /* Top Right */
+        .corner-tr { top: -1px; right: -1px; }
+        .corner-tr::before { width: 8px; height: 1px; top: 0; right: 0; }
+        .corner-tr::after { width: 1px; height: 8px; top: 0; right: 0; }
+
+        /* Bottom Left */
+        .corner-bl { bottom: -1px; left: -1px; }
+        .corner-bl::before { width: 8px; height: 1px; bottom: 0; left: 0; }
+        .corner-bl::after { width: 1px; height: 8px; bottom: 0; left: 0; }
+
+        /* Bottom Right */
+        .corner-br { bottom: -1px; right: -1px; }
+        .corner-br::before { width: 8px; height: 1px; bottom: 0; right: 0; }
+        .corner-br::after { width: 1px; height: 8px; bottom: 0; right: 0; }
+
+        .tech-border:hover .corner-mark::before,
+        .tech-border:hover .corner-mark::after {
+            background-color: #ff4500;
+        }
+
+        .bg-grid-tech {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(76, 9, 170, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(76, 9, 170, 0.05) 1px, transparent 1px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-text-main h-full min-h-screen flex flex-col overflow-hidden">
+<!-- Background Grid -->
+<div class="fixed inset-0 pointer-events-none z-0 bg-grid-tech"></div>
+<!-- Header / Status Bar -->
+<header class="relative z-10 bg-background-light border-b border-grid-line px-4 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<h1 class="text-primary font-bold text-lg tracking-tight">NERO 27 <span class="text-text-muted font-normal text-sm ml-1">// v1.0</span></h1>
+</div>
+<div class="flex items-center gap-2 border border-primary/20 bg-white px-2 py-1 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-bold tracking-wider text-primary font-mono">SYSTEM: ONLINE</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="relative z-10 flex-1 overflow-y-auto p-4 md:p-6 pb-24">
+<!-- Coordinate HUD -->
+<div class="flex justify-between items-end mb-6 font-mono text-[10px] text-text-muted select-none">
+<div>
+<p>COORD: X-104.22</p>
+<p>COORD: Y-040.01</p>
+</div>
+<div class="text-right">
+<p>GRID: ACTIVE</p>
+<p>SCALE: 100%</p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+<!-- Card 01: Logotype -->
+<a class="group tech-border block bg-white aspect-square relative p-6 flex flex-col justify-between" href="#">
+<!-- Corner Marks -->
+<div class="corner-mark corner-tl"></div>
+<div class="corner-mark corner-tr"></div>
+<div class="corner-mark corner-bl"></div>
+<div class="corner-mark corner-br"></div>
+<div class="flex justify-between items-start">
+<span class="font-mono text-xs text-text-muted group-hover:text-accent transition-colors">01. LOGOTYPE</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors text-2xl">architecture</span>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<!-- Abstract geometric N logo representation -->
+<div class="relative w-24 h-24 border-2 border-text-main group-hover:border-primary transition-colors flex items-center justify-center overflow-hidden">
+<div class="absolute w-[140%] h-[2px] bg-text-main group-hover:bg-primary rotate-45 transform origin-center transition-colors"></div>
+<div class="absolute top-0 left-0 w-full h-full border border-dashed border-gray-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-display font-bold text-5xl z-10 group-hover:text-primary transition-colors">N</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-dashed border-gray-200 pt-4 mt-2">
+<span class="text-sm font-bold tracking-wide">CONSTRUCT</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Card 02: Chromatics -->
+<a class="group tech-border block bg-white aspect-square relative p-6 flex flex-col justify-between" href="#">
+<div class="corner-mark corner-tl"></div>
+<div class="corner-mark corner-tr"></div>
+<div class="corner-mark corner-bl"></div>
+<div class="corner-mark corner-br"></div>
+<div class="flex justify-between items-start">
+<span class="font-mono text-xs text-text-muted group-hover:text-accent transition-colors">02. CHROMATICS</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors text-2xl">palette</span>
+</div>
+<div class="flex-1 flex items-center justify-center w-full">
+<div class="flex w-32 h-20 shadow-sm border border-gray-200">
+<div class="w-1/2 h-full bg-primary relative group-hover:w-3/4 transition-all duration-500 ease-out">
+<span class="absolute bottom-1 left-1 text-[8px] text-white font-mono opacity-0 group-hover:opacity-100">#4C09AA</span>
+</div>
+<div class="w-1/2 h-full bg-gray-100 group-hover:w-1/4 transition-all duration-500 ease-out"></div>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-dashed border-gray-200 pt-4 mt-2">
+<span class="text-sm font-bold tracking-wide">SPECTRUM</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Card 03: Typography -->
+<a class="group tech-border block bg-white aspect-square relative p-6 flex flex-col justify-between" href="#">
+<div class="corner-mark corner-tl"></div>
+<div class="corner-mark corner-tr"></div>
+<div class="corner-mark corner-bl"></div>
+<div class="corner-mark corner-br"></div>
+<div class="flex justify-between items-start">
+<span class="font-mono text-xs text-text-muted group-hover:text-accent transition-colors">03. TYPOGRAPHY</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors text-2xl">text_fields</span>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<div class="text-center">
+<span class="block text-6xl font-bold group-hover:text-primary transition-colors">Aa</span>
+<div class="h-px w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform mt-2"></div>
+<span class="block text-[10px] font-mono text-text-muted mt-1 opacity-0 group-hover:opacity-100 transition-opacity">SPACE GROTESK // 700</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-dashed border-gray-200 pt-4 mt-2">
+<span class="text-sm font-bold tracking-wide">TYPESET</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Card 04: Repository -->
+<a class="group tech-border block bg-white aspect-square relative p-6 flex flex-col justify-between" href="#">
+<div class="corner-mark corner-tl"></div>
+<div class="corner-mark corner-tr"></div>
+<div class="corner-mark corner-bl"></div>
+<div class="corner-mark corner-br"></div>
+<div class="flex justify-between items-start">
+<span class="font-mono text-xs text-text-muted group-hover:text-accent transition-colors">04. REPOSITORY</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors text-2xl">folder_data</span>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<div class="relative">
+<!-- Icon Stack Effect -->
+<div class="absolute inset-0 border border-gray-200 translate-x-2 translate-y-2 bg-white z-0 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
+<div class="relative border border-text-main bg-white p-4 w-20 h-20 flex items-center justify-center z-10 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-4xl">download</span>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-dashed border-gray-200 pt-4 mt-2">
+<span class="text-sm font-bold tracking-wide">ASSETS</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+</div>
+<div class="mt-8 text-center">
+<p class="font-mono text-[10px] text-text-muted uppercase tracking-widest">
+                // END OF LINE <br/>
+                DESIGN SYSTEM v1.0.4
+            </p>
+</div>
+</main>
+<!-- Bottom Navigation (Fixed) -->
+<div class="fixed bottom-0 left-0 w-full z-20">
+<div class="flex gap-2 border-t border-[#ece7f4] bg-[#faf8fc]/90 backdrop-blur-sm px-4 pb-3 pt-2">
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="#">
+<div class="text-primary flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</div>
+<p class="text-primary text-xs font-medium leading-normal tracking-[0.015em]">Mainframe</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">architecture</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Construct</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">colorize</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Spectrometry</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">text_fields</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Specs</p>
+</a>
+</div>
+<div class="h-5 bg-[#faf8fc]"></div>
+</div>
+</body></html>

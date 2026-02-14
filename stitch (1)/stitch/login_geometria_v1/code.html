@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login Geometria V1</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1f68f9",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1623",
+                        "surface-dark": "#1a2436",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1f68f910 1px, transparent 1px), linear-gradient(to bottom, #1f68f910 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Blueprint Grid */
+        .bg-blueprint {
+            background-size: 40px 40px;
+        }
+        
+        /* Scanning line effect */
+        .scan-line {
+            background: linear-gradient(to bottom, transparent, rgba(31, 104, 249, 0.2), transparent);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col relative overflow-hidden">
+<!-- Background Blueprint Layer -->
+<div class="absolute inset-0 z-0 bg-blueprint bg-grid-pattern pointer-events-none"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-background-dark via-transparent to-background-dark opacity-90 pointer-events-none"></div>
+<div class="absolute inset-0 z-0 scan-line pointer-events-none"></div>
+<!-- Decorative Corner Brackets -->
+<div class="fixed top-6 left-6 w-8 h-8 border-l-2 border-t-2 border-primary/40 z-10"></div>
+<div class="fixed top-6 right-6 w-8 h-8 border-r-2 border-t-2 border-primary/40 z-10"></div>
+<div class="fixed bottom-6 left-6 w-8 h-8 border-l-2 border-b-2 border-primary/40 z-10"></div>
+<div class="fixed bottom-6 right-6 w-8 h-8 border-r-2 border-b-2 border-primary/40 z-10"></div>
+<!-- Main Content Container -->
+<main class="relative z-10 flex-grow flex flex-col justify-center px-8 w-full max-w-md mx-auto h-full">
+<!-- Header Section -->
+<div class="mb-12 relative">
+<!-- Technical Status Badge -->
+<div class="inline-flex items-center gap-2 mb-6 border border-primary/30 bg-primary/5 px-3 py-1 rounded">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(31,104,249,0.8)]"></span>
+<span class="font-mono text-xs text-primary tracking-widest uppercase">System: Online</span>
+</div>
+<h1 class="text-4xl font-bold tracking-tight text-white mb-2 uppercase relative">
+<span class="absolute -left-4 top-0 h-full w-1 bg-primary"></span>
+                Geometria<br/>Estrutural
+            </h1>
+<p class="font-mono text-sm text-slate-400 tracking-wider mt-4 border-b border-primary/20 pb-4 inline-block w-full">
+                &gt;&gt; USER_AUTH_PROTOCOL // V.1.0
+            </p>
+</div>
+<!-- Login Form -->
+<form action="#" class="space-y-8" method="POST" onsubmit="event.preventDefault();">
+<!-- User ID Input -->
+<div class="group relative">
+<label class="block font-mono text-xs text-primary/80 mb-2 tracking-wider" for="userid">
+                    // INPUT_ID: USERNAME
+                </label>
+<div class="relative flex items-center">
+<span class="absolute left-0 pl-4 text-slate-500 material-icons text-sm">badge</span>
+<input class="block w-full bg-surface-dark border border-slate-700 text-white pl-10 pr-4 py-4 rounded focus:ring-1 focus:ring-primary focus:border-primary focus:bg-primary/5 transition-all outline-none font-mono placeholder-slate-600 shadow-inner" id="userid" name="userid" placeholder="ID-XXXX-XXXX" type="text"/>
+<!-- Technical corner accent on input -->
+<div class="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-primary/50"></div>
+<div class="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-primary/50"></div>
+</div>
+</div>
+<!-- Password Input -->
+<div class="group relative">
+<div class="flex justify-between items-end mb-2">
+<label class="block font-mono text-xs text-primary/80 tracking-wider" for="password">
+                        // INPUT_KEY: PASSWORD
+                    </label>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-0 pl-4 text-slate-500 material-icons text-sm">vpn_key</span>
+<input class="block w-full bg-surface-dark border border-slate-700 text-white pl-10 pr-4 py-4 rounded focus:ring-1 focus:ring-primary focus:border-primary focus:bg-primary/5 transition-all outline-none font-mono placeholder-slate-600 shadow-inner" id="password" name="password" placeholder="••••••••••••" type="password"/>
+<!-- Technical corner accent on input -->
+<div class="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-primary/50"></div>
+<div class="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-primary/50"></div>
+</div>
+<div class="mt-2 text-right">
+<a class="text-xs font-mono text-slate-500 hover:text-primary transition-colors underline decoration-slate-700 underline-offset-4" href="#">
+                        [ RECOVER_CREDENTIALS ]
+                    </a>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="group relative w-full flex justify-center items-center py-4 px-4 border border-transparent text-sm font-bold rounded text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-dark transition-all duration-200 uppercase tracking-widest shadow-[0_0_15px_rgba(31,104,249,0.3)] hover:shadow-[0_0_25px_rgba(31,104,249,0.5)]" type="submit">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-icons text-white/50 group-hover:text-white transition-colors">lock_open</span>
+</span>
+                    Access System
+                    <div class="absolute right-2 top-2 w-1 h-1 bg-white opacity-50"></div>
+<div class="absolute right-2 bottom-2 w-1 h-1 bg-white opacity-50"></div>
+<div class="absolute left-2 top-2 w-1 h-1 bg-white opacity-50"></div>
+<div class="absolute left-2 bottom-2 w-1 h-1 bg-white opacity-50"></div>
+</button>
+</div>
+</form>
+<!-- Footer / Registration -->
+<div class="mt-12 text-center relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-6 w-24 h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+<p class="text-xs text-slate-500 font-mono mb-4">NO ACCOUNT DETECTED?</p>
+<a class="inline-flex items-center justify-center px-6 py-2 border border-slate-700 hover:border-primary/50 rounded text-xs font-mono text-slate-300 hover:text-primary transition-all uppercase tracking-wider bg-surface-dark/50" href="#">
+<span class="mr-2">&gt;</span> Initialize_Registration
+            </a>
+</div>
+</main>
+<!-- Bottom System Readout -->
+<div class="fixed bottom-4 left-0 w-full px-6 pointer-events-none z-0 hidden sm:block">
+<div class="flex justify-between text-[10px] font-mono text-slate-600 uppercase tracking-widest">
+<span>Server: BRA-01</span>
+<span>Lat: -23.5505 | Lon: -46.6333</span>
+<span>Sec_Level: 5</span>
+</div>
+</div>
+</body></html>

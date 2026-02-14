@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - The Emblem</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Reenie+Beanie&amp;family=IM+Fell+English+SC&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8A3324", /* Sanguine Red */
+                        "ink": "#2A231E", /* Deep Sepia */
+                        "parchment": "#F0EAD6", /* Aged Vellum */
+                        "wash": "#E6DCC3",
+                        "graphite": "#8C8276",
+                        "background-light": "#F0EAD6",
+                        "background-dark": "#211311",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "body": ["IM Fell English SC", "serif"],
+                        "hand": ["Reenie Beanie", "cursive"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem", 
+                        "lg": "0.25rem", 
+                        "xl": "0.5rem", 
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'paper-grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom Styles for Ink Bleed and Animation */
+.ink-bleed {
+    filter: url(#ink-bleed-filter);
+    mix-blend-mode: multiply
+    }
+.sketch-anim path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s ease-in-out forwards
+    }
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+        }
+    }
+.construction-lines {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none
+    }
+/* Logic for the checkbox to toggle construction lines */
+#construction-toggle:checked ~ .canvas-container .construction-lines {
+    opacity: 1;
+    pointer-events: auto
+    }
+#construction-toggle:checked ~ .controls-container .toggle-label {
+    color: #8A3324;
+    /* Primary Sanguine */
+    }
+#construction-toggle:checked ~ .controls-container .knob {
+    transform: translatex(100%);
+    background-color: #8A3324
+    }
+/* Tooltip hover effect */
+.tooltip-trigger:hover + .tooltip-content, .tooltip-trigger:focus + .tooltip-content {
+    opacity: 1;
+    transform: translatey(0) scale(1)
+    }
+/* Paper Grain Overlay */
+.paper-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuA3dGDbSDfrauMBZegqjfgzSXoWIFFqqcmYVDnvf79RC33OwqjmVxu2V6jTnTVT2YD1qLXcUJ4VJQNaDwQdNRVx-9Ir_ZvJ433ZH2tLA9F3mjG8p1Ir86_F7M71OAqpNAD7EE6zCyIL4WMxPEstzVKI_mIrHMTosDsOyxr4_QwFnk7U0Pbq5AYpRiNog8B4ycxJHFi-ZEEH3GtR7OqSUc9PyOPSwI9aSvhYsxaObmK3ot7JYbm6FPL_Iv0yDpJZRIkgZjgEMHLpJE4);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+    pointer-events: none
+    }
+/* Grid background for technical feel */
+.grid-bg {
+    background-image: linear-gradient(to right, rgba(140, 130, 118, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(140, 130, 118, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-parchment text-ink font-display antialiased overflow-x-hidden min-h-screen relative">
+<!-- Paper Texture Overlay -->
+<div class="fixed inset-0 w-full h-full paper-overlay z-50"></div>
+<!-- SVG Filter for Ink Bleed Effect -->
+<svg style="display: none;">
+<defs>
+<filter id="ink-bleed-filter">
+<feturbulence basefrequency="0.8" numoctaves="3" result="noise" type="fractalNoise"></feturbulence>
+<fedisplacementmap in="SourceGraphic" in2="noise" scale="1.5"></fedisplacementmap>
+</filter>
+</defs>
+</svg>
+<!-- Main Container -->
+<div class="relative flex flex-col min-h-screen w-full max-w-md mx-auto bg-parchment shadow-2xl border-x border-wash">
+<!-- Header -->
+<header class="relative z-40 pt-8 pb-4 px-6 flex flex-col items-center justify-center border-b border-double border-graphite/30 bg-parchment">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+<h1 class="text-2xl font-display italic font-bold text-ink tracking-tight">Fig. 1: The Identity</h1>
+<div class="w-16 h-0.5 bg-primary mt-2 rounded-full opacity-80"></div>
+<p class="mt-2 font-hand text-xl text-graphite transform -rotate-2">Vitruvian Analysis v.1.0</p>
+</header>
+<!-- Hidden Checkbox for State Management -->
+<input class="hidden peer" id="construction-toggle" type="checkbox"/>
+<!-- Main Canvas Area -->
+<main class="flex-1 relative flex flex-col items-center justify-center p-6 canvas-container grid-bg">
+<!-- Logo Container -->
+<div class="relative w-full aspect-square max-w-[340px] flex items-center justify-center">
+<!-- The Logo (SVG) -->
+<svg class="w-full h-full ink-bleed sketch-anim relative z-10" fill="none" stroke="#2A231E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 200 200">
+<!-- Simplified Vitruvian/Geometric Logo representation -->
+<!-- Outer Circle -->
+<circle class="opacity-90" cx="100" cy="100" r="90"></circle>
+<!-- Square -->
+<rect class="opacity-90" height="127" width="127" x="36.5" y="36.5"></rect>
+<!-- Inner Triangle -->
+<path d="M100 40 L160 150 H40 Z"></path>
+<!-- The N -->
+<path d="M70 130 V70 L130 130 V70" stroke-width="4"></path>
+<!-- The 27 (Stylized) -->
+<path class="opacity-80" d="M110 90 C120 80 140 80 140 100 C140 120 110 130 110 130 H140" stroke-width="2"></path>
+<path class="opacity-80" d="M60 90 H90 L70 130" stroke-width="2"></path>
+</svg>
+<!-- Construction Lines Layer (Revealed on Toggle) -->
+<div class="construction-lines absolute inset-0 w-full h-full z-20">
+<svg class="w-full h-full absolute inset-0" fill="none" stroke="#8A3324" stroke-width="0.5" viewbox="0 0 200 200">
+<!-- Golden Ratio Circles -->
+<circle cx="100" cy="100" r="55.6" stroke-dasharray="2,2"></circle>
+<circle cx="100" cy="100" opacity="0.4" r="34.4" stroke="blue" stroke-dasharray="2,2"></circle>
+<!-- Diagonals -->
+<line opacity="0.5" stroke-dasharray="4,4" x1="0" x2="200" y1="0" y2="200"></line>
+<line opacity="0.5" stroke-dasharray="4,4" x1="200" x2="0" y1="0" y2="200"></line>
+<!-- Vertical/Horizontal Guides -->
+<line stroke-opacity="0.3" x1="100" x2="100" y1="0" y2="200"></line>
+<line stroke-opacity="0.3" x1="0" x2="200" y1="100" y2="100"></line>
+</svg>
+<!-- Interactive Hotspots -->
+<!-- Hotspot 1: The Golden Section -->
+<div class="absolute top-[30%] left-[68%] group">
+<button class="tooltip-trigger w-6 h-6 -ml-3 -mt-3 rounded-full border border-primary bg-parchment/80 flex items-center justify-center animate-pulse cursor-pointer">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<div class="tooltip-content absolute left-6 top-0 w-40 p-2 bg-white/90 border border-graphite shadow-lg rounded transform scale-90 opacity-0 transition-all duration-300 origin-top-left z-50 pointer-events-none">
+<p class="font-hand text-lg leading-tight text-ink">The arch aligns precisely with the Golden Section (φ).</p>
+</div>
+</div>
+<!-- Hotspot 2: Base Width -->
+<div class="absolute top-[75%] left-[20%] group">
+<button class="tooltip-trigger w-6 h-6 -ml-3 -mt-3 rounded-full border border-primary bg-parchment/80 flex items-center justify-center animate-pulse cursor-pointer">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<div class="tooltip-content absolute left-6 bottom-6 w-36 p-2 bg-white/90 border border-graphite shadow-lg rounded transform scale-90 opacity-0 transition-all duration-300 origin-bottom-left z-50 pointer-events-none">
+<p class="font-hand text-lg leading-tight text-ink">Root 2 rectangle base for stability.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Mathematical Annotation (Static) -->
+<div class="absolute bottom-4 right-4 opacity-40 mix-blend-multiply pointer-events-none">
+<p class="font-display italic text-xs">φ = 1.618...</p>
+</div>
+<div class="absolute top-4 left-4 opacity-40 mix-blend-multiply pointer-events-none">
+<p class="font-display italic text-xs">Fig 1.2</p>
+</div>
+</main>
+<!-- Controls Section -->
+<footer class="relative z-40 bg-parchment border-t border-double border-graphite/30 p-6 pb-12 controls-container">
+<div class="flex flex-col gap-6">
+<!-- Toggle Switch -->
+<div class="flex items-center justify-between group">
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-lg text-ink">Construction Mode</h3>
+<p class="font-body text-graphite text-sm">Reveal geometry &amp; golden ratio.</p>
+</div>
+<label class="cursor-pointer relative w-16 h-8 bg-[#D6Cfc0] rounded-full shadow-inner border border-[#B0A695] transition-colors duration-300" for="construction-toggle">
+<div class="knob absolute top-1 left-1 w-6 h-6 bg-[#8C8276] rounded-full shadow-md border border-white/20 transition-all duration-300 ease-out flex items-center justify-center">
+<!-- Texture on knob -->
+<div class="w-4 h-4 rounded-full border border-black/10"></div>
+</div>
+</label>
+</div>
+<!-- Analysis Data (Visible only when checked generally, but here keeping structured) -->
+<div class="grid grid-cols-3 gap-2 mt-2 pt-4 border-t border-dashed border-graphite/40">
+<div class="text-center">
+<span class="block font-hand text-xl text-graphite">Ratio</span>
+<span class="block font-display font-bold text-ink">1:1.618</span>
+</div>
+<div class="text-center border-l border-dashed border-graphite/40">
+<span class="block font-hand text-xl text-graphite">Angle</span>
+<span class="block font-display font-bold text-ink">51.84°</span>
+</div>
+<div class="text-center border-l border-dashed border-graphite/40">
+<span class="block font-hand text-xl text-graphite">Weight</span>
+<span class="block font-display font-bold text-ink">Bold</span>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="mt-4 flex items-center justify-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-sm text-primary">auto_fix_high</span>
+<p class="font-hand text-lg text-ink">Tap nodes to inspect derivations.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

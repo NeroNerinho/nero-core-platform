@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Structural Geometry V3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "blueprint-blue": "#0a192f",
+                        "blueprint-line": "rgba(255, 255, 255, 0.15)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-color: #0a192f;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .blueprint-grid-major {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Top Navigation Header -->
+<div class="flex items-center bg-white dark:bg-background-dark border-b border-primary/10 p-4 justify-between sticky top-0 z-50">
+<div class="text-primary flex size-10 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-primary text-xs font-bold tracking-[0.2em] uppercase">Nero 27 - Alpha</h2>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">STRUCTURAL GEOMETRY V3</h1>
+</div>
+<div class="flex size-10 items-center justify-end">
+<button class="flex items-center justify-center rounded bg-primary/5 text-primary p-2">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col">
+<!-- Blueprint Viewer Canvas -->
+<div class="@container p-4">
+<div class="relative w-full aspect-square md:aspect-video rounded-lg overflow-hidden border border-primary/20 shadow-xl blueprint-grid">
+<div class="absolute inset-0 blueprint-grid-major opacity-50"></div>
+<!-- Coordinate Markings -->
+<div class="absolute top-2 left-2 text-[10px] text-white/40 font-mono">X: 124.092 | Y: 882.112</div>
+<div class="absolute bottom-2 right-2 text-[10px] text-white/40 font-mono">VER: 3.0.27_STABLE</div>
+<!-- Animated Logo Construction Simulation -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative w-64 h-64 border border-primary/30 rounded-full flex items-center justify-center">
+<!-- Technical Circles -->
+<div class="absolute w-48 h-48 border border-white/20 rounded-full border-dashed"></div>
+<div class="absolute w-full h-[1px] bg-white/10 top-1/2 -translate-y-1/2"></div>
+<div class="absolute h-full w-[1px] bg-white/10 left-1/2 -translate-x-1/2"></div>
+<!-- The N27 Mark (Abstract Engineering Style) -->
+<div class="relative z-10 text-white flex flex-col items-center">
+<div class="text-6xl font-bold tracking-tighter flex items-end gap-1">
+<span class="border-l-4 border-t-4 border-primary pl-2 pt-1 leading-none">N</span>
+<span class="text-primary leading-none">27</span>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-0.5 border border-white/40 text-[9px] uppercase tracking-widest">Physics Core</span>
+<span class="px-2 py-0.5 border border-primary text-[9px] uppercase tracking-widest text-primary font-bold">Stable</span>
+</div>
+</div>
+<!-- Vertex Callouts -->
+<div class="absolute top-1/4 right-1/4 flex items-start gap-1">
+<div class="w-2 h-2 rounded-full bg-primary ring-4 ring-primary/20"></div>
+<div class="text-[8px] text-white/60 bg-black/40 px-1 backdrop-blur-sm">R: 27.00°</div>
+</div>
+<div class="absolute bottom-1/3 left-1/4 flex items-start gap-1">
+<div class="w-2 h-2 rounded-full bg-white ring-4 ring-white/10"></div>
+<div class="text-[8px] text-white/60 bg-black/40 px-1 backdrop-blur-sm">LEN: 144mm</div>
+</div>
+</div>
+</div>
+<!-- Overlay Data HUD -->
+<div class="absolute top-4 right-4 flex flex-col gap-2 pointer-events-none">
+<div class="bg-black/40 backdrop-blur-md border border-white/10 p-2 rounded text-[10px] text-white/80">
+<div class="flex justify-between gap-4"><span>TENSION:</span> <span class="text-primary font-bold">OPTIMAL</span></div>
+<div class="flex justify-between gap-4"><span>LOAD B.:</span> <span class="text-primary font-bold">4.2 kN</span></div>
+<div class="flex justify-between gap-4"><span>STABILITY:</span> <span class="text-primary font-bold">100%</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Rendering Status Section -->
+<div class="px-4 py-2">
+<div class="flex items-center justify-between mb-2">
+<h4 class="text-primary text-[10px] font-bold tracking-[0.2em] uppercase">Construction Status</h4>
+<span class="text-slate-500 text-[10px] font-mono">Rendering N27 Mark... 74%</span>
+</div>
+<div class="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 74%;"></div>
+</div>
+<div class="flex justify-between mt-2">
+<p class="text-slate-400 text-[10px] font-normal italic">Scale 1:100 Engineering Plot</p>
+<p class="text-slate-400 text-[10px] font-normal uppercase tracking-tighter">Lat: 40.7128° N, Lon: 74.0060° W</p>
+</div>
+</div>
+<!-- Specification Cards -->
+<div class="grid grid-cols-2 gap-3 p-4">
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-primary/20 p-3 rounded-lg flex flex-col gap-1">
+<span class="material-symbols-outlined text-primary text-sm">architecture</span>
+<span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Material Specs</span>
+<span class="text-slate-900 dark:text-white text-sm font-bold">Reinforced Steel V2</span>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-primary/20 p-3 rounded-lg flex flex-col gap-1">
+<span class="material-symbols-outlined text-primary text-sm">precision_manufacturing</span>
+<span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Integrity</span>
+<span class="text-slate-900 dark:text-white text-sm font-bold">Nominal (Fixed)</span>
+</div>
+</div>
+<!-- Call to Action Area -->
+<div class="mt-auto p-4 flex flex-col gap-2">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 text-sm uppercase tracking-widest shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">download</span>
+                Export Blueprint
+            </button>
+<button class="w-full bg-primary/5 text-primary border border-primary/20 py-3 rounded-lg font-bold text-sm uppercase tracking-widest">
+                Recalculate Geometry
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<div class="flex gap-2 border-t border-slate-200 dark:border-primary/10 bg-white dark:bg-background-dark px-4 pb-6 pt-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined fill-[1]" style="font-variation-settings: 'FILL' 1">visibility</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Viewer</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Specs</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">history</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">History</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">ios_share</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Export</p>
+</a>
+</div>
+</div>
+</body></html>

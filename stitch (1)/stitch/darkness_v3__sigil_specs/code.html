@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Little Darkness V3 | Sigil Specs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                        "neutral-dark": "#1a1a1a",
+                        "border-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .mono-label { font-family: monospace; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ec5b13; }
+        .crosshair-cursor { cursor: crosshair; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header / TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-border-dark bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-white">
+<div class="size-6 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">deployed_code</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-white text-base font-bold leading-tight tracking-tight uppercase">Little Darkness</h2>
+<span class="text-[10px] text-primary/80 font-mono tracking-widest leading-none">V3.0.27 SPECIFICATION</span>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-8 border-l border-border-dark pl-8">
+<a class="text-white text-xs font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="#">N27 Glyph</a>
+<a class="text-white/60 text-xs font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="#">Geometry</a>
+<a class="text-white/60 text-xs font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="#">Constants</a>
+<a class="text-white/60 text-xs font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="#">Guidelines</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden md:flex items-center bg-neutral-dark border border-border-dark rounded-lg px-3 py-1.5 focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-white/40 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-white placeholder:text-white/30 w-48" placeholder="SEARCH SPECS..."/>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center size-9 rounded-lg bg-neutral-dark border border-border-dark text-white hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col lg:flex-row h-[calc(100vh-65px)] overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-full lg:w-64 border-r border-border-dark bg-background-dark flex flex-col overflow-y-auto shrink-0">
+<div class="p-6 border-b border-border-dark">
+<p class="mono-label text-primary mb-1">Navigation</p>
+<h3 class="text-white text-lg font-bold">Sigil Assets</h3>
+</div>
+<div class="flex flex-col p-3 gap-1">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 border border-primary/20 text-primary">
+<span class="material-symbols-outlined text-lg">architecture</span>
+<p class="text-xs font-bold uppercase tracking-wider">Blueprint View</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 hover:bg-neutral-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">analytics</span>
+<p class="text-xs font-bold uppercase tracking-wider">Mathematical</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 hover:bg-neutral-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">grid_on</span>
+<p class="text-xs font-bold uppercase tracking-wider">Grid Settings</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 hover:bg-neutral-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">text_fields</span>
+<p class="text-xs font-bold uppercase tracking-wider">Typography</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/60 hover:bg-neutral-dark transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">shield</span>
+<p class="text-xs font-bold uppercase tracking-wider">Identity</p>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-border-dark">
+<div class="p-4 bg-neutral-dark rounded-xl border border-border-dark">
+<p class="mono-label text-white/40 mb-2">Build Status</p>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
+<p class="text-xs font-mono text-white/80">STABLE V3.27</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 flex flex-col bg-background-dark relative overflow-hidden">
+<!-- Breadcrumbs & Actions -->
+<div class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-background-dark/50">
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-white/40">CORE</span>
+<span class="text-white/40">/</span>
+<span class="text-xs font-mono text-white/40">GLYPHS</span>
+<span class="text-white/40">/</span>
+<span class="text-xs font-mono text-white tracking-widest">N27_CONSTRUCTION</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex rounded-lg border border-border-dark bg-neutral-dark overflow-hidden">
+<button class="px-3 py-1.5 border-r border-border-dark bg-primary/20 text-primary transition-colors">
+<span class="material-symbols-outlined text-base">view_in_ar</span>
+</button>
+<button class="px-3 py-1.5 border-r border-border-dark text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-base">panorama_fish_eye</span>
+</button>
+<button class="px-3 py-1.5 text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-base">grid_4x4</span>
+</button>
+</div>
+<button class="bg-neutral-dark border border-border-dark px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest text-white hover:border-primary/50 transition-colors">
+                            View Source
+                        </button>
+</div>
+</div>
+<!-- Central Canvas Area -->
+<div class="flex-1 relative blueprint-grid overflow-hidden crosshair-cursor group">
+<!-- Construction Canvas -->
+<div class="absolute inset-0 flex items-center justify-center p-12">
+<div class="relative w-full max-w-2xl aspect-square flex items-center justify-center">
+<!-- Background Circles -->
+<div class="absolute border border-white/5 rounded-full w-[100%] aspect-square"></div>
+<div class="absolute border border-white/5 rounded-full w-[75%] aspect-square"></div>
+<div class="absolute border border-white/10 rounded-full w-[50%] aspect-square"></div>
+<!-- The N27 Sigil (Abstract Geometric Construction) -->
+<div class="relative w-[60%] aspect-square">
+<svg class="w-full h-full text-primary drop-shadow-[0_0_15px_rgba(236,91,19,0.3)]" viewbox="0 0 100 100">
+<path d="M50 0 L50 100 M0 50 L100 50" opacity="0.3" stroke="currentColor" stroke-dasharray="1 1" stroke-width="0.2"></path>
+<circle cx="50" cy="50" fill="none" opacity="0.5" r="48" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.5"></circle>
+<!-- Main Glyph Path -->
+<path d="M20 20 L80 20 L80 80 L20 80 Z M20 20 L80 80 M80 20 L20 80" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></path>
+<circle cx="50" cy="50" fill="none" r="15" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M50 35 L65 50 L50 65 L35 50 Z" fill="currentColor" opacity="0.2"></path>
+<path d="M50 35 L65 50 L50 65 L35 50 Z" fill="none" stroke="currentColor" stroke-width="1"></path>
+<!-- Anchor Points -->
+<circle cx="20" cy="20" fill="#0a0a0a" r="1.5" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="80" cy="20" fill="#0a0a0a" r="1.5" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="80" cy="80" fill="#0a0a0a" r="1.5" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="20" cy="80" fill="#0a0a0a" r="1.5" stroke="currentColor" stroke-width="1"></circle>
+</svg>
+<!-- Floating UI Tooltips (Simulated) -->
+<div class="absolute top-0 left-0 -translate-x-full -translate-y-full p-2">
+<div class="bg-neutral-dark border border-primary/40 p-2 rounded text-[10px] font-mono text-primary flex flex-col gap-1">
+<span>X: 20.000</span>
+<span>Y: 20.000</span>
+<div class="w-full h-px bg-primary/20 my-1"></div>
+<span>NODE_01</span>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 p-2">
+<div class="bg-neutral-dark border border-white/20 p-2 rounded text-[10px] font-mono text-white/60 flex flex-col gap-1">
+<span>∠ 45.00°</span>
+<span>R: 48.00u</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Overlay Legend -->
+<div class="absolute bottom-6 left-6 p-4 bg-background-dark/80 backdrop-blur-sm border border-border-dark rounded-xl max-w-xs">
+<p class="mono-label text-white mb-3">CONSTRUCTION CANVAS</p>
+<h4 class="text-white text-xl font-bold tracking-tight mb-2 uppercase">N27 Glyph Geometry</h4>
+<p class="text-white/50 text-xs leading-relaxed">Technical editorial documentation for the Little Darkness V3 Sigil construction and geometry. All units in relative universal coordinates.</p>
+</div>
+<!-- Side HUD -->
+<div class="absolute top-6 right-6 flex flex-col gap-3">
+<div class="bg-background-dark/80 backdrop-blur-sm border border-border-dark rounded-xl p-3 flex flex-col gap-2">
+<button class="flex items-center gap-3 text-primary text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                                Constrain Angles
+                            </button>
+<button class="flex items-center gap-3 text-white/40 text-xs font-bold tracking-widest uppercase hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">radio_button_unchecked</span>
+                                Snap to Grid
+                            </button>
+</div>
+</div>
+</div>
+<!-- Bottom Data Panel -->
+<div class="h-48 border-t border-border-dark bg-background-dark flex overflow-x-auto shrink-0">
+<div class="min-w-[300px] border-r border-border-dark p-6">
+<p class="mono-label text-primary mb-2">Mathematical Constants</p>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest font-bold">PHI RATIO</p>
+<p class="text-lg font-mono text-white">1.618</p>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest font-bold">ARC RADIUS</p>
+<p class="text-lg font-mono text-white">48.27μ</p>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest font-bold">THETA Δ</p>
+<p class="text-lg font-mono text-white">0.523rad</p>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest font-bold">GRID UNIT</p>
+<p class="text-lg font-mono text-white">8.00px</p>
+</div>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<p class="mono-label text-white/40 mb-4">Code Export Snippets</p>
+<div class="flex-1 bg-neutral-dark rounded-lg border border-border-dark p-4 font-mono text-xs text-white/60 overflow-hidden relative">
+<code class="block">
+                                &lt;path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="#ec5b13" /&gt;<br/>
+                                &lt;circle cx="50" cy="50" r="15" /&gt;
+                            </code>
+<button class="absolute top-4 right-4 text-primary hover:text-white">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<div class="min-w-[300px] border-l border-border-dark p-6">
+<p class="mono-label text-white/40 mb-3">Identity Colors</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary"></div>
+<div>
+<p class="text-[10px] font-bold text-white uppercase tracking-tighter">Primary Orange</p>
+<p class="text-xs font-mono text-white/40">#EC5B13</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-background-dark border border-border-dark"></div>
+<div>
+<p class="text-[10px] font-bold text-white uppercase tracking-tighter">Abyssal Dark</p>
+<p class="text-xs font-mono text-white/40">#0A0A0A</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar / Typography & Details -->
+<aside class="hidden xl:flex w-80 border-l border-border-dark bg-background-dark flex-col overflow-y-auto">
+<div class="p-8 border-b border-border-dark">
+<p class="mono-label text-primary mb-1">Typography</p>
+<h3 class="text-white text-2xl font-black uppercase tracking-tighter mb-4">Public Sans</h3>
+<div class="flex flex-col gap-6">
+<div>
+<p class="text-4xl font-black text-white leading-none">Aa</p>
+<p class="text-[10px] text-white/40 font-mono mt-1">BLACK WEIGHT / 900</p>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold text-white">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+<p class="text-sm font-normal text-white/60">abcdefghijklmnopqrstuvwxyz</p>
+<p class="text-sm font-mono text-primary/60">0123456789!@#$%^&amp;*()</p>
+</div>
+</div>
+</div>
+<div class="p-8 border-b border-border-dark">
+<p class="mono-label text-white/40 mb-4">Visual Guidelines</p>
+<div class="space-y-6">
+<div class="space-y-2">
+<p class="text-xs font-bold text-white uppercase tracking-widest">Clearance Zone</p>
+<div class="h-20 bg-neutral-dark rounded border border-border-dark flex items-center justify-center p-4">
+<div class="border border-dashed border-primary/40 w-full h-full flex items-center justify-center relative">
+<div class="size-4 bg-primary/20 border border-primary text-[8px] flex items-center justify-center">N</div>
+<span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[8px] bg-background-dark px-1 text-white/40 font-mono">2X RADIUS</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-xs font-bold text-white uppercase tracking-widest">Min Scaling</p>
+<div class="flex items-end gap-4 text-white">
+<span class="text-3xl font-bold">16<small class="text-[10px] uppercase ml-1">px</small></span>
+<div class="size-4 border border-primary"></div>
+<div class="size-6 border border-primary"></div>
+<div class="size-8 border border-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8">
+<div class="rounded-xl overflow-hidden bg-neutral-dark border border-border-dark aspect-square relative group">
+<img class="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-700" data-alt="Abstract futuristic technical hardware pattern with glowing orange accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lXI0rSpAJYooahN0GTqS74p7USjQeTQrh9vdN-USIoLqpsV6JBJxSmxoXp4VcRTkmSp1f1XOZZFfdjSn9zRLsLC4gMLzBMDk8dodfvE-v8KxauqoTz1agfKD1uyKvjxT9gLRK_TORnm4Y3kxwu4hraJoAn7691GwrCgyv9NlosnjNblF0NQ3Oy_ESNJw9pr_XBvQxpDxSPpO5Y1Owcq5tP1nFkpG-JAYusg070POXVnzrBmSkH3MUjwXPK--SAM0e4Dj4BUQPfg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-[10px] font-mono text-primary mb-1">REFERENCE_IMG</p>
+<p class="text-xs text-white/80 leading-tight">Environmental projection of N27 Sigil in high-contrast dark room settings.</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer / Technical Metadata -->
+<footer class="bg-background-dark border-t border-border-dark px-10 py-2 flex items-center justify-between">
+<div class="flex gap-8">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-white/20">LOC:</span>
+<span class="text-[10px] font-mono text-white/60">NEON_ARCHIVES</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-white/20">SYS:</span>
+<span class="text-[10px] font-mono text-white/60">LITTLE_DARKNESS_OS_3.0</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-mono text-primary tracking-widest uppercase">Encryption Active: RSA-4096</span>
+<span class="text-[10px] font-mono text-white/20">© 2024 DEPT. OF DARKNESS</span>
+</div>
+</footer>
+</div>
+</body></html>

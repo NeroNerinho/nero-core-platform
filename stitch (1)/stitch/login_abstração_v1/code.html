@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login Abstração V1</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "deep-purple": "#1a0b2e", // Custom deep purple base for this specific theme variant
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    animation: {
+                        'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for glassmorphism and nebula effects */
+        .nebula-bg {
+            background: radial-gradient(circle at 50% 0%, #2a1b4e 0%, #0f2123 100%);
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(6, 232, 249, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-input {
+            background: rgba(15, 33, 35, 0.6);
+            border: 1px solid rgba(6, 232, 249, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            border-color: #06e8f9;
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.3);
+            background: rgba(15, 33, 35, 0.8);
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(6, 232, 249, 0.4);
+        }
+
+        /* Abstract glowing orb decoration */
+        .glow-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(6,232,249,0.15) 0%, rgba(6,232,249,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen flex items-center justify-center overflow-hidden relative">
+<!-- Background Nebula Effect -->
+<div class="absolute inset-0 bg-background-dark z-0 nebula-bg overflow-hidden" data-alt="Deep purple and black gradient background representing a quantum void">
+<!-- Animated Orbs -->
+<div class="glow-orb top-[-50px] left-[-50px] animate-pulse-glow" style="animation-delay: 0s;"></div>
+<div class="glow-orb bottom-[10%] right-[-50px] animate-pulse-glow" style="background: radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(0,0,0,0) 70%); animation-delay: 1.5s;"></div>
+<!-- Grid Pattern Overlay -->
+<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(6, 232, 249, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 232, 249, 0.3) 1px, transparent 1px); background-size: 40px 40px;">
+</div>
+</div>
+<!-- Main Content Container (Mobile Form Factor) -->
+<div class="relative z-10 w-full max-w-md px-6 py-8 flex flex-col h-screen sm:h-auto justify-center">
+<!-- Logo / Header Section -->
+<div class="mb-12 text-center animate-float">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full border border-primary/30 bg-primary/10 mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(6,232,249,0.3)]">
+<span class="material-icons text-primary text-3xl">all_inclusive</span>
+</div>
+<h1 class="text-3xl font-bold tracking-[0.2em] text-white drop-shadow-[0_0_10px_rgba(6,232,249,0.5)] uppercase">
+                Abstração
+            </h1>
+<p class="mt-2 text-primary/60 text-sm tracking-widest uppercase font-light">
+                Quantum Interface V1.0
+            </p>
+</div>
+<!-- Login Card -->
+<div class="glass-panel rounded-xl p-8 backdrop-blur-xl relative overflow-hidden group">
+<!-- Decorative corner glow -->
+<div class="absolute -top-10 -right-10 w-20 h-20 bg-primary/20 blur-xl rounded-full"></div>
+<div class="mb-8">
+<h2 class="text-xl font-semibold text-white mb-1">Initialize Sequence</h2>
+<p class="text-sm text-gray-400 font-light">Enter your credentials to access the realm.</p>
+</div>
+<form class="space-y-6">
+<!-- Quantum ID Input -->
+<div class="space-y-2">
+<label class="block text-xs uppercase tracking-wider text-primary/80 font-medium ml-1" for="identity">
+                        Quantum ID
+                    </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-icons text-primary/50 text-lg group-focus-within:text-primary transition-colors">person_outline</span>
+</div>
+<input class="glass-input w-full pl-11 pr-4 py-3.5 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-0 text-sm" id="identity" placeholder="USR-8821-X" type="text"/>
+</div>
+</div>
+<!-- Passcode Input -->
+<div class="space-y-2">
+<label class="block text-xs uppercase tracking-wider text-primary/80 font-medium ml-1" for="passcode">
+                        Passcode
+                    </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-icons text-primary/50 text-lg group-focus-within:text-primary transition-colors">lock_open</span>
+</div>
+<input class="glass-input w-full pl-11 pr-12 py-3.5 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-0 text-sm" id="passcode" placeholder="••••••••" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+<button class="text-primary/50 hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="material-icons text-lg">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end pt-1">
+<a class="text-xs text-primary/60 hover:text-primary transition-colors hover:underline decoration-primary/50 underline-offset-4" href="#">
+                            Lost Access Key?
+                        </a>
+</div>
+</div>
+<!-- Connect Button -->
+<button class="group relative w-full flex items-center justify-center py-4 px-4 rounded-lg bg-gradient-to-r from-primary to-cyan-600 text-background-dark font-bold tracking-widest uppercase transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] btn-glow overflow-hidden mt-4" type="button">
+<span class="absolute w-full h-full bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out skew-x-12"></span>
+<span class="material-icons mr-2 text-lg">bolt</span>
+                    Connect
+                </button>
+</form>
+<!-- Bottom Scanline Effect -->
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+</div>
+<!-- Footer / Sign Up -->
+<div class="mt-8 text-center space-y-4">
+<p class="text-gray-400 text-sm">
+                New Entity? 
+                <a class="text-primary font-medium hover:text-white transition-colors relative inline-block group" href="#">
+                    Materialize Here
+                    <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+</p>
+<div class="flex items-center justify-center gap-4 mt-6 opacity-40 hover:opacity-100 transition-opacity duration-300">
+<div class="h-1 w-1 rounded-full bg-primary"></div>
+<div class="h-1 w-1 rounded-full bg-primary"></div>
+<div class="h-1 w-1 rounded-full bg-primary"></div>
+</div>
+</div>
+<!-- IOS Home Indicator Placeholder -->
+<div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</body></html>

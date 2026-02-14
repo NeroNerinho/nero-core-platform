@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Structural Blueprint V3 | Precision Engineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(76, 9, 170, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(76, 9, 170, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .blueprint-subgrid {
+            background-image: 
+                linear-gradient(to right, rgba(76, 9, 170, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(76, 9, 170, 0.02) 1px, transparent 1px);
+            background-size: 8px 8px;
+        }
+        .crosshair {
+            position: relative;
+        }
+        .crosshair::before, .crosshair::after {
+            content: '';
+            position: absolute;
+            background: #4c09aa;
+            opacity: 0.3;
+        }
+        .crosshair::before { width: 20px; height: 1px; left: -10px; top: 50%; }
+        .crosshair::after { height: 20px; width: 1px; top: -10px; left: 50%; }
+        
+        .dimension-line {
+            position: relative;
+            border-left: 1px solid #4c09aa;
+            border-right: 1px solid #4c09aa;
+        }
+        .dimension-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #4c09aa;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#130d1c] antialiased">
+<!-- Background Layers -->
+<div class="fixed inset-0 blueprint-grid pointer-events-none z-0"></div>
+<div class="fixed inset-0 blueprint-subgrid pointer-events-none z-0"></div>
+<div class="relative z-10 flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 bg-background-light/80 backdrop-blur-md px-6 md:px-16 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary flex items-center justify-center text-white rounded-sm">
+<span class="material-symbols-outlined text-xl">architecture</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-primary text-lg font-black leading-none tracking-tighter uppercase italic">Structural Blueprint</h2>
+<span class="text-[10px] font-bold text-primary/60 tracking-[0.2em] uppercase">Phase: Deployment V3.0.4</span>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-primary/70 hover:text-primary text-xs font-bold tracking-widest uppercase transition-colors" href="#">01. Framework</a>
+<a class="text-primary/70 hover:text-primary text-xs font-bold tracking-widest uppercase transition-colors" href="#">02. Anatomy</a>
+<a class="text-primary/70 hover:text-primary text-xs font-bold tracking-widest uppercase transition-colors" href="#">03. Scalability</a>
+<a class="text-primary/70 hover:text-primary text-xs font-bold tracking-widest uppercase transition-colors" href="#">04. Testing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col items-end mr-4">
+<span class="text-[10px] font-bold text-primary/40 leading-none">SYSTEM STATUS</span>
+<span class="text-xs font-black text-green-600 leading-none uppercase tracking-tighter">Operational 100%</span>
+</div>
+<button class="flex min-w-[120px] items-center justify-center rounded border-2 border-primary bg-primary px-6 py-2 text-white text-xs font-black uppercase tracking-widest hover:bg-transparent hover:text-primary transition-all duration-300">
+                        Deploy System
+                    </button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<!-- Hero Section: Schematic Hero -->
+<div class="w-full max-w-[1440px] px-6 md:px-16 py-12 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 w-fit">
+<span class="size-2 bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">System Initialization Active</span>
+</div>
+<h1 class="text-primary text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter uppercase">
+                                STRUCTURAL<br/>BLUEPRINT<br/><span class="text-transparent" style="-webkit-text-stroke: 2px #4c09aa;">V3.0.4</span>
+</h1>
+<p class="max-w-md text-primary/80 text-sm font-medium leading-relaxed mt-4 border-l-2 border-primary pl-4">
+                                Precision engineering for digital frameworks. Building technical integrity at the core of every N27 module through advanced structural synthesis and modular load-bearing logic.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-sm bg-primary px-8 py-4 text-white text-sm font-black uppercase tracking-widest hover:shadow-[4px_4px_0px_rgba(76,9,170,0.3)] transition-all">
+<span class="truncate">Initialize Build</span>
+</button>
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-sm border-2 border-primary bg-transparent px-8 py-4 text-primary text-sm font-black uppercase tracking-widest hover:bg-primary/5 transition-all">
+<span class="truncate">View Schematics</span>
+</button>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-8 border-t border-primary/10">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Tolerances</span>
+<span class="text-xl font-black text-primary italic">±0.002mm</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Load Class</span>
+<span class="text-xl font-black text-primary italic">Grade A</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Revision</span>
+<span class="text-xl font-black text-primary italic">N27-Delta</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 relative">
+<!-- Technical Diagram Hero Image -->
+<div class="relative w-full aspect-square border border-primary/20 bg-primary/5 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-10 blueprint-subgrid"></div>
+<div class="absolute top-4 left-4 flex flex-col gap-1">
+<span class="text-[8px] font-mono text-primary uppercase">Ref: N27-CORE-ISO</span>
+<span class="text-[8px] font-mono text-primary uppercase">Scale: 1:1.25</span>
+</div>
+<!-- Exploded View Placeholder -->
+<img class="w-4/5 h-4/5 object-contain mix-blend-multiply opacity-80" data-alt="Technical exploded wireframe view of the N27 logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCr-XCyOUJA7xRJXhUOLkTphcEtkyKbBbxNnfDTWKjKntT3dRWEUNWiE1w_MNeOQSz3w1vLD__yPb4B-Tf441Qb-SkqyrRUfKBbyaL2P53bB_8PN7VQZlhMfu5gkgrSxwnDqzH7INvrYGj6bqEE0LfmM4s-4g8ESElEGD9s9J5-VLgEwAbpDrpEiLTvUxZlYZM5vHZ2bulXxbAJnAQaH6N404HMbiLojUnIwyLuAOkqUECaxrOBxWKfmo-khZxJkbBT2HCkzRMKEQ"/>
+<!-- Callout indicators -->
+<div class="absolute top-1/4 right-1/4 flex items-center gap-2">
+<div class="w-16 h-[1px] bg-primary"></div>
+<span class="text-[10px] font-mono font-bold text-primary bg-background-light px-1">RAD: 48.5mm</span>
+</div>
+<div class="absolute bottom-1/3 left-1/4 flex flex-col items-center">
+<div class="h-24 w-[1px] bg-primary"></div>
+<span class="text-[10px] font-mono font-bold text-primary bg-background-light px-1 mt-1">ALIGN: Y-AXIS</span>
+</div>
+<!-- Corners decor -->
+<div class="absolute top-0 left-0 size-8 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-0 right-0 size-8 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-0 left-0 size-8 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-0 right-0 size-8 border-b-2 border-r-2 border-primary"></div>
+</div>
+</div>
+</div>
+<!-- Stats Sidebar / Counter Belt -->
+<div class="w-full bg-primary py-8 overflow-hidden border-y border-primary/20">
+<div class="flex items-center gap-16 whitespace-nowrap animate-marquee">
+<div class="flex items-center gap-4 text-white/40 text-sm font-black italic uppercase">
+<span class="text-white">Build Integrity: 99.98%</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span>System Status: Operational</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span class="text-white">Revision: 3.0.4</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span>Load Factor: Optimal</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span class="text-white">Encryption: AES-256-STRUCT</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+</div>
+<!-- Repeat for infinite look -->
+<div class="flex items-center gap-4 text-white/40 text-sm font-black italic uppercase">
+<span class="text-white">Build Integrity: 99.98%</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span>System Status: Operational</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span class="text-white">Revision: 3.0.4</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span>Load Factor: Optimal</span>
+<span class="material-symbols-outlined text-xs">grade</span>
+<span class="text-white">Encryption: AES-256-STRUCT</span>
+</div>
+</div>
+</div>
+<!-- Section 02: Anatomy of V3 -->
+<section class="w-full max-w-[1440px] px-6 md:px-16 py-20 flex flex-col gap-12">
+<div class="flex justify-between items-end border-b-2 border-primary pb-4">
+<div class="flex flex-col">
+<span class="text-primary text-xs font-bold tracking-[0.3em] uppercase">Phase 02</span>
+<h2 class="text-primary text-4xl font-black uppercase">Anatomy of V3: Technical Breakdown</h2>
+</div>
+<div class="hidden md:flex flex-col text-right">
+<span class="text-primary/40 text-[10px] font-mono">DRAWING NO.</span>
+<span class="text-primary text-sm font-bold">N27-ANAT-0042</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Module 1 -->
+<div class="group relative flex flex-col gap-6 border border-primary/10 p-8 bg-white/50 backdrop-blur-sm hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start">
+<span class="size-10 bg-primary/10 text-primary flex items-center justify-center font-black text-lg italic">01</span>
+<span class="material-symbols-outlined text-primary/30 group-hover:text-primary transition-colors">hub</span>
+</div>
+<div class="h-40 w-full bg-primary/5 relative flex items-center justify-center">
+<img class="w-1/2 opacity-60 grayscale group-hover:grayscale-0 transition-all" data-alt="Technical diagram of X-Axis Alignment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu_ZR0YQETfeWlKPqJ-4tmeqwIro_Yd5m0isszHLK_SVeeMpHAARP2-MQhk0-gTFwfyuhxFB4ft5ZcBltcnyMuw5J8uiie4ud2cqmjSJJTo_L-g6JQ9dbdxvlzBcsosmgrgR611PeZj40nG0MoobMGhb-4oh1fxzfTxQldlYoqx-kKRxrBD-AGzDM3xvN5a3PaA-SIzIB8fEIgVyJGSUXj-TrTESQBHc3zCExCxgPknYdA7K7-QOzEeS5VECyX7Geibtmhgykm7u8"/>
+<div class="absolute inset-x-4 top-1/2 h-[1px] bg-primary/20"></div>
+</div>
+<div>
+<h3 class="text-primary text-xl font-black uppercase italic">X-Axis Alignment</h3>
+<p class="text-primary/70 text-sm mt-2">Zero-latency coordinate mapping ensuring pixel-perfect structural integrity across all dynamic viewports.</p>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="group relative flex flex-col gap-6 border border-primary/10 p-8 bg-white/50 backdrop-blur-sm hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start">
+<span class="size-10 bg-primary/10 text-primary flex items-center justify-center font-black text-lg italic">02</span>
+<span class="material-symbols-outlined text-primary/30 group-hover:text-primary transition-colors">change_history</span>
+</div>
+<div class="h-40 w-full bg-primary/5 relative flex items-center justify-center">
+<img class="w-1/2 opacity-60 grayscale group-hover:grayscale-0 transition-all" data-alt="Geometric radius analysis diagram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeW9CFlWgtYs6HhWp7E5tF_4pIhoHOsafWwhlG6E7HXXhDKN1zeVwQVTZ9FWA5F_gfUw5U1LddBdT0WstnNwpCjPTFpjF5oWn9pI1DWkLGklOiV0pF65UOFjrnsSXy4I_fdUa7bfAMJTxr13zOzwQUA-DpSzDtrv-K91fc_j4MbcxYwIL9MaRqABsnarFIbl7AyMT39-t0ftcoHkV1NDFEqNa3RnQRGSOGmZgojqv5KhiM9unqs67FTWURY1pamDar9H_HGFDvXvY"/>
+<div class="absolute size-20 rounded-full border border-primary/20 border-dashed animate-spin-slow"></div>
+</div>
+<div>
+<h3 class="text-primary text-xl font-black uppercase italic">Radius Geometry</h3>
+<p class="text-primary/70 text-sm mt-2">Harmonic curve calculation based on golden ratio proportions for consistent visual weighting.</p>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="group relative flex flex-col gap-6 border border-primary/10 p-8 bg-white/50 backdrop-blur-sm hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start">
+<span class="size-10 bg-primary/10 text-primary flex items-center justify-center font-black text-lg italic">03</span>
+<span class="material-symbols-outlined text-primary/30 group-hover:text-primary transition-colors">compress</span>
+</div>
+<div class="h-40 w-full bg-primary/5 relative flex items-center justify-center">
+<img class="w-1/2 opacity-60 grayscale group-hover:grayscale-0 transition-all" data-alt="Structural load stress test diagram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwDg5LPl5SdJ7qRb1mxXNk3lbmBLk1JtTcUMn3tlJeCpsHNVmSsw8kdITFsoDPsnzIHOcd7rnro2itM0LjUphQIg69WpKjMBCXfxWsnqvd515M4-CpHmzL5zXFZTNcSOxAjA6poWMuqsJlFxqRQGfI57nSaobIqs-BbF-YgJU-dGUerYg_W_CTqxEPbHoTp7e2AHFfk2Ybgjz-kFv5Q008NKhvbKePWH2663bR0Y4lH9XdMzKeKh7W_GpVWTdhqH4OP7Jh8UjlICs"/>
+<div class="absolute inset-y-4 left-1/2 w-[1px] bg-primary/20"></div>
+</div>
+<div>
+<h3 class="text-primary text-xl font-black uppercase italic">Structural Load</h3>
+<p class="text-primary/70 text-sm mt-2">Distributed stress testing for high-concurrency environments, guaranteed for 1M+ simultaneous operations.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 03: Feature Data Matrix -->
+<section class="w-full bg-background-light px-6 md:px-16 py-20 border-y border-primary/20">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<h2 class="text-primary text-2xl font-black uppercase tracking-tight">Technical Specifications Matrix</h2>
+<p class="text-primary/60 text-xs font-bold uppercase tracking-widest mt-1">Data verified by N27 Certification Unit</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="border-b-2 border-primary bg-primary/5">
+<th class="px-6 py-4 text-left text-xs font-black text-primary uppercase tracking-widest">Component ID</th>
+<th class="px-6 py-4 text-left text-xs font-black text-primary uppercase tracking-widest">Functionality</th>
+<th class="px-6 py-4 text-left text-xs font-black text-primary uppercase tracking-widest">Tolerance</th>
+<th class="px-6 py-4 text-left text-xs font-black text-primary uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-right text-xs font-black text-primary uppercase tracking-widest">Value</th>
+</tr>
+</thead>
+<tbody class="text-sm font-medium">
+<tr class="border-b border-primary/10 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-bold font-mono">CORE-L01</td>
+<td class="px-6 py-4">Primary Load Balancer (Static)</td>
+<td class="px-6 py-4 text-primary/60">0.005ms</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-black rounded-full">ACTIVE</span></td>
+<td class="px-6 py-4 text-right font-mono font-bold">14.2 GB/s</td>
+</tr>
+<tr class="border-b border-primary/10 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-bold font-mono">BLUE-V3A</td>
+<td class="px-6 py-4">Visual Rendering Engine</td>
+<td class="px-6 py-4 text-primary/60">0.001px</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-black rounded-full">ACTIVE</span></td>
+<td class="px-6 py-4 text-right font-mono font-bold">144 FPS</td>
+</tr>
+<tr class="border-b border-primary/10 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-bold font-mono">SCAL-MOD</td>
+<td class="px-6 py-4">Modular Expansion Unit</td>
+<td class="px-6 py-4 text-primary/60">N/A</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-black rounded-full">STANDBY</span></td>
+<td class="px-6 py-4 text-right font-mono font-bold">65.0 k</td>
+</tr>
+<tr class="border-b border-primary/10 hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-bold font-mono">AUTH-CR</td>
+<td class="px-6 py-4">Cross-Environment Signature</td>
+<td class="px-6 py-4 text-primary/60">0.0000ms</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-black rounded-full">ACTIVE</span></td>
+<td class="px-6 py-4 text-right font-mono font-bold">SIG-VALID</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- CTA Section: Approved for Deployment -->
+<section class="w-full max-w-[1440px] px-6 md:px-16 py-24">
+<div class="relative w-full border-4 border-primary p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden">
+<!-- Corner Crosshairs -->
+<div class="absolute top-2 left-2 size-4 crosshair"></div>
+<div class="absolute top-2 right-2 size-4 crosshair"></div>
+<div class="absolute bottom-2 left-2 size-4 crosshair"></div>
+<div class="absolute bottom-2 right-2 size-4 crosshair"></div>
+<div class="flex flex-col gap-4 relative z-10 max-w-xl">
+<h2 class="text-primary text-5xl md:text-6xl font-black uppercase italic leading-none">Ready for Final Deployment?</h2>
+<p class="text-primary/70 font-bold uppercase text-xs tracking-[0.2em]">All systems are green. Structural blueprint V3 is optimized for industrial-scale implementation.</p>
+</div>
+<div class="flex flex-col items-center gap-6 relative z-10">
+<div class="p-6 border-2 border-primary/30 border-dashed rounded-lg bg-white/50">
+<span class="material-symbols-outlined text-primary text-6xl opacity-20 absolute -top-4 -right-4">verified</span>
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-mono text-primary/40">DIGITAL SIGNATURE</span>
+<span class="text-lg font-black text-primary uppercase leading-tight mt-1">N27_DEPLOY_AUTH_0x4F</span>
+<span class="text-[10px] font-mono text-primary/60 mt-2">TIMESTAMP: 2024-10-27-09:44:21</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-6 px-12 text-lg font-black uppercase tracking-[0.3em] hover:bg-primary/90 transition-all shadow-[8px_8px_0px_rgba(76,9,170,0.2)]">
+                                Authorize V3.0.4
+                            </button>
+</div>
+<!-- Background Stamp -->
+<div class="absolute -bottom-10 -right-10 opacity-5 pointer-events-none">
+<span class="text-[12rem] font-black italic uppercase leading-none">APPROVED</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-primary/20 bg-background-light py-12 px-6 md:px-16">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary text-white flex items-center justify-center rounded-sm">
+<span class="material-symbols-outlined text-sm">architecture</span>
+</div>
+<h4 class="text-primary font-black uppercase italic tracking-tighter">Blueprint V3</h4>
+</div>
+<p class="text-primary/60 text-xs font-medium leading-relaxed">
+                            A modular framework built for technical excellence and absolute precision in digital construction.
+                        </p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-primary text-[10px] font-black uppercase tracking-[0.3em]">Directives</h5>
+<ul class="flex flex-col gap-2">
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Documentation</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">API References</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Load Testing</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Source Control</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-primary text-[10px] font-black uppercase tracking-[0.3em]">Compliance</h5>
+<ul class="flex flex-col gap-2">
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Integrity Protocol</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Deployment Rights</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-primary/60 hover:text-primary text-xs font-bold uppercase transition-colors" href="#">Certifications</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<div class="p-4 border border-primary/20 bg-primary/5 rounded">
+<h5 class="text-primary text-[10px] font-black uppercase tracking-[0.3em] mb-2">Build Newsletter</h5>
+<div class="flex border border-primary/30">
+<input class="bg-transparent border-none text-[10px] font-mono w-full focus:ring-0 text-primary placeholder:text-primary/30" placeholder="ENGINEER@EMAIL.COM" type="text"/>
+<button class="bg-primary px-3 text-white">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">terminal</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">memory</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">account_tree</span>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-[10px] font-mono text-primary/40">© 2024 STRUCTURAL_BLUEPRINT_V3_N27. ALL RIGHTS RESERVED.</span>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-green-500"></span>
+<span class="text-[10px] font-mono text-primary/60 uppercase">Cloud Uplink Stable</span>
+</div>
+<span class="text-[10px] font-mono text-primary/60 uppercase italic">Version: 3.0.4.delta</span>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,224 @@
+# Renascimento Técnico
+
+## Product Overview
+
+**The Pitch:** An interactive mobile brand bible for "Nero 27," translating the static concept of a brand board into a fluid, tactile sketchbook experience. It bridges the gap between classical da Vincian aesthetics and modern digital utility.
+
+**For:** Stakeholders, designers, and clients of Nero 27 who value precision, heritage, and the intellectual intersection of art and engineering.
+
+**Device:** Mobile (Vertical scroll, tactile touch interactions)
+
+**Design Direction:** **Da Vinci’s Codex.** A skeuomorphic-adjacent interface that feels like examining a preserved Renaissance manuscript. Texture is paramount—paper grain, ink bleed, construction lines, and golden ratios overlaid on UI elements.
+
+**Inspired by:** *The Codex Atlanticus (Leonardo da Vinci)*, *Paper by WeTransfer*, *Nytimes "T" Magazine typography*.
+
+---
+
+## Screens
+
+- **01 Splash / Cover:** The "Leather Cover" entry point with embossed branding.
+- **02 The Emblem (Main Logo):** Detailed analysis of the primary logo with geometric overlays.
+- **03 The Mark (Icon/Favicon):** Isolated geometric reduction for small scales.
+- **04 The Palette (Colors):** Swatches presented as pigment jars and ink tests.
+- **05 The Typeset (Typography):** Specimen sheet resembling early printing press proofs.
+- **06 Application (Mockups):** The brand applied to physical artifacts (business card, wax seal).
+
+---
+
+## Key Flows
+
+**Flow: Examining the Logo Geometry**
+
+1. User lands on **02 The Emblem** -> sees the Nero 27 logo sketched on parchment.
+2. User toggles "Construction Lines" toggle -> Fine red and blue geometric lines (circles, squares) fade in over the logo to reveal the golden ratio alignment.
+3. User taps specific nodes -> Tooltips appear in handwriting font explaining the mathematical derivation.
+
+---
+
+<details>
+<summary>Design System</summary>
+
+## Color Palette
+
+- **Primary (Ink):** `#2A231E` - Deep Sepia. Used for primary text and main linework.
+- **Background (Parchment):** `#F0EAD6` - Aged Vellum. Subtle grain texture required.
+- **Surface (Wash):** `#E6DCC3` - Darker paper sections, active states.
+- **Text (Faded Ink):** `#5C4E43` - Secondary text, historical notes.
+- **Muted (Graphite):** `#8C8276` - Construction lines, borders.
+- **Accent (Sanguine):** `#8A3324` - Red chalk (Sanguine) for highlights, alerts, and focal points.
+
+## Typography
+
+- **Headings:** *Cormorant Garamond*, Italic, 700, 32-40px. (Simulates elegant calligraphy).
+- **Body:** *IM Fell English SC*, 400, 16px. (Simulates letterpress imperfection).
+- **Small text/Captions:** *Reenie Beanie*, 400, 18px. (Simulates handwritten annotations).
+- **Buttons:** *Cormorant Garamond*, SC (Small Caps), 600, 14px.
+
+**Style notes:**
+- **Borders:** Double lines (thin-thick-thin) typical of classical drafting.
+- **Shadows:** No drop shadows. Use hatching (cross-hatching lines) to denote depth.
+- **Texture:** CSS blend mode `multiply` on text to simulate ink soaking into paper.
+
+## Design Tokens
+
+```css
+:root {
+  --color-ink: #2A231E;
+  --color-parchment: #F0EAD6;
+  --color-wash: #E6DCC3;
+  --color-sanguine: #8A3324;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'IM Fell English SC', serif;
+  --font-hand: 'Reenie Beanie', cursive;
+  --texture-grain: url('/assets/paper-grain.png');
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary>Screen Specifications</summary>
+
+### 01 Splash / Cover
+
+**Purpose:** Brand immersion. Sets the tone of opening a physical book.
+
+**Layout:** Centered content. Heavy vertical padding.
+
+**Key Elements:**
+- **Background:** Dark brown texture `#1A1510` (Leather binding texture).
+- **Embossed Logo:** "Nero 27" centered, gold foil effect (`#C5A059`), inner shadow to look pressed in.
+- **Subtitle:** "Brand Codex v.1.0" in *IM Fell English SC*, opacity 60%.
+- **"Open" Action:** A decorative wax seal illustration at the bottom.
+
+**Interactions:**
+- **Slide Up:** User swipes up (or taps seal) -> Leather background splits or slides up to reveal the Parchment background of Screen 02.
+
+---
+
+### 02 The Emblem (Main Logo)
+
+**Purpose:** Detailed presentation of the primary Vitruvian logo.
+
+**Layout:** Top header (navigation), Main Canvas (Logo), Bottom Controls.
+
+**Key Elements:**
+- **Header:** "Fig. 1: The Identity", *Cormorant Garamond Italic*, centered. Sanguine red underline.
+- **Main Canvas:**
+    - The Logo: "Nero 27" intertwined with a Vitruvian figure and compass circles.
+    - Style: Ink bleed edges.
+    - Animation: Subtle "sketching" animation on load (SVG `stroke-dashoffset`).
+- **Toggle Control:** "Show Geometry" switch. Styled like a mechanical brass slider.
+    - **Active:** Overlays fine vector lines (circles, triangles) in Sanguine Red (`#8A3324`) demonstrating the logo's proportions.
+
+**States:**
+- **Initial:** Clean logo.
+- **Geometry On:** Busy, mathematical overlay active.
+
+---
+
+### 03 The Mark (Icon)
+
+**Purpose:** Showcasing the reductive mark for favicons/apps.
+
+**Layout:** Grid of 3 variations showing scale.
+
+**Key Elements:**
+- **Section Title:** "Fig. 2: Reduction & Scale".
+- **Large Preview:** 128px square container. The "N27" monogram inside a perfect circle.
+- **Medium Preview:** 64px square.
+- **Small Preview:** 32px square.
+- **Annotation:** Handwritten arrow pointing to the smallest icon with text "Legible at 16px" using *Reenie Beanie* font.
+
+**Components:**
+- **Card:** Border: `1px solid #8C8276`. Background: transparent.
+
+---
+
+### 04 The Palette
+
+**Purpose:** Color definition presented as artist materials.
+
+**Layout:** Vertical list of color "swatches".
+
+**Key Elements:**
+- **Swatch Item:**
+    - Visual: A circle with rough, organic edges (as if painted with a brush).
+    - Label: Name of color (e.g., "Deep Sepia") in *Cormorant Garamond*.
+    - Value: Hex code in *IM Fell English* (small).
+    - CMYK/RGB: Hidden by default, expands on tap.
+- **Colors displayed:**
+    1. Carbon Black (`#000000`)
+    2. Deep Sepia (`#2A231E`)
+    3. Sanguine (`#8A3324`)
+    4. Aged Vellum (`#F0EAD6`)
+
+**Interactions:**
+- **Tap Swatch:** The "paint" circle pulses like liquid. Copied to clipboard notification appears as a handwritten note: "Pigment Copied".
+
+---
+
+### 05 The Typeset
+
+**Purpose:** Typography usage guidelines.
+
+**Layout:** A typesetter's specimen sheet.
+
+**Key Elements:**
+- **Drop Cap:** A massive, ornate "N" (Nero) starting a paragraph of Lorem Ipsum.
+- **The Alphabet:** A-Z displayed in the primary font (*Cormorant*), taking up full width lines.
+- **The Numerals:** 0-9 displayed with mathematical spacing equations between them (e.g., `1 + 2 = 3`).
+- **Hierarchy Demo:**
+    - H1: "Principia Mathematica" (32px)
+    - H2: "The Golden Ratio" (24px)
+    - Body: "Proportion is a correspondence among the measures of the members of an entire work..." (16px)
+
+**Components:**
+- **Ruler Lines:** Background of this section has faint horizontal blue lines like a notebook.
+
+---
+
+### 06 Application (Footer Variation)
+
+**Purpose:** How the brand lives in constrained spaces (Footer).
+
+**Layout:** Dark mode contrast block.
+
+**Key Elements:**
+- **Container:** Full width block, Background `#2A231E` (Deep Sepia).
+- **Logo Variant:** The "Horizontal Linear" version of Nero 27 in `#F0EAD6` (Vellum).
+- **Context:** Dummy footer links ("Legal", "Contact", "Blueprints") in `opacity-60` white serif.
+- **Visual Note:** A "paper note" pinned via CSS to the top right of this dark block saying "Inversion for dark substrates" (Handwritten font).
+
+**Responsive:**
+- **Mobile:** Stacked layout.
+- **Desktop:** Not applicable (Mobile view specific).
+
+</details>
+
+---
+
+<details>
+<summary>Build Guide</summary>
+
+**Stack:** HTML + Tailwind CSS v3
+
+**Assets:**
+1.  **Fonts:** Google Fonts (Cormorant Garamond, IM Fell English SC, Reenie Beanie).
+2.  **Textures:** Seamless paper grain PNG (opacity 5%, multiply blend).
+3.  **SVGs:** Hand-drawn stroke paths for the logo (exported from Illustrator with preserved strokes for animation).
+
+**Build Order:**
+1.  **Screen 04 (Palette):** Define the CSS variables/Tailwind config first. Get the "Paper" feel right (background + texture).
+2.  **Screen 05 (Typography):** Establish the type hierarchy.
+3.  **Screen 02 (The Emblem):** Implement the complex SVG layering and toggle logic.
+4.  **Remaining Screens:** Build out structural content.
+
+**Tailwind Config Nuances:**
+- Extend colors with specific names: `bg-parchment`, `text-ink`, `border-sanguine`.
+- Add custom font families: `font-serif-display`, `font-hand`.
+- Add custom drop-shadow: `box-shadow: 2px 2px 0px #8C8276` (Hard shadow for depth without blur).
+
+</details>

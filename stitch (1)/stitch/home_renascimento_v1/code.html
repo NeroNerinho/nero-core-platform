@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home Renascimento V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                        "midnight": "#1a170d",
+                        "ivory": "#fdfdfa",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    spacing: {
+                        '18': '4.5rem',
+                        '22': '5.5rem',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(242, 185, 13, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f2b90d;
+            border-radius: 2px;
+        }
+        /* Thin line utilities */
+        .hairline-b {
+            border-bottom: 0.5px solid rgba(242, 185, 13, 0.3);
+        }
+        .hairline-l {
+            border-left: 0.5px solid rgba(242, 185, 13, 0.3);
+        }
+        /* Gradient text */
+        .text-gold-gradient {
+            background: linear-gradient(to bottom, #f9df88, #f2b90d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-ivory antialiased min-h-screen flex justify-center items-start pt-safe-top pb-safe-bottom">
+<!-- Mobile Container -->
+<div class="w-full max-w-md mx-auto min-h-screen relative flex flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Header / Masthead -->
+<header class="px-8 pt-12 pb-6 flex flex-col gap-2 relative z-10">
+<!-- Decorative line -->
+<div class="absolute top-10 left-8 right-8 h-[1px] bg-primary/20"></div>
+<div class="flex justify-between items-end mt-4">
+<span class="text-xs uppercase tracking-[0.2em] text-primary/80 font-semibold">Dashboard V.1</span>
+<span class="text-sm italic text-gray-500 dark:text-gray-400 font-light">October 14, 2023</span>
+</div>
+<h1 class="text-5xl font-light leading-tight mt-6 tracking-tight text-gray-900 dark:text-ivory">
+                Your <br/>
+<span class="italic font-normal text-gold-gradient relative inline-block">
+                    Kingdom
+                    <!-- Decoration -->
+<span class="absolute -bottom-2 right-0 w-1/2 h-[2px] bg-primary rounded-full opacity-60"></span>
+</span>
+</h1>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 px-8 pb-24 overflow-y-auto no-scrollbar">
+<!-- Context / Welcome -->
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-10 font-light border-l border-primary/40 pl-4">
+                The treasury flourishes under your stewardship. Here is the current state of the dominion.
+            </p>
+<!-- Primary Exhibit: Revenue -->
+<section class="mb-10 relative group">
+<!-- Vertical Divider (Decorative) -->
+<div class="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary/50 to-transparent"></div>
+<div class="pl-6 py-2">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xs uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">Total Treasury</h2>
+<span class="material-symbols-outlined text-primary text-lg">account_balance</span>
+</div>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-4xl font-normal text-primary">$1,240,500</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="px-2 py-0.5 border border-primary/30 rounded text-[10px] uppercase tracking-wider text-primary bg-primary/5">
+                            +12% vs Epoch
+                        </div>
+<span class="text-xs text-gray-400 italic">Robust Growth</span>
+</div>
+</div>
+</section>
+<!-- Secondary Exhibit: Morale Grid -->
+<section class="grid grid-cols-2 gap-6 mb-12">
+<!-- Card 1: Morale -->
+<div class="relative bg-white/5 dark:bg-midnight border border-primary/10 rounded-lg p-5 shadow-glow backdrop-blur-sm">
+<h3 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-4 block border-b border-primary/10 pb-2">Guild Morale</h3>
+<div class="relative w-full h-32 flex flex-col justify-end items-center">
+<!-- Visual representation of morale -->
+<div class="w-full h-full absolute inset-0 rounded-md overflow-hidden opacity-30">
+<img alt="Marble texture" class="w-full h-full object-cover grayscale mix-blend-overlay" data-alt="Abstract classical marble texture representing stability" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2e0za0tr4IJCJXsmgerT1LjmGAbNedxivuUsxFHVZHnIX9vuA13_oYazt6cZ-p8O9ua9y7etThOs8Ltrk5XHNC4fBq5gmYTLfuAkDOStfNJ9ERIPR5wFOupjfDdIifOQn7Ktcm2v0q53-czLgswyUYvOBz_8tdNjHD-tUQVi1ep2sFcvU7V6fx6uBuTRnZc92ldRi7RUYupPUTuHUU64hwxVRFe1MJmh72fHTro32vOTsDwW1ihBiUbZIWvimXW1BlGhqsFXuYVw"/>
+</div>
+<div class="z-10 text-center mb-1">
+<span class="text-3xl text-ivory block mb-1">98</span>
+<span class="text-[10px] uppercase tracking-widest text-primary">Inspired</span>
+</div>
+<!-- Gauge Line -->
+<div class="w-full h-[2px] bg-gray-700 mt-2 relative rounded-full">
+<div class="absolute left-0 top-0 h-full bg-primary w-[98%] shadow-[0_0_8px_rgba(242,185,13,0.8)]"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Projects -->
+<div class="relative bg-white/5 dark:bg-midnight border border-primary/10 rounded-lg p-5 shadow-glow backdrop-blur-sm flex flex-col justify-between">
+<h3 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 border-b border-primary/10 pb-2">Endeavors</h3>
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex justify-between items-center">
+<span class="text-2xl font-light">12</span>
+<span class="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_5px_rgba(34,197,94,0.6)]"></span>
+</div>
+<p class="text-xs text-gray-400 font-light leading-snug">Active campaigns across the western region.</p>
+</div>
+</div>
+</section>
+<!-- Chronicles / Feed -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-[1px] flex-1 bg-primary/20"></div>
+<h3 class="text-sm font-serif italic text-primary">Recent Chronicles</h3>
+<div class="h-[1px] flex-1 bg-primary/20"></div>
+</div>
+<div class="space-y-0">
+<!-- Item 1 -->
+<div class="group py-4 flex gap-4 items-start hairline-b border-primary/10 relative overflow-hidden">
+<div class="mt-1 w-2 h-2 rounded-full border border-primary/50 group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-sm text-gray-200 mb-1 font-light">New trade route established with <span class="text-primary/90">Sector 7</span>.</p>
+<p class="text-[10px] uppercase tracking-wide text-gray-500">2 hours ago</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group py-4 flex gap-4 items-start hairline-b border-primary/10 relative overflow-hidden">
+<div class="mt-1 w-2 h-2 rounded-full border border-primary/50 group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-sm text-gray-200 mb-1 font-light">Quarterly tribute collected from <span class="text-primary/90">Marketing Guild</span>.</p>
+<p class="text-[10px] uppercase tracking-wide text-gray-500">Yesterday</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group py-4 flex gap-4 items-start hairline-b border-primary/10 relative overflow-hidden">
+<div class="mt-1 w-2 h-2 rounded-full border border-primary/50 group-hover:bg-primary transition-colors"></div>
+<div class="flex-1">
+<p class="text-sm text-gray-200 mb-1 font-light">Project "Colossus" moved to <span class="italic text-gray-400">Review Phase</span>.</p>
+<p class="text-[10px] uppercase tracking-wide text-gray-500">Oct 12</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Bar (Editorial Style) -->
+<nav class="absolute bottom-0 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-primary/10 pb-safe-bottom">
+<div class="flex justify-around items-center h-16 px-6">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform font-light">castle</span>
+<span class="text-[9px] uppercase tracking-widest text-primary opacity-80">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-gray-500 text-2xl font-light group-hover:text-primary transition-colors">pie_chart</span>
+<span class="text-[9px] uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Ledger</span>
+</button>
+<div class="w-[1px] h-8 bg-primary/10 mx-2"></div>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-gray-500 text-2xl font-light group-hover:text-primary transition-colors">groups</span>
+<span class="text-[9px] uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Guild</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-gray-500 text-2xl font-light group-hover:text-primary transition-colors">settings</span>
+<span class="text-[9px] uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Opts</span>
+</button>
+</div>
+</nav>
+<!-- Subtle Grain Overlay (Simulated via CSS) -->
+<div class="pointer-events-none fixed inset-0 opacity-[0.03] mix-blend-overlay z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" data-alt="Subtle noise texture for vintage paper effect"></div>
+</div>
+</body></html>

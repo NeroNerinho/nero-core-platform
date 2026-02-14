@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 | Renaissance Kinetic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#fbf9f8",
+                        "background-dark": "#211311",
+                        "vellum": "#f2eee9",
+                        "sanguine": "#9c2816",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: #fbf9f8;
+            color: #1b100e;
+        }
+        .parchment-texture {
+            background-image: radial-gradient(#d1ccc0 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .technical-line {
+            border-color: rgba(156, 40, 22, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b100e] dark:text-vellum selection:bg-primary selection:text-white">
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 flex items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md p-4 border-b border-primary/10 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</div>
+<h2 class="text-primary text-2xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display italic">NERO 27</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">search</span>
+</button>
+</div>
+</nav>
+<!-- Section 1: Hero -->
+<section class="relative @container border-b border-primary/20">
+<div class="p-4 @[480px]:p-8">
+<div class="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden rounded-lg bg-vellum dark:bg-black/40 p-6 text-center shadow-sm">
+<!-- Technical Overlay Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none parchment-texture"></div>
+<div class="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+<svg class="max-w-2xl text-primary" height="100%" viewbox="0 0 200 200" width="100%">
+<circle cx="100" cy="100" fill="none" r="80" stroke="currentColor" stroke-dasharray="2,2" stroke-width="0.5"></circle>
+<rect fill="none" height="120" stroke="currentColor" stroke-width="0.5" width="120" x="40" y="40"></rect>
+<line stroke="currentColor" stroke-width="0.2" x1="0" x2="200" y1="0" y2="200"></line>
+<line stroke="currentColor" stroke-width="0.2" x1="200" x2="0" y1="0" y2="200"></line>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col gap-6 max-w-2xl">
+<span class="text-primary text-xs font-bold tracking-[0.3em] uppercase">MCMXXVII — Vol. I</span>
+<h1 class="text-[#1b100e] dark:text-white text-5xl font-black leading-none tracking-tight @[480px]:text-8xl font-display uppercase italic">
+                        RENAISSANCE KINETIC
+                    </h1>
+<h2 class="text-primary text-lg font-medium leading-normal @[480px]:text-2xl font-display italic">
+                        The Art of Engineering
+                    </h2>
+<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="group flex min-w-[200px] cursor-pointer items-center justify-center rounded-sm h-12 px-8 bg-primary text-vellum text-sm font-bold uppercase tracking-[0.2em] transition-all hover:bg-primary/90">
+                            Explore the Codex
+                        </button>
+<span class="text-[10px] uppercase tracking-widest opacity-60">REF NO. 027-A</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: The Philosophy -->
+<section class="py-20 px-6 max-w-4xl mx-auto border-x technical-line">
+<div class="flex flex-col items-center text-center gap-10">
+<span class="text-primary material-symbols-outlined text-4xl">architecture</span>
+<h2 class="text-primary text-3xl font-bold font-display italic">THE PHILOSOPHY</h2>
+<div class="grid @[480px]:grid-cols-2 gap-12 text-left">
+<p class="text-lg leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                    A masterwork where 15th-century mastery meets digital precision. We bridge the gap between Leonardo's sketches and modern luxury engineering. Our ethos is built upon the tension between the organic hand and the mathematical mind.
+                </p>
+<p class="text-lg leading-relaxed opacity-80">
+                    Every curve is calculated using Fibonacci sequences, yet finished with the deliberate imperfection of human artistry. We don't just build; we curate the kinetic energy of history into functional modern artifacts.
+                </p>
+</div>
+<div class="w-24 h-px bg-primary/30 my-4"></div>
+<p class="text-sm tracking-[0.2em] uppercase opacity-50 font-bold italic font-display">
+                Digital Precision • Analog Soul
+            </p>
+</div>
+</section>
+<!-- Section 3: Featured Curation -->
+<section class="bg-vellum/50 dark:bg-background-dark py-20">
+<div class="px-6 mb-12 flex items-baseline justify-between max-w-7xl mx-auto">
+<h3 class="text-primary text-2xl font-bold font-display italic uppercase tracking-tighter">Featured Curation</h3>
+<span class="text-xs font-bold opacity-40 uppercase tracking-widest">Catalog 2024</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-4 max-w-7xl mx-auto">
+<!-- Catalog Item 1 -->
+<div class="group relative flex flex-col bg-background-light dark:bg-black p-4 border technical-line transition-all hover:border-primary/50">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 bg-vellum">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Technical drafting of a gold luxury drape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXR1tlj2zLFQ3mNl4nYFHTiDZYc9YOIbh2ad1Z9TZa_IPISSEgA1P7RC-cofwHq9EgrETnaMin6dXaOpL1KbiQm5y7EMi_171LB5VDELMJ5yvrB-VWYEAIUdyBn89U4LZo3n0ZuM6K3E2rfJ5Juek42MjTWCLXK67rxMMCZNplumDJ37zghE3pFVmhvi5CvyuvtYRQsicJkeK3BVn1yujQCGZlcDko4lPRfho4ZdzHei1hYWCBCiHoTVXCq0YbH28xRz1kM8PTHFI"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] px-2 py-1 font-bold">ITEM 01</div>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-xl font-bold font-display uppercase italic">Aureum Toga</h4>
+<p class="text-sm opacity-70 mb-4">A kinetic garment concept blending liquid-gold aesthetics with geometric structural support.</p>
+<div class="flex justify-between items-center border-t border-primary/10 pt-4">
+<span class="text-xs font-mono">fig. 1.2 — Structure</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Catalog Item 2 -->
+<div class="group relative flex flex-col bg-background-light dark:bg-black p-4 border technical-line transition-all hover:border-primary/50">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 bg-vellum">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Mechanical bird wing blueprint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo9NwG06KkkoWx6WY0Q7AzoGpK6mSyvWmDJi7DPW_5rLCwKIx7z6xp6WoQeKHTctM3sVyzngflmT7Fql8KIxurtEL6Ttt_e8U8zDzfnPuoeRdHqbLd_8W6jB8EPKN63PWrRL3--3cep8RjT_C94lecPiAP2UKLg1NuRwRuC1SWL4M1muWD6z_DK3ynSUw12zzYTR6ArNhmgH4GdSq2DEAlBQl9Tb9xF-EGTn4riSPzg6Y1fyVPY8WOs_ZbdGBVxsmZmkFnc90mm3o"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] px-2 py-1 font-bold">ITEM 02</div>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-xl font-bold font-display uppercase italic">Vitruvian Chronos</h4>
+<p class="text-sm opacity-70 mb-4">A horological masterpiece featuring exposed 15th-century gear ratios and carbon-fiber escapements.</p>
+<div class="flex justify-between items-center border-t border-primary/10 pt-4">
+<span class="text-xs font-mono">fig. 2.4 — Chronology</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Catalog Item 3 -->
+<div class="group relative flex flex-col bg-background-light dark:bg-black p-4 border technical-line transition-all hover:border-primary/50">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 bg-vellum">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Geometric leather bag design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN8UULN3PMLa5pVg3pltrcfre3uD6ssPMwbkw7IVC9cD9zsv-_KHm1AhPS8_2HxZRAO_n7F2Y0agqrivZlruLF9u5EBRD2pg2Q9qORXJ03_qoLPnBSID0sclFHnf7gO1532K8SbQEoYSn17Pa9u8L8HLysdqjt6GuvOKLU7Z_SyKadDmPZdlpx-jKIzxftUTWYzj-gfFZ12kGtn3PLhIKTffti9_1tpHHq55ljl8i07fAhIEJMJLcGS8U768gMnykNO5kkayf62lg"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] px-2 py-1 font-bold">ITEM 03</div>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="text-xl font-bold font-display uppercase italic">Sanguine Monolith</h4>
+<p class="text-sm opacity-70 mb-4">Luxury leatherwear dissected through architectural drafting, dyed in authentic cinnabar pigments.</p>
+<div class="flex justify-between items-center border-t border-primary/10 pt-4">
+<span class="text-xs font-mono">fig. 3.1 — Anatomy</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: The Manifesto -->
+<section class="relative bg-primary text-vellum py-24 overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center scale-150">
+<!-- Large Gear Pattern -->
+<svg class="text-white" height="1000" viewbox="0 0 200 200" width="1000">
+<path d="M100 20 L110 40 L130 40 L120 55 L130 75 L110 75 L100 95 L90 75 L70 75 L80 55 L70 40 L90 40 Z" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<circle cx="100" cy="100" fill="none" r="90" stroke="currentColor" stroke-dasharray="10,5" stroke-width="0.5"></circle>
+<circle cx="100" cy="100" fill="none" r="50" stroke="currentColor" stroke-width="2"></circle>
+</svg>
+</div>
+<div class="relative z-10 px-6 max-w-4xl mx-auto text-center flex flex-col gap-12">
+<h3 class="text-xs tracking-[0.5em] uppercase font-bold">The Nero 27 Manifesto</h3>
+<p class="text-4xl @[480px]:text-6xl font-display italic font-medium leading-tight">
+                "Modernity is a ghost, history is the machine. We do not design for the present; we engineer for the eternal."
+            </p>
+<div class="flex flex-col gap-2 items-center">
+<div class="h-16 w-px bg-vellum/30"></div>
+<span class="text-sm italic font-display">A. Nero, MCMXXVII</span>
+</div>
+</div>
+</section>
+<!-- Section 5: Technical Specs -->
+<section class="py-20 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Geometry Grid -->
+<div class="relative aspect-square border technical-line p-8 parchment-texture flex items-center justify-center">
+<div class="absolute top-4 left-4 text-[10px] font-mono opacity-40">TECHNICAL DRAWING NO. 27-B</div>
+<div class="w-full h-full relative border technical-line border-dashed">
+<!-- Geometric Logo Mockup -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-48 h-48 border-2 border-primary rounded-full relative">
+<div class="absolute top-1/2 left-0 w-full h-px bg-primary -rotate-45"></div>
+<div class="absolute top-1/2 left-0 w-full h-px bg-primary rotate-45"></div>
+<div class="absolute top-0 left-1/2 w-px h-full bg-primary/20"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 text-primary font-mono text-[10px]">90° RADIAL</div>
+<div class="absolute top-1/2 -left-12 -translate-y-1/2 text-primary font-mono text-[10px] -rotate-90">SYMMETRY</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Brand Specs -->
+<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-4">
+<h3 class="text-3xl font-display font-bold italic">Geometric Specification</h3>
+<p class="opacity-70 leading-relaxed">Our visual language is a rigid adherence to the divine proportion. Every element is anchored to a 27-unit grid, inspired by the Renaissance masters' pursuit of geometric perfection.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<div class="h-24 w-full bg-primary rounded shadow-inner"></div>
+<div>
+<span class="block text-xs font-bold uppercase tracking-widest text-primary">Sanguine Red</span>
+<span class="block text-sm font-mono opacity-60">HEX: #9C2816</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="h-24 w-full bg-vellum border technical-line rounded shadow-inner"></div>
+<div>
+<span class="block text-xs font-bold uppercase tracking-widest text-primary">Aged Vellum</span>
+<span class="block text-sm font-mono opacity-60">HEX: #F2EEE9</span>
+</div>
+</div>
+</div>
+<div class="p-6 border technical-line bg-vellum/30">
+<h4 class="text-xs font-bold tracking-[0.2em] uppercase mb-4 opacity-60">Typeface Hierarchy</h4>
+<div class="flex flex-col gap-2">
+<span class="text-3xl font-display font-bold italic">Newsreader Display</span>
+<span class="text-sm font-mono uppercase tracking-tighter">Geometric Technical Serif</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-vellum py-12 px-6 border-t border-primary/20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<h2 class="text-primary text-2xl font-bold font-display italic mb-2">NERO 27</h2>
+<p class="text-xs opacity-50 uppercase tracking-widest">© 1427 — 2027 Studio Kinetic.</p>
+</div>
+<div class="flex gap-8 text-xs uppercase tracking-[0.2em] font-bold">
+<a class="hover:text-primary transition-colors" href="#">Archivio</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+<div class="flex gap-4">
+<div class="size-10 rounded-full border border-vellum/20 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="size-10 rounded-full border border-vellum/20 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

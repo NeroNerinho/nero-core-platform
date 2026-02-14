@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL SYNC V3 | Technical Specifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050505",
+                        "neutral-panel": "#0f2123",
+                        "neutral-border": "#1a2e30",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #050505;
+        }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(6, 232, 249, 0) 50%, rgba(6, 232, 249, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+        .glow-border {
+            box-shadow: 0 0 10px rgba(6, 232, 249, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 8px rgba(6, 232, 249, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-300 antialiased selection:bg-primary/30 selection:text-primary min-h-screen">
+<div class="scanline fixed inset-0 pointer-events-none opacity-20"></div>
+<!-- Main Shell -->
+<div class="relative flex flex-col h-screen overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="h-14 border-b border-neutral-border bg-background-dark/80 backdrop-blur-md flex items-center justify-between px-6 z-50">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">deployed_code</span>
+<h1 class="text-white font-bold tracking-tighter text-lg glow-text uppercase">Neural Sync V3.0.4</h1>
+</div>
+<nav class="hidden md:flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+<span class="hover:text-primary cursor-pointer px-2 transition-colors">Core</span>
+<span class="text-neutral-border">/</span>
+<span class="hover:text-primary cursor-pointer px-2 transition-colors">OS_Modules</span>
+<span class="text-neutral-border">/</span>
+<span class="text-primary px-2">Tech_Specs</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-neutral-panel border border-neutral-border px-3 py-1 rounded">
+<span class="material-symbols-outlined text-primary text-sm">wifi_tethering</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary">Sync Active</span>
+</div>
+<div class="text-[12px] font-mono text-slate-500 hidden sm:block">
+                    LATENCY: <span class="text-primary">0.002MS</span>
+</div>
+<div class="flex gap-2">
+<button class="size-8 flex items-center justify-center border border-neutral-border hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-sm">settings</span>
+</button>
+<button class="size-8 flex items-center justify-center bg-primary text-black">
+<span class="material-symbols-outlined text-sm">power_settings_new</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Telemetry Sidebar -->
+<aside class="w-16 border-r border-neutral-border flex flex-col items-center py-6 gap-8 bg-background-dark">
+<button class="text-primary"><span class="material-symbols-outlined">dashboard</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">palette</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">text_fields</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">architecture</span></button>
+<div class="mt-auto flex flex-col items-center gap-4">
+<div class="w-1 h-24 bg-neutral-border relative overflow-hidden">
+<div class="absolute top-0 w-full h-1/2 bg-primary shadow-[0_0_8px_rgba(6,232,249,0.8)]"></div>
+</div>
+<span class="material-symbols-outlined text-slate-500">help</span>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-dark p-6 custom-scrollbar">
+<!-- Hero Specs Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<div class="lg:col-span-2 border border-neutral-border bg-neutral-panel/30 p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 uppercase font-black text-6xl pointer-events-none">NEURAL</div>
+<h2 class="text-4xl font-black text-white leading-none mb-2 tracking-tight">TECHNICAL SPECIFICATIONS</h2>
+<p class="text-primary text-sm font-bold tracking-[0.3em] uppercase mb-8">Deployment Protocol V3.0.4-Alpha</p>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Grid System</div>
+<div class="text-2xl font-bold text-white tracking-tighter">12PX MODULE</div>
+<div class="h-1 w-full bg-neutral-border mt-2"><div class="h-full bg-primary w-2/3"></div></div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Color Depth</div>
+<div class="text-2xl font-bold text-white tracking-tighter">32-BIT SPECTRA</div>
+<div class="h-1 w-full bg-neutral-border mt-2"><div class="h-full bg-primary w-full"></div></div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Refresh Sync</div>
+<div class="text-2xl font-bold text-white tracking-tighter">144.00 HZ</div>
+<div class="h-1 w-full bg-neutral-border mt-2"><div class="h-full bg-primary w-4/5"></div></div>
+</div>
+</div>
+</div>
+<div class="border border-neutral-border bg-neutral-panel/30 p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary">memory</span>
+<span class="text-[10px] text-slate-500 font-mono">ID: 98X-SYNC-04</span>
+</div>
+<div>
+<div class="text-3xl font-black text-white">OS_STATUS</div>
+<p class="text-xs text-slate-400 mt-2">Neural kernel integrated. Interface assets loaded from library v4.1.</p>
+</div>
+<button class="w-full bg-primary/10 border border-primary text-primary py-2 font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-black transition-all">Export Schematics</button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Typography Protocols -->
+<section class="space-y-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary">text_fields</span>
+<h3 class="text-lg font-bold text-white tracking-tight uppercase">Typography Matrix</h3>
+</div>
+<div class="border border-neutral-border bg-black/40 p-6">
+<div class="flex flex-col gap-6">
+<div class="border-b border-neutral-border pb-6">
+<div class="text-[10px] text-slate-500 uppercase font-bold mb-4">Display Protocol: Space Grotesk</div>
+<div class="text-5xl font-light text-white leading-tight">Aa Bb Cc Dd Ee</div>
+<div class="text-5xl font-bold text-primary leading-tight">Ff Gg Hh Ii Jj</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 border border-neutral-border">
+<div class="text-[10px] text-slate-500 uppercase font-bold mb-2">Weight: Bold</div>
+<p class="text-sm font-bold text-white leading-relaxed">System critical messages and primary headers require 700 weight.</p>
+</div>
+<div class="p-4 border border-neutral-border">
+<div class="text-[10px] text-slate-500 uppercase font-bold mb-2">Weight: Light</div>
+<p class="text-sm font-light text-slate-400 leading-relaxed">Secondary telemetry and non-critical data logs use 300 weight.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Color Spectrum -->
+<section class="space-y-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h3 class="text-lg font-bold text-white tracking-tight uppercase">Color Spectrum Breakdown</h3>
+</div>
+<div class="border border-neutral-border bg-black/40 p-6">
+<div class="grid grid-cols-5 h-24 mb-6">
+<div class="bg-primary flex flex-col justify-end p-2 border-r border-background-dark">
+<span class="text-black text-[10px] font-black uppercase">Main</span>
+</div>
+<div class="bg-primary/80 flex flex-col justify-end p-2 border-r border-background-dark">
+<span class="text-black text-[10px] font-black uppercase">80%</span>
+</div>
+<div class="bg-primary/50 flex flex-col justify-end p-2 border-r border-background-dark">
+<span class="text-white text-[10px] font-black uppercase">50%</span>
+</div>
+<div class="bg-primary/20 flex flex-col justify-end p-2 border-r border-background-dark">
+<span class="text-primary text-[10px] font-black uppercase">20%</span>
+</div>
+<div class="bg-primary/10 flex flex-col justify-end p-2">
+<span class="text-primary text-[10px] font-black uppercase">10%</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-neutral-border">
+<span class="text-xs font-mono text-slate-400">PRIMARY_HEX</span>
+<span class="text-xs font-mono text-primary font-bold">#06E8F9</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-neutral-border">
+<span class="text-xs font-mono text-slate-400">VOID_HEX</span>
+<span class="text-xs font-mono text-white">#050505</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-neutral-border">
+<span class="text-xs font-mono text-slate-400">PANEL_HEX</span>
+<span class="text-xs font-mono text-white">#0F2123</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Blueprints -->
+<section class="xl:col-span-2 space-y-4">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<h3 class="text-lg font-bold text-white tracking-tight uppercase">Neural Blueprint Viewer</h3>
+</div>
+<div class="flex gap-2">
+<button class="text-[10px] border border-neutral-border px-3 py-1 text-slate-500 hover:text-primary transition-colors uppercase">Wireframe</button>
+<button class="text-[10px] border border-primary px-3 py-1 text-primary uppercase bg-primary/10">Solids</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-3 h-80 border border-neutral-border relative bg-[radial-gradient(circle_at_center,_#1a2e30_1px,_transparent_1px)] bg-[size:24px_24px]">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- Blueprint graphic -->
+<div class="relative w-64 h-64 border border-primary/20 rounded-full flex items-center justify-center">
+<div class="w-48 h-48 border border-primary/40 rounded-full flex items-center justify-center border-dashed">
+<div class="w-32 h-32 border-2 border-primary rounded-full glow-border flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl">adjust</span>
+</div>
+</div>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 bg-background-dark px-2 text-[10px] text-primary font-bold">AXIS_01</div>
+<div class="absolute right-0 top-1/2 translate-x-4 -translate-y-1/2 bg-background-dark px-2 text-[10px] text-primary font-bold rotate-90">ALIGN_VERT</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 text-[10px] font-mono text-slate-600">
+                                    COORD: X: 45.02 Y: 88.19 Z: 0.00<br/>
+                                    SCALE: 1:1.200
+                                </div>
+</div>
+<div class="border border-neutral-border bg-neutral-panel/20 p-4 space-y-4 overflow-y-auto max-h-80">
+<div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest border-b border-neutral-border pb-2">Interface Assets</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">frame_inspect</span>
+</div>
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">grid_guides</span>
+</div>
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">layers</span>
+</div>
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">shape_line</span>
+</div>
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">view_quilt</span>
+</div>
+<div class="aspect-square border border-neutral-border flex items-center justify-center hover:border-primary cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">monitoring</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Stats -->
+<div class="mt-8 border-t border-neutral-border pt-4 flex flex-wrap justify-between items-center gap-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Terminal Online</span>
+<span>V3.0.4-NEURAL_BUILD_881</span>
+</div>
+<div class="flex items-center gap-6">
+<span>CPU: 4%</span>
+<span>RAM: 1.2GB</span>
+<span>Uptime: 24:12:08</span>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

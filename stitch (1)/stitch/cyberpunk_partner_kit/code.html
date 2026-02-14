@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 // PILOT HUD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            top: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .glow-border {
+            box-shadow: 0 0 10px rgba(6, 232, 249, 0.3);
+        }
+        .clipped-corner {
+            clip-path: polygon(0 0, 90% 0, 100% 20%, 100% 100%, 10% 100%, 0 80%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen selection:bg-primary/30">
+<!-- HUD Header -->
+<header class="border-b border-primary/20 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary/10 border border-primary flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-white uppercase">Nero 27 <span class="text-primary tracking-widest text-xs ml-2 opacity-80">v2.0.4-LTS</span></h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-primary/60 leading-none">Sub-orbital Pilot Interface</p>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-primary uppercase font-bold">Sync Status</span>
+<span class="text-sm font-mono text-white">OPTIMIZED [98.4%]</span>
+</div>
+<div class="h-8 w-[1px] bg-primary/20"></div>
+<button class="bg-primary hover:bg-primary/80 text-background-dark px-4 py-1.5 rounded text-sm font-bold uppercase transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">sensors</span>
+                    Go Live
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+<!-- Hero HUD Section -->
+<div class="relative mb-8 overflow-hidden rounded-lg border border-primary/30 group">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10"></div>
+<div class="relative aspect-[21/9] md:aspect-[3/1] bg-[#111818]" data-alt="Futuristic cyberpunk city skyline at night with neon blue highlights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHw9mjXIFqBobMMjh01xLH5xE2h_81bHKa5c1DIpBSKjDDpRMr79J6eu7fz3qt0QtjHub5ZmxQqJLKc-6zooalRcmBzpF5woXCF_5RdCke5qfh1ulHxUxBfxLqua1EQHB_Cixm2OrElopMNzle1B8gLSg69dYDiO2KSYB6bKU8HweKVHrHmdLLazlhuQZd633554NbCbVCds7x5Xjxy5kRDOkCd4UTS4_UWRF7rm1XM7YTrYnGzYjaGJ44jPlVjZNjU02RfnN2wSI'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute inset-0 z-20 p-6 md:p-12 flex flex-col justify-end">
+<div class="max-w-2xl">
+<h2 class="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-4 italic uppercase">
+                        Become <span class="text-primary italic">The Pilot</span>
+</h2>
+<p class="text-slate-300 text-lg md:text-xl font-light mb-6 border-l-2 border-primary pl-4">
+                        Elite Partner Kit. Deploying visual assets to your neural link. 
+                        Synchronization complete. Ready for mission deployment.
+                    </p>
+<div class="flex gap-4">
+<button class="px-6 py-3 bg-primary text-background-dark font-bold uppercase rounded flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">download</span>
+                            Download Brand Kit
+                        </button>
+<button class="px-6 py-3 border border-primary/50 text-primary font-bold uppercase rounded backdrop-blur-sm hover:bg-primary/10 transition-colors">
+                            View Protocols
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-background-dark border border-primary/20 p-5 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20 text-primary group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl">rebase_edit</span>
+</div>
+<p class="text-primary/60 text-xs font-bold uppercase tracking-widest mb-1">Neural Sync Rate</p>
+<div class="flex items-end gap-2">
+<h3 class="text-3xl font-bold text-white">98.4%</h3>
+<span class="text-green-400 text-xs mb-1.5 flex items-center"><span class="material-symbols-outlined text-sm">arrow_upward</span>12%</span>
+</div>
+<div class="w-full h-1 bg-white/5 mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98.4%] shadow-[0_0_8px_rgba(6,232,249,0.5)]"></div>
+</div>
+</div>
+<div class="bg-background-dark border border-primary/20 p-5 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20 text-primary group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl">paid</span>
+</div>
+<p class="text-primary/60 text-xs font-bold uppercase tracking-widest mb-1">Credits Earned</p>
+<div class="flex items-end gap-2">
+<h3 class="text-3xl font-bold text-white">2.4 ETH</h3>
+<span class="text-green-400 text-xs mb-1.5 flex items-center"><span class="material-symbols-outlined text-sm">arrow_upward</span>5%</span>
+</div>
+<div class="flex gap-1 mt-4">
+<div class="h-1 flex-1 bg-primary shadow-[0_0_5px_rgba(6,232,249,0.3)]"></div>
+<div class="h-1 flex-1 bg-primary/60"></div>
+<div class="h-1 flex-1 bg-primary/30"></div>
+<div class="h-1 flex-1 bg-white/10"></div>
+</div>
+</div>
+<div class="bg-background-dark border border-primary/20 p-5 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20 text-primary group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl">target</span>
+</div>
+<p class="text-primary/60 text-xs font-bold uppercase tracking-widest mb-1">Active Missions</p>
+<div class="flex items-end gap-2">
+<h3 class="text-3xl font-bold text-white">04</h3>
+<span class="text-red-400 text-xs mb-1.5 flex items-center"><span class="material-symbols-outlined text-sm">arrow_downward</span>1%</span>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-primary/40"></span>
+<span class="w-2 h-2 rounded-full bg-primary/40"></span>
+</div>
+</div>
+<div class="bg-background-dark border border-primary/20 p-5 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20 text-primary group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl">trophy</span>
+</div>
+<p class="text-primary/60 text-xs font-bold uppercase tracking-widest mb-1">Global Rank</p>
+<div class="flex items-end gap-2">
+<h3 class="text-3xl font-bold text-white">#127</h3>
+<span class="text-primary/40 text-xs mb-1.5">TOP 2%</span>
+</div>
+<div class="mt-4 h-1 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary/20 to-primary w-2/3"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Missions Feed -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+<span class="w-2 h-6 bg-primary inline-block"></span>
+                        Active Mission Briefings
+                    </h2>
+<span class="text-xs text-primary/60 font-mono">REC-27-04 // STATUS: ONGOING</span>
+</div>
+<div class="space-y-4">
+<!-- Mission Card 1 -->
+<div class="bg-background-dark/50 border border-primary/20 p-6 rounded relative group hover:border-primary transition-all">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-32 h-32 shrink-0 bg-[#1b2727] rounded border border-primary/10 overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Digital glitch art of a data core" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG3ddtVF7hNJir5alpyjFlpGnfb14jHaWFfjB0EFiKX8vcjnOBr8P6IsxzTocSUuhb0dthLJFCIWPQxWsZHRXgrhOmZy74PrwzeiDNzxEEiBpCg-QKIqM_oB6faZx0YTNlUGvKI605apslCZfNES63yZ2bpLXnEddPWHeEy-4d2BMR8r33R772k82SO7u5PeLe8HcEweyAlf3bzagTcI7gtlGsi1VzkQtdw-kfDGjh5mIKdZLdqVSftwmVha35EG_qxHoBFtT391s"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-white uppercase tracking-tight group-hover:text-primary transition-colors">Operation: Neon Drift</h3>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded font-bold border border-primary/30">PRIORITY ALPHA</span>
+</div>
+<p class="text-slate-400 text-sm mb-4 line-clamp-2">Infiltrate the social grids of the lower districts. Deploy the Nero 27 visual codec and secure 500+ unit conversions within 48 hours.</p>
+<div class="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-primary/60">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">payments</span> 0.5 ETH BOUNTY</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 42H REMAINING</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">group</span> 12 PILOTS ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mission Card 2 -->
+<div class="bg-background-dark/50 border border-primary/20 p-6 rounded relative group hover:border-primary transition-all">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-32 h-32 shrink-0 bg-[#1b2727] rounded border border-primary/10 overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Futuristic motherboard close up with cyan lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTA2NSDfj1v6x1fa-IHPEPHOD9o91t_AFvmVxb4b8rH13HWz1Fr_Kwt7Q1VmjYF4aR0shFNwbEqAikOr3z0xW9b-o9_0YD4etBF0uKo0g6m2jcmh3QMwb9L6Hr0xabgXkGnvkHE2ONFoyxOKTZL1yHYQ-4EaP-98BbzBS5d4VMk_gM8u15OEaqc7bj3OvuCQaK-bBNJA8aVuPRAzRLwEMaMZG46KVu4Do3E78RGdXLTcjgn6461ovmOq4p-KVbeoz8veoJAN2p6AE"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-white uppercase tracking-tight group-hover:text-primary transition-colors">Protocol: Ghost Signal</h3>
+<span class="bg-slate-800 text-slate-400 text-[10px] px-2 py-0.5 rounded font-bold border border-slate-700">SIDE QUEST</span>
+</div>
+<p class="text-slate-400 text-sm mb-4 line-clamp-2">Stream the core simulation on Twitch for at least 3 hours. Use the provided HUD overlay and the #NeroGhost tag.</p>
+<div class="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-primary/60">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">payments</span> 0.12 ETH BOUNTY</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 6D REMAINING</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">group</span> 85 PILOTS ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- The Hangar Grid -->
+<div class="pt-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-white uppercase tracking-widest flex items-center gap-2">
+<span class="w-2 h-6 bg-primary inline-block"></span>
+                            The Armory (Assets)
+                        </h2>
+<a class="text-xs text-primary hover:underline font-bold uppercase tracking-widest flex items-center gap-1" href="#">
+                            Browse All <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="bg-background-dark border border-primary/20 rounded group cursor-pointer overflow-hidden">
+<div class="aspect-video bg-slate-900 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-500" data-alt="Abstract gradient waves in deep blue and cyan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdUesFHfRNAZm5hCaAtTxB5AJqkKEf-JYDrHLd1dTq523qylPtvyx_qCV3Aoqr7STV5F4qmyKhXiLqEf6Y8r5XptXmgSMjfn0Rt5rAi_Q8BQnHwMvhIR4WkUXG-BNBMVZWAhKgWx292RrwogMQgBHMqewl_GExoOwJ_DyTva5j3MF88zBx7kjXzx6S9GHQDu1wl5z4cQ2VORhMBDoKYwa1PP4GPaV_aZ3QsgVHb5E1EA5PVmzqxh8oA9e7H_4tmq0dZqzWlooX-9I"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-background-dark/60 transition-opacity">
+<span class="material-symbols-outlined text-primary text-3xl">download</span>
+</div>
+</div>
+<div class="p-3">
+<p class="text-[10px] text-primary font-bold uppercase">Backgrounds</p>
+<p class="text-xs text-white font-medium">Neural_Void.png</p>
+</div>
+</div>
+<div class="bg-background-dark border border-primary/20 rounded group cursor-pointer overflow-hidden">
+<div class="aspect-video bg-slate-900 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-500" data-alt="Close up of digital coding screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2fzFhsuN-P827LwauslygBVfV75Wd2zwgdS4tG_T0nmDeUmyDs-XlIukD6In8lG3JVZoBPBTeeQEETcUSEC7IouXs-Ivb8nQC8ynzzDx-ZX-iK7fmULRGr24gzaZeE_ZesmKdENUntF5HfEEWSkhFRlxWeXZKCBObpuNf6vw2bpJb7d78zSze8cmEGq79_R78-onZfj_LEjst8EKrDUH_-0-EfUdJ2cvy1vCuy1asyfzwckWdgW-53AI1BXV5MtKroMvDQnn7tyg"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-background-dark/60 transition-opacity">
+<span class="material-symbols-outlined text-primary text-3xl">download</span>
+</div>
+</div>
+<div class="p-3">
+<p class="text-[10px] text-primary font-bold uppercase">Overlays</p>
+<p class="text-xs text-white font-medium">Stream_HUD_v2.zip</p>
+</div>
+</div>
+<div class="bg-background-dark border border-primary/20 rounded group cursor-pointer overflow-hidden">
+<div class="aspect-video bg-slate-900 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-500" data-alt="Cyberpunk character portrait concept art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF47j5oWwxfhVnw1UH5sRpsML2RuirPjS9BT1TU2V-xCCoebf9ysL-aQRcxhxPiEdHa6iG1KRnxAbAlJxilNwIJ7McCWafh3fF3IynxCO9BavGuDtnAE-CHjtooQbAxm-AikgWve5mPUTx3CAGRuPO_q701JSAcBzFDOPHbZ858qFyEHwBeZcVoCss-xqwJ7sO6FTva8VhI3PO8Zls6tTWlm07pYeVb_GV1TpUhmmnRqfppKzgmiNF9uNr0eZv_HHkRW8-WPoqlEo"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-background-dark/60 transition-opacity">
+<span class="material-symbols-outlined text-primary text-3xl">download</span>
+</div>
+</div>
+<div class="p-3">
+<p class="text-[10px] text-primary font-bold uppercase">Avatars</p>
+<p class="text-xs text-white font-medium">Pilot_ID_Icons.rar</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+<div class="space-y-8">
+<!-- Deployment Link -->
+<div class="bg-primary/5 border border-primary rounded-lg p-6 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
+<h3 class="text-white font-bold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">link</span>
+                        Mission Coordinates
+                    </h3>
+<div class="space-y-4">
+<div class="bg-background-dark border border-primary/30 p-3 rounded flex items-center justify-between">
+<code class="text-primary text-xs font-mono">NERO.ID/PILOT-2788</code>
+<button class="text-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<p class="text-[10px] text-slate-500 uppercase italic">Deploy this link in your sector to track neural conversion units.</p>
+<button class="w-full py-2 bg-primary text-background-dark font-bold rounded uppercase text-xs hover:shadow-[0_0_15px_rgba(6,232,249,0.5)] transition-shadow">
+                            Generate New ID
+                        </button>
+</div>
+</div>
+<!-- Comms Feed -->
+<div class="bg-background-dark border border-white/10 rounded-lg overflow-hidden">
+<div class="bg-white/5 px-4 py-2 border-b border-white/10 flex items-center justify-between">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">System Comms</span>
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+</div>
+<div class="p-4 h-64 overflow-y-auto font-mono text-[11px] space-y-3">
+<div class="flex gap-2">
+<span class="text-primary">[14:02]</span>
+<span class="text-slate-300"><span class="text-primary">SYSTEM:</span> Authentication successful. Welcome back, Pilot.</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary">[14:05]</span>
+<span class="text-slate-300"><span class="text-white">USER_0x42:</span> Just cleared 'Neon Drift' stage 1. Credits pending?</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary">[14:05]</span>
+<span class="text-slate-300"><span class="text-primary">SYSTEM:</span> Bounty confirmation processed. +0.05 ETH added.</span>
+</div>
+<div class="flex gap-2">
+<span class="text-red-400">[14:10]</span>
+<span class="text-slate-300 font-bold">ALERT: Rival sector detected in sector 7-G. High alert.</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary">[14:12]</span>
+<span class="text-slate-300"><span class="text-white">KIM_REKT:</span> Where is the new brand kit?</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary">[14:12]</span>
+<span class="text-slate-300"><span class="text-primary">SYSTEM:</span> Asset library updated. Check Hangar section.</span>
+</div>
+</div>
+<div class="p-3 bg-white/5 border-t border-white/10">
+<div class="flex gap-2">
+<input class="flex-1 bg-transparent border-none text-xs text-primary focus:ring-0 placeholder:text-slate-600 font-mono" placeholder="Type command..." type="text"/>
+<span class="material-symbols-outlined text-primary text-sm cursor-pointer">send</span>
+</div>
+</div>
+</div>
+<!-- Top Aces -->
+<div class="bg-background-dark border border-white/10 rounded-lg p-5">
+<h3 class="text-white font-bold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+                        The Top Aces
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="text-primary font-mono text-sm">01</span>
+<div class="w-8 h-8 rounded bg-primary/20 border border-primary/40 flex items-center justify-center font-bold text-primary text-xs">NK</div>
+<div class="flex-1">
+<p class="text-white text-xs font-bold">Neon_Killer_X</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">12.8 ETH Earned</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-slate-500 font-mono text-sm">02</span>
+<div class="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center font-bold text-slate-400 text-xs">JD</div>
+<div class="flex-1">
+<p class="text-white text-xs font-bold">Jet_Drifter</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">9.4 ETH Earned</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-slate-500 font-mono text-sm">03</span>
+<div class="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center font-bold text-slate-400 text-xs">CV</div>
+<div class="flex-1">
+<p class="text-white text-xs font-bold">Cyber_Vibe</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">8.1 ETH Earned</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 transition-all rounded uppercase text-[10px] font-bold tracking-widest">
+                        View Full Leaderboard
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-lg border-t border-primary/30 px-6 py-3">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[9px] uppercase font-bold mt-1 tracking-tighter">HUD</span>
+</a>
+<a class="text-slate-500 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">target</span>
+<span class="text-[9px] uppercase font-bold mt-1 tracking-tighter">Missions</span>
+</a>
+<a class="text-slate-500 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[9px] uppercase font-bold mt-1 tracking-tighter">Armory</span>
+</a>
+<a class="text-slate-500 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">stars</span>
+<span class="text-[9px] uppercase font-bold mt-1 tracking-tighter">Aces</span>
+</a>
+<a class="text-slate-500 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[9px] uppercase font-bold mt-1 tracking-tighter">Config</span>
+</a>
+</div>
+</nav>
+<!-- Overlay Scanline FX -->
+<div class="scanline opacity-20 hidden md:block"></div>
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-[100]"></div>
+</body></html>

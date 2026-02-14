@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LP Geometria V1 Mobile</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#16202a", // Slightly lighter for cards
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-ticker {
+            animation: ticker 20s linear infinite;
+        }
+        /* Hide scrollbar for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col overflow-hidden relative">
+<!-- Background Grid Effect -->
+<div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style="background-size: 40px 40px; background-image: linear-gradient(to right, #0d7ff2 1px, transparent 1px), linear-gradient(to bottom, #0d7ff2 1px, transparent 1px);"></div>
+<!-- Mobile Container -->
+<div class="w-full max-w-md mx-auto h-full flex flex-col relative z-10 bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-sm border-x border-gray-200 dark:border-white/5 min-h-screen">
+<!-- Header Module -->
+<header class="flex-none p-4">
+<div class="flex items-center justify-between border border-primary/30 bg-surface-dark/40 backdrop-blur-md rounded-lg p-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 border border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+<span class="text-sm font-bold tracking-widest uppercase text-primary">Geometria</span>
+</div>
+<button class="p-2 border border-primary/20 hover:bg-primary/10 rounded active:bg-primary/20 transition-colors">
+<span class="material-icons-outlined text-primary text-xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area (Scrollable) -->
+<main class="flex-1 overflow-y-auto no-scrollbar px-4 pb-24 space-y-4">
+<!-- Hero Unit -->
+<section class="relative aspect-[4/5] w-full border border-primary rounded-lg overflow-hidden group">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-surface-dark">
+<img alt="Abstract geometric architectural wireframe structure in blue light" class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:scale-105 transition-transform duration-700" data-alt="Abstract geometric architectural wireframe structure in blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJX9mLQH20dFiiysbRCUZsuv63w0enqT11ms9_Qai7pBtqhkGPosbpucIBoGhpFFfgM_OfsNLDowogCYQiuLepLJkYKyZp3a8X-Oty-YH0oDwlINUhJcf1s5kev3HQT7hv3CVrFUK8JtUiJgLv0NAFDfAe9Ik4fT-qXrZM7XKk9Bg_qYU0r7ycsnO-dRdmT3yyDyb0OusSqYTAksosmCpyfotNLNSC2SNKwdJwV0SaXQwGGj5AMgYAAGtFSF__t6WSO8_EeoWIlpI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent"></div>
+</div>
+<!-- Decorative Lines -->
+<div class="absolute top-4 right-4 flex flex-col items-end gap-1 opacity-70">
+<div class="h-[1px] w-12 bg-primary"></div>
+<div class="h-[1px] w-8 bg-primary"></div>
+<div class="h-[1px] w-16 bg-primary"></div>
+</div>
+<!-- Hero Content -->
+<div class="absolute bottom-0 left-0 w-full p-5 flex flex-col gap-3">
+<div class="inline-flex items-center gap-2 px-2 py-1 border border-primary/50 bg-background-dark/80 backdrop-blur w-fit rounded text-[10px] text-primary uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                        V1.0 System Active
+                    </div>
+<h1 class="text-4xl font-bold text-white uppercase leading-[0.9] tracking-tight">
+                        Geometria<br/>
+<span class="text-primary">Estrutural</span>
+</h1>
+<p class="text-gray-400 text-sm max-w-[80%] border-l-2 border-primary/50 pl-3">
+                        Precision engineering for complex environments. Modular structural integrity systems.
+                    </p>
+</div>
+</section>
+<!-- Stats Module Grid -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Stat 1 -->
+<div class="border border-primary/30 bg-surface-dark/30 p-4 rounded-lg flex flex-col justify-between h-32 hover:border-primary/60 transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-icons-outlined text-primary/70 text-lg">grid_4x4</span>
+<span class="text-[10px] text-gray-500 uppercase">Load</span>
+</div>
+<div>
+<span class="text-3xl font-light text-white">98<span class="text-primary text-sm">%</span></span>
+<div class="w-full h-1 bg-gray-800 mt-2 overflow-hidden rounded-full">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="border border-primary/30 bg-surface-dark/30 p-4 rounded-lg flex flex-col justify-between h-32 hover:border-primary/60 transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-icons-outlined text-primary/70 text-lg">architecture</span>
+<span class="text-[10px] text-gray-500 uppercase">Grid</span>
+</div>
+<div>
+<span class="text-3xl font-light text-white">OPT</span>
+<p class="text-[10px] text-primary mt-1">CALIBRATED</p>
+</div>
+</div>
+</section>
+<!-- Services List -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">
+<div class="w-2 h-2 border border-primary"></div>
+                    System Modules
+                    <div class="flex-1 h-[1px] bg-gray-800"></div>
+</div>
+<!-- Service Card 1 -->
+<div class="group relative border border-primary/20 hover:border-primary bg-surface-dark/20 p-4 rounded-lg transition-all duration-300">
+<div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary text-sm">arrow_outward</span>
+</div>
+<h3 class="text-white font-semibold text-lg mb-1">Schematics Analysis</h3>
+<p class="text-gray-400 text-xs leading-relaxed max-w-[85%]">Real-time breakdown of structural integrity and load-bearing vectors.</p>
+</div>
+<!-- Service Card 2 -->
+<div class="group relative border border-primary/20 hover:border-primary bg-surface-dark/20 p-4 rounded-lg transition-all duration-300">
+<div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary text-sm">arrow_outward</span>
+</div>
+<h3 class="text-white font-semibold text-lg mb-1">Thermal Dynamics</h3>
+<p class="text-gray-400 text-xs leading-relaxed max-w-[85%]">Heat signature monitoring for advanced material stress testing.</p>
+</div>
+<!-- Service Card 3 -->
+<div class="group relative border border-primary/20 hover:border-primary bg-surface-dark/20 p-4 rounded-lg transition-all duration-300">
+<div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary text-sm">arrow_outward</span>
+</div>
+<h3 class="text-white font-semibold text-lg mb-1">Volume Calculation</h3>
+<p class="text-gray-400 text-xs leading-relaxed max-w-[85%]">Precise spatial mapping and volumetric efficiency reports.</p>
+</div>
+</section>
+<!-- Map Module -->
+<section class="border border-primary/30 rounded-lg overflow-hidden h-48 relative">
+<div class="absolute top-2 left-2 z-10 bg-black/70 backdrop-blur px-2 py-1 rounded text-[10px] text-primary border border-primary/20">
+                    SEC_09 // ACTIVE
+                </div>
+<img alt="Dark map interface showing city grid lines" class="w-full h-full object-cover opacity-50 grayscale invert dark:invert-0" data-alt="Dark map interface showing city grid lines" data-location="Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1GCqkP7Y7LzS9CVqRq-lGwtwR5-OvFCnoNtczFRKsoi3jyfOmO5ZUtp_t3u6NDAp8cLI8qxtkknvgANZeBcI_Leg4UQnblJat8ggbEjlkKw58-ahfnrR7-eEISUtuPqvYmE3CAsM_lv5sWNkCx68Ju_Ul5cDWkf4FI9ttHzlj58aVMJQfNbFBTD0_Lwi4PhDaSmTaLYuzR6QlA3B2eloQcbbJH7ENuZEYuCec8ZYRtwpFqJJBVsRUzRryrvSgG3fvUnXuFGeXzEk"/>
+<!-- Overlay Grid -->
+<div class="absolute inset-0 pointer-events-none border-2 border-primary/10 m-2">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border border-primary/60 rounded-full flex items-center justify-center">
+<div class="w-1 h-1 bg-primary rounded-full animate-ping"></div>
+</div>
+<!-- Crosshairs -->
+<div class="absolute top-0 left-1/2 h-2 w-[1px] bg-primary/50"></div>
+<div class="absolute bottom-0 left-1/2 h-2 w-[1px] bg-primary/50"></div>
+<div class="absolute left-0 top-1/2 w-2 h-[1px] bg-primary/50"></div>
+<div class="absolute right-0 top-1/2 w-2 h-[1px] bg-primary/50"></div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Module (Sticky) -->
+<div class="absolute bottom-[40px] left-0 w-full px-4 pb-4 bg-gradient-to-t from-background-dark via-background-dark to-transparent pt-8 z-20 pointer-events-none">
+<div class="pointer-events-auto">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg uppercase tracking-wider flex items-center justify-between group shadow-[0_0_20px_rgba(13,127,242,0.3)] transition-all">
+<span>Initialize Project</span>
+<span class="material-icons-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Data Ticker Footer -->
+<footer class="absolute bottom-0 left-0 w-full h-[36px] bg-surface-dark border-t border-primary/30 flex items-center overflow-hidden z-30">
+<div class="flex items-center whitespace-nowrap animate-ticker">
+<span class="text-[10px] font-mono text-primary/80 mx-4">SYS_READY // V1.0.4</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<span class="text-[10px] font-mono text-white mx-4">X: 45.22 Y: 12.01</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<span class="text-[10px] font-mono text-primary/80 mx-4">CALIBRATING...</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<span class="text-[10px] font-mono text-white mx-4">NODE_04: ONLINE</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<span class="text-[10px] font-mono text-primary/80 mx-4">TEMP: 34C</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<!-- Repeat for smooth loop -->
+<span class="text-[10px] font-mono text-primary/80 mx-4">SYS_READY // V1.0.4</span>
+<span class="text-[10px] font-mono text-gray-500 mx-4">///</span>
+<span class="text-[10px] font-mono text-white mx-4">X: 45.22 Y: 12.01</span>
+</div>
+</footer>
+</div>
+</body></html>

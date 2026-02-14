@@ -1,0 +1,155 @@
+/* themes-identity.css - Stitch Identities for Sistema-Cheking */
+
+/* 1. ABSTRAÇÃO QUÂNTICA */
+html.theme-abstracao body {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-subtle: #0d1117;
+    --bg-wrapper: #010409;
+    --text: #e6edf3;
+    --primary: #06e8f9;
+    --border: #30363d;
+    --radius-md: 16px;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+}
+
+/* 2. GEOMETRIA ESTRUTURAL */
+html.theme-geometria body {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --bg-wrapper: #020617;
+    --primary: #3b82f6;
+    --text: #f8fafc;
+    --border: #334155;
+    --radius-md: 2px;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* 3. CYBERPUNK NEURAL */
+html.theme-cyberpunk body {
+    --bg: #050505;
+    --bg-card: #0a1213;
+    --bg-wrapper: #000000;
+    --primary: #06e8f9;
+    --text: #06e8f9;
+    --border: rgba(6, 232, 249, 0.3);
+    --radius-md: 0px;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* 4. DARKNESS OCCULT */
+html.theme-darkness body {
+    --bg: #0a1213;
+    --bg-card: #101622;
+    --primary: #f97316;
+    --text: #f97316;
+    --border: #f97316;
+    --radius-md: 4px;
+    --font-body: 'JetBrains Mono', monospace;
+}
+
+/* 5. RETRO ARCADE */
+html.theme-retro body {
+    --bg: #1a0b2e;
+    --bg-card: #2d1b4d;
+    --primary: #ec4899;
+    --text: #06e8f9;
+    --border: #ec4899;
+    --radius-md: 8px;
+    --font-body: 'VT323', monospace;
+}
+
+/* 6. RENASCIMENTO TÉCNICO */
+html.theme-renascimento body {
+    --bg: #f5f5f7;
+    --bg-card: #ffffff;
+    --bg-wrapper: #e5e7eb;
+    --primary: #1152d4;
+    --text: #1a1a1a;
+    --border: #d1d5db;
+    --radius-md: 0px;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-heading: 'IM Fell English SC', serif;
+}
+
+/* 7. UX PRECISION */
+html.theme-ux-precision body {
+    --bg: #f8f6f6;
+    --bg-card: #ffffff;
+    --primary: #ec5b13;
+    --text: #1a1a1b;
+    --border: #e5e7eb;
+    --radius-md: 4px;
+    --font-body: 'Public Sans', sans-serif;
+}
+
+/* 8. NOIR CINEPHILE */
+html.theme-noir body {
+    --bg: #000000;
+    --bg-card: #111111;
+    --primary: #ffffff;
+    --text: #ffffff;
+    --border: #333333;
+    --radius-md: 0px;
+    --font-body: 'Public Sans', sans-serif;
+}
+
+/* 9. ANTIQUE CODEX */
+html.theme-antique body {
+    --bg: #f4e4bc;
+    --bg-card: #efe0b1;
+    --primary: #78350f;
+    --text: #451a03;
+    --border: #d4c391;
+    --radius-md: 0px;
+    --font-body: 'Cormorant Garamond', serif;
+}
+
+/* 10. QUANTUM SYNC */
+html.theme-quantum-sync body {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --primary: #a855f7;
+    --text: #e9d5ff;
+    --border: #334155;
+    --radius-md: 24px;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* 11. BLUEPRINT STRUCTURAL */
+html.theme-blueprint body {
+    --bg: #0a192f;
+    --bg-card: #112240;
+    --bg-wrapper: #020c1b;
+    --primary: #64ffda;
+    --text: #ccd6f6;
+    --border: rgba(100, 255, 218, 0.1);
+    --radius-md: 0px;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* 12. TERMINAL LEGACY */
+html.theme-terminal body {
+    --bg: #000000;
+    --bg-card: #0a0a0a;
+    --primary: #22c55e;
+    --text: #22c55e;
+    --border: #14532d;
+    --radius-md: 0px;
+    --font-body: 'JetBrains Mono', monospace;
+}
+
+/* Utility classes for immersion */
+html.theme-cyberpunk body::before,
+html.theme-retro body::before,
+html.theme-terminal body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 9999;
+}

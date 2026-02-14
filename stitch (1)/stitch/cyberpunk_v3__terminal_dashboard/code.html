@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL SYNC V3 | Control Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050d0e",
+                        "neutral-dark": "#0f2123",
+                        "warning": "#fa5c38",
+                        "success": "#0bda50",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            pointer-events: none;
+        }
+        .hex-grid {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glow-border {
+            box-shadow: 0 0 10px rgba(6, 232, 249, 0.2);
+        }
+        .glass-panel {
+            background: rgba(15, 33, 35, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30 overflow-x-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Scanline Decorative Element -->
+<div class="absolute inset-0 pointer-events-none opacity-20 pointer-events-none" style="background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px); background-size: 100% 3px;"></div>
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/20 bg-neutral-dark/80 px-6 py-3 backdrop-blur-md z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-lg font-bold leading-none tracking-wider uppercase italic">NEURAL SYNC <span class="text-white">V3.0.4</span></h2>
+<span class="text-[10px] text-primary/60 font-mono tracking-[0.2em]">ENCRYPTED COMMAND UPLINK</span>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 border-b-2 border-primary pb-1" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span> DIAGNOSTIC
+                    </a>
+<a class="text-white/60 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">monitor_heart</span> TELEMETRY
+                    </a>
+<a class="text-white/60 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span> LOGS
+                    </a>
+<a class="text-white/60 hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">history</span> UPTIME
+                    </a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end mr-4">
+<p class="text-[10px] text-white/40 uppercase font-mono">System Time</p>
+<p class="text-sm font-bold font-mono text-primary">23:59:42:08</p>
+</div>
+<div class="h-10 w-px bg-primary/20"></div>
+<div class="flex items-center gap-3 bg-primary/10 border border-primary/30 px-3 py-1.5 rounded">
+<div class="flex flex-col">
+<p class="text-[10px] text-primary/70 uppercase font-bold leading-none">User Signature</p>
+<p class="text-xs font-bold text-white font-mono leading-tight">OP_USER_01_0x552A</p>
+</div>
+<div class="size-8 rounded-full border border-primary/50 bg-cover bg-center" data-alt="Cybernetic user profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLB2ldQOB491g0CUzNJjiBstO6Blad8Gxv4bsaUDRyMy1z1--dSaNDojcxDt4ZrVgoao0mpB7WsNfz3_TSJ6QaL63MJHwTHC0FVB_NefHPmyVYcqEUbpeaZfQZB-5HuLu2SaDToQVUtuRrmSw5cortR_sIF2yG0YI0vdD2BigO2XLvDqkxuaoRLayrQfWPhRAJHVBNJ3dLvbyfAQnbE3YIz312kqu9hkV25NXWM8PJDG93QcTtZ5Rlh4OClh19iJAuBATCIQpWDGs");'></div>
+</div>
+<button class="flex items-center justify-center rounded size-10 bg-warning/20 border border-warning/40 text-warning hover:bg-warning hover:text-white transition-all">
+<span class="material-symbols-outlined">power_settings_new</span>
+</button>
+</div>
+</header>
+<!-- Main Dashboard Content -->
+<main class="flex-1 flex overflow-hidden p-4 gap-4 bg-background-dark">
+<!-- Left Sidebar: Terminal & Core Stats -->
+<aside class="w-80 flex flex-col gap-4 shrink-0">
+<!-- System Status Summary -->
+<div class="glass-panel border border-primary/20 p-4 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-bold text-primary tracking-widest uppercase">Global Core</h3>
+<span class="flex items-center gap-1.5 text-[10px] font-bold text-success uppercase">
+<span class="size-1.5 rounded-full bg-success animate-pulse"></span> SYSTEM ONLINE
+                        </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-primary/5 border border-primary/10 p-2 rounded">
+<p class="text-[9px] text-white/40 uppercase">Stability</p>
+<p class="text-lg font-bold text-primary">98.4%</p>
+</div>
+<div class="bg-primary/5 border border-primary/10 p-2 rounded">
+<p class="text-[9px] text-white/40 uppercase">Latency</p>
+<p class="text-lg font-bold text-primary">14ms</p>
+</div>
+</div>
+</div>
+<!-- Terminal Log -->
+<div class="flex-1 glass-panel border border-primary/20 flex flex-col overflow-hidden">
+<div class="p-3 border-b border-primary/10 flex items-center justify-between bg-primary/5">
+<h3 class="text-xs font-bold text-primary tracking-widest uppercase">Encrypted Log</h3>
+<span class="material-symbols-outlined text-primary/40 text-sm">lock</span>
+</div>
+<div class="flex-1 p-3 font-mono text-[10px] space-y-2 overflow-y-auto custom-scrollbar">
+<p class="text-white/60"><span class="text-primary">[0x7FF]</span> INITIALIZING_HANDSHAKE...</p>
+<p class="text-success"><span class="text-primary">[0x7FF]</span> SYNC_PROTOCOL_V3_OK</p>
+<p class="text-white/60"><span class="text-primary">[0x8A2]</span> CALIBRATING_SYNAPTIC_ARRAY</p>
+<p class="text-white/60"><span class="text-primary">[0x8A2]</span> SCANNING_NODE_ALPHA_1</p>
+<p class="text-warning"><span class="text-primary">[0x911]</span> WARNING: MINOR_PACKET_LOSS_02</p>
+<p class="text-white/40 italic">-- BUFFER_OVERFLOW_CLEARED --</p>
+<p class="text-white/60"><span class="text-primary">[0xA4F]</span> HEARTBEAT_PULSE_STABLE</p>
+<p class="text-white/60"><span class="text-primary">[0xB21]</span> TELEMETRY_STREAM_ACTIVE</p>
+<p class="text-white/60"><span class="text-primary">[0xC00]</span> LOADING_HEX_MATRIX...</p>
+<p class="text-white/60"><span class="text-primary">[0xD11]</span> AUTHENTICATING_NEURAL_SIG</p>
+<p class="text-success"><span class="text-primary">[0xE55]</span> ACCESS_GRANTED_OP_01</p>
+<p class="text-white/60"><span class="text-primary">[0xF01]</span> LOG_LISTENER_STARTED</p>
+</div>
+</div>
+<!-- Emergency Button -->
+<button class="w-full py-4 bg-warning/10 border border-warning/60 text-warning font-bold tracking-[0.3em] uppercase hover:bg-warning hover:text-white transition-all rounded shadow-[0_0_15px_rgba(250,92,56,0.1)] flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">gpp_maybe</span> EMERGENCY DE-SYNC
+                </button>
+</aside>
+<!-- Center Content: Matrix & Waveforms -->
+<div class="flex-1 flex flex-col gap-4 overflow-hidden">
+<!-- Top Row: Radial Gauges -->
+<div class="grid grid-cols-4 gap-4 h-32">
+<div class="glass-panel border border-primary/20 p-3 flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-5">
+<svg class="size-full" viewbox="0 0 100 100"><circle class="text-primary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="10 5" stroke-width="2"></circle></svg>
+</div>
+<p class="text-[9px] uppercase font-bold text-primary/60 mb-1">Neural Load</p>
+<p class="text-2xl font-bold font-mono">42%</p>
+<div class="w-16 h-1 bg-white/10 mt-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[42%]"></div>
+</div>
+</div>
+<div class="glass-panel border border-primary/20 p-3 flex flex-col items-center justify-center text-center">
+<p class="text-[9px] uppercase font-bold text-primary/60 mb-1">Bandwidth</p>
+<p class="text-2xl font-bold font-mono">1.2<span class="text-xs ml-1">GB/S</span></p>
+<div class="w-16 h-1 bg-white/10 mt-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[80%]"></div>
+</div>
+</div>
+<div class="glass-panel border border-primary/20 p-3 flex flex-col items-center justify-center text-center">
+<p class="text-[9px] uppercase font-bold text-primary/60 mb-1">Sync Ratio</p>
+<p class="text-2xl font-bold font-mono">0.99</p>
+<div class="w-16 h-1 bg-white/10 mt-2 rounded-full overflow-hidden">
+<div class="bg-success h-full w-[99%]"></div>
+</div>
+</div>
+<div class="glass-panel border border-primary/20 p-3 flex flex-col items-center justify-center text-center border-warning/20">
+<p class="text-[9px] uppercase font-bold text-warning/60 mb-1">Heat Index</p>
+<p class="text-2xl font-bold font-mono text-warning">84°<span class="text-xs ml-1 italic">C</span></p>
+<div class="w-16 h-1 bg-white/10 mt-2 rounded-full overflow-hidden">
+<div class="bg-warning h-full w-[84%]"></div>
+</div>
+</div>
+</div>
+<!-- Main Visualization: Synaptic Frequency -->
+<div class="flex-1 glass-panel border border-primary/20 p-6 flex flex-col relative overflow-hidden">
+<div class="absolute top-4 left-6 flex flex-col">
+<h3 class="text-sm font-bold text-primary tracking-widest uppercase">Synaptic Frequency Waveform</h3>
+<p class="text-[10px] text-white/40 font-mono tracking-tighter">REAL-TIME BIOMETRIC OSCILLOSCOPE</p>
+</div>
+<div class="absolute top-4 right-6 text-right">
+<p class="text-3xl font-bold text-primary font-mono leading-none">60.02<span class="text-sm ml-1 font-normal opacity-60 italic">Hz</span></p>
+<p class="text-[10px] text-success uppercase font-bold tracking-widest mt-1">Status: Harmonic</p>
+</div>
+<div class="flex-1 flex items-center justify-center py-8">
+<svg class="w-full h-full opacity-80" preserveaspectratio="none" viewbox="0 0 1000 300">
+<!-- Background Grid -->
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(6, 232, 249, 0.05)" stroke-width="1"></path>
+</pattern>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+<!-- Frequency Line -->
+<path class="drop-shadow-[0_0_8px_#06e8f9]" d="M0,150 Q50,50 100,150 T200,150 T300,150 T400,150 T500,100 T600,200 T700,150 T800,150 T900,180 T1000,150" fill="none" stroke="#06e8f9" stroke-linecap="round" stroke-width="3">
+<animate attributename="d" dur="4s" repeatcount="indefinite" values="M0,150 Q50,50 100,150 T200,150 T300,150 T400,150 T500,100 T600,200 T700,150 T800,150 T900,180 T1000,150;
+                                            M0,160 Q50,70 100,160 T200,140 T300,170 T400,130 T500,120 T600,180 T700,140 T800,160 T900,170 T1000,160;
+                                            M0,150 Q50,50 100,150 T200,150 T300,150 T400,150 T500,100 T600,200 T700,150 T800,150 T900,180 T1000,150"></animate>
+</path>
+<!-- Baseline -->
+<line stroke="rgba(255,255,255,0.1)" stroke-dasharray="4" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+</svg>
+</div>
+</div>
+<!-- Bottom Row: Hex Grid & Packet Loss -->
+<div class="grid grid-cols-12 gap-4 h-48">
+<!-- Hex Node Matrix -->
+<div class="col-span-8 glass-panel border border-primary/20 p-4 flex flex-col">
+<h3 class="text-[10px] font-bold text-primary/60 tracking-widest uppercase mb-4">Node Biometric Matrix</h3>
+<div class="flex-1 flex items-center justify-between px-2">
+<div class="flex gap-2">
+<!-- Hexagon Render -->
+<div class="hex-grid size-12 bg-primary flex items-center justify-center relative shadow-[0_0_10px_rgba(6,232,249,0.5)]">
+<span class="text-[10px] font-bold text-background-dark">A1</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">B7</span>
+</div>
+<div class="hex-grid size-12 bg-warning animate-pulse flex items-center justify-center">
+<span class="text-[10px] font-bold text-background-dark">D2</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">G9</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">E4</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">Z3</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">X0</span>
+</div>
+<div class="hex-grid size-12 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-[10px] font-bold text-primary">Q5</span>
+</div>
+</div>
+<div class="text-right flex flex-col gap-1">
+<p class="text-[9px] uppercase font-bold text-white/40">Active Nodes</p>
+<p class="text-xl font-bold text-white">24 / 32</p>
+<p class="text-[9px] uppercase font-bold text-warning">1 Warning</p>
+</div>
+</div>
+</div>
+<!-- Packet Loss -->
+<div class="col-span-4 glass-panel border border-primary/20 p-4 flex flex-col">
+<h3 class="text-[10px] font-bold text-primary/60 tracking-widest uppercase mb-2">Packet Loss Visualizer</h3>
+<div class="flex-1 flex items-end justify-between gap-1 pb-1">
+<div class="w-full bg-primary/10 h-8"></div>
+<div class="w-full bg-primary/10 h-12"></div>
+<div class="w-full bg-primary/10 h-10"></div>
+<div class="w-full bg-warning h-24"></div>
+<div class="w-full bg-primary/10 h-14"></div>
+<div class="w-full bg-primary/10 h-12"></div>
+<div class="w-full bg-primary/10 h-9"></div>
+<div class="w-full bg-primary/10 h-16"></div>
+<div class="w-full bg-primary h-2"></div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<p class="text-[10px] text-white/40 font-mono">T-10m</p>
+<p class="text-xs font-bold font-mono text-warning">0.02% LOSS</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Detailed Node Info & Settings -->
+<aside class="w-72 flex flex-col gap-4 shrink-0">
+<div class="flex-1 glass-panel border border-primary/20 p-4 flex flex-col">
+<h3 class="text-xs font-bold text-primary tracking-widest uppercase border-b border-primary/20 pb-2 mb-4">Node Alpha-1 Detail</h3>
+<div class="space-y-6">
+<div class="aspect-video bg-neutral-dark border border-primary/10 relative flex items-center justify-center group overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center grayscale opacity-50 group-hover:grayscale-0 transition-all duration-500" data-alt="Microscopic view of neural synaptic junction" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOZ_IVuMkMDYjJ2sB2rIEuuZAr-b3d7_FroIauCC8TT7t7BU0jPR43ZE_VWsIbzLzWdD9xLvnKdq9DEK-mBj5N5MvBo4Syf0kt8f3XOIuz9H6ELCnC5RhyHb5F9M4ol4e2YC6PD2oUUn0CuwUPVZoHGoLadVRuL7ZcQnqBytPylISxmADOdsAZUvKVs0r9cK2R5xKbaAgDivagT7WVHrNnCYOS0APKPZlvCKWN0CtQkqGB6QWCs-ok6fCT9dF03hqdaFRMugTsyX8");'></div>
+<div class="z-10 bg-background-dark/80 px-2 py-1 border border-primary/20 rounded">
+<span class="text-[9px] font-mono text-primary animate-pulse">LIVE_VIEW_A1</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-[10px] uppercase font-bold text-white/40">Synaptic Tension</span>
+<span class="text-xs font-bold text-primary">0.45 NM</span>
+</div>
+<div class="w-full h-1 bg-white/10 rounded-full">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[10px] uppercase font-bold text-white/40">Energy Flux</span>
+<span class="text-xs font-bold text-success">+2.1%</span>
+</div>
+<div class="w-full h-1 bg-white/10 rounded-full">
+<div class="h-full bg-success w-[72%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[10px] uppercase font-bold text-white/40">Corruption Risk</span>
+<span class="text-xs font-bold text-warning">Low</span>
+</div>
+<div class="w-full h-1 bg-white/10 rounded-full">
+<div class="h-full bg-warning w-[12%]"></div>
+</div>
+</div>
+<div class="pt-4 flex flex-col gap-2">
+<button class="w-full py-2 bg-primary/10 border border-primary/40 text-primary text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 transition-all">Re-Calibrate Node</button>
+<button class="w-full py-2 bg-white/5 border border-white/10 text-white/60 text-[10px] font-bold uppercase tracking-widest hover:bg-white/10 transition-all">Export Telemetry</button>
+</div>
+</div>
+</div>
+<!-- Footer Settings -->
+<div class="glass-panel border border-primary/20 p-2 flex items-center justify-around gap-2">
+<button class="flex-1 py-2 flex items-center justify-center text-white/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="flex-1 py-2 flex items-center justify-center text-white/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">security</span>
+</button>
+<button class="flex-1 py-2 flex items-center justify-center text-white/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</aside>
+</main>
+<!-- System Footer Info -->
+<footer class="h-8 bg-neutral-dark border-t border-primary/20 px-6 flex items-center justify-between text-[10px] font-mono text-white/40 uppercase tracking-widest">
+<div class="flex gap-6">
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-success"></span> Link: Secure</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> Signal: 100%</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary/20"></span> Latency: Optimal</span>
+</div>
+<div class="flex gap-6">
+<span>Location: Sector_7_Grid_F</span>
+<span class="text-primary font-bold">Encrypted Uplink Active</span>
+</div>
+</footer>
+</div>
+</body></html>

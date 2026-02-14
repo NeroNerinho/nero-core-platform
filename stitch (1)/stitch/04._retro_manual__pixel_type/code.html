@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 // Typography Specs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "pixel": ["'Press Start 2P'", "cursive"],
+                        "terminal": ["'VT323'", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline {
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(0, 0, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(236, 91, 19, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/20">
+<div class="flex items-center p-4 justify-between max-w-4xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<div class="text-primary flex size-10 items-center justify-center rounded-lg bg-primary/10">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-white text-sm font-bold leading-tight tracking-wider uppercase">Nero 27 System</h2>
+<p class="text-primary text-[10px] font-bold tracking-[0.2em] uppercase">Typography Design System</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-lg bg-primary text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-4xl mx-auto w-full p-4 space-y-6">
+<!-- Hero Section / High Score Style -->
+<section class="relative overflow-hidden rounded-xl bg-slate-900 dark:bg-black p-8 border-2 border-primary/30 shadow-2xl">
+<div class="absolute inset-0 scanline opacity-20"></div>
+<div class="relative z-10 flex flex-col items-center text-center space-y-4">
+<span class="text-primary font-pixel text-[10px] tracking-widest animate-pulse">-- NEW RECORD --</span>
+<h1 class="text-primary font-pixel text-3xl md:text-5xl glow-text leading-tight">HIGH SCORE: 999,999</h1>
+<p class="text-slate-400 font-terminal text-xl uppercase tracking-[0.3em]">Nero-Retro Display Typeface</p>
+<div class="flex gap-4 mt-4">
+<div class="px-4 py-2 bg-primary/20 border border-primary/50 rounded text-primary font-pixel text-[8px]">
+                        VER 1.0.4
+                    </div>
+<div class="px-4 py-2 bg-white/5 border border-white/10 rounded text-white font-pixel text-[8px]">
+                        O_BIT_MODE
+                    </div>
+</div>
+</div>
+</section>
+<!-- Typography Samples Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- VT323 Section -->
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-200 dark:border-white/10 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-lg">VT323 Terminal</h3>
+<span class="text-[10px] bg-slate-100 dark:bg-white/10 px-2 py-1 rounded text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Monospace</span>
+</div>
+<div class="space-y-6">
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">48px Display</p>
+<h2 class="font-terminal text-5xl text-primary leading-none">ABCDEFGHIJKL</h2>
+</div>
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">24px Subheading</p>
+<h3 class="font-terminal text-2xl dark:text-white uppercase tracking-wider leading-tight">The quick brown fox jumps over the lazy dog.</h3>
+</div>
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">16px Numerics &amp; Symbols</p>
+<p class="font-terminal text-xl dark:text-slate-300">0123456789 !@#$%^&amp;*()_+</p>
+</div>
+</div>
+</div>
+<!-- Press Start 2P Section -->
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-200 dark:border-white/10 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-lg">Press Start 2P</h3>
+<span class="text-[10px] bg-primary/10 px-2 py-1 rounded text-primary uppercase font-bold tracking-tighter">Pixel Perfect</span>
+</div>
+<div class="space-y-8">
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">32px Header</p>
+<h2 class="font-pixel text-2xl text-slate-900 dark:text-white leading-relaxed">READY?</h2>
+</div>
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">16px UI Text</p>
+<h3 class="font-pixel text-[12px] dark:text-slate-300 leading-loose">INSERT COIN TO CONTINUE</h3>
+</div>
+<div>
+<p class="text-xs text-slate-400 mb-2 font-medium">8px Micro</p>
+<p class="font-pixel text-[8px] text-primary/80 uppercase leading-normal tracking-tighter">Copyright 1987 Nero Systems Inc.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Specs Breakdown -->
+<section class="bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">settings_input_component</span>
+                    Technical Specifications
+                </h3>
+</div>
+<div class="p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="space-y-1">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Base Unit</p>
+<p class="text-xl font-terminal dark:text-white">8-Bit Pixel</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Line Height</p>
+<p class="text-xl font-terminal dark:text-white">1.2 (Fixed)</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Kerning</p>
+<p class="text-xl font-terminal dark:text-white">2px Global</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Rendering</p>
+<p class="text-xl font-terminal dark:text-white">Crisp-Edges</p>
+</div>
+</div>
+</section>
+<!-- Test Area -->
+<section class="space-y-4 pb-24">
+<h3 class="font-bold text-lg px-2">Type Testing</h3>
+<div class="relative">
+<input class="w-full h-16 bg-white dark:bg-white/5 border-2 border-slate-200 dark:border-white/10 rounded-xl px-6 font-pixel text-primary placeholder:text-slate-300 dark:placeholder:text-white/10 focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="Enter player name..." type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined">keyboard</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-white/10 px-4 pb-6 pt-3">
+<div class="max-w-4xl mx-auto flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="text-primary flex h-8 items-center justify-center">
+<span class="material-symbols-outlined font-variation-fill">font_download</span>
+</div>
+<p class="text-primary text-[10px] font-bold leading-normal tracking-tight">SPECS</p>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-40 hover:opacity-100 transition-opacity" href="#">
+<div class="text-slate-500 dark:text-slate-400 flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium leading-normal tracking-tight">COLORS</p>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-40 hover:opacity-100 transition-opacity" href="#">
+<div class="text-slate-500 dark:text-slate-400 flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium leading-normal tracking-tight">ASSETS</p>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-40 hover:opacity-100 transition-opacity" href="#">
+<div class="text-slate-500 dark:text-slate-400 flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-medium leading-normal tracking-tight">SETTINGS</p>
+</a>
+</div>
+</nav>
+<!-- Hidden decorative elements for that extra retro feel -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[100] opacity-[0.03] overflow-hidden">
+<div class="absolute inset-0 bg-repeat bg-[length:100px_100px]" style="background-image: radial-gradient(circle, #000 1px, transparent 1px);"></div>
+</div>
+</body></html>

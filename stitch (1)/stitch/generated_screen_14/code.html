@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Retro Pixel Arcade v2 - Nero 27</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pixel-red': '#FF0000',
+            'pixel-blue': '#0000FF',
+            'pixel-yellow': '#FFFF00',
+            'pixel-green': '#00FF00',
+            'pixel-orange': '#FFA500',
+            'pixel-purple': '#800080',
+            'arcade-bg': '#0a0a0a'
+          },
+          fontFamily: {
+            'pixel': ['"Press Start 2P"', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Custom Configuration -->
+<!-- Google Fonts for Pixel Art Style -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="animations">
+    @keyframes block-fall {
+      0% { transform: translateY(-100px); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 1; }
+    }
+
+    .falling-block {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      image-rendering: pixelated;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .scanline {
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .pixel-border {
+      box-shadow: 
+        0 -4px 0 0 #fff,
+        0 4px 0 0 #fff,
+        -4px 0 0 0 #fff,
+        4px 0 0 0 #fff;
+    }
+
+    .flicker {
+      animation: flicker-animation 0.1s infinite;
+    }
+
+    @keyframes flicker-animation {
+      0% { opacity: 0.9; }
+      50% { opacity: 1; }
+      100% { opacity: 0.9; }
+    }
+  </style>
+<style data-purpose="layout-styling">
+    body {
+      background-color: #0a0a0a;
+      overflow: hidden;
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      height: 100vh;
+      width: 100vw;
+    }
+    
+    .game-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 8px solid #333;
+    }
+  </style>
+</head>
+<body>
+<!-- BEGIN: MainContainer -->
+<div class="game-container relative" data-purpose="retro-game-screen">
+<div class="scanline"></div>
+<!-- BEGIN: BackgroundAnimations -->
+<div class="absolute inset-0 overflow-hidden" data-purpose="falling-blocks-container" id="particles-container">
+<!-- Blocks will be injected via JS -->
+</div>
+<!-- END: BackgroundAnimations -->
+<!-- BEGIN: HeaderHUD -->
+<header class="absolute top-8 left-0 right-0 px-6 flex justify-between items-start z-20" data-purpose="arcade-hud">
+<div class="flex flex-col gap-2">
+<span class="text-[10px] text-pixel-yellow">HIGH SCORE</span>
+<span class="text-lg" id="high-score">00272727</span>
+</div>
+<div class="flex flex-col gap-2 text-right">
+<span class="text-[10px] text-pixel-green">SCORE</span>
+<span class="text-lg flicker" id="current-score">00002700</span>
+</div>
+</header>
+<!-- END: HeaderHUD -->
+<!-- BEGIN: BrandIdentity -->
+<main class="relative z-10 flex flex-col items-center justify-center" data-purpose="brand-logo-section">
+<!-- Pixel-constructed Logo Placeholder -->
+<div class="mb-8 relative" data-purpose="nero-27-logo">
+<div class="grid grid-cols-5 gap-1 w-32 h-32 md:w-48 md:h-48" id="logo-grid">
+<!-- Hand-crafted pixel block logo for "N27" vibe -->
+<!-- Row 1 -->
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<div class="bg-pixel-blue w-full h-full"></div>
+<div class="bg-pixel-blue w-full h-full"></div>
+<div class="bg-pixel-blue w-full h-full"></div>
+<!-- Row 2 -->
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<div class="bg-pixel-blue w-full h-full"></div>
+<!-- Row 3 -->
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-pixel-yellow w-full h-full"></div>
+<div class="bg-pixel-blue w-full h-full"></div>
+<!-- Row 4 -->
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-pixel-yellow w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<!-- Row 5 -->
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-transparent w-full h-full"></div>
+<div class="bg-pixel-red w-full h-full"></div>
+<div class="bg-pixel-yellow w-full h-full"></div>
+<div class="bg-pixel-yellow w-full h-full"></div>
+</div>
+</div>
+<h1 class="text-2xl md:text-4xl font-pixel text-white mb-2 tracking-tighter">NERO 27</h1>
+<p class="text-[10px] md:text-xs text-pixel-orange uppercase tracking-widest flicker">Insert Coin to Play</p>
+</main>
+<!-- END: BrandIdentity -->
+<!-- BEGIN: FooterUI -->
+<footer class="absolute bottom-12 w-full px-8 flex flex-col items-center gap-6 z-20" data-purpose="arcade-controls">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-gray-800 pixel-border flex items-center justify-center active:bg-gray-700 transition-colors cursor-pointer">
+<div class="w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-white border-b-[10px] border-b-transparent"></div>
+</div>
+<div class="w-12 h-12 bg-gray-800 pixel-border flex items-center justify-center active:bg-gray-700 transition-colors cursor-pointer">
+<div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent"></div>
+</div>
+</div>
+<div class="flex items-center gap-10">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-pixel-red rounded-full pixel-border border-red-900 border-b-4 active:mt-1 active:border-b-0 cursor-pointer"></div>
+<span class="text-[8px]">SELECT</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-pixel-green rounded-full pixel-border border-green-900 border-b-4 active:mt-1 active:border-b-0 cursor-pointer"></div>
+<span class="text-[8px]">START</span>
+</div>
+</div>
+</footer>
+<!-- END: FooterUI -->
+</div>
+<!-- END: MainContainer -->
+<script data-purpose="game-logic-animations">
+    /**
+     * Handles the creation of falling tetris-like blocks in the background
+     */
+    const container = document.getElementById('particles-container');
+    const colors = ['#FF0000', '#0000FF', '#FFFF00', '#00FF00', '#FFA500', '#800080', '#00FFFF'];
+    
+    function createBlock() {
+      const block = document.createElement('div');
+      block.className = 'falling-block';
+      
+      // Random properties
+      const size = 30 + Math.random() * 20;
+      const left = Math.random() * 100;
+      const duration = 5 + Math.random() * 10;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Styling
+      block.style.width = `${size}px`;
+      block.style.height = `${size}px`;
+      block.style.left = `${left}%`;
+      block.style.backgroundColor = color;
+      block.style.border = '4px solid rgba(0,0,0,0.3)';
+      block.style.boxShadow = 'inset -4px -4px 0px rgba(0,0,0,0.2), inset 4px 4px 0px rgba(255,255,255,0.3)';
+      block.style.animation = `block-fall ${duration}s linear infinite`;
+      
+      // Random rotation
+      const rotations = [0, 90, 180, 270];
+      block.style.transform = `rotate(${rotations[Math.floor(Math.random() * rotations.length)]}deg)`;
+
+      container.appendChild(block);
+
+      // Cleanup
+      setTimeout(() => {
+        block.remove();
+      }, duration * 1000);
+    }
+
+    // Initial blocks
+    for(let i = 0; i < 15; i++) {
+      setTimeout(createBlock, Math.random() * 5000);
+    }
+
+    // Interval to keep spawning
+    setInterval(createBlock, 800);
+
+    // Score incrementer simulation
+    let score = 2700;
+    const scoreElement = document.getElementById('current-score');
+    setInterval(() => {
+      score += Math.floor(Math.random() * 10) * 10;
+      scoreElement.textContent = score.toString().padStart(8, '0');
+    }, 2000);
+  </script>
+</body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HARDWARE_INTERFACE_ASSETS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: radial-gradient(circle, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="border-b border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center p-4 justify-between max-w-5xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<div class="text-primary flex size-10 items-center justify-center border border-primary/30 rounded">
+<span class="material-symbols-outlined text-2xl">memory</span>
+</div>
+<div>
+<h2 class="text-primary text-lg font-bold leading-tight tracking-wider uppercase">HARDWARE_INTERFACE_ASSETS</h2>
+<p class="text-[10px] text-primary/60 font-mono">SYS_VER: 2.0.4 // LOG_SECURED</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded border border-primary/20 p-2 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</button>
+<button class="flex items-center justify-center rounded border border-primary/20 p-2 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full p-4 grid-bg relative">
+<!-- Favicon Variants Section -->
+<section class="mb-10">
+<div class="flex items-center justify-between px-2 mb-4">
+<h3 class="text-primary text-sm font-bold tracking-[0.2em] uppercase flex items-center gap-2">
+<span class="h-1 w-4 bg-primary inline-block"></span>
+                    FAVICON_VARIANTS_V1.0
+                </h3>
+<span class="text-[10px] text-primary/40 font-mono">COUNT: 04_UNITS</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Variant 1 -->
+<div class="group relative aspect-square border border-primary/10 bg-primary/5 p-4 flex flex-col items-center justify-center overflow-hidden hover:border-primary/50 transition-all">
+<div class="absolute top-1 left-1 text-[8px] text-primary/30 font-mono">RES: 512PX</div>
+<div class="size-20 bg-primary/20 flex items-center justify-center rounded-sm mb-4 group-hover:bg-primary/30 transition-colors border border-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1">deployed_code</span>
+</div>
+<p class="text-primary text-[10px] font-bold tracking-widest uppercase text-center">NEON_GLOW</p>
+<div class="absolute bottom-1 right-1 size-1 bg-primary/40"></div>
+</div>
+<!-- Variant 2 -->
+<div class="group relative aspect-square border border-primary/10 bg-primary/5 p-4 flex flex-col items-center justify-center overflow-hidden hover:border-primary/50 transition-all">
+<div class="absolute top-1 left-1 text-[8px] text-primary/30 font-mono">TYPE: WIRE</div>
+<div class="size-20 border border-primary/40 flex items-center justify-center rounded-sm mb-4">
+<span class="material-symbols-outlined text-5xl text-primary">deployed_code</span>
+</div>
+<p class="text-primary/70 text-[10px] font-bold tracking-widest uppercase text-center">WIREFRAME</p>
+<div class="absolute bottom-1 right-1 size-1 bg-primary/40"></div>
+</div>
+<!-- Variant 3 -->
+<div class="group relative aspect-square border border-primary/10 bg-primary/5 p-4 flex flex-col items-center justify-center overflow-hidden hover:border-primary/50 transition-all">
+<div class="absolute top-1 left-1 text-[8px] text-primary/30 font-mono">MODE: 8BIT</div>
+<div class="size-20 flex flex-wrap gap-1 items-center justify-center mb-4 opacity-80">
+<div class="grid grid-cols-3 gap-0.5">
+<div class="size-4 bg-primary"></div><div class="size-4 bg-primary/20"></div><div class="size-4 bg-primary"></div>
+<div class="size-4 bg-primary/20"></div><div class="size-4 bg-primary"></div><div class="size-4 bg-primary/20"></div>
+<div class="size-4 bg-primary"></div><div class="size-4 bg-primary/20"></div><div class="size-4 bg-primary"></div>
+</div>
+</div>
+<p class="text-primary text-[10px] font-bold tracking-widest uppercase text-center">8_BIT_RETRO</p>
+<div class="absolute bottom-1 right-1 size-1 bg-primary/40"></div>
+</div>
+<!-- Variant 4 -->
+<div class="group relative aspect-square border border-primary/10 bg-primary/5 p-4 flex flex-col items-center justify-center overflow-hidden hover:border-primary/50 transition-all">
+<div class="absolute top-1 left-1 text-[8px] text-primary/30 font-mono">ID: MN_MIN</div>
+<div class="size-20 bg-white/10 flex items-center justify-center rounded-sm mb-4 grayscale">
+<span class="material-symbols-outlined text-5xl text-white">deployed_code</span>
+</div>
+<p class="text-white/60 text-[10px] font-bold tracking-widest uppercase text-center">MONO_MIN</p>
+<div class="absolute bottom-1 right-1 size-1 bg-white/20"></div>
+</div>
+</div>
+</section>
+<!-- Functional Icons Section -->
+<section class="mb-10">
+<div class="flex items-center justify-between px-2 mb-4">
+<h3 class="text-primary text-sm font-bold tracking-[0.2em] uppercase flex items-center gap-2">
+<span class="h-1 w-4 bg-primary inline-block"></span>
+                    FUNCTIONAL_VECTORS
+                </h3>
+<span class="text-[10px] text-primary/40 font-mono">TAG: SYSTEM_CORE</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Home Set -->
+<div class="bg-primary/5 border border-primary/10 p-4 rounded-lg">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[10px] text-primary/60 font-bold uppercase">SET: 01 // HOME</span>
+<span class="material-symbols-outlined text-primary text-xs">open_in_new</span>
+</div>
+<div class="flex justify-around items-center py-4 bg-background-dark/50 border border-primary/5 rounded">
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">home</span>
+<p class="text-[8px] mt-1 text-primary/50">VEC_HIGH</p>
+</div>
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors">home_app_logo</span>
+<p class="text-[8px] mt-1 text-primary/30">VEC_LOW</p>
+</div>
+</div>
+</div>
+<!-- Settings Set -->
+<div class="bg-primary/5 border border-primary/10 p-4 rounded-lg">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[10px] text-primary/60 font-bold uppercase">SET: 02 // CONF</span>
+<span class="material-symbols-outlined text-primary text-xs">open_in_new</span>
+</div>
+<div class="flex justify-around items-center py-4 bg-background-dark/50 border border-primary/5 rounded">
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:rotate-45 transition-transform">settings</span>
+<p class="text-[8px] mt-1 text-primary/50">VEC_HIGH</p>
+</div>
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors">tune</span>
+<p class="text-[8px] mt-1 text-primary/30">VEC_LOW</p>
+</div>
+</div>
+</div>
+<!-- Data Set -->
+<div class="bg-primary/5 border border-primary/10 p-4 rounded-lg">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[10px] text-primary/60 font-bold uppercase">SET: 03 // DATA</span>
+<span class="material-symbols-outlined text-primary text-xs">open_in_new</span>
+</div>
+<div class="flex justify-around items-center py-4 bg-background-dark/50 border border-primary/5 rounded">
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:translate-y-[-2px] transition-transform">database</span>
+<p class="text-[8px] mt-1 text-primary/50">VEC_HIGH</p>
+</div>
+<div class="text-center group">
+<span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors">analytics</span>
+<p class="text-[8px] mt-1 text-primary/30">VEC_LOW</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Download Action -->
+<section class="mt-8 flex flex-col items-center">
+<button class="w-full max-w-md group relative overflow-hidden bg-primary p-4 rounded transition-all hover:bg-primary/90 active:scale-[0.98]">
+<div class="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)] -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+<div class="flex items-center justify-center gap-3 text-background-dark font-black tracking-widest italic uppercase">
+<span class="material-symbols-outlined">download</span>
+                    DOWNLOAD_PKT_08-23
+                </div>
+</button>
+<div class="w-full max-w-md h-1 bg-primary/20 mt-1 rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-primary animate-pulse"></div>
+</div>
+<p class="text-[9px] text-primary/40 mt-3 font-mono tracking-tighter">ENCRYPTED_SHA256: 4F92-B21A-CC43-8991</p>
+</section>
+</main>
+<!-- Bottom Neural Link Section -->
+<footer class="mt-auto border-t border-primary/20 bg-background-light dark:bg-background-dark/90">
+<!-- Status Bar -->
+<div class="flex items-center gap-4 bg-primary/10 px-4 py-2 border-b border-primary/20">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-primary animate-ping"></div>
+<p class="text-primary text-[10px] font-bold tracking-widest uppercase">Neural Link Status: 100% Synced</p>
+</div>
+<div class="h-4 w-[1px] bg-primary/20"></div>
+<p class="text-[9px] text-primary/60 font-mono hidden sm:block">UPTIME: 142:52:08</p>
+<div class="ml-auto flex gap-4 text-[10px] font-mono text-primary/80">
+<span>LATENCY: 4MS</span>
+<span>PACKET_LOSS: 0.0%</span>
+</div>
+</div>
+<!-- Navigation Bar -->
+<div class="flex gap-2 bg-background-light dark:bg-[#1b2727] px-4 pb-4 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">ASSETS</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">SECURITY</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">TERMINAL</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings_input_component</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">CONFIG</p>
+</a>
+</div>
+</footer>
+</body></html>

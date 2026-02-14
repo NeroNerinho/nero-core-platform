@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RETRO GEOMETRY V3 - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                        "retro-purple": "#4b2038",
+                        "retro-pink": "#ce8db1",
+                        "retro-glow": "#ff8bcb",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .retro-border {
+            border: 2px solid #ec5b13;
+            box-shadow: 0 0 10px rgba(236, 91, 19, 0.4);
+        }
+        .pixel-grid {
+            background-image: radial-gradient(circle, #333 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="scanline-overlay"></div>
+<div class="relative flex flex-col min-h-screen w-full pixel-grid">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-40 w-full border-b-4 border-primary bg-background-dark/95 backdrop-blur-md px-4 md:px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary flex items-center justify-center rounded-lg shadow-[4px_4px_0px_0px_#4b2038]">
+<span class="material-symbols-outlined text-white">grid_view</span>
+</div>
+<h1 class="text-xl md:text-2xl font-black italic tracking-tighter text-white">RETRO_GEOMETRY_V3</h1>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-primary font-bold hover:underline decoration-2 underline-offset-4" href="#">STAGES</a>
+<a class="text-white/70 hover:text-white font-bold transition-colors" href="#">LEADERBOARD</a>
+<a class="text-white/70 hover:text-white font-bold transition-colors" href="#">COLLECTION</a>
+<a class="text-white/70 hover:text-white font-bold transition-colors" href="#">SHOP</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-retro-purple/50 rounded-lg px-3 py-1.5 border-2 border-retro-purple">
+<span class="material-symbols-outlined text-retro-pink text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-white uppercase placeholder:text-retro-pink/50 w-32" placeholder="CMD_FIND" type="text"/>
+</div>
+<button class="p-2 hover:bg-primary transition-colors rounded-lg group">
+<span class="material-symbols-outlined text-white group-hover:scale-110">settings</span>
+</button>
+<div class="size-10 rounded-lg border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover bg-retro-purple" data-alt="8-bit pixel art player avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwnlkmHhi7BMQI30-jhCJNVBs1yIu0oR3Ej5aHyhoKfJCU67oSwFCqFQqRC3DBCJhGfprY6Zqis1I1VHt2hWoEXvwitllcu7tcNh5YRwxDkq4qbSPm-uWzhbYhadscAsVXSdkOtDS30PvFoABKWvFmxvac-uh_-fmvHETSWD7e_36TZ3Uig6vI0drGuAjrEzhq7umw7YgfpDhAw2DQypAZhfS2yl_fKt_3RisqcEfeRwkSY5vdqBLpimhwWeajK2Aa8PZ2diecKwY"/>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[1400px] mx-auto w-full p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Sidebar: Player Profile & HUD -->
+<aside class="lg:col-span-3 space-y-6">
+<!-- Profile Block -->
+<div class="bg-retro-purple/20 border-2 border-retro-purple p-5 rounded-xl">
+<div class="flex flex-col items-center text-center mb-6">
+<div class="relative size-24 mb-4">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+<img class="relative z-10 w-full h-full rounded-xl border-4 border-white shadow-2xl" data-alt="Large 8-bit player avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhmULYpiMVnmDPP0e7BlhXV_nzXMNCYVXdXWoLZyP8D05i7pMlVzew73c_Vd56_tn1IMc9xh7vyxtNfuCpwCH936Y5UjmrDf6-WS6pW_7ml2eu22Xg0ZiKs0sQpZY5L3zimAw2fVmPhM34z7n-e5FF9iycHTPPmAMrNXPIu66Pir1xVF_D5h9Q1fqojFCqYFB7R8K_Npp_IMOZ0GrtROrR39PxZVw6911x7QvXip6v_GMG7HuYU11xbndaPk9XW4hYaUcK6czqFEE"/>
+</div>
+<h2 class="text-2xl font-black text-white tracking-tight uppercase">CYBER_PUNK_99</h2>
+<span class="text-primary font-bold text-sm tracking-widest border border-primary px-2 py-0.5 mt-1">ELITE COMMANDER</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-xs font-bold text-retro-pink">
+<span>LVL 42</span>
+<span>85% XP</span>
+</div>
+<div class="h-4 bg-retro-purple rounded-full overflow-hidden border border-white/10">
+<div class="h-full bg-primary shadow-[0_0_15px_rgba(236,91,19,0.8)]" style="width: 85%"></div>
+</div>
+<p class="text-[10px] text-center text-white/40 uppercase font-bold">1,250 XP TO NEXT RANK</p>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-6">
+<div class="bg-black/40 p-3 border-l-2 border-primary">
+<p class="text-[10px] text-retro-pink font-bold uppercase">K/D RATIO</p>
+<p class="text-xl font-black text-white">2.45</p>
+</div>
+<div class="bg-black/40 p-3 border-l-2 border-primary">
+<p class="text-[10px] text-retro-pink font-bold uppercase">STARS</p>
+<p class="text-xl font-black text-white">4,200</p>
+</div>
+</div>
+</div>
+<!-- Global Stats Block -->
+<div class="bg-black/40 border-2 border-retro-purple p-4 rounded-xl">
+<h3 class="text-xs font-black text-white/50 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">analytics</span> GLOBAL_DATA
+                    </h3>
+<div class="space-y-3">
+<div class="flex justify-between items-end border-b border-white/5 pb-2">
+<span class="text-[10px] text-retro-pink font-bold uppercase">Levels Cleared</span>
+<span class="text-lg font-bold text-white">158</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/5 pb-2">
+<span class="text-[10px] text-retro-pink font-bold uppercase">Play Time</span>
+<span class="text-lg font-bold text-white">42h 12m</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/5 pb-2">
+<span class="text-[10px] text-retro-pink font-bold uppercase">Achievements</span>
+<span class="text-lg font-bold text-white">88%</span>
+</div>
+</div>
+</div>
+<!-- Config HUD -->
+<div class="bg-primary/5 border-2 border-primary p-4 rounded-xl shadow-[inset_0_0_10px_rgba(236,91,19,0.2)]">
+<h3 class="text-xs font-black text-primary mb-4 flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">tune</span> System_Config
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-white font-bold uppercase">CRT FILTER</span>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 size-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-white font-bold uppercase">8-BIT MUSIC</span>
+<div class="w-10 h-5 bg-retro-purple rounded-full relative">
+<div class="absolute left-1 top-1 size-3 bg-retro-pink rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] text-white font-bold uppercase">V-SYNC</span>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 size-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Content: Stage Selection -->
+<section class="lg:col-span-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-3xl font-black text-white tracking-tighter uppercase italic flex items-center gap-3">
+<span class="size-3 bg-primary animate-pulse"></span> STAGE_SELECT
+                    </h2>
+<div class="flex gap-2">
+<button class="p-2 border-2 border-retro-purple hover:bg-retro-purple transition-colors rounded-lg">
+<span class="material-symbols-outlined text-white">filter_list</span>
+</button>
+<button class="px-4 py-2 bg-retro-purple font-bold text-xs rounded-lg uppercase tracking-widest">CHAPTER 01</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Stage Card 1 -->
+<div class="group relative bg-retro-purple/20 border-2 border-white/10 hover:border-primary transition-all duration-300 rounded-xl overflow-hidden">
+<div class="h-40 bg-slate-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract neon grid wallpaper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8DryqeH69Ogb0SGAa_6SebPcMoVaqhx3NeV_IXxp87zRP5BhD_fMgBA0sFq9c1ErbrgPWSCLbWZSEkvekt2z3lH2DAYUTRGqp6Bf0_bsywCpuzQQDvMxNVpu8g8XA6ZuxPgL9LTurpL5aaLNcQS__GGGmz7NS4LMhXmsp1FJEzBwZ09FiNio6GgVNVcAOsrlDmO_mw7XahrxA1NOs_VqruLKcjAAdgnpZE9j8cFSMBjRN2Jt7uzny38Z_FcWspVfondFtnAE0ds"/>
+<div class="absolute top-3 left-3 z-20 flex gap-2">
+<span class="bg-primary px-2 py-0.5 rounded text-[10px] font-black text-white italic">HARD</span>
+<span class="bg-black/60 px-2 py-0.5 rounded text-[10px] font-black text-white">100% COMPLETE</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-black text-white uppercase tracking-tight">THE_GRID_A1</h3>
+<p class="text-xs font-bold text-retro-pink">HI-SCORE: 9,450,200</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-primary text-sm font-fill">star</span>
+<span class="material-symbols-outlined text-primary text-sm font-fill">star</span>
+<span class="material-symbols-outlined text-primary text-sm font-fill">star</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-white font-black uppercase tracking-[0.2em] rounded-lg shadow-[0_4px_0_0_#9a3b0c] active:translate-y-1 active:shadow-none transition-all group-hover:shadow-primary/50">
+                                PLAY_STAGE
+                            </button>
+</div>
+</div>
+<!-- Stage Card 2 -->
+<div class="group relative bg-retro-purple/20 border-2 border-white/10 hover:border-primary transition-all duration-300 rounded-xl overflow-hidden">
+<div class="h-40 bg-slate-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Neon blue geometric abyss pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgBIYQgM5v1dAhfaTCerOMa-WexdnwO2D0LwgYMSNDRfQv-X_kQyouHqsHDspFbQSUfGAhb3LROw9G-3hWgFmEhq-Bzr3PqFlaFIeuxHycczenTbGM-K941XYmkaGO1Nv1zRkwo0hEmT611CK_OG6msVqj2bXLTjSa9QUx2U-Z1Yele0GgkpnOL1wSQgX0oH8CXBM1mrwkYOLoyNPpakGfN2AS6NGfCxGfZ9I1StNsIihCIWulgnCiMs0yWjg7FOilWj6I8b3To7c"/>
+<div class="absolute top-3 left-3 z-20 flex gap-2">
+<span class="bg-blue-600 px-2 py-0.5 rounded text-[10px] font-black text-white italic">INSANE</span>
+<span class="bg-black/60 px-2 py-0.5 rounded text-[10px] font-black text-white">45% COMPLETE</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-black text-white uppercase tracking-tight">NEON_ABYSS</h3>
+<p class="text-xs font-bold text-retro-pink">HI-SCORE: 2,120,000</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-primary text-sm font-fill">star</span>
+<span class="material-symbols-outlined text-white/20 text-sm">star</span>
+<span class="material-symbols-outlined text-white/20 text-sm">star</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-white/10 text-white font-black uppercase tracking-[0.2em] rounded-lg border-2 border-white/20 hover:bg-primary hover:border-primary transition-all">
+                                RESUME_OP
+                            </button>
+</div>
+</div>
+<!-- Stage Card 3 -->
+<div class="group relative bg-retro-purple/20 border-2 border-white/10 hover:border-primary transition-all duration-300 rounded-xl overflow-hidden">
+<div class="h-40 bg-slate-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/60 z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">lock</span>
+</div>
+<img class="w-full h-full object-cover grayscale blur-[2px]" data-alt="Dark hardware retro components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3mHUmI72Mt8smHl5kGBucZFZT7tkRXUb3ldlTTenEUuiKukAC8juQqMVFc43zirLm86h76C6s1ir_BWF5ZnhFsM0KrH5gQBtN4sX0YcyQWfkO4UW9XB9oU7xnU3sZxnWqdYqH-dhxy5gXRfw3tcHCOowxiccRpkePumBgOOkCD874qZugnmD_ZijbAELdaNSrVd-sNt236giRdHBFBJMDNZ5-VpY4L5uzMAabk6bcb9PMSck-s6KW0K5ibDqLZP75zmOG8LW6OzU"/>
+<div class="absolute top-3 left-3 z-20 flex gap-2">
+<span class="bg-gray-600 px-2 py-0.5 rounded text-[10px] font-black text-white italic">LOCKED</span>
+</div>
+</div>
+<div class="p-5 opacity-50">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-black text-white uppercase tracking-tight">VOID_RUNNER</h3>
+<p class="text-xs font-bold text-retro-pink">HI-SCORE: ---</p>
+</div>
+</div>
+<div class="text-[10px] text-white/40 uppercase font-black text-center border-t border-white/10 pt-4">Requires Lvl 45 to Unlock</div>
+</div>
+</div>
+<!-- Stage Card 4 -->
+<div class="group relative bg-retro-purple/20 border-2 border-white/10 hover:border-primary transition-all duration-300 rounded-xl overflow-hidden">
+<div class="h-40 bg-slate-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Orange and pink digital architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoiSqFNI5yCvGP80jpvnwesxXls7TdmCloDhlcuuyMfHYX5rCXkX-VPBxvTy2KbqvwiqdJ5M7eaC2sjkLrrEgof5vimuyNJvyYvqfPV0nvqmEsftLGwgrM8BYIj61ZcBW8l3ZCHDbBJ5tjuKmLDEe79lPSwNPqyk9glfg4imhdpcK1VtZwJbiwGque21bYVSKrBSRM11yluH-sJLhHLOWHcGV3-T4MDi-7UA8hFdqDZ66KLosRMB2L0VQ9LUsOAOEWC2yjP0pKZdE"/>
+<div class="absolute top-3 left-3 z-20 flex gap-2">
+<span class="bg-green-600 px-2 py-0.5 rounded text-[10px] font-black text-white italic">EASY</span>
+<span class="bg-black/60 px-2 py-0.5 rounded text-[10px] font-black text-white">LOCKED_NEW</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-black text-white uppercase tracking-tight">DATA_FLOW</h3>
+<p class="text-xs font-bold text-retro-pink">HI-SCORE: ---</p>
+</div>
+</div>
+<button class="w-full py-3 bg-primary/20 text-primary border-2 border-primary font-black uppercase tracking-[0.2em] rounded-lg hover:bg-primary hover:text-white transition-all">
+                                UNLOCK: 500★
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Leaderboard -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-background-dark/80 border-2 border-retro-purple rounded-xl overflow-hidden h-full">
+<div class="bg-retro-purple/40 px-4 py-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-retro-pink">emoji_events</span>
+<h3 class="text-xs font-black text-white uppercase tracking-widest">Global_Top_5</h3>
+</div>
+<div class="p-2">
+<div class="space-y-1">
+<!-- Leaderboard Row 1 -->
+<div class="bg-primary/10 border-l-4 border-primary p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-primary font-black text-lg">#1</span>
+<div>
+<p class="text-xs font-black text-white uppercase">X_Slayer_X</p>
+<p class="text-[10px] text-white/40">2m ago</p>
+</div>
+</div>
+<span class="text-sm font-black text-primary">12.5M</span>
+</div>
+<!-- Leaderboard Row 2 -->
+<div class="hover:bg-white/5 p-3 flex items-center justify-between border-b border-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-white/40 font-black text-lg">#2</span>
+<div>
+<p class="text-xs font-black text-white uppercase">BitMaster</p>
+<p class="text-[10px] text-white/40">10m ago</p>
+</div>
+</div>
+<span class="text-sm font-bold text-white">10.1M</span>
+</div>
+<!-- Leaderboard Row 3 -->
+<div class="hover:bg-white/5 p-3 flex items-center justify-between border-b border-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-white/40 font-black text-lg">#3</span>
+<div>
+<p class="text-xs font-black text-white uppercase">GeoPulse</p>
+<p class="text-[10px] text-white/40">1h ago</p>
+</div>
+</div>
+<span class="text-sm font-bold text-white">9.8M</span>
+</div>
+<!-- Leaderboard Row 4 -->
+<div class="hover:bg-white/5 p-3 flex items-center justify-between border-b border-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<span class="text-white/40 font-black text-lg">#4</span>
+<div>
+<p class="text-xs font-black text-white uppercase">PixelPilot</p>
+<p class="text-[10px] text-white/40">2h ago</p>
+</div>
+</div>
+<span class="text-sm font-bold text-white">9.5M</span>
+</div>
+<!-- Player High Score -->
+<div class="mt-4 bg-retro-purple/40 p-3 rounded-lg border border-retro-pink/30">
+<p class="text-[9px] font-black text-retro-pink uppercase mb-2">Personal Best</p>
+<div class="flex items-center justify-between">
+<span class="text-white font-black">#1,402</span>
+<span class="text-retro-pink font-black">9.4M</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-4 text-[10px] font-black text-retro-pink uppercase hover:bg-white/5 transition-colors">
+                        View Full Standings →
+                    </button>
+</div>
+<!-- System Status -->
+<div class="p-4 bg-black/60 rounded-xl border-2 border-white/5">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-black text-white/40 uppercase">System Status</span>
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+<span class="text-[10px] font-black text-green-500">LIVE</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-white/60">ONLINE PLAYERS</span>
+<span class="text-white">12,401</span>
+</div>
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-white/60">SERVER PING</span>
+<span class="text-primary">12ms</span>
+</div>
+<div class="flex justify-between text-[10px] font-bold">
+<span class="text-white/60">PATCH VERSION</span>
+<span class="text-white">v3.4.12_STABLE</span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Status Bar -->
+<footer class="mt-auto bg-primary text-white px-6 py-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-4 border-black text-[10px] font-black uppercase tracking-tighter">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">wifi</span> CONNECTED: US_WEST_02</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">database</span> STORAGE: 42.5 GB / 128 GB</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="animate-pulse">SYSTEM_SCANNING... READY</span>
+<span class="bg-black px-2 py-0.5">© 2024 GEOMETRY_LABS</span>
+</div>
+</footer>
+</div>
+</body></html>

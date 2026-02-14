@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LP Geometria V1 Web</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .grid-bg {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+        .neon-border {
+            box-shadow: 0 0 5px theme('colors.primary'), inset 0 0 5px theme('colors.primary');
+        }
+        .neon-text {
+            text-shadow: 0 0 10px theme('colors.primary');
+        }
+        .tech-border-corner {
+            position: relative;
+        }
+        .tech-border-corner::before,
+        .tech-border-corner::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: theme('colors.primary');
+            border-style: solid;
+            transition: all 0.3s ease;
+        }
+        .tech-border-corner::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+        .tech-border-corner::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+        /* Custom scrollbar for tech feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101922; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0d7ff2; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+<!-- Blueprint Grid Background -->
+<div class="fixed inset-0 z-0 pointer-events-none opacity-20 bg-grid-pattern grid-bg"></div>
+<!-- Mobile Header -->
+<header class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-white/10 dark:border-white/5">
+<div class="px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 border border-primary flex items-center justify-center rotate-45">
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+<span class="font-bold tracking-widest uppercase text-sm">Geometria<span class="text-primary">.V1</span></span>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded transition-colors">
+<span class="material-icons">menu</span> <!-- Using generic menu icon but could be styled technically -->
+</button>
+</div>
+</header>
+<main class="relative z-10 pt-24 pb-32">
+<!-- Hero Section -->
+<section class="px-6 mb-16 relative">
+<!-- Decorative HUD elements -->
+<div class="absolute top-0 right-6 font-mono text-xs text-primary/50">SYS.RDY</div>
+<div class="absolute top-20 left-2 w-px h-24 bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0"></div>
+<div class="flex flex-col items-center text-center space-y-6">
+<!-- 3D Wireframe Visual Placeholder -->
+<div class="relative w-64 h-64 mb-4 flex items-center justify-center">
+<!-- Rotating rings effect with CSS borders -->
+<div class="absolute inset-0 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-8 border border-dashed border-primary/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Main visual -->
+<div class="w-48 h-48 relative z-10 tech-border-corner p-2 bg-background-dark/50 backdrop-blur-sm border border-primary/30">
+<img alt="Abstract blue geometric 3D wireframe structure on dark background" class="w-full h-full object-cover opacity-80 mix-blend-screen" data-alt="Abstract blue geometric 3D wireframe structure on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx5qYBltXZCdq9Q_WOXkct3LazHKT8Jo0dHwfu42vkdFSVTNTvox3dCes6VSOEOF4VaeE2KNu42A2B0UdHQ9j1usAOXWgAoJw7ZcDO5O_6YdOoxlUKm40eSpQP3Jqxk_7iqrMv2Xpub0W7p_pazE125C-iRApIWteTaK6YQTTedMRXgh6Jlp8rgnksybmbf-FxQ5IgQCQ_OLnN-nPGoryPhEgXLgJpXEeGGWI-lif9uRqrzn1-CUGnZ74DwG77D_TYxq2FvoGkAlE"/>
+<!-- Overlay grid lines -->
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMGgwdjFIMHoiIGZpbGw9InJnYmEoMTMsIDEyNywgMjQyL 0.2KSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')] opacity-30"></div>
+</div>
+<!-- Connection lines -->
+<div class="absolute -right-4 top-1/2 w-8 h-px bg-primary/30"></div>
+<div class="absolute -left-4 top-1/2 w-8 h-px bg-primary/30"></div>
+</div>
+<div class="space-y-2 max-w-sm mx-auto">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="font-mono text-xs text-primary tracking-widest uppercase">Structural Analysis V1.0</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                        Precision in <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary">Every Line</span>
+</h1>
+<p class="text-slate-400 font-light text-sm md:text-base px-4">
+                        Advanced algorithmic modeling for the modern engineer. Visualize complexity with zero latency.
+                    </p>
+</div>
+<div class="flex flex-col w-full max-w-xs gap-3 pt-4">
+<button class="group relative w-full py-4 bg-primary/10 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 overflow-hidden">
+<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></span>
+<div class="flex items-center justify-between px-6">
+<span class="font-mono text-sm uppercase tracking-wider font-bold">Initialize System</span>
+<span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+<div class="flex justify-between text-[10px] font-mono text-slate-500 uppercase px-1">
+<span>Latency: 12ms</span>
+<span>Ver: 2.4.1</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Ticker -->
+<section class="border-y border-white/5 bg-white/5 backdrop-blur-sm mb-16 overflow-hidden">
+<div class="flex whitespace-nowrap py-3">
+<div class="animate-[marquee_20s_linear_infinite] flex gap-8 items-center font-mono text-xs text-primary/80">
+<span>/// RENDERING: ACTIVE</span>
+<span class="text-slate-500">|</span>
+<span>POLYGONS: 4.2M</span>
+<span class="text-slate-500">|</span>
+<span>FPS: 120</span>
+<span class="text-slate-500">|</span>
+<span>THERMAL: NORMAL</span>
+<span class="text-slate-500">|</span>
+<span>LOAD: 45%</span>
+<span class="text-slate-500">|</span>
+<span>/// SYSTEM CHECK: OK</span>
+<span class="text-slate-500">|</span>
+<span>MEMORY: 16GB</span>
+<span class="text-slate-500">|</span>
+<span>GRID: LOCKED</span>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="px-6 mb-16">
+<div class="flex items-end justify-between mb-8 border-b border-white/10 pb-2">
+<h2 class="text-2xl font-bold">Core Modules</h2>
+<span class="font-mono text-xs text-primary">01 / 04</span>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Card 1 -->
+<div class="group relative bg-background-dark border border-white/10 p-6 hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-50">
+<span class="material-icons text-primary text-4xl opacity-20 group-hover:opacity-100 transition-opacity">grid_4x4</span>
+</div>
+<div class="font-mono text-xs text-primary mb-2">MOD-01</div>
+<h3 class="text-xl font-bold mb-3">Load Distribution</h3>
+<p class="text-sm text-slate-400 font-light mb-4">Real-time force vector calculation across complex geometric nodes.</p>
+<div class="h-1 w-full bg-slate-800 overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<div class="flex justify-between mt-1 font-mono text-[10px] text-slate-500">
+<span>Capacity</span>
+<span>67%</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-background-dark border border-white/10 p-6 hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-50">
+<span class="material-icons text-primary text-4xl opacity-20 group-hover:opacity-100 transition-opacity">layers</span>
+</div>
+<div class="font-mono text-xs text-primary mb-2">MOD-02</div>
+<h3 class="text-xl font-bold mb-3">Material Stress</h3>
+<p class="text-sm text-slate-400 font-light mb-4">Thermal mapping and stress fracture prediction algorithms.</p>
+<div class="mt-4 grid grid-cols-4 gap-1">
+<div class="h-1 bg-primary/20"></div>
+<div class="h-1 bg-primary/40"></div>
+<div class="h-1 bg-primary/60"></div>
+<div class="h-1 bg-primary"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-background-dark border border-white/10 p-6 hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-2 opacity-50">
+<span class="material-icons text-primary text-4xl opacity-20 group-hover:opacity-100 transition-opacity">architecture</span>
+</div>
+<div class="font-mono text-xs text-primary mb-2">MOD-03</div>
+<h3 class="text-xl font-bold mb-3">Blueprint Export</h3>
+<p class="text-sm text-slate-400 font-light mb-4">Auto-generate CAD-compatible DWG files from wireframes.</p>
+<button class="text-xs font-mono text-primary flex items-center gap-2 mt-2 group-hover:underline">
+<span>ACCESS_FILES</span>
+<span class="material-icons text-[10px]">open_in_new</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Technical Detail Section -->
+<section class="px-6 mb-12">
+<div class="relative border border-primary/30 bg-primary/5 p-6">
+<!-- Corner accents -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary"></div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 border-b border-primary/20 pb-4">
+<div class="w-12 h-12 bg-background-dark border border-primary/50 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary">analytics</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Live Analytics</h4>
+<p class="text-xs text-slate-400 font-mono">DATA STREAM: ENCRYPTED</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Node Density</span>
+<span class="font-mono text-primary">High</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Solver Type</span>
+<span class="font-mono text-primary">Linear Static</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Mesh Quality</span>
+<span class="font-mono text-primary">98.4%</span>
+</div>
+</div>
+<!-- Fake Graph -->
+<div class="h-24 w-full flex items-end justify-between gap-1 pt-4 border-t border-primary/20">
+<div class="w-full bg-primary/20 h-[40%]"></div>
+<div class="w-full bg-primary/30 h-[70%]"></div>
+<div class="w-full bg-primary/40 h-[50%]"></div>
+<div class="w-full bg-primary/20 h-[30%]"></div>
+<div class="w-full bg-primary/60 h-[85%]"></div>
+<div class="w-full bg-primary/40 h-[60%]"></div>
+<div class="w-full bg-primary h-[95%] shadow-[0_0_10px_theme('colors.primary')]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Input Area -->
+<section class="px-6 mb-20">
+<h3 class="text-xl font-bold mb-6">System Updates</h3>
+<form class="flex flex-col gap-4">
+<div class="relative">
+<label class="sr-only" for="email">Email</label>
+<input class="w-full bg-background-dark border border-white/20 focus:border-primary text-sm font-mono p-4 placeholder-slate-600 outline-none transition-colors" id="email" placeholder="ENTER_EMAIL_ADDRESS" type="email"/>
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary/50"></div>
+</div>
+<button class="w-full bg-white text-background-dark font-bold uppercase tracking-wider py-4 hover:bg-slate-200 transition-colors text-sm">
+                    Subscribe
+                </button>
+</form>
+</section>
+</main>
+<!-- Bottom Navigation Bar (iOS Adaptation) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-background-dark/90 backdrop-blur-lg border-t border-white/10 safe-area-pb">
+<div class="flex justify-around items-center h-16 px-2">
+<a class="flex flex-col items-center justify-center w-full h-full text-primary" href="#">
+<span class="material-icons text-xl mb-1">home</span>
+<span class="text-[10px] font-mono opacity-80">BASE</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl mb-1">view_in_ar</span>
+<span class="text-[10px] font-mono opacity-80">MODEL</span>
+</a>
+<div class="relative -top-6">
+<button class="w-14 h-14 bg-primary rounded-full flex items-center justify-center neon-border text-white shadow-lg">
+<span class="material-icons">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl mb-1">pie_chart</span>
+<span class="text-[10px] font-mono opacity-80">STATS</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl mb-1">settings</span>
+<span class="text-[10px] font-mono opacity-80">CONF</span>
+</a>
+</div>
+<!-- iPhone Home Indicator safe area spacing -->
+<div class="h-6 w-full"></div>
+</nav>
+</body></html>

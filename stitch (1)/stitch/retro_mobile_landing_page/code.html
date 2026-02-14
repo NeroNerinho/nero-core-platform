@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Retro Geometry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .grid-pattern {
+            background-image: radial-gradient(circle, #ec5b13 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+        .scanline {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .pixel-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.3);
+        }
+        .pixel-shadow-primary {
+            box-shadow: 4px 4px 0px 0px #b0430e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-background-dark border-b border-primary/20 p-4 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded">
+<span class="material-symbols-outlined text-white text-2xl">grid_view</span>
+</div>
+<h2 class="text-xl font-black uppercase tracking-tighter">Nero 27</h2>
+</div>
+<div class="flex-1"></div>
+<button class="flex items-center justify-center size-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="ml-2 flex items-center justify-center size-10 rounded-lg bg-primary text-white pixel-shadow-primary">
+<span class="material-symbols-outlined">person</span>
+</button>
+</header>
+<!-- Hero Section -->
+<div class="relative overflow-hidden bg-background-dark py-12 px-4">
+<div class="absolute inset-0 grid-pattern"></div>
+<div class="absolute inset-0 scanline opacity-30"></div>
+<!-- Abstract Shapes -->
+<div class="absolute top-10 right-10 size-16 border-4 border-primary/30 rotate-12"></div>
+<div class="absolute bottom-10 left-10 size-12 bg-primary/20 rounded-full"></div>
+<div class="relative z-10 flex flex-col items-center text-center gap-6">
+<div class="w-full max-w-xs aspect-video rounded-xl bg-slate-800 border-2 border-primary/50 flex items-center justify-center relative overflow-hidden group">
+<img alt="Retro computing setup with neon lighting" class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="Retro hardware with vibrant neon orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLaPjB0VCMIpdO0_iPlrSIA5USsMef5wZSNH9XpnsIkL9tulfcwReUz0y4KZ6-Nv7cijELPthSEBVBjvxKhN0o856p4rRZjyejRDVxC6gaUzQFZ5YegOabbR_qLlkhPdnQ85MCJx7ZAzwegRwcnx2MU2nPCpxMTbqziOo18DK6HSyK_FCTTykiiFwtQ01KwYWZrmMsxVNEytJXPtGWs7ZWvyJs7r6gain4BJhLnsMFrpSWRJ9NQpbTfi5FXawnSYRYlNedEiaQFuE"/>
+<div class="relative z-10 text-primary animate-pulse">
+<span class="material-symbols-outlined text-6xl">videogame_asset</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-5xl font-black leading-none tracking-tighter uppercase italic">
+                        Level Up Your <span class="text-primary">Aesthetic</span>
+</h1>
+<p class="text-slate-400 text-sm font-medium max-w-xs mx-auto">
+                        Nostalgic 8-bit vibes meet high-performance modern geometry. Nero 27 is the ultimate digital arcade.
+                    </p>
+</div>
+<button class="w-full max-w-[280px] bg-primary hover:bg-primary/90 text-white font-black py-4 px-8 rounded-lg uppercase tracking-widest text-lg pixel-shadow-primary active:translate-y-1 active:translate-x-1 active:shadow-none transition-all">
+                    Join The Game
+                </button>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="flex flex-wrap gap-3 p-4 bg-white dark:bg-slate-900/50">
+<div class="flex-1 min-w-[100px] flex flex-col gap-1 rounded-lg p-3 bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Players</p>
+<p class="text-xl font-black text-primary">12.4K</p>
+<div class="h-1 bg-primary/20 w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%]"></div>
+</div>
+</div>
+<div class="flex-1 min-w-[100px] flex flex-col gap-1 rounded-lg p-3 bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Points</p>
+<p class="text-xl font-black text-primary">850M</p>
+<div class="h-1 bg-primary/20 w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+</div>
+<div class="flex-1 min-w-[100px] flex flex-col gap-1 rounded-lg p-3 bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Stages</p>
+<p class="text-xl font-black text-primary">27</p>
+<div class="h-1 bg-primary/20 w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[100%]"></div>
+</div>
+</div>
+</div>
+<!-- Navigation Tiles -->
+<section class="p-4">
+<h2 class="text-sm font-black uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="size-2 bg-primary"></span> Select Start
+            </h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-white dark:bg-background-dark border-2 border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between group hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary">sports_esports</span>
+<div>
+<p class="text-lg font-black uppercase leading-none">Arcade</p>
+<p class="text-xs text-slate-500">Quick match</p>
+</div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border-2 border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between group hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary">shopping_cart</span>
+<div>
+<p class="text-lg font-black uppercase leading-none">Market</p>
+<p class="text-xs text-slate-500">New skins</p>
+</div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border-2 border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between group hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary">trophy</span>
+<div>
+<p class="text-lg font-black uppercase leading-none">Ranks</p>
+<p class="text-xs text-slate-500">Global board</p>
+</div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border-2 border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between group hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary">settings</span>
+<div>
+<p class="text-lg font-black uppercase leading-none">Config</p>
+<p class="text-xs text-slate-500">Interface</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leaderboard Preview -->
+<section class="p-4 mb-24">
+<div class="bg-slate-900 rounded-xl p-5 border-l-4 border-primary overflow-hidden relative">
+<div class="absolute inset-0 grid-pattern opacity-5"></div>
+<div class="flex justify-between items-end mb-4 relative z-10">
+<div>
+<h3 class="text-white text-xl font-black uppercase italic">High Scores</h3>
+<p class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Daily Tournament</p>
+</div>
+<span class="material-symbols-outlined text-primary">leaderboard</span>
+</div>
+<div class="space-y-3 relative z-10">
+<div class="flex items-center gap-3 bg-white/5 p-2 rounded border border-white/5">
+<span class="text-primary font-black w-4">1</span>
+<div class="size-8 rounded-full bg-slate-700 overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="User profile portrait icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK4w3AaPoMVo5q3hYl4uaFC_ENG4qs-rjQ11dy2Tt2eUaUFOFB8XqomPPesW_b1uEglmeFsWllWLnJFoxhRS89PTiDcLyZpAbSYPvSLa3rVMfYgqQIhm-EWjFQ41wQDn_9752k_Vte4sLboj_w6hBLg8VBbYimoqJoHoFLarV_MV-e6ES6vRmNzwiR7WPLuoXdgLQoxxB49bKK_48mrIOmdpPspvI6E7_zSt_7_XcJX5VZOJa0t6o6z1LeBSY63GZdVMJSz_m_VQk"/>
+</div>
+<span class="flex-1 font-bold text-white uppercase text-sm">PixelKing_99</span>
+<span class="text-primary font-black text-sm">99,420</span>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-2 rounded border border-white/5">
+<span class="text-slate-500 font-black w-4">2</span>
+<div class="size-8 rounded-full bg-slate-700 overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="User profile portrait icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ4yW4H9eAiuJV_yKBmPx0lfxOSm32VUH9srNuXdjc07r73CdrP4L9G3OQgmrNMf-mLc3NA-lOkxYalXlIJ5ImS-IQR3V9h-fVlFrGRi_3yPvr1N3sNfW8VzIIGI9_DX15zMK141upiUxR9o2oimI-Qjhbd-wjNmbd8wO8NI3VZrcyEmP74xsB1FmpLYt6pTQskPBOFEQBFzEaQWds5WQ8mZuiBxorEycNYFQqriCUGqKXDR_ZgAxXrIG0gbYVHz1smvbJ46sZylg"/>
+</div>
+<span class="flex-1 font-bold text-white uppercase text-sm">GeometryQueen</span>
+<span class="text-primary font-black text-sm">88,201</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 pb-6 pt-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-black uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-black uppercase">Stages</span>
+</a>
+<div class="relative -top-6">
+<button class="size-14 bg-primary text-white rounded-xl pixel-shadow-primary flex items-center justify-center rotate-45">
+<span class="material-symbols-outlined -rotate-45 text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-black uppercase">Chat</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-black uppercase">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 Structural | Engineering Blueprint</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0f1a", // Custom Blueprint Blue Depth
+                        "blueprint-grid": "rgba(236, 91, 19, 0.1)",
+                        "blueprint-line": "rgba(255, 255, 255, 0.05)",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .tech-grid {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(236, 91, 19, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / System Status Bar -->
+<header class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-white/10 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">architecture</span>
+<h1 class="text-lg font-black tracking-tighter uppercase italic">Nero <span class="text-primary">27</span></h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden xs:flex flex-col items-end">
+<span class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 leading-none">System Status</span>
+<span class="text-[10px] font-mono text-green-500 flex items-center gap-1 leading-none">
+<span class="size-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    Operational
+                </span>
+</div>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-x-hidden relative tech-grid">
+<!-- Hero Section: Drafting Board Aesthetic -->
+<section class="relative px-6 py-12 @container">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full w-fit">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">v4.2 Structural Build</span>
+</div>
+<h2 class="text-4xl xs:text-5xl font-black leading-tight tracking-tight dark:text-white">
+                    Precision <br/>
+<span class="text-primary italic">Architecture</span> <br/>
+                    Redefined.
+                </h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-md text-sm leading-relaxed">
+                    Deploy high-precision CAD wireframes and industrial structural data with the Nero 27 Framework. Built for heavy-load industrial environments.
+                </p>
+<div class="flex flex-col xs:flex-row gap-3 mt-4">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-lg">edit_document</span>
+                        Explore Blueprints
+                    </button>
+<button class="bg-white/5 border border-slate-200 dark:border-white/10 dark:text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">play_circle</span>
+                        Simulate Load
+                    </button>
+</div>
+</div>
+<!-- Wireframe Decoration -->
+<div class="mt-12 rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 aspect-video relative group bg-black/20">
+<img alt="Structural engineering technical drawing" class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:scale-105 transition-transform duration-700" data-alt="Monochrome engineering blueprint with orange structural highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY8nR9W4pQBgf0wMXiQfOrKuUO-LVZQ4FCzL4MbxUzmMOWW_8oubUPn-XhiuQykLlYsOE7AOw-xFxZXdHRSJphzkVF4Dwkp4znnQCKn0DhKMfCjSTvFQitHFv1-vM7dsEMCKiAejtcatT0CNPeWEFp1A9feNCZseeXsJ9pEcdEBU8ZhU69J3RpiXvZilGzbKvjgAvSbRFO0faiAFpvx10HtN8sF3KOI5k4sIgXTUzXbBiBSOc2tu37txdKie-kIflegfABVv3uTyg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent"></div>
+<!-- UI Overlay on Image -->
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div class="bg-black/60 backdrop-blur-md p-3 rounded-lg border border-white/10">
+<p class="text-[10px] uppercase font-bold text-primary mb-1">Live Telemetry</p>
+<div class="flex gap-4">
+<div>
+<p class="text-[8px] text-slate-400">Stress</p>
+<p class="font-mono text-xs text-white">42.8%</p>
+</div>
+<div>
+<p class="text-[8px] text-slate-400">Deflection</p>
+<p class="font-mono text-xs text-white">0.02mm</p>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary animate-pulse text-3xl">target</span>
+</div>
+</div>
+</section>
+<!-- Technical Specs Section -->
+<section class="px-6 py-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                    Technical Specs
+                </h3>
+<span class="text-[10px] font-mono text-slate-500 tracking-tighter">REF: SEC-770/B</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-1 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">info</span>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 mb-1">Load Capacity</p>
+<p class="text-2xl font-black dark:text-white">450<span class="text-sm font-normal text-primary ml-1">kN</span></p>
+<div class="w-full bg-slate-200 dark:bg-white/10 h-1 mt-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%] rounded-full"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 rounded-xl">
+<p class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 mb-1">Material Grade</p>
+<p class="text-2xl font-black dark:text-white">A36</p>
+<p class="text-[10px] mt-2 font-mono text-slate-500">ASTM Certified</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 rounded-xl">
+<p class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 mb-1">Tolerance</p>
+<p class="text-2xl font-black dark:text-white">±0.01<span class="text-sm font-normal text-primary ml-1">mm</span></p>
+<p class="text-[10px] mt-2 font-mono text-slate-500">High Precision</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 rounded-xl">
+<p class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 mb-1">CAD Compliance</p>
+<p class="text-2xl font-black dark:text-white italic">ISO<span class="text-sm font-normal text-primary ml-1">2024</span></p>
+<p class="text-[10px] mt-2 font-mono text-slate-500">Nero Certified</p>
+</div>
+</div>
+</section>
+<!-- Architecture Timeline -->
+<section class="px-6 py-8 relative">
+<h3 class="text-xl font-bold dark:text-white mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_tree</span>
+                Architecture Flow
+            </h3>
+<div class="relative ml-4 border-l-2 border-slate-200 dark:border-white/10 pl-8 space-y-10">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[41px] top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark z-10"></div>
+<div>
+<span class="text-[10px] font-bold uppercase text-primary tracking-widest">Phase 01</span>
+<h4 class="text-lg font-bold dark:text-white mt-1">Foundational Layout</h4>
+<p class="text-sm text-slate-500 mt-2 leading-relaxed">Defining the primary structural grid and weight distribution points for the industrial frame.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[41px] top-0 size-5 rounded-full bg-slate-300 dark:bg-white/20 border-4 border-background-light dark:border-background-dark z-10"></div>
+<div>
+<span class="text-[10px] font-bold uppercase text-slate-400 dark:text-slate-500 tracking-widest">Phase 02</span>
+<h4 class="text-lg font-bold dark:text-white mt-1">Stress Distribution Analysis</h4>
+<p class="text-sm text-slate-500 mt-2 leading-relaxed">Real-time simulation of environmental factors and mechanical load testing on virtual nodes.</p>
+<div class="flex gap-2 mt-4">
+<span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-mono text-slate-500">CAD v2.1</span>
+<span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-mono text-slate-500">SIMULATION</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[41px] top-0 size-5 rounded-full bg-slate-300 dark:bg-white/20 border-4 border-background-light dark:border-background-dark z-10"></div>
+<div>
+<span class="text-[10px] font-bold uppercase text-slate-400 dark:text-slate-500 tracking-widest">Phase 03</span>
+<h4 class="text-lg font-bold dark:text-white mt-1">Structural Finalization</h4>
+<p class="text-sm text-slate-500 mt-2 leading-relaxed">Compilation of all technical drawings into a singular, executable industrial blueprint.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Engineering Feed -->
+<section class="px-6 py-8 bg-slate-100 dark:bg-white/5 border-y border-slate-200 dark:border-white/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold dark:text-white">Recent Updates</h3>
+<span class="material-symbols-outlined text-primary">rss_feed</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start bg-white dark:bg-background-dark/50 p-3 rounded-lg border border-slate-200 dark:border-white/10">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">update</span>
+</div>
+<div>
+<p class="text-xs font-bold dark:text-white leading-tight">Node Optimization v2.44</p>
+<p class="text-[10px] text-slate-500 mt-1">2 hours ago • Applied to Central Frame</p>
+</div>
+</div>
+<div class="flex gap-4 items-start bg-white dark:bg-background-dark/50 p-3 rounded-lg border border-slate-200 dark:border-white/10">
+<div class="p-2 rounded-lg bg-green-500/10 text-green-500">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold dark:text-white leading-tight">Compliance Verification</p>
+<p class="text-[10px] text-slate-500 mt-1">5 hours ago • Passed ISO-9001 Standards</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Footer Info -->
+<section class="px-6 py-12 text-center">
+<h4 class="text-2xl font-black dark:text-white mb-4 italic">Ready to Engineer?</h4>
+<p class="text-sm text-slate-500 mb-8 max-w-xs mx-auto">Access the full structural documentation and begin your project implementation with Nero 27.</p>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-5 rounded-xl flex items-center justify-center gap-3 transition-transform active:scale-95 shadow-xl shadow-primary/25">
+<span class="material-symbols-outlined">download</span>
+                Download Full Blueprints
+            </button>
+<p class="text-[10px] font-mono text-slate-500 mt-6 uppercase tracking-[0.2em]">End of Technical Summary</p>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="sticky bottom-0 z-50 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-white/10 px-6 py-3">
+<div class="flex items-center justify-between max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-[1]">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">draw</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Drafts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Specs</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Decorative Corner Elements (CAD Style) -->
+<div class="fixed top-24 left-0 w-2 h-16 border-y border-r border-primary/30 pointer-events-none"></div>
+<div class="fixed top-24 right-0 w-2 h-16 border-y border-l border-primary/30 pointer-events-none"></div>
+<div class="fixed bottom-32 right-4 text-[8px] font-mono text-primary/40 rotate-90 origin-right pointer-events-none uppercase tracking-[0.3em]">
+        Nero Structural System v.27.01
+    </div>
+</body></html>

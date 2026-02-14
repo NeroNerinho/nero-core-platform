@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Typography Specs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Chivo:wght@300;400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "primary-light": "#6c499c",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "tech-paper": "#F0F2F5",
+                        "tech-ink": "#0F172A",
+                        "tech-orange": "#FF4500",
+                        "tech-grid": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Chivo", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #E2E8F0 1px, transparent 1px), linear-gradient(to bottom, #E2E8F0 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f5f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Grid Background Utility */
+        .bg-tech-grid {
+            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(76, 9, 170, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(76, 9, 170, 0.05) 1px, transparent 1px);
+        }
+        
+        .border-dashed-vertical {
+            background-image: linear-gradient(to bottom, #4c09aa 50%, transparent 50%);
+            background-position: left center;
+            background-repeat: repeat-y;
+            background-size: 1px 8px;
+        }
+
+        .crop-mark {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: #4c09aa;
+            z-index: 10;
+        }
+        .crop-tl { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
+        .crop-tr { top: -1px; right: -1px; border-top: 1px solid; border-right: 1px solid; }
+        .crop-bl { bottom: -1px; left: -1px; border-bottom: 1px solid; border-left: 1px solid; }
+        .crop-br { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-tech-ink antialiased min-h-screen flex flex-col overflow-hidden">
+<!-- Header / Status Bar -->
+<header class="sticky top-0 z-50 bg-background-light/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 px-4 py-3 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">grid_view</span>
+<div class="flex flex-col">
+<h1 class="text-sm font-bold tracking-tight leading-none text-primary">NERO 27</h1>
+<span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">v1.0 // Build 2024</span>
+</div>
+</div>
+<div class="flex items-center gap-2 border border-primary/20 bg-primary/5 px-2 py-1 rounded">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-[10px] font-mono font-medium text-primary uppercase tracking-wider">System: Online</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-tech-grid relative pb-24">
+<div class="max-w-md mx-auto p-4 flex flex-col gap-6">
+<!-- Title Section -->
+<div class="flex justify-between items-end border-b border-primary/20 pb-2">
+<div>
+<span class="text-[10px] font-mono text-gray-400 block mb-1">SECTION ID</span>
+<h2 class="text-2xl font-bold text-gray-900 tracking-tight">03. TYPOGRAPHY</h2>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-mono text-gray-400 block mb-1">STATUS</span>
+<span class="text-xs font-mono bg-black text-white px-1 py-0.5">CALIBRATED</span>
+</div>
+</div>
+<!-- Family Identity Card -->
+<div class="relative bg-white border border-gray-200 p-6 shadow-sm group">
+<!-- Crop Marks -->
+<div class="crop-mark crop-tl group-hover:border-tech-orange transition-colors"></div>
+<div class="crop-mark crop-tr group-hover:border-tech-orange transition-colors"></div>
+<div class="crop-mark crop-bl group-hover:border-tech-orange transition-colors"></div>
+<div class="crop-mark crop-br group-hover:border-tech-orange transition-colors"></div>
+<div class="flex justify-between items-start mb-8">
+<div>
+<span class="text-[10px] font-mono text-primary uppercase tracking-widest border border-primary/20 px-1.5 py-0.5 rounded-sm">Primary Family</span>
+<h3 class="text-4xl font-bold mt-2 text-gray-900">Space Grotesk</h3>
+</div>
+<div class="w-12 h-12 flex items-center justify-center border border-gray-100 bg-gray-50 text-2xl font-bold text-gray-300">
+                        Aa
+                    </div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4">
+<div>
+<span class="block text-[10px] font-mono text-gray-400 mb-1">CLASSIFICATION</span>
+<span class="text-sm font-medium">Geometric Sans-Serif</span>
+</div>
+<div>
+<span class="block text-[10px] font-mono text-gray-400 mb-1">AVAILABLE WEIGHTS</span>
+<div class="flex gap-1">
+<span class="w-4 h-4 bg-gray-200 rounded-sm flex items-center justify-center text-[8px] font-mono">L</span>
+<span class="w-4 h-4 bg-gray-400 rounded-sm flex items-center justify-center text-[8px] font-mono text-white">R</span>
+<span class="w-4 h-4 bg-gray-600 rounded-sm flex items-center justify-center text-[8px] font-mono text-white">M</span>
+<span class="w-4 h-4 bg-gray-900 rounded-sm flex items-center justify-center text-[8px] font-mono text-white">B</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Type Scale Visualizer (The Ruler) -->
+<div class="relative flex flex-col gap-0">
+<div class="flex justify-between items-center mb-2 px-1">
+<span class="text-[10px] font-mono font-bold text-gray-500 uppercase">Hierarchy Scale</span>
+<span class="text-[10px] font-mono text-gray-400">UNIT: PIXEL (px)</span>
+</div>
+<!-- H1 Scale -->
+<div class="flex items-stretch border-l border-primary/30 pl-4 py-4 relative group hover:bg-white/50 transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-[1px] bg-primary group-hover:bg-tech-orange transition-colors"></div>
+<div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-3 h-[1px] bg-primary"></div>
+<div class="w-16 flex-shrink-0 flex flex-col justify-center border-r border-dashed border-gray-300 pr-3 mr-4">
+<span class="text-xl font-mono font-bold text-primary">32</span>
+<span class="text-[10px] font-mono text-gray-400">H1 Display</span>
+</div>
+<div class="flex-1">
+<h1 class="text-[32px] leading-tight font-bold text-gray-900 -tracking-[0.02em]">NERO 27</h1>
+<span class="text-[10px] font-mono text-gray-400 mt-1 block">Weight: 700 / LS: -2%</span>
+</div>
+</div>
+<!-- H2 Scale -->
+<div class="flex items-stretch border-l border-primary/30 pl-4 py-4 relative group hover:bg-white/50 transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-[1px] bg-primary/30 group-hover:bg-tech-orange transition-colors"></div>
+<div class="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-[1px] bg-primary/30"></div>
+<div class="w-16 flex-shrink-0 flex flex-col justify-center border-r border-dashed border-gray-300 pr-3 mr-4">
+<span class="text-base font-mono font-bold text-primary">12</span>
+<span class="text-[10px] font-mono text-gray-400">H2 Label</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-[12px] font-medium text-gray-900 tracking-[0.1em] uppercase">Engineering Precision</h2>
+<span class="text-[10px] font-mono text-gray-400 mt-1 block">Weight: 500 / LS: +10%</span>
+</div>
+</div>
+<!-- Body Scale -->
+<div class="flex items-stretch border-l border-primary/30 pl-4 py-4 relative group hover:bg-white/50 transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-[1px] bg-primary/30 group-hover:bg-tech-orange transition-colors"></div>
+<div class="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-[1px] bg-primary/30"></div>
+<div class="w-16 flex-shrink-0 flex flex-col justify-center border-r border-dashed border-gray-300 pr-3 mr-4">
+<span class="text-sm font-mono font-bold text-primary">15</span>
+<span class="text-[10px] font-mono text-gray-400">P Body</span>
+</div>
+<div class="flex-1">
+<p class="font-body text-[15px] leading-[140%] text-gray-700">The golden ratio, also known as the divine proportion, is a mathematical ratio. It is commonly found in nature, and when used in a design, it fosters organic and natural-looking compositions.</p>
+<span class="text-[10px] font-mono text-gray-400 mt-2 block">Family: Chivo / Weight: 400</span>
+</div>
+</div>
+</div>
+<!-- Alphabet Grid (Optometry Chart Style) -->
+<div class="bg-white border border-gray-200 relative mt-4">
+<div class="bg-gray-50 border-b border-gray-200 px-3 py-2 flex justify-between items-center">
+<span class="text-[10px] font-mono font-bold text-gray-500 uppercase">Glyph Analysis Grid</span>
+<span class="material-symbols-outlined text-gray-400 text-sm">view_module</span>
+</div>
+<div class="grid grid-cols-6 divide-x divide-y divide-gray-100 border-b border-gray-100">
+<!-- Row 1 -->
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        A
+                        <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">01</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        B
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">02</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        C
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">03</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        D
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">04</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        E
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">05</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        F
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">06</span>
+</div>
+<!-- Row 2 -->
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        G
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">07</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        H
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">08</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        I
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">09</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        J
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">10</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        K
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">11</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        L
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">12</span>
+</div>
+<!-- Row 3 -->
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        M
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">13</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        N
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">14</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        O
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">15</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        P
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">16</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        Q
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">17</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        R
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">18</span>
+</div>
+<!-- Row 4 -->
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        S
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">19</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        T
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">20</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        U
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">21</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        V
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">22</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        W
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">23</span>
+</div>
+<div class="aspect-square flex items-center justify-center text-xl font-medium text-gray-800 hover:bg-primary/5 hover:text-primary transition-colors cursor-crosshair group relative">
+                        X
+                         <span class="absolute top-0.5 left-0.5 text-[6px] font-mono text-gray-300 opacity-0 group-hover:opacity-100">24</span>
+</div>
+</div>
+<!-- Special Character Bar -->
+<div class="bg-gray-50 p-2 flex justify-between items-center text-[10px] font-mono text-gray-500 border-t border-gray-100">
+<span>FIG 3.2 - GLYPH MAP</span>
+<span class="tracking-widest">100% SCALE</span>
+</div>
+</div>
+<!-- Character Geometry Note -->
+<div class="border border-dotted border-gray-300 p-4 rounded bg-white/50">
+<div class="flex gap-4">
+<div class="w-12 h-12 border border-gray-200 bg-white flex items-center justify-center relative">
+<div class="absolute inset-0 border border-tech-orange/20 rounded-full m-1"></div>
+<span class="text-2xl font-bold">O</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-tech-orange rounded-full"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-[10px] font-mono font-bold text-gray-500 uppercase mb-1">Geometric Construction</h4>
+<p class="text-xs text-gray-600 leading-relaxed font-body">
+                            Characters are constructed on a strict geometric grid. Notice the near-perfect circular strokes in 'O', 'C', and 'G', contrasting with the sharp 90° terminals in 'T' and 'L'.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Component from list) -->
+<div class="relative flex h-auto w-full flex-col bg-[#faf8fc] group/design-root border-t border-[#ece7f4] z-50">
+<div class="flex gap-2 bg-[#faf8fc] px-4 pb-3 pt-2">
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">pentagon</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Logo</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">palette</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Color</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-tech-ink" href="#">
+<!-- Active Indicator -->
+<div class="relative">
+<div class="text-tech-ink flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px] font-bold">article</span>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-tech-orange rounded-full"></div>
+</div>
+<p class="text-tech-ink text-xs font-bold leading-normal tracking-[0.015em]">Type</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#6c499c]" href="#">
+<div class="text-[#6c499c] flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">folder_open</span>
+</div>
+<p class="text-[#6c499c] text-xs font-medium leading-normal tracking-[0.015em]">Assets</p>
+</a>
+</div>
+<div class="h-5 bg-[#faf8fc]"></div>
+</div>
+</body></html>

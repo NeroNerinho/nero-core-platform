@@ -2,7 +2,19 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light" | "system"
+export type Theme =
+    | 'abstracao' | 'geometria' | 'cyberpunk' | 'darkness'
+    | 'retro' | 'renascimento' | 'ux-precision' | 'noir'
+    | 'antique' | 'quantum-sync' | 'blueprint' | 'terminal'
+    | 'light' | 'dark' | 'system'
+
+const THEME_CLASSES = [
+    'theme-abstracao', 'theme-geometria', 'theme-cyberpunk', 'theme-darkness',
+    'theme-retro', 'theme-renascimento', 'theme-ux-precision', 'theme-noir',
+    'theme-antique', 'theme-quantum-sync', 'theme-blueprint', 'theme-terminal'
+]
+
+const LIGHT_THEMES: Theme[] = ['renascimento', 'ux-precision', 'antique', 'light']
 
 interface ThemeProviderProps {
     children: React.ReactNode
@@ -24,27 +36,39 @@ export function ThemeProvider({
     children,
     defaultTheme = "dark",
     storageKey = "nero27-theme",
+    ...props
 }: ThemeProviderProps) {
-    const [theme, setTheme] = useState<Theme>(defaultTheme)
-    const [mounted, setMounted] = useState(false)
+    const [theme, setTheme] = useState<Theme>(
+        () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    )
 
     useEffect(() => {
-        setMounted(true)
-        const stored = localStorage.getItem(storageKey) as Theme
-        if (stored) setTheme(stored)
-    }, [storageKey])
-
-    useEffect(() => {
-        if (!mounted) return
         const root = window.document.documentElement
-        root.classList.remove("light", "dark")
-        if (theme === "system") {
-            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-            root.classList.add(systemTheme)
-        } else {
-            root.classList.add(theme)
+
+        // 1. Remove all specific theme classes
+        root.classList.remove(...THEME_CLASSES)
+
+        // 2. Clear base classes
+        root.classList.remove('light', 'dark')
+
+        // 3. Determine base mode (Light or Dark)
+        let baseMode: 'light' | 'dark' = 'dark' // Default to dark for most Nero designs
+
+        if (theme === 'system') {
+            baseMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        } else if (LIGHT_THEMES.includes(theme)) {
+            baseMode = 'light'
         }
-    }, [theme, mounted])
+
+        root.classList.add(baseMode)
+
+        // 4. Apply specific theme identity
+        if (theme !== 'light' && theme !== 'dark' && theme !== 'system') {
+            root.classList.add(`theme-${theme}`)
+        }
+
+        localStorage.setItem(storageKey, theme)
+    }, [theme, storageKey])
 
     const value = {
         theme,

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rules Renascimento V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9d406",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#23200f",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for Webkit browsers */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #f9d406;
+            border-radius: 9999px;
+        }
+        /* Drop cap styling */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            font-weight: 700;
+            color: #f9d406;
+            padding-right: 0.5rem;
+            padding-top: 0.25rem;
+        }
+        /* Justified text with hyphenation for a document feel */
+        .charter-text {
+            text-align: justify;
+            hyphens: auto;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 antialiased overflow-hidden h-screen flex flex-col items-center justify-center">
+<!-- Mobile Container -->
+<div class="w-full max-w-md h-full max-h-[900px] flex flex-col relative shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark border-x border-primary/20">
+<!-- Header -->
+<header class="pt-8 pb-4 px-6 text-center border-b border-primary/20 relative z-10 shrink-0 bg-background-light dark:bg-background-dark">
+<div class="mb-2 text-primary text-xs uppercase tracking-[0.3em] font-bold">Protocol 2024</div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Governance Charter</h1>
+<div class="flex items-center justify-center gap-2">
+<span class="h-[1px] w-8 bg-primary"></span>
+<span class="material-icons text-primary text-sm">history_edu</span>
+<span class="h-[1px] w-8 bg-primary"></span>
+</div>
+</header>
+<!-- Document Content (Scrollable) -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-6 pt-6 pb-24 relative">
+<!-- Watermark / Background Decoration -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-[0.03] dark:opacity-[0.05] overflow-hidden">
+<span class="material-icons text-[400px]">security</span>
+</div>
+<!-- Content Wrapper -->
+<div class="relative z-10 space-y-8">
+<!-- Preamble -->
+<section>
+<p class="drop-cap charter-text text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                        We, the architects of the new digital foundation, hereby establish these guidelines to ensure the longevity, stability, and elegance of our shared craft. In the spirit of the Renascimento Técnico, we pledge to uphold standards that elevate our code from mere function to enduring art.
+                    </p>
+</section>
+<!-- Divider -->
+<div class="flex justify-center my-4">
+<span class="material-icons text-primary/40 text-xs">horizontal_rule</span>
+</div>
+<!-- Article I -->
+<section>
+<h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider border-l-4 border-primary pl-3">Article I: Code Integrity</h2>
+<p class="charter-text text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4">
+                        Every function shall serve a singular purpose, unburdened by complexity. No code shall be merged into the sacred repository without the thoughtful review of at least two peers. Refactoring is not a chore, but a duty to the future.
+                    </p>
+<ul class="list-none space-y-2 pl-4 border-l border-primary/20">
+<li class="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+<span class="text-primary font-bold">§1.1</span> Functions must not exceed 20 lines.
+                        </li>
+<li class="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+<span class="text-primary font-bold">§1.2</span> Comments shall explain 'why', not 'how'.
+                        </li>
+</ul>
+</section>
+<!-- Article II -->
+<section>
+<h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider border-l-4 border-primary pl-3">Article II: Deployment</h2>
+<p class="charter-text text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                        The path to production is sacred. Friday deployments are hereby forbidden, lest they disturb the peace of the weekend. Rollback strategies must be defined before any new feature breathes the air of the live environment.
+                    </p>
+</section>
+<!-- Signatures Section -->
+<section class="mt-12 mb-8 pt-8 border-t border-primary/30">
+<p class="text-center italic text-sm text-gray-500 mb-8">In witness whereof, the undersigned have affixed their digital seals this 24th day of October.</p>
+<div class="grid grid-cols-2 gap-6">
+<!-- Signature 1 -->
+<div class="flex flex-col">
+<div class="h-16 border-b border-gray-400 dark:border-gray-600 flex items-end pb-1 relative">
+<!-- Mock Signature -->
+<img alt="Handwritten signature scan" class="h-10 opacity-70 dark:invert" data-alt="Abstract handwritten signature lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP7YCylQImtFrbONFoNVpvQw4mDtUJ2gsLfc9nQHMwD4K6Xu0su41eHFDyf46rhbkaOkSWDKO_nJN8b7KeHejTCvln4M-qP40FJH9WKdyjXSKqtCP-K6yH9H1MlHmhYW1xfTCydvJSi0ANvlqO0z5zEKsiwCuqiEqmc5h0ly0-EAqjAsuiwdqf7pU76H2xRdy78vJN9rFQ6BpuopAT81OPnC_h3Wd5tnONkPQ7i3dk60BteYAPWUfuEd4BDTfTc7koEaz0wmtNcgQ"/>
+</div>
+<span class="mt-2 text-xs uppercase tracking-widest text-gray-500 font-bold">Lead Architect</span>
+</div>
+<!-- Signature 2 -->
+<div class="flex flex-col">
+<div class="h-16 border-b border-gray-400 dark:border-gray-600 flex items-end pb-1 relative">
+<div class="w-full text-center text-gray-400 italic text-sm self-center">Pending...</div>
+</div>
+<span class="mt-2 text-xs uppercase tracking-widest text-gray-500 font-bold">Product Owner</span>
+</div>
+</div>
+</section>
+<!-- Spacer for FAB -->
+<div class="h-16"></div>
+</div>
+</main>
+<!-- Floating Action Button Area -->
+<div class="absolute bottom-6 left-0 right-0 px-6 flex justify-center z-20 pointer-events-none">
+<button class="pointer-events-auto bg-primary text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#e0be05] hover:shadow-xl transition-all flex items-center gap-2 transform active:scale-95 group">
+<span class="material-icons text-xl group-hover:rotate-12 transition-transform">verified</span>
+<span>Affix My Seal</span>
+</button>
+</div>
+<!-- Bottom Fade Gradient for content overflow indication -->
+<div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-10"></div>
+</div>
+</body></html>

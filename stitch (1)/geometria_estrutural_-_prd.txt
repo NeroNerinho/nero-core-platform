@@ -1,0 +1,212 @@
+# Geometria Estrutural: Nero 27 Brand Board
+
+## Product Overview
+
+**The Pitch:** A digital brand guideline that feels less like a document and more like a calibrated instrument. This mobile experience presents the "Nero 27" identity through an interactive blueprint interface, treating the brand assets as precision-engineered components.
+
+**For:** Stakeholders, designers, and engineers interacting with the Nero 27 brand who value accuracy, function, and industrial aesthetics.
+
+**Device:** Mobile (Vertical constraint emphasizes the grid structure).
+
+**Design Direction:** **Technical Brutalism.** A "Blueprint" aesthetic where the grid is the hero, not the background. Everything is measured, aligned, and exposed. It feels like a CAD file brought to life on a glass screen.
+
+**Inspired by:**
+- **Braun's 1960s Product Manuals:** High contrast, Helvetica-heavy, informational density.
+- **AutoCAD/Revit Interfaces:** Visible snap-points, crosshairs, construction lines.
+
+---
+
+## Screens
+
+- **01. Initialization (Splash):** A generative grid sequence constructing the golden ratio.
+- **02. The Mainframe (Dashboard):** Primary navigation via an isometric schematic view.
+- **03. Logotype Construct:** Detailed breakdown of the primary logo with construction lines toggled on/off.
+- **04. Color Spectrometry:** Interactive palette presentation using data visualization values.
+- **05. Typography Specs:** A type-tester resembling an optometry chart or spec sheet.
+- **06. Asset Repository:** A "parts drawer" list for downloading icons and variations.
+
+---
+
+## Key Flows
+
+**Flow: Analyzing the Logo Geometry**
+
+1. User lands on **The Mainframe** -> sees the Nero 27 logo floating on a grid.
+2. User taps "Construction Analysis" -> navigates to **Logotype Construct**.
+3. User toggles "Show Grid" -> thin cyan lines appear, revealing the Golden Ratio circles underlying the logo.
+4. User drags a slider -> logo opacity changes, highlighting the "27" angle geometry.
+
+---
+
+<details>
+<summary>Design System</summary>
+
+## Color Palette
+
+- **Primary:** `#0047AB` (Technical Blue) - Primary brand elements, active states.
+- **Background:** `#F0F2F5` (Drafting Paper) - Main background, slight cool tint.
+- **Surface:** `#FFFFFF` (Pure White) - Cards, focal points.
+- **Text:** `#0F172A` (Ink Black) - Primary copy, absolute contrast.
+- **Muted:** `#94A3B8` (Graphite) - Secondary text, inactive grid lines.
+- **Accent:** `#FF4500` (Safety Orange) - Critical alerts, call-to-actions, "measurement" markers.
+- **Grid:** `#E2E8F0` (Faint Blue) - The persistent 20px background grid.
+
+## Typography
+
+**Font Family:** *Space Grotesk* (or *Chivo* as fallback). Geometric, tabular, unwavering.
+
+- **Display (H1):** *Space Grotesk*, 700, 32px (Uppercase, -2% letter spacing).
+- **Section Label (H2):** *Space Grotesk*, 500, 12px (Uppercase, +10% letter spacing, monospace feel).
+- **Body:** *Chivo*, 400, 15px (140% line height, legible).
+- **Data/Specs:** *JetBrains Mono*, 400, 11px (For hex codes, dimensions).
+
+**Style Notes:**
+- **The "Blueprint" Border:** Every container has a `1px solid #E2E8F0` border.
+- **Corner Marks:** Absolute positioned "+" symbols (10px size) at the corners of major cards to mimic crop marks.
+- **Visible Structure:** Use of dotted lines (`border-style: dotted`) to connect related elements.
+
+## Design Tokens
+
+```css
+:root {
+  --color-tech-blue: #0047AB;
+  --color-paper: #F0F2F5;
+  --color-ink: #0F172A;
+  --color-safety: #FF4500;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --grid-size: 20px;
+  --border-thin: 1px solid #CBD5E1;
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary>Screen Specifications</summary>
+
+### 01. Initialization (Splash)
+
+**Purpose:** Set the tone. Establish the mathematical foundation of the brand.
+
+**Layout:** Full screen, centered.
+
+**Key Elements:**
+- **Golden Spiral Animation:** A single white line draws a golden spiral on the Technical Blue background.
+- **Coordinate Counter:** Bottom left. Rapidly changing numbers (`X: 104.22`, `Y: 40.01`) that freeze when the logo locks in.
+- **Final Lockup:** The spiral resolves into the "Nero 27" text.
+
+**Interactions:**
+- Auto-redirects to **The Mainframe** after 2.5s.
+
+### 02. The Mainframe (Dashboard)
+
+**Purpose:** Navigation hub designed as a technical schematic.
+
+**Layout:** Top header (Brand Name + Version). 2x2 Grid of large navigational cards. Bottom status bar.
+
+**Key Elements:**
+- **Header:** `Nero 27 // v1.0`. Right aligned: "System: Online" (Green dot).
+- **Nav Card [Logo]:** Top-Left. Large "N" glyph. Label: "01. LOGOTYPE".
+- **Nav Card [Color]:** Top-Right. Split block of Blue/White. Label: "02. CHROMATICS".
+- **Nav Card [Type]:** Bottom-Left. "Aa" glyph. Label: "03. TYPOGRAPHY".
+- **Nav Card [Assets]:** Bottom-Right. Download icon. Label: "04. REPOSITORY".
+
+**Components:**
+- **Tech Card:** Aspect ratio 1:1. White background. 1px grey border. Hover: Border becomes Blue, corner "+" marks turn Orange.
+
+**Responsive:**
+- **Mobile:** 1 column vertical stack (cards become 100% width).
+- **Desktop:** 2x2 Grid as described.
+
+### 03. Logotype Construct
+
+**Purpose:** Detail view of the logo geometry.
+
+**Layout:** Large hero area at top showing logo. Toggles below. Usage rules at bottom.
+
+**Key Elements:**
+- **The Stage:** 300px height container. Graph paper background pattern. Center: Nero 27 Primary Logo.
+- **Toggle Group:** Segmented control: `[Solid] [Outline] [Grid]`.
+- **Construction Lines:** When `[Grid]` is active, SVG overlays appear showing the circles and angles used to build the "N" and "27". Lines are Cyan `#06B6D4`, 1px dash.
+- **Clearance Spec:** A box surrounding the logo with `x` height markers indicating safe zones.
+
+**States:**
+- **Grid View:** Shows the "math" behind the logo.
+
+### 04. Color Spectrometry
+
+**Purpose:** Present the palette as data points.
+
+**Layout:** Vertical list of color "swatches" treated as chemical samples.
+
+**Key Elements:**
+- **Swatch Card:** Full width. Height 80px.
+    - **Left:** Solid color block (60px wide).
+    - **Right:** Details.
+        - Row 1: **Primary Blue** (H2 style).
+        - Row 2: Hex: `#0047AB` (Mono font, copy-able).
+        - Row 3: CMYK: `100, 75, 0, 5` (Mono font).
+- **Usage Ratio Bar:** A horizontal bar at the top showing the suggested ratio of color usage on a page (10% Blue, 80% White, 5% Grey, 5% Orange).
+
+**Interactions:**
+- **Tap Swatch:** "Copied to Clipboard" toast appears. Toast is styled like a system notification (black, sharp corners).
+
+### 05. Typography Specs
+
+**Purpose:** Demonstrate font hierarchy and mechanics.
+
+**Layout:** Waterfall flow. H1 down to caption.
+
+**Key Elements:**
+- **Spec Sheet Header:** "FAMILY: SPACE GROTESK".
+- **Type Scale Visualizer:**
+    - **H1:** "NERO 27" (700 wt, 32px). Ruler line next to it showing "32px".
+    - **H2:** "ENGINEERING PRECISION" (500 wt, 12px, tracking wide). Ruler showing "12px".
+    - **Body:** "The golden ratio, also known as the divine proportion..." (400 wt, 15px).
+- **Alphabet Grid:** A-Z displayed in a monospace grid to show glyph construction.
+
+### 06. Asset Repository
+
+**Purpose:** File download center.
+
+**Layout:** Dense list view. Resembles a file directory.
+
+**Key Elements:**
+- **Filter Bar:** `[SVG] [PNG] [PDF]`.
+- **File Row:**
+    - Icon: Filetype (e.g., "SVG" inside a square).
+    - Name: `nero27_primary_blue.svg`.
+    - Meta: `12KB | Vector`.
+    - Action: Download arrow (Right aligned).
+
+**Interactions:**
+- **Click Row:** Simulates a download start. The download arrow turns into a loading spinner, then a checkmark.
+
+</details>
+
+---
+
+<details>
+<summary>Build Guide</summary>
+
+**Stack:** HTML5, Tailwind CSS v3 (no JS framework required, plain vanilla JS for toggles).
+
+**Tailwind Config:**
+- Extend `colors` with the custom palette.
+- Extend `fontFamily` with Space Grotesk and JetBrains Mono.
+- Add `backgroundImage` utility for the grid pattern (CSS radial-gradient or linear-gradient).
+
+**Build Order:**
+1. **The Mainframe:** Establishes the `layout.html` shell, the grid background, and the card component logic.
+2. **Logotype Construct:** High complexity due to the SVG overlay toggles. Tackle this to ensure the "engineering" vibe lands.
+3. **Color & Type:** Static content pages, easy to skin once the system is defined.
+4. **Splash:** Polish item.
+
+**Asset Requirements:**
+- SVG of the Nero 27 logo.
+- SVG "construction lines" layer (circles/lines that match the logo).
+
+</details>

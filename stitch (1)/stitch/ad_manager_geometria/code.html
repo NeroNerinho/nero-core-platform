@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ad Manager Geometria</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #06e8f910 1px, transparent 1px), linear-gradient(to bottom, #06e8f910 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .blueprint-grid {
+            background-size: 20px 20px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 8px; height: 8px;
+            border-top: 1px solid #06e8f9;
+            border-left: 1px solid #06e8f9;
+        }
+        .tech-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 8px; height: 8px;
+            border-bottom: 1px solid #06e8f9;
+            border-right: 1px solid #06e8f9;
+        }
+        /* Custom scrollbar for raw industrial feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f2123; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #254044; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display antialiased min-h-screen flex justify-center selection:bg-primary selection:text-black">
+<div class="w-full max-w-md bg-background-light dark:bg-background-dark relative overflow-hidden shadow-2xl min-h-screen flex flex-col">
+<!-- Background Grid Effect -->
+<div class="absolute inset-0 bg-grid-pattern blueprint-grid pointer-events-none opacity-30"></div>
+<!-- Status Bar Placehold (Visual only for iOS feel) -->
+<div class="h-12 w-full flex justify-between items-center px-6 pt-2 z-20">
+<span class="text-xs font-mono opacity-60">09:41</span>
+<div class="flex gap-1.5">
+<div class="w-4 h-4 rounded-sm border border-current opacity-40"></div>
+<div class="w-4 h-4 rounded-sm bg-current opacity-80"></div>
+</div>
+</div>
+<!-- Header -->
+<header class="px-5 pt-2 pb-6 z-10 border-b border-primary/20 backdrop-blur-sm sticky top-0 bg-background-light/90 dark:bg-background-dark/90">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h1 class="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-1">Module: Ad Manager</h1>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#06e8f9]"></span>
+<h2 class="text-xl font-bold tracking-tight text-white">GEOMETRIA<span class="text-primary opacity-50 font-light mx-1">//</span>CORE</h2>
+</div>
+</div>
+<button class="p-2 border border-primary/30 rounded-lg hover:bg-primary/10 active:bg-primary/20 transition-colors group">
+<span class="material-icons text-primary text-xl group-hover:rotate-90 transition-transform duration-500">settings</span>
+</button>
+</div>
+<!-- Account Selector -->
+<div class="flex items-center gap-3 p-1 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md">
+<div class="w-8 h-8 rounded bg-gradient-to-br from-primary/80 to-cyan-900 flex items-center justify-center text-black font-bold text-xs">
+                    G
+                </div>
+<div class="flex-1">
+<div class="text-[10px] text-white/40 font-mono uppercase">Current Structure</div>
+<div class="text-sm font-medium text-white flex items-center gap-2">
+                        Geometria Global 
+                        <span class="material-icons text-[14px] text-primary">expand_more</span>
+</div>
+</div>
+<div class="px-3 py-1 bg-primary/10 border border-primary/30 rounded text-primary text-xs font-mono">
+                    ID:884-X
+                </div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-24 z-10 px-5 pt-6 space-y-8">
+<!-- KPI Row -->
+<section class="grid grid-cols-2 gap-3">
+<!-- KPI 1 -->
+<div class="relative group p-4 bg-white/5 border border-white/10 hover:border-primary/40 transition-all rounded-lg">
+<div class="absolute top-0 right-0 p-1 opacity-50">
+<svg class="text-primary" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+</div>
+<div class="text-[10px] font-mono text-white/50 uppercase tracking-wider mb-1">Total Spend</div>
+<div class="text-2xl font-mono text-white font-medium">$4,250<span class="text-white/30 text-lg">.00</span></div>
+<div class="h-0.5 w-full bg-white/10 mt-3 relative overflow-hidden rounded-full">
+<div class="absolute top-0 left-0 h-full bg-primary w-[75%]"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="relative group p-4 bg-white/5 border border-white/10 hover:border-primary/40 transition-all rounded-lg">
+<div class="absolute top-0 right-0 p-1 opacity-50">
+<svg class="text-primary" fill="none" height="12" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="12"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+</div>
+<div class="text-[10px] font-mono text-white/50 uppercase tracking-wider mb-1">ROAS Factor</div>
+<div class="text-2xl font-mono text-primary font-medium">4.2<span class="text-primary/50 text-lg">x</span></div>
+<div class="flex gap-0.5 mt-3">
+<div class="h-1 w-1 bg-primary rounded-full"></div>
+<div class="h-1 w-1 bg-primary rounded-full"></div>
+<div class="h-1 w-1 bg-primary rounded-full"></div>
+<div class="h-1 w-1 bg-primary/30 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Grid Preview Tool -->
+<section class="space-y-3">
+<div class="flex justify-between items-end border-b border-white/10 pb-2">
+<h3 class="text-sm font-bold uppercase tracking-widest text-white">Grid System Preview</h3>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">LIVE_VIEW</span>
+</div>
+<div class="relative aspect-video bg-black rounded-lg overflow-hidden border border-white/20 group">
+<!-- Image -->
+<img alt="Architectural Structure" class="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-500" data-alt="Modern minimalist skyscraper architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVtznt9afUEufUO_ROd-e3_kD2gi1yEByhW4M76loSvSbeVGq4hDJTFBMve1NJn3KMfUulJWCG3fxfhcTjHu4OTT6R_hRR5q42BQKwirVhY0KBWEdTa4nWgwHPl8KKrWNjYOhfXDirkN5JmIuxfc3w2A8AQ_joIgIPbUvgXVBMxOYU4g6KQP9Yoxw3yrwb3AM6QeEC49AizoV2jxY-hS_gU5WCYMJfkZFGcnKGVBNWSCndUA99m-3RMbaJp6Zwdd4e9zaPX-F_x3A"/>
+<!-- Grid Overlay -->
+<div class="absolute inset-0 pointer-events-none">
+<!-- Rule of thirds lines -->
+<div class="absolute top-0 left-1/3 w-px h-full bg-primary/40 shadow-[0_0_2px_#06e8f9]"></div>
+<div class="absolute top-0 left-2/3 w-px h-full bg-primary/40 shadow-[0_0_2px_#06e8f9]"></div>
+<div class="absolute top-1/3 left-0 w-full h-px bg-primary/40 shadow-[0_0_2px_#06e8f9]"></div>
+<div class="absolute top-2/3 left-0 w-full h-px bg-primary/40 shadow-[0_0_2px_#06e8f9]"></div>
+<!-- Center Crosshair -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 border border-primary/80"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-primary"></div>
+</div>
+<!-- Overlay Data -->
+<div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] font-mono text-primary bg-black/60 backdrop-blur-sm p-1 px-2 rounded border border-white/10">
+<span>ALIGN: 100%</span>
+<span>RATIO: 1.618</span>
+</div>
+</div>
+</section>
+<!-- Active Ads List -->
+<section class="space-y-4">
+<div class="flex justify-between items-end border-b border-white/10 pb-2">
+<h3 class="text-sm font-bold uppercase tracking-widest text-white">Active Modules</h3>
+<div class="flex gap-2 text-[10px] font-mono text-white/50">
+<span>SORT: PERF</span>
+<span>|</span>
+<span>FILTER: ALL</span>
+</div>
+</div>
+<!-- Ad Card 1 -->
+<article class="bg-background-dark border border-white/10 rounded-lg p-3 hover:border-primary/50 transition-colors tech-border shadow-lg">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 rounded bg-white/5 relative overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="Office Interior" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="Clean corporate office interior design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtwB7sp2pLroAcVlSRmd53HjpzUxnvkFYuh92EybRfriGGn_eMyq6KDBP4otUoxFIyR07lVReirS8U637UgY6H-2TvZC6WziPlzI0UZJbkfzNiubLoRMarp939fIkh6WRIgqjkxjR3Qye1i_7rEUO07HpBtuDunQBjWebP6QaDyEwrTbO0FYDU0jNwMUn-UhQqZu_mpjzJ2FGZp09xbKME-KxBGd-OZKMgZeDBBjOvhot0k-FGhKJClXivHFlS-lJOWUsRmTQccE"/>
+<div class="absolute top-1 left-1 w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_4px_#22c55e]"></div>
+</div>
+<!-- Data Grid -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold text-white leading-tight">Structure V2 - Promo</h4>
+<p class="text-[10px] text-white/40 font-mono mt-0.5">ID: #9923-AB</p>
+</div>
+<button class="text-primary hover:text-white transition-colors">
+<span class="material-icons text-base">more_horiz</span>
+</button>
+</div>
+<!-- Specs Table -->
+<div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-white/5">
+<div>
+<div class="text-[9px] text-white/40 font-mono uppercase">CPC</div>
+<div class="text-xs font-mono text-white">$0.45</div>
+</div>
+<div>
+<div class="text-[9px] text-white/40 font-mono uppercase">CTR</div>
+<div class="text-xs font-mono text-primary">2.1%</div>
+</div>
+<div class="text-right">
+<div class="text-[9px] text-white/40 font-mono uppercase">CONV</div>
+<div class="text-xs font-mono text-white">128</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Ad Card 2 -->
+<article class="bg-background-dark border border-white/10 rounded-lg p-3 hover:border-primary/50 transition-colors relative shadow-lg">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 rounded bg-white/5 relative overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="Neon Geometric" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="Abstract geometric neon light pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQUU9QXNgLHqGBxrBWf0pVrwaWjwU8LC_A7I451oyVbLSO2ZTqMJk5KjUe211UZM9kvXTTbcZ8YL0vhihxyVETrSSieFxeunbfxf0-jXSHV7b6jYufz7bXRsqynfplavjh060g28GsL1govJvGmCpO_FgQUyVeIvNr9EtTCB0CEc9BGC6-tGMGnFcK76I37MjklHBFZw3-86g08woGz78qn4kYuvts1cly7Ihpx7ySW5rEBblY5cGKu-GvdGiifYbSW7nAXIDYfFc"/>
+<div class="absolute top-1 left-1 w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_4px_#22c55e]"></div>
+</div>
+<!-- Data Grid -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold text-white leading-tight">Minimalist Kit</h4>
+<p class="text-[10px] text-white/40 font-mono mt-0.5">ID: #8812-MK</p>
+</div>
+<button class="text-primary hover:text-white transition-colors">
+<span class="material-icons text-base">more_horiz</span>
+</button>
+</div>
+<!-- Specs Table -->
+<div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-white/5">
+<div>
+<div class="text-[9px] text-white/40 font-mono uppercase">CPC</div>
+<div class="text-xs font-mono text-white">$1.20</div>
+</div>
+<div>
+<div class="text-[9px] text-white/40 font-mono uppercase">CTR</div>
+<div class="text-xs font-mono text-white">1.8%</div>
+</div>
+<div class="text-right">
+<div class="text-[9px] text-white/40 font-mono uppercase">CONV</div>
+<div class="text-xs font-mono text-white">84</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Ad Card 3 (Inactive) -->
+<article class="bg-background-dark/50 border border-white/5 rounded-lg p-3 transition-colors relative opacity-60 hover:opacity-100">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 rounded bg-white/5 relative overflow-hidden flex-shrink-0 border border-white/5">
+<div class="w-full h-full bg-white/5 flex items-center justify-center">
+<span class="material-icons text-white/20">image_not_supported</span>
+</div>
+<div class="absolute top-1 left-1 w-1.5 h-1.5 bg-red-500/50 rounded-full"></div>
+</div>
+<!-- Data Grid -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-bold text-white/70 leading-tight">Legacy - Q3 Push</h4>
+<p class="text-[10px] text-white/20 font-mono mt-0.5">ID: #004-LEG</p>
+</div>
+<button class="text-white/20 hover:text-white transition-colors">
+<span class="material-icons text-base">more_horiz</span>
+</button>
+</div>
+<!-- Specs Table -->
+<div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-white/5">
+<div>
+<div class="text-[9px] text-white/20 font-mono uppercase">CPC</div>
+<div class="text-xs font-mono text-white/50">--</div>
+</div>
+<div>
+<div class="text-[9px] text-white/20 font-mono uppercase">CTR</div>
+<div class="text-xs font-mono text-white/50">0.0%</div>
+</div>
+<div class="text-right">
+<div class="text-[9px] text-white/20 font-mono uppercase">STATUS</div>
+<div class="text-xs font-mono text-red-400">HALTED</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Docked Control Panel -->
+<div class="absolute bottom-6 left-5 right-5 z-30">
+<div class="bg-[#1a2c30] border border-primary/20 p-2 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] backdrop-blur-xl flex justify-between items-center pl-4 pr-2">
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-primary uppercase tracking-widest">System Ready</span>
+<span class="text-xs text-white/60">Awaiting input sequence...</span>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/5 active:scale-95 transition-all">
+<span class="material-icons text-lg">tune</span>
+</button>
+<button class="h-10 px-4 flex items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-black border border-primary/40 active:scale-95 transition-all font-bold text-sm tracking-wide group">
+<span class="material-icons text-lg group-hover:rotate-90 transition-transform">add</span>
+                         NEW_AD
+                    </button>
+</div>
+</div>
+<!-- Decorative line connecting dock to bottom -->
+<div class="w-px h-6 bg-primary/20 mx-auto mt-2"></div>
+</div>
+</div>
+</body></html>

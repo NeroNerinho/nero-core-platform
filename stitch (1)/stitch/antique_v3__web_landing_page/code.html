@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>N27 | Monumental Elegance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "gold": "#af9164",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                        "marble-vein": "#e3e1e1",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: #f8f6f6;
+            background-image: radial-gradient(circle at 2px 2px, rgba(156, 40, 22, 0.02) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .marble-texture {
+            background-color: #f8f6f6;
+            background-image: linear-gradient(120deg, transparent 30%, rgba(227, 225, 225, 0.4) 38%, rgba(227, 225, 225, 0.4) 42%, transparent 50%),
+                              linear-gradient(210deg, transparent 40%, rgba(227, 225, 225, 0.3) 45%, rgba(227, 225, 225, 0.3) 48%, transparent 55%);
+        }
+        .kerning-monumental {
+            letter-spacing: 0.25em;
+        }
+        .gold-border {
+            border: 1px solid #af9164;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b100e] selection:bg-primary/20">
+<!-- Sticky Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gold/20">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">temple_hindu</span>
+<span class="text-2xl font-bold tracking-tighter uppercase">N27</span>
+</div>
+<div class="hidden md:flex items-center gap-12 text-[11px] font-semibold uppercase tracking-[0.3em]">
+<a class="hover:text-primary transition-colors" href="#">Exhibits</a>
+<a class="hover:text-primary transition-colors" href="#">Archive</a>
+<a class="hover:text-primary transition-colors" href="#">Collections</a>
+<a class="hover:text-primary transition-colors" href="#">Philosophy</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-xs font-bold uppercase tracking-widest hover:text-primary">Journal</button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all">
+                    Bespoke
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen flex flex-col items-center justify-center marble-texture overflow-hidden pt-20">
+<!-- Floating Emblem -->
+<div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+<h1 class="text-[50vw] font-black leading-none select-none">N27</h1>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<p class="text-gold text-sm font-bold uppercase tracking-[0.5em] mb-8 animate-pulse">Established MMXXIV</p>
+<h1 class="text-6xl md:text-8xl font-light leading-[1.1] mb-8 kerning-monumental">
+                MONUMENTAL <br/>
+<span class="italic font-normal">Elegance</span>
+</h1>
+<p class="text-lg md:text-xl text-[#1b100e]/70 max-w-xl mx-auto mb-12 font-light leading-relaxed">
+                The fusion between historical grandeur and digital precision. A curated dialogue between the chiseled past and the minimalist future.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="bg-primary text-white px-10 py-4 rounded-sm text-xs font-bold uppercase tracking-[0.3em] hover:scale-105 transition-transform">
+                    Explore The New Antiquity
+                </button>
+<button class="border border-gold text-gold px-10 py-4 rounded-sm text-xs font-bold uppercase tracking-[0.3em] hover:bg-gold hover:text-white transition-all">
+                    View Lookbook
+                </button>
+</div>
+</div>
+<!-- Bottom Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="text-[10px] font-bold uppercase tracking-[0.4em] text-gold">Scroll to descend</span>
+<div class="w-px h-16 bg-gradient-to-b from-gold to-transparent"></div>
+</div>
+</header>
+<!-- Collection Section I -->
+<section class="py-32 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-baseline justify-between mb-20 border-b border-gold/20 pb-8">
+<div class="flex items-center gap-6">
+<span class="text-5xl font-extralight text-primary/30">I.</span>
+<h2 class="text-4xl font-light uppercase tracking-widest">The Exhibits</h2>
+</div>
+<p class="text-xs font-bold uppercase tracking-[0.3em] text-gold mt-4 md:mt-0">Curated Collections 2024</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group relative overflow-hidden aspect-[16/10] bg-zinc-100">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Luxury fabric draped over marble statue" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjQa2M0jqiXN2A7O_z7H0sdrZlDSMFSJj0hT7__wpxCFRkJnACgMpSggbrZEackEJl47zwKMzpXb13Wei0pWbYb-ib871puwlPE-hOS8zgeRzaNOfEJ52nY6sJSg5JEg5ESkMwJvijKCWy9pFt5n6-FWmrBz3zsW3nUJlhCV1Lyr-ayXIn1riLmgMvSOJo7ny-Xe8DD5szprRtGgK2MTgM7kFeZ6AlwXR8hAyhiOkFGan6SUWqFnwy0P3Wk-32OH2XrggKdYucabE')"></div>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<p class="text-[10px] font-bold uppercase tracking-[0.4em] mb-2">Haute Couture</p>
+<h3 class="text-4xl font-light tracking-wider">MARBLE DRAPERIES</h3>
+</div>
+</div>
+<!-- Small Vertical Card -->
+<div class="md:col-span-4 group relative overflow-hidden aspect-[3/4] bg-zinc-100">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Modern architectural lines with roman columns" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKNSY84gMIeWxf6zpRjr1AweiYhJZ9i3qnehIDR5B7u2QkNPVkg5G2e-3j_LX5k-IdBLm4WIeJrVDvG2JzhxCIxolXBPUJlkyBV-D7oh3_6CuyQ4cRJp5mz02fths3wtIkJqlwaPOZ3fUrFDVKDyy91U0wI_KcO6qXA-tFrNxalLrpTss8toRNnOpGHrOimtUtZMKrtOd-Mhu-rRQV8bGZ5SjVIIniU7yJBbsQ6tB9kRlSGBkyBqqnvD4v1TO2MV313pF04ch2tIA')"></div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute inset-0 border-[20px] border-white/10 m-4 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+<p class="text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Summer MMXXIV</p>
+<button class="border-b border-white pb-1 text-xs font-bold uppercase tracking-widest">View Exhibit</button>
+</div>
+</div>
+<!-- Square Card -->
+<div class="md:col-span-4 group relative overflow-hidden aspect-square bg-zinc-100">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist luxury interior with stone textures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDa_OBpvNSbJCuhlyNjyvJciPOkS2T00k0yeqSsB5H4pd4YsZasrJksF95eFeyTmkZmNEUgM6lBdk9mCGKizhgkB_deG4f_IuzyMOFO3s6ux2clnsIs1iUMWmze4RwG_CuoxV9sypE1d9P6UJnFQMiZ8_IHBiIoGMwOvnaEB1F20BD9449ikDdfEJujm7yfl64buqPamCeeVKBQpg2qrsSjct3keD5A62jZKb-POceVW5y97ZV6Ru_onaUnKxGnsfBk8NjV2G1Vbz8')"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-sm">
+<h4 class="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-1">Aurelian Gold</h4>
+<p class="text-xs text-gray-500 italic">Structural adornments</p>
+</div>
+</div>
+<!-- Wide Content Card -->
+<div class="md:col-span-8 flex flex-col justify-center p-12 bg-white border border-gold/10">
+<span class="material-symbols-outlined text-gold text-5xl mb-6">architecture</span>
+<h3 class="text-3xl font-light mb-6 leading-tight">THE MATHEMATICS OF BEAUTY</h3>
+<p class="text-lg text-gray-600 font-light leading-relaxed mb-8">
+                    Inspired by the golden ratio and the precise measurements of Roman amphitheaters, our N27 collection brings structural integrity to wearable art.
+                </p>
+<a class="text-primary text-xs font-bold uppercase tracking-[0.4em] flex items-center gap-4 hover:gap-6 transition-all" href="#">
+                    Read Philosophy <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Mid-Page Statement -->
+<section class="relative py-40 marble-texture flex flex-col items-center justify-center text-center px-6">
+<div class="w-24 h-px bg-gold mb-12"></div>
+<h2 class="text-3xl md:text-5xl font-light italic max-w-3xl leading-relaxed">
+            "Architecture is the learned game, correct and magnificent, of forms assembled in the light."
+        </h2>
+<p class="text-gold text-xs font-bold uppercase tracking-[0.5em] mt-12">— Le Corbusier in Roman Dialogue —</p>
+</section>
+<!-- Archive Section II -->
+<section class="py-32 px-6 bg-[#1b100e] text-white overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-baseline justify-between mb-20 border-b border-white/10 pb-8">
+<div class="flex items-center gap-6">
+<span class="text-5xl font-extralight text-primary">II.</span>
+<h2 class="text-4xl font-light uppercase tracking-widest">The Archive</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-6">
+<div class="aspect-[4/5] bg-zinc-800 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-700" data-alt="Ancient stone bust in modern gallery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5dKzE5TAPuNRXxfj6BsydWF2BGXRDP4__UDfulvxcvcjwG6E9eHC82z3N5ybGuVuDjtFr5zJWTwyD1ddn3pjtPogDv7txR8UbdBlDWvHszTUe7Cb4OxRnvQFYyRdCHkFhYOYjsoXI1zmPG8xAH5y9JPvfBJ01PACrHxNFhQyznjdr2qWtuxjU22-496EqIMM2sR605MHGnC378fIBAIbYUj__MlB5ePT9bWNesbeqhPYKduQyQraBe6IuWlqOnRNX4H9JJD8VQWE"/>
+</div>
+<p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Vol. 01</p>
+<h4 class="text-2xl font-light">Ethereal Foundations</h4>
+<p class="text-gray-400 font-light leading-relaxed">Mapping the architectural evolution from the Colosseum to the digital grid.</p>
+</div>
+<div class="space-y-6 mt-12 md:mt-24">
+<div class="aspect-[4/5] bg-zinc-800 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-700" data-alt="Silk dress against sandstone wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXGi_VAXbpNfo_N-6CGFVpSMz8ApYfsa_LKZnUW3W1hZRRwNiO8IpceY3DlmdJKhvgVctczwMaAy2l58I4Ra4W3YJOPvRxkFLZ62Dxi9Ss3p7edDOFxuHGu-RDXyIR91xV_5VCdSIzlqufqp4HWw2P7Fo2MxiQL5Ufi1_gypx5qBNlKaSCubFwjIlF8sTII2GWrHCB1fsgRZPRVgVEWMD134xpQW13ckwW1VwPRZ2WT4qP-Dg8eYp21qhZscJJIfR87DRHhlGG18"/>
+</div>
+<p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Vol. 02</p>
+<h4 class="text-2xl font-light">Tonal Precedents</h4>
+<p class="text-gray-400 font-light leading-relaxed">The selective use of Oxblood and Gold leaf in imperial dress and contemporary branding.</p>
+</div>
+<div class="space-y-6">
+<div class="aspect-[4/5] bg-zinc-800 overflow-hidden relative border border-gold/30">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-gold text-7xl font-thin">history_edu</span>
+</div>
+<img class="w-full h-full object-cover grayscale opacity-20" data-alt="Handwritten architectural plans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zh0f-4AZjTbIRBGlh28IiOHBTh4PjIpB-6S-eCdAPYuYwXrB5wAbFuvCewiUxjhG7ALC8HHfsIaFY6ikDpJxdcagQQL3rXNzcy5Lq7eWDRBQz0cOfhJoEAd5xCiPR_jEjOHZsiKFaY4Ye4pteXorlfmwfXCNBzCxpj75r-x15NT-JzRysQiSZ4ZVtOyhSIXD1jmUkPAUVkCCm8QGW8nN_tcBVTWbzhe44m7xS81bSyxFExdOxg8PGfzyzyN8_nnm-eyIAG6znn0"/>
+</div>
+<p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Vol. 03</p>
+<h4 class="text-2xl font-light">Material Truth</h4>
+<p class="text-gray-400 font-light leading-relaxed">A tactile investigation into raw stone, heavy silks, and digital pixel perfectness.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-light pt-32 pb-12 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-4xl">temple_hindu</span>
+<span class="text-3xl font-bold tracking-tighter uppercase">N27</span>
+</div>
+<p class="text-sm text-gray-500 font-light leading-relaxed">
+                        Monumental Elegance for the modern age. Blending the permanence of stone with the fluidity of digital design.
+                    </p>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-[0.3em] mb-8 text-gold">Navigation</h5>
+<ul class="space-y-4 text-sm font-light uppercase tracking-widest">
+<li><a class="hover:text-primary transition-colors" href="#">Exhibits</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Archive</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">The House</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Journal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-[0.3em] mb-8 text-gold">Connect</h5>
+<ul class="space-y-4 text-sm font-light uppercase tracking-widest">
+<li><a class="hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Vimeo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Appointments</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-[0.3em] mb-8 text-gold">Newsletter</h5>
+<div class="flex border-b border-gold/30 pb-2">
+<input class="bg-transparent border-none outline-none flex-1 text-xs tracking-widest placeholder:text-gray-300" placeholder="YOUR EMAIL" type="email"/>
+<button class="material-symbols-outlined text-primary">east</button>
+</div>
+<p class="text-[10px] text-gray-400 mt-4 tracking-wider">Join the inner circle of the New Antiquity.</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-gold/10 gap-8">
+<div class="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-gold text-sm">verified_user</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">© MMXXIV N27 STUDIOS</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

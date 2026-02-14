@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LP Retro V1 Web</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f425af",
+                        "secondary": "#00f0ff", // Teal/Cyan for Vaporwave contrast
+                        "background-light": "#f8f5f7",
+                        "background-dark": "#22101c",
+                        "surface-dark": "#2d1b28",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(rgba(244, 37, 175, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 37, 175, 0.2) 1px, transparent 1px)",
+                        'scanlines': "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))",
+                    },
+                    backgroundSize: {
+                        'grid-size': '40px 40px',
+                        'scan-size': '100% 3px, 3px 100%',
+                    },
+                    boxShadow: {
+                        'retro-pop': '4px 4px 0px 0px #000000',
+                        'retro-pop-sm': '2px 2px 0px 0px #000000',
+                        'neon': '0 0 10px rgba(244, 37, 175, 0.5), 0 0 20px rgba(244, 37, 175, 0.3)',
+                        'neon-blue': '0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom retro styles */
+        .text-shadow-glitch {
+            text-shadow: 2px 0 #f425af, -2px 0 #00f0ff;
+        }
+        .perspective-grid {
+            transform: perspective(600px) rotateX(60deg) scale(2);
+            transform-origin: top center;
+        }
+        .sun-gradient {
+            background: linear-gradient(to bottom, #f425af, #ffeb3b);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 50%);
+            -webkit-mask-size: 100% 12px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen selection:bg-secondary selection:text-black overflow-x-hidden">
+<!-- CRT Scanline Overlay -->
+<div class="fixed inset-0 pointer-events-none z-50 bg-scanlines bg-scan-size opacity-20 mix-blend-overlay"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-40 bg-background-dark/80 backdrop-blur-md border-b border-white/10">
+<div class="max-w-md mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-icons text-secondary animate-pulse">videogame_asset</span>
+<span class="font-bold text-xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary drop-shadow-sm">RETRO</span>
+</div>
+<button class="bg-surface-dark p-2 rounded border border-white/20 hover:bg-white/10 active:translate-y-1 transition-transform">
+<span class="material-icons text-primary">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Wrapper for Mobile -->
+<main class="max-w-md mx-auto relative bg-background-dark min-h-screen pb-20 pt-16">
+<!-- Hero Section -->
+<section class="relative h-[80vh] flex flex-col items-center justify-center overflow-hidden border-b-4 border-primary shadow-neon">
+<!-- Retro Sun Background -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-gradient-to-b from-primary via-purple-600 to-yellow-400 opacity-80 blur-sm"></div>
+<!-- Lines across sun for 80s effect -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full z-0 flex flex-col justify-end space-y-1 pb-4 mask-image-linear">
+<div class="h-1 w-full bg-background-dark opacity-20"></div>
+<div class="h-1.5 w-full bg-background-dark opacity-30"></div>
+<div class="h-2 w-full bg-background-dark opacity-40"></div>
+<div class="h-3 w-full bg-background-dark opacity-50"></div>
+<div class="h-4 w-full bg-background-dark opacity-60"></div>
+</div>
+<!-- Grid Floor -->
+<div class="absolute bottom-0 w-full h-1/2 overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern bg-grid-size perspective-grid opacity-40 border-t border-primary/50"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 text-center px-6 mt-10">
+<div class="inline-block border border-secondary text-secondary px-3 py-1 rounded text-xs font-bold tracking-widest mb-4 bg-background-dark/50 backdrop-blur shadow-neon-blue">
+                    V1.0 ONLINE
+                </div>
+<h1 class="text-6xl font-bold uppercase leading-none tracking-tighter mb-2 text-white text-shadow-glitch">
+                    Ride<br/>The<br/>Wave
+                </h1>
+<p class="text-lg text-gray-300 font-light mb-8 max-w-[280px] mx-auto leading-tight">
+                    Digital nostalgia for the <span class="text-secondary italic">modern dreamer</span>.
+                </p>
+<button class="group relative inline-flex items-center justify-center">
+<div class="absolute inset-0 translate-x-1 translate-y-1 bg-black rounded-lg"></div>
+<div class="relative bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-widest py-4 px-8 rounded-lg shadow-retro-pop border-2 border-white/20 active:translate-y-1 active:translate-x-1 active:shadow-none transition-all duration-100 flex items-center gap-2">
+                        Start Engine
+                        <span class="material-icons text-sm">bolt</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Marquee Strip -->
+<div class="bg-secondary text-black font-bold text-sm py-2 overflow-hidden whitespace-nowrap border-y-2 border-white relative z-20">
+<div class="inline-block animate-[marquee_10s_linear_infinite]">
+                SYSTEM READY /// VAPORWAVE AESTHETICS DETECTED /// INSERT COIN TO CONTINUE /// SYSTEM READY /// VAPORWAVE AESTHETICS DETECTED /// INSERT COIN TO CONTINUE ///
+            </div>
+</div>
+<style>
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        </style>
+<!-- Features Grid -->
+<section class="px-6 py-12 relative">
+<h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+<span class="w-3 h-3 bg-primary shadow-neon"></span>
+                MODULES
+                <span class="h-0.5 flex-grow bg-gradient-to-r from-primary to-transparent opacity-50"></span>
+</h2>
+<div class="grid gap-6">
+<!-- Feature 1 -->
+<div class="bg-surface-dark border-2 border-gray-700 rounded-xl p-6 relative overflow-hidden group hover:border-secondary transition-colors duration-300 shadow-retro-pop">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-icons text-6xl text-secondary">waves</span>
+</div>
+<div class="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center border border-secondary mb-4 shadow-neon-blue">
+<span class="material-icons text-secondary">palmtree</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">CHILL VIBES</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Relaxing frequencies tuned for maximum aesthetic pleasure. Sunset included.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-dark border-2 border-gray-700 rounded-xl p-6 relative overflow-hidden group hover:border-primary transition-colors duration-300 shadow-retro-pop">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-icons text-6xl text-primary">album</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center border border-primary mb-4 shadow-neon">
+<span class="material-icons text-primary">cassette</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">ANALOG AUDIO</h3>
+<p class="text-gray-400 text-sm leading-relaxed">High fidelity low-fi beats. Experience the warmth of magnetic tape.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-gradient-to-br from-purple-900 to-surface-dark border-2 border-purple-500 rounded-xl p-6 relative shadow-retro-pop">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500">
+<span class="material-icons text-purple-400">computer</span>
+</div>
+<span class="bg-purple-500 text-white text-xs px-2 py-1 rounded font-bold">BETA</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">CYBERSPACE</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-4">Jack into the matrix. The grid awaits your input.</p>
+<button class="w-full bg-transparent border border-white/30 hover:bg-white/10 hover:border-white text-white py-2 rounded uppercase text-xs tracking-widest transition-all">
+                        Connect
+                    </button>
+</div>
+</div>
+</section>
+<!-- Visual Break / Image -->
+<section class="py-6 overflow-hidden">
+<div class="h-64 relative w-full bg-black group">
+<img alt="abstract neon retro grid landscape with purple mountains" class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-700" data-alt="abstract neon retro grid landscape with purple mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs3WYKRz0IF-YkgGc_6i4cjrTacIRYGue-0YFPcMlSZb9XMdqcdV_O2-7Ejnmrk0th9R8_7PctC2OJvi1zoApjLqZWyocCSNu935JWiAL7tA3lfiyGWbS6As45caAgJk1KmxbJvfNthSrZ4r6VEnlIJYLYmIbIf9IykdvOCTtkG27Kfxff3OX46rpWVxzm7Aq-_TnQ6oJhM55dkskm_CKpdtsIEj9pjEMjhyFXrcXzkGKiARrg0ccrvrvlLPa4y8z630_nsUYHKBc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<!-- Floating Card -->
+<div class="absolute bottom-8 left-6 right-6">
+<div class="bg-black/60 backdrop-blur-md border border-primary/50 p-4 rounded-lg shadow-neon text-center">
+<h4 class="text-secondary font-bold text-lg mb-1">DREAM_01.EXE</h4>
+<p class="text-xs text-gray-300">Loading scenic route...</p>
+<!-- Loading Bar -->
+<div class="w-full h-2 bg-gray-700 rounded-full mt-3 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-2/3 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing / CTA -->
+<section class="px-6 py-12">
+<div class="bg-secondary text-background-dark rounded-xl p-1 shadow-retro-pop transform rotate-1 hover:rotate-0 transition-transform duration-300">
+<div class="bg-background-light dark:bg-background-dark border-4 border-secondary rounded-lg p-6 text-center h-full">
+<span class="material-icons text-5xl text-primary mb-2">stars</span>
+<h3 class="text-3xl font-bold text-white mb-2">PRO PASS</h3>
+<div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4">$19.99</div>
+<ul class="text-left text-sm text-gray-400 space-y-3 mb-8 pl-4">
+<li class="flex items-center gap-2"><span class="text-green-400">✓</span> Unlimited Vibes</li>
+<li class="flex items-center gap-2"><span class="text-green-400">✓</span> 4K Wallpapers</li>
+<li class="flex items-center gap-2"><span class="text-green-400">✓</span> Exclusive Syntax</li>
+<li class="flex items-center gap-2"><span class="text-green-400">✓</span> No Ads (Glitch Only)</li>
+</ul>
+<button class="w-full bg-primary text-white font-bold py-3 px-6 rounded shadow-retro-pop-sm border border-white/20 active:translate-y-0.5 active:shadow-none transition-all uppercase tracking-wide hover:brightness-110">
+                        Unlock Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Testimonial -->
+<section class="px-6 py-12 bg-surface-dark/50 border-t border-white/5">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-2 border-primary p-1 mb-4">
+<img alt="Portrait of a user with sunglasses in neon lighting" class="w-full h-full object-cover rounded-full filter grayscale contrast-125" data-alt="Portrait of a user with sunglasses in neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVYUeFZgmE3XkzILG04s_82CK2dOO8QweLAT2XxyJu6zZRSPW2IFkj43IMRU97mywiIvfbIKSeQun-nwRH96fW2_eimulYRbWkI9gF05B4RpAB6Nj5s8RLCXPk80Uz6P-ZDUHubdxMLwroERBQwiK_EJWDwUHCUN1Yhptt15Z621abMMZ3NeO7vqsAkfHpC9XWXY2eDTXY7zL2Tp7EPcHhcZUKoryzsTkTNc70bnqTCos6YzLDceBH5pQP577SdZRN-TCESZqXfYc"/>
+</div>
+<div class="relative">
+<span class="material-icons absolute -top-4 -left-4 text-secondary/20 text-4xl">format_quote</span>
+<p class="text-lg italic text-gray-300 mb-4 font-light">"It's like downloading a memory I never had. The interface is pure joy."</p>
+</div>
+<div class="text-primary font-bold tracking-widest uppercase text-sm">@CyberSurfer99</div>
+<div class="flex text-yellow-400 mt-2 gap-1 text-sm">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black py-10 px-6 border-t-4 border-secondary text-center relative overflow-hidden">
+<!-- Background Grid for footer -->
+<div class="absolute inset-0 bg-grid-pattern bg-grid-size opacity-10 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center">
+<h2 class="text-2xl font-bold tracking-widest text-white mb-6">RETRO<span class="text-primary">.V1</span></h2>
+<div class="flex gap-6 mb-8">
+<a class="w-10 h-10 flex items-center justify-center bg-white/10 rounded hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-icons text-lg">facebook</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-white/10 rounded hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-icons text-lg">camera_alt</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center bg-white/10 rounded hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-icons text-lg">alternate_email</span>
+</a>
+</div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500 font-mono mb-8 uppercase">
+<a class="hover:text-secondary" href="#">Privacy</a>
+<a class="hover:text-secondary" href="#">Terms</a>
+<a class="hover:text-secondary" href="#">Contact</a>
+</div>
+<div class="text-xs text-gray-600 font-mono">
+                    © MMXXIV RETRO INC. ALL RIGHTS RESERVED.
+                </div>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 | Contemporary Antique Branding</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Serif for that Neoclassical feel -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&amp;family=Inter:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nero: {
+              gold: '#C5A059',
+              marble: '#F5F5F5',
+              charcoal: '#1A1A1A',
+              slate: '#2D2D2D'
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            body: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-textures">/* Marble texture overlay effect */
+.marble-bg {
+    background-color: #f5f5f5;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAvtoP1KgB6mEdcH484UV51x0j5qHyODsvVN0yQu7ypQO2yUlBU_I_poawPIsY6Eg-k2nGZJVOn-jz29g59gr3YcvU1Ixvv7SjZfZ880uczlqG9LmCFeFkI9PvSrtfGHCsHETrjPyqVr9amr8LZSbQyiF4UVMSRd2-OvS7PDrqbPS_dHXp2-JxLhCD8PXNJsmqUlzUZR5vvB-qMKFuIrj5L1ooEFdMv8Z0vlAu0LR5vgJgc0IJ6npnq3LJm4jwIdXjjf7Hy2Ref4ZE)
+    }
+/* Neoclassical Gold Gradient */
+.gold-text {
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+    }
+/* Architectural lines animation */
+.arch-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s ease forwards
+    }
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+        }
+    }</style>
+</head>
+<body class="marble-bg text-nero-charcoal font-body antialiased min-h-screen flex flex-col">
+<!-- BEGIN: MainHeader -->
+<header class="w-full py-8 px-6 flex flex-col items-center border-b border-nero-gold/20 bg-white/50 backdrop-blur-sm sticky top-0 z-50">
+<!-- Main Logo Area -->
+<div class="flex flex-col items-center" data-purpose="brand-identity">
+<!-- Logo Symbol: Vitruvian Man + Modern Architecture -->
+<div class="w-24 h-24 mb-4 relative">
+<svg class="w-full h-full" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Geometric Vitruvian Framework -->
+<circle class="arch-line" cx="50" cy="50" r="45" stroke="#C5A059" stroke-width="0.5"></circle>
+<rect class="arch-line" height="64" stroke="#C5A059" stroke-width="0.5" width="64" x="18" y="18"></rect>
+<!-- Abstract Human Form / Pillar -->
+<path d="M50 20 L50 80 M35 40 L65 40 M30 75 L50 55 L70 75" stroke="#1A1A1A" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Architectural Lines -->
+<path d="M20 50 H80" opacity="0.5" stroke="#C5A059" stroke-width="0.25"></path>
+<path d="M50 15 L50 5" stroke="#C5A059" stroke-width="1"></path>
+</svg>
+</div>
+<!-- Typography -->
+<h1 class="font-serif text-3xl tracking-[0.2em] uppercase text-nero-charcoal">
+        Nero <span class="gold-text">XXVII</span>
+</h1>
+<p class="text-xs tracking-[0.4em] uppercase mt-2 text-nero-gold font-sans font-light">Contemporary Antique</p>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ContentPreview -->
+<main class="flex-grow container mx-auto px-6 py-16 flex flex-col items-center justify-center space-y-20">
+<!-- Design Showcase Section -->
+<section class="text-center max-w-2xl" data-purpose="design-philosophy">
+<h2 class="font-serif text-xl mb-6">The Synthesis of Eras</h2>
+<div class="h-px w-24 bg-nero-gold mx-auto mb-6"></div>
+<p class="text-lg leading-relaxed italic">
+        "Nero 27 represents the intersection where Roman grandeur meets the stark precision of modern minimalism. Every line is an architectural tribute; every space is a breath of marble."
+      </p>
+</section>
+<!-- Logo Variations Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-4xl" data-purpose="brand-assets">
+<!-- Favicon / Minimal Icon -->
+<div class="flex flex-col items-center p-12 border border-nero-gold/10 bg-white/30 rounded-sm shadow-sm">
+<span class="text-xs uppercase tracking-widest mb-8 text-gray-400">Favicon Concept</span>
+<div class="w-16 h-16 bg-nero-charcoal rounded-none flex items-center justify-center relative overflow-hidden shadow-xl">
+<span class="font-serif text-nero-gold text-2xl z-10">XXVII</span>
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/marble-similar.png')]"></div>
+</div>
+</div>
+<!-- Modern Typography Mockup -->
+<div class="flex flex-col items-center p-12 border border-nero-gold/10 bg-white/30 rounded-sm shadow-sm">
+<span class="text-xs uppercase tracking-widest mb-8 text-gray-400">Typography Scale</span>
+<div class="text-center">
+<p class="font-serif text-4xl mb-2">NERO</p>
+<div class="flex items-center justify-center gap-4">
+<div class="h-[1px] w-8 bg-nero-gold"></div>
+<p class="font-sans font-light tracking-[0.5em] text-sm">EST. MMXXVII</p>
+<div class="h-[1px] w-8 bg-nero-gold"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- END: ContentPreview -->
+<!-- BEGIN: Footer -->
+<footer class="bg-nero-charcoal text-nero-marble py-16 px-6" data-purpose="global-footer">
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+<!-- Footer Brand Column -->
+<div class="flex flex-col space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 border border-nero-gold flex items-center justify-center">
+<span class="font-serif text-xs text-nero-gold">N27</span>
+</div>
+<span class="font-serif tracking-widest text-lg uppercase">Nero 27</span>
+</div>
+<p class="text-sm font-light text-gray-400 max-w-xs leading-loose">
+          Blending the structural integrity of Vitruvius with the digital clarity of the 21st century.
+        </p>
+</div>
+<!-- Roman Numeral Nav -->
+<nav class="flex flex-col space-y-4">
+<h4 class="text-nero-gold font-serif text-xs uppercase tracking-widest mb-2">Navigation</h4>
+<ul class="space-y-2 text-sm font-light">
+<li><a class="hover:text-nero-gold transition-colors italic" href="#">I. The Concept</a></li>
+<li><a class="hover:text-nero-gold transition-colors italic" href="#">II. Architecture</a></li>
+<li><a class="hover:text-nero-gold transition-colors italic" href="#">III. Collections</a></li>
+<li><a class="hover:text-nero-gold transition-colors italic" href="#">IV. Archive</a></li>
+</ul>
+</nav>
+<!-- Contact / Signature -->
+<div class="flex flex-col space-y-4">
+<h4 class="text-nero-gold font-serif text-xs uppercase tracking-widest mb-2">Connect</h4>
+<div class="font-serif text-xl border-l border-nero-gold pl-4 py-1 italic">
+          Designed in Rome. <br/>
+          Built for the Future.
+        </div>
+<p class="text-[10px] text-gray-500 font-sans tracking-tighter pt-8">
+          © MMXXIV NERO 27. ALL RIGHTS RESERVED.
+        </p>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html><!-- MISSING_IMAGES:
+- None. All visuals are generated using CSS gradients, SVG vectors, and Google Fonts to match the 'Contemporary Antique' aesthetic.
+-->

@@ -1,0 +1,227 @@
+# Abstração Quântica: Nero 27 Brand Board
+
+## Product Overview
+
+**The Pitch:** An immersive, mobile-first digital brand guideline that visualizes the "Nero 27" identity system. Instead of a static PDF, it’s a living artifact where the Vitruvian ideal meets quantum mechanics through interactive glowing vectors and deep dark interfaces.
+
+**For:** Internal design teams, external stakeholders, and developers who need instant access to the brand's DNA—from atomic icons to hex codes—presented in a format that proves the brand's high-tech promise.
+
+**Device:** Mobile (PWA/Responsive Web)
+
+**Design Direction:** **Cyber-Renaissance Laboratory.** A deep void background (`#050505`) pierced by surgical neon lasers (`#00F0FF`). Glassmorphism used sparingly for UI controls, while brand elements float in 3D-like space. It feels like a HUD from a sophisticated spacecraft.
+
+**Inspired by:** Linear (landing page visuals), Vercel (dark mode aesthetics), Tron: Legacy (visual atmosphere).
+
+---
+
+## Screens
+
+- **01. The Nucleus (Home):** Hero animation of the logo and primary navigation hub.
+- **02. Atomic Palette (Colors):** Interactive color swatches with copy-to-clipboard functionality.
+- **03. Typography Terminal:** Live type specimens showcasing the technical font stack.
+- **04. Vector Vault (Assets):** Downloadable logo variations and icon sets.
+- **05. Quantum Grid (Imagery):** Guidelines for photography, grids, and usage rules.
+
+---
+
+## Key Flows
+
+**Flow: Accessing Brand Assets**
+
+1.  User opens app -> Sees **The Nucleus** with animated "Nero 27" Vitruvian-Atom logo.
+2.  User taps **Assets** tab -> Transition to **Vector Vault**.
+3.  User taps "Footer Mono" card -> Modal slides up with usage context.
+4.  User taps "Download SVG" -> File downloads, button pulses cyan.
+
+**Flow: Checking Color Contrast**
+
+1.  User taps **Colors** tab -> **Atomic Palette** screen loads.
+2.  User taps the `Electric Blue` swatch.
+3.  Screen background momentarily shifts to that color to show dominance; hex code copied to clipboard via toast notification.
+
+---
+
+<details>
+<summary>Design System</summary>
+
+## Color Palette
+
+- **Void (Background):** `#030304` - Almost pure black, infinite depth.
+- **Matter (Surface):** `#0F1115` - Subtle cards, header backgrounds (90% opacity).
+- **Event Horizon (Border):** `#2A2F3A` - Delicate borders defining structure.
+- **Neon Cyan (Primary):** `#00F0FF` - The core energy source. CTAs, logo glow.
+- **Plasma Purple (Accent):** `#7000FF` - Secondary interaction states, gradients.
+- **Quantum White (Text):** `#F0F2F5` - Primary legibility.
+- **Carbon (Muted):** `#8890A0` - Secondary text, technical specs.
+- **Error:** `#FF003C` - Critical alerts (cyberpunk red).
+
+## Typography
+
+**Font Strategy:** A clash between humanism and code.
+
+- **Headings:** **Space Grotesk**, 700. Angular, geometric, purposeful.
+- **Body:** **Inter**, 400. Highly legible neutral sans.
+- **Code/Technical:** **JetBrains Mono**, 400. For hex codes, specs, and labels.
+
+**Scale:**
+- `H1`: 32px / 110% LH / -0.02em LS
+- `H2`: 24px / 120% LH / -0.01em LS
+- `H3`: 18px / 140% LH / 0 LS
+- `Body`: 16px / 160% LH
+- `Mono`: 12px / 140% LH (Uppercase tracking 0.05em)
+
+**Style Notes:**
+- **Neon Glow:** `box-shadow: 0 0 20px -5px var(--color-primary)` on key elements.
+- **Scanlines:** Subtle overlay texture on the background.
+- **1px Borders:** Everything is defined by sharp 1px borders, no soft shadows.
+
+## Design Tokens
+
+```css
+:root {
+  --color-void: #030304;
+  --color-surface: #0F1115;
+  --color-border: #2A2F3A;
+  --color-cyan: #00F0FF;
+  --color-purple: #7000FF;
+  --color-text: #F0F2F5;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --glow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary>Screen Specifications</summary>
+
+### 01. The Nucleus (Home)
+
+**Purpose:** First impression. Establish the "Quantum Vitruvian" metaphor.
+
+**Layout:** Single column, vertically centered hero content.
+
+**Key Elements:**
+- **The Entity (Logo):** 180px x 180px container. An SVG animation where the Vitruvian Man's limbs are replaced by orbiting electron paths. Color: `Neon Cyan`. Glow effect active.
+- **Brand Title:** "NERO 27" in `Space Grotesk`, 32px, tracking wide. Below: "Brand OS v1.0" in `JetBrains Mono`, 12px, `Carbon`.
+- **Navigation Matrix:** Grid of 4 large square cards (2x2).
+    - **Palette:** Shows color gradient.
+    - **Type:** Shows "Aa" glyph.
+    - **Logo:** Shows icon.
+    - **Grid:** Shows layout lines.
+    - *Style:* `Surface` bg, `Event Horizon` border. On touch: Border becomes `Neon Cyan`.
+
+**States:**
+- **Loading:** A single electron orbits an empty center before the logo resolves.
+
+**Interactions:**
+- **Scroll:** Parallax effect on background particles.
+
+---
+
+### 02. Atomic Palette (Colors)
+
+**Purpose:** Display color system and allow quick copying.
+
+**Layout:** List view of color "cards" that span full width minus padding.
+
+**Key Elements:**
+- **Header:** Sticky `Surface` bar with "Chromatics" title.
+- **Swatch Card:** 80px height.
+    - Left: Large color circle (48px).
+    - Right: Color name (`H3`) and Usage description (`Mono`, `Carbon`).
+    - Bottom Right: Hex code button (`JetBrains Mono`, pill shape, `Event Horizon` border).
+- **Gradient Showcase:** A section showing the blending of Cyan into Purple (The "Quantum Shift").
+
+**Interactions:**
+- **Tap Hex:** Toast notification "Hex Copied" appears at bottom. Button briefly flashes Green (`#00FF94`).
+
+---
+
+### 03. Typography Terminal
+
+**Purpose:** Visualize font hierarchy and character sets.
+
+**Layout:** Long scroll. Sectioned by font family.
+
+**Key Elements:**
+- **Family Header:** "Space Grotesk" in massive 48px outline text (stroked, no fill).
+- **Waterfall:** Standard "The quick brown fox..." displayed in reducing sizes (32px -> 14px).
+- **Glyph Grid:** A tight grid of all available characters, looking like a matrix code rain (static). `Carbon` color.
+- **Pairing Example:** A mock "card" UI showing how the Header and Body font work together.
+
+**Components:**
+- **Type Spec:** `div` with `border-left: 2px solid Neon Cyan`. Contains font name, weight, and suggested usage.
+
+---
+
+### 04. Vector Vault (Assets)
+
+**Purpose:** Distribution of logo files.
+
+**Layout:** Card-based grid (1 col mobile).
+
+**Key Elements:**
+- **Filter Tabs:** [Primary] [Monochrome] [Icon]. Styled as `JetBrains Mono` text with active underline.
+- **Asset Card:** `Surface` background.
+    - **Preview Area:** Checkerboard pattern (dark gray) to show transparency. Logo centered.
+    - **Action Row:** Two buttons: `SVG` and `PNG`. Ghost buttons with `Event Horizon` borders.
+- **Footer Variation:** Specific card showing the logo in `Carbon` gray, specifically labeled for "Footer / Copyright".
+
+**States:**
+- **Download:** Button fills with `Neon Cyan`, text turns Black. Spinner icon replaces text.
+
+---
+
+### 05. Quantum Grid (Imagery)
+
+**Purpose:** Layout rules and image treatment.
+
+**Layout:** Educational diagrams.
+
+**Key Elements:**
+- **The Golden Ratio:** Diagram overlaying the Vitruvian geometry on a mobile frame. Lines are `Neon Cyan` hairline (0.5px).
+- **Do's and Don'ts:**
+    - **Do:** Image with heavy contrast + Cyan duotone overlay. Green checkmark.
+    - **Don't:** Low contrast, warm/sepia tones. Red "X".
+- **Safe Zones:** Diagram showing safe areas for the logo (ex: "2x Height clearspace").
+
+</details>
+
+---
+
+<details>
+<summary>Build Guide</summary>
+
+**Stack:** HTML + Tailwind CSS v3
+
+**Build Order:**
+1.  **The Nucleus:** Sets up the `root` variables, global dark theme, and font imports. Essential for establishing the "vibe".
+2.  **Atomic Palette:** Easiest functional component. Good for testing interaction patterns (toast, copy-paste).
+3.  **Vector Vault:** Requires setting up the asset download logic.
+4.  **Typography Terminal:** Purely presentational HTML structure.
+5.  **Quantum Grid:** Complex CSS drawing/SVG work for the diagrams.
+
+**Tailwind Config:**
+```javascript
+theme: {
+  colors: {
+    void: '#030304',
+    neon: '#00F0FF',
+    // ... add full palette
+  },
+  fontFamily: {
+    sans: ['Space Grotesk', 'sans-serif'],
+    body: ['Inter', 'sans-serif'],
+    mono: ['JetBrains Mono', 'monospace'],
+  }
+}
+```
+
+</details>

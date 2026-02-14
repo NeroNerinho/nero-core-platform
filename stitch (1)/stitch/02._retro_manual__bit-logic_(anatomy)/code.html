@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27: Core Anatomy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .pixel-grid {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(236, 91, 19, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(236, 91, 19, 0.1) 1px, transparent 1px);
+        }
+        .pixel-block {
+            width: 18px;
+            height: 18px;
+            margin: 1px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-white transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-primary/20">
+<div class="text-primary flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight tracking-tight flex-1 text-center uppercase">
+                NERO 27: CORE ANATOMY
+            </h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">memory</span>
+</button>
+</div>
+</div>
+<!-- Main Workspace -->
+<div class="flex-1 @container p-4">
+<div class="relative bg-white dark:bg-black/40 border border-primary/20 rounded-xl overflow-hidden min-h-[400px] flex flex-col items-center justify-center pixel-grid">
+<!-- Technical Callout: Pixel Unit -->
+<div class="absolute top-8 left-8 flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-primary shadow-[0_0_8px_rgba(236,91,19,0.6)]"></div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Pixel Unit</span>
+</div>
+<p class="text-[12px] text-slate-500 dark:text-primary/60 font-medium">1x1 Standard Bit</p>
+<div class="w-16 h-[1px] bg-primary/30 mt-1"></div>
+</div>
+<!-- Technical Callout: Grid -->
+<div class="absolute bottom-8 right-8 text-right flex flex-col items-end gap-1">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Grid Alignment</span>
+<p class="text-[12px] text-slate-500 dark:text-primary/60 font-medium">8-bit Cartesian Map</p>
+<div class="w-24 h-[1px] bg-primary/30 mt-1"></div>
+</div>
+<!-- 8-Bit Logo Construction (N27) -->
+<!-- Simplified representation using grid layout -->
+<div class="grid grid-cols-11 gap-0 p-4 relative">
+<!-- Letter N -->
+<!-- Col 1 -->
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 1; grid-column: 1;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 2; grid-column: 1;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 3; grid-column: 1;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 4; grid-column: 1;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 5; grid-column: 1;"></div>
+<!-- Diagonal -->
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 2; grid-column: 2;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 3; grid-column: 3;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 4; grid-column: 4;"></div>
+<!-- Col 5 -->
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 1; grid-column: 5;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 2; grid-column: 5;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 3; grid-column: 5;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 4; grid-column: 5;"></div>
+<div class="pixel-block bg-primary shadow-sm" style="grid-row: 5; grid-column: 5;"></div>
+<!-- Number 27 -->
+<!-- Gap -->
+<!-- Number 2 (Simplified) -->
+<div class="pixel-block bg-primary/40" style="grid-row: 1; grid-column: 7;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 1; grid-column: 8;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 1; grid-column: 9;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 2; grid-column: 9;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 3; grid-column: 7;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 3; grid-column: 8;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 3; grid-column: 9;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 4; grid-column: 7;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 5; grid-column: 7;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 5; grid-column: 8;"></div>
+<div class="pixel-block bg-primary/40" style="grid-row: 5; grid-column: 9;"></div>
+<!-- Number 7 (Simplified) -->
+<div class="pixel-block bg-primary" style="grid-row: 1; grid-column: 11;"></div>
+<div class="pixel-block bg-primary" style="grid-row: 1; grid-column: 10;"></div>
+<div class="pixel-block bg-primary" style="grid-row: 2; grid-column: 11;"></div>
+<div class="pixel-block bg-primary" style="grid-row: 3; grid-column: 11;"></div>
+<div class="pixel-block bg-primary" style="grid-row: 4; grid-column: 11;"></div>
+<div class="pixel-block bg-primary" style="grid-row: 5; grid-column: 11;"></div>
+<!-- SVG Overlays for measurements -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" style="overflow: visible;">
+<line stroke="rgba(236, 91, 19, 0.4)" stroke-dasharray="4" x1="10" x2="100%" y1="50%" y2="50%"></line>
+<line stroke="rgba(236, 91, 19, 0.4)" stroke-dasharray="4" x1="50%" x2="50%" y1="0" y2="100%"></line>
+</svg>
+</div>
+<!-- Caption -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-[10px] font-bold rounded-full uppercase tracking-tighter">
+                    Logo Construction: Active
+                </div>
+</div>
+</div>
+<!-- Technical Specifications Card -->
+<div class="px-4 py-2">
+<div class="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl p-4">
+<h3 class="text-primary tracking-widest text-xs font-black leading-tight uppercase mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">settings_input_component</span>
+                    Technical Specifications
+                </h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center border-b border-primary/10 pb-2">
+<p class="text-slate-500 dark:text-primary/70 text-xs font-semibold uppercase tracking-tight">Main Hub Color</p>
+<div class="flex items-center gap-2">
+<span class="text-slate-900 dark:text-white text-xs font-mono font-bold">#EC5B13</span>
+<div class="w-3 h-3 bg-primary rounded-sm"></div>
+</div>
+</div>
+<div class="flex justify-between items-center border-b border-primary/10 pb-2">
+<p class="text-slate-500 dark:text-primary/70 text-xs font-semibold uppercase tracking-tight">System Font</p>
+<p class="text-slate-900 dark:text-white text-xs font-bold">Public Sans (Bold)</p>
+</div>
+<div class="flex justify-between items-center border-b border-primary/10 pb-2">
+<p class="text-slate-500 dark:text-primary/70 text-xs font-semibold uppercase tracking-tight">Status</p>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+<p class="text-slate-900 dark:text-white text-xs font-bold">Optimized v1.0.27</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Arcade Icon Ribbon -->
+<div class="flex justify-around items-center px-4 py-6">
+<div class="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group">
+<div class="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<span class="text-[9px] font-bold uppercase text-slate-500 dark:text-primary/50">Power</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="p-2 bg-primary rounded-lg shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-white">joystick</span>
+</div>
+<span class="text-[9px] font-bold uppercase text-primary">Control</span>
+</div>
+<div class="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group">
+<div class="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</div>
+<span class="text-[9px] font-bold uppercase text-slate-500 dark:text-primary/50">Core</span>
+</div>
+<div class="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group">
+<div class="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</div>
+<span class="text-[9px] font-bold uppercase text-slate-500 dark:text-primary/50">Code</span>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="mt-auto border-t border-primary/20 bg-white dark:bg-background-dark/80 backdrop-blur-md px-4 pb-6 pt-3">
+<div class="flex gap-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">Blueprints</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">category</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">Assets</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-widest uppercase">System</p>
+</a>
+</div>
+</div>
+<!-- Decorative Build Number -->
+<div class="absolute bottom-20 right-4 pointer-events-none">
+<span class="text-[8px] font-mono text-primary/30 uppercase tracking-[0.2em]">Build ID: N27-B8-001</span>
+</div>
+</div>
+</body></html>

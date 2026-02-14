@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 | Cinephile Optics V3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Public Sans", sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    overflow-x: hidden
+    }
+/* Noir Grain Effect */
+.grain-overlay {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAtbqXZUAMABXhivuffnHiVkPvW7BRih3fXwrvrFh4hTFj2SaRApIG12MBUqjk-ZzlwiD60cNJF5yl2ammTo-tmSE3o6I13CzBQM2O8n6X-Wwws2C5IlPqPKKxQ5ruE2ToEeYWf5v7JE0s_7cz-akBTw5MP4bKPp_TR4-1t3lMLR9bgPQ2ShQDVSxUoZibfxPb3NPn26mo25EUFRBmqNtc01DvuK1Pcnkxjrx77hEuwARmKfr7_ru4jommaKlO_KQWDaDWIN5U1ed0);
+    opacity: 0.15;
+    z-index: 50;
+    pointer-events: none;
+    mix-blend-mode: overlay
+    }
+/* Chiaroscuro / God Rays Effect */
+.god-ray {
+    position: absolute;
+    top: -10%;
+    left: 20%;
+    width: 300px;
+    height: 120%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: rotate(25deg);
+    filter: blur(40px);
+    pointer-events: none
+    }
+.lens-flare-core {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 100px 40px rgba(236, 91, 19, 0.2), 0 0 200px 80px rgba(255, 255, 255, 0.05);
+    border-radius: 50%
+    }
+.text-shadow-noir {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.8)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col relative">
+<!-- Film Grain Layer -->
+<div class="grain-overlay"></div>
+<!-- Background Atmosphere -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+<div class="god-ray" style="left: 10%; opacity: 0.4;"></div>
+<div class="god-ray" style="left: 50%; opacity: 0.2; transform: rotate(15deg);"></div>
+<div class="god-ray" style="left: 80%; opacity: 0.3; transform: rotate(35deg);"></div>
+<div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
+</div>
+<!-- Top Navigation / Header -->
+<header class="relative z-10 flex items-center justify-between p-6 bg-transparent">
+<div class="flex items-center gap-4">
+<div class="text-white flex size-10 shrink-0 items-center justify-center border border-white/10 rounded-lg bg-white/5 backdrop-blur-md">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-white text-xl font-black tracking-tighter uppercase leading-none">Nero 27</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 text-sm font-medium tracking-widest uppercase text-white/60">
+<a class="hover:text-primary transition-colors" href="#">Archivio</a>
+<a class="hover:text-primary transition-colors" href="#">Studio</a>
+<a class="hover:text-primary transition-colors" href="#">Optics</a>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full border border-primary/40 bg-primary/10 text-primary">
+<span class="material-symbols-outlined">shutter_speed</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center pt-10 pb-20">
+<div class="relative group">
+<!-- Central Lens Flare Concept -->
+<div class="lens-flare-core top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-60"></div>
+<h1 class="text-white text-6xl md:text-9xl font-black tracking-tighter leading-none mb-4 uppercase text-shadow-noir">
+                CINEPHILE<br/><span class="text-white/20">OPTICS V3</span>
+</h1>
+<p class="text-primary text-sm md:text-base font-bold tracking-[0.5em] uppercase mb-12 opacity-80">
+                Noir Cinema Creative Studio
+            </p>
+</div>
+<!-- Call to Action -->
+<button class="group relative px-10 py-4 bg-primary text-white font-bold text-sm tracking-widest uppercase rounded-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(236,91,19,0.3)]">
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<span class="relative z-10">Enter Studio</span>
+</button>
+<!-- Exposure Controls (Interactive Sliders) -->
+<div class="mt-24 w-full max-w-md space-y-8 bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-xl">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="text-white/60 text-xs tracking-widest uppercase font-bold">Exposure Control</span>
+<span class="text-primary text-xs font-mono">60%</span>
+</div>
+<div class="relative flex h-2 w-full items-center">
+<div class="h-1 w-full rounded-full bg-white/10">
+<div class="h-full w-[60%] rounded-full bg-primary relative">
+<div class="absolute -right-2 -top-1.5 size-4 rounded-full bg-primary shadow-[0_0_10px_rgba(236,91,19,0.8)] border-2 border-white"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="text-white/60 text-xs tracking-widest uppercase font-bold">Contrast (Noir)</span>
+<span class="text-primary text-xs font-mono">85%</span>
+</div>
+<div class="relative flex h-2 w-full items-center">
+<div class="h-1 w-full rounded-full bg-white/10">
+<div class="h-full w-[85%] rounded-full bg-primary relative">
+<div class="absolute -right-2 -top-1.5 size-4 rounded-full bg-primary shadow-[0_0_10px_rgba(236,91,19,0.8)] border-2 border-white"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Portfolio Section Preview -->
+<section class="relative z-10 px-6 pb-32">
+<h3 class="text-white/40 text-xs tracking-[0.3em] uppercase font-bold mb-8 text-center">Featured Stills</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+<div class="aspect-[16/9] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group relative">
+<img class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-110 transition-transform duration-700" data-alt="High contrast cinematic black and white movie still" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKi5ARpb31NqGeBsoPs17W8etktl_T5SDpvSb-3He68MXLeCck2m4ZincE4J_vX-yZYDgLMOSxYud8dkGYeka4xnzYm1iHV1fdMc_Gk2nA0svZFnyspe7_KWzg3nV1qphXiohb4BeqYPPWT-6LDqbolRf-kn-b2HDqHTqpg3bBLFx7EbAKUG6ptNTR2yHlJ2tY8KldO08jPTjB4a7ahXdKhF3rZBXggBw71hbHxLunP6JXt1w76-qt17VFnK1n5zq7dDrWJmR-Vqs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-[10px] text-primary tracking-widest uppercase font-bold">Shadow Play</p>
+<p class="text-sm text-white font-bold uppercase">The Silhouette</p>
+</div>
+</div>
+<div class="aspect-[16/9] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group relative">
+<img class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-110 transition-transform duration-700" data-alt="Grainy film noir street scene at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK8G0QqwURp6BWyQWYpvNqmVf-ktWdb5-9mvnwqSZlo-qQZjV2FL7YwwGzId0Sh7NGIwUJwMACYow4iviSbqnzVtHmuOfzG_HrJHmhyQRBGJZDGk8dVOGiF82hKf-0yn7vSxEGgi5vjDOJ79RzuzdZaqEogSlP-oRpnt7qJ7rJxwNg3J2kP0RsE-mD2drZclkgo4wj7gyJrI4O0zMPzhiBGlUNZDGFXXJlauQG7Joe7emUAVLd7VSUswx7g37J-_61b4Nt4R0Y3sI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-[10px] text-primary tracking-widest uppercase font-bold">Optics V3</p>
+<p class="text-sm text-white font-bold uppercase">Wet Pavement</p>
+</div>
+</div>
+<div class="aspect-[16/9] bg-zinc-900 rounded-lg overflow-hidden border border-white/10 group relative">
+<img class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-110 transition-transform duration-700" data-alt="Low light camera lens and film gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtfTWHY2LU3VA6k190FyNOdACeFjEhFQ_Vp_PihLGc4mY5qiqig5KAxkByyaHI6iEmfbhtXRmnN-p3xUV4fXIwPkiGNlbScZ7AQwyroiby1iJ48WpaVWzI4y1mCaVjEP2JGj9Xy-vKdYA_3Fh9DiqIGl0M44rrGdUh3QcmpSDK6JWX8yIqricvvbqYWHVWSTz02TAo3JLC7dteZE6f4hvOrcc9RkJyYZWwX5noH5xBrbxSkUvOfiV1ScFT1dvY5rzd9Qo1guQdyBI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-[10px] text-primary tracking-widest uppercase font-bold">Studio Gear</p>
+<p class="text-sm text-white font-bold uppercase">Anamorphic Depth</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 p-4">
+<div class="max-w-md mx-auto flex items-center justify-around gap-2 border border-white/10 bg-black/40 backdrop-blur-2xl px-4 py-3 rounded-full shadow-2xl">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40 hover:text-white group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">movie</span>
+</div>
+</a>
+<div class="flex-none -mt-10">
+<button class="size-16 bg-primary rounded-full shadow-[0_10px_30px_rgba(236,91,19,0.5)] flex items-center justify-center text-white border-4 border-black active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+</button>
+</div>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40 hover:text-white group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-white/40 hover:text-white group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">person</span>
+</div>
+</a>
+</div>
+</nav>
+</body></html>

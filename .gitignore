@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# testing
+coverage/
+
+# production
+build/
+dist/
+
+# next.js
+.next/
+out/
+
+# misc
+.DS_Store
+*.pem
+*.log
+.env*
+.vercel
+*.tsbuildinfo
+
+# Ignore the huge audit folder if it's too large? 
+# The user said "upload everything", so I'll keep it unless it blocks git.
+# stitch (1)/

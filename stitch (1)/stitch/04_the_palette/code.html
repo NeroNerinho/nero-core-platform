@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Brand Codex: The Palette</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&amp;family=IM+Fell+English+SC&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816", // Mapped to Sanguine concept
+                        "ink": "#2A231E",
+                        "parchment": "#F0EAD6",
+                        "wash": "#E6DCC3",
+                        "sanguine": "#8A3324",
+                        "graphite": "#8C8276",
+                        "faded-ink": "#5C4E43",
+                        "background-light": "#F0EAD6", // Enforcing parchment as bg-light
+                        "background-dark": "#211311",
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "body": ["IM Fell English SC", "serif"],
+                        "hand": ["Reenie Beanie", "cursive"],
+                        "sans": ["Newsreader", "serif"], // Mapping default sans to serif for this theme
+                    },
+                    backgroundImage: {
+                        'paper-grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom Styles for Ink Bleed and Texture */
+.texture-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBCt4xVNmGOBSf3W4wu5kdGpwdlBkiRlRSepHcdtVO2CwIx17QV9LKzo5nC0H6c1Nxnn5FZ-6SS0487_ISH9BAGP-dAJj-gw598kZ_DgvVMaZVxBEuI28-mryMNuVCG5PRPU3i1DEIZ6xW357AN7vLcjYGKwQrhJmYWMYZFqwJ-7FyX6Gq9Hk6bRJhKfGIakXixxj1s4ZEsbRmm_aZJN2F-NACgWNhsbq6s6byaQWtv1m8XdeZILMyaC-Va_rLW9eeT2P1_Sl2Zn-8);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+    pointer-events: none
+    }
+.ink-text {
+    mix-blend-mode: multiply
+    }
+/* Simulating organic paint circles */
+.paint-swatch {
+    border-radius: 48% 52% 68% 32%/42% 28% 72% 58%;
+    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative
+    }
+.paint-swatch::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 30%;
+    height: 20%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    transform: rotate(-45deg)
+    }
+.paint-swatch:active {
+    transform: scale(0.95);
+    border-radius: 50% 50% 50% 50%/50% 50% 50% 50%;
+    /* Becomes more perfect circle on press */
+    }
+/* Custom Scrollbar for the antique feel */
+::-webkit-scrollbar {
+    width: 6px
+    }
+::-webkit-scrollbar-track {
+    background: #E6DCC3
+    }
+::-webkit-scrollbar-thumb {
+    background: #8C8276;
+    border-radius: 3px
+    }
+/* Details Summary marker hide */
+details > summary {
+    list-style: none
+    }
+details > summary::-webkit-details-marker {
+    display: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-ink antialiased selection:bg-sanguine selection:text-white">
+<!-- Texture Overlay for the whole screen -->
+<div class="fixed inset-0 texture-overlay z-50"></div>
+<!-- Main Container -->
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-parchment border-x border-[#dcd3b8]">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-parchment/95 backdrop-blur-sm pt-6 pb-2 px-6 border-b border-graphite/30">
+<div class="flex items-center justify-between">
+<div class="material-symbols-outlined text-ink cursor-pointer hover:text-sanguine transition-colors">arrow_back</div>
+<h1 class="text-xl font-bold italic tracking-wide text-ink ink-text">Fig. 4: The Pigments</h1>
+<div class="material-symbols-outlined text-ink cursor-pointer hover:text-sanguine transition-colors">info</div>
+</div>
+<!-- Decorative Separator -->
+<div class="mt-4 flex items-center justify-center gap-2 opacity-60">
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-graphite to-transparent"></div>
+<div class="text-[10px] font-body text-graphite whitespace-nowrap">SERIES A</div>
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-graphite to-transparent"></div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 flex flex-col px-6 py-6 gap-8 pb-32">
+<!-- Description Note -->
+<div class="relative p-4 border border-graphite/20 bg-wash/30 rounded-sm">
+<p class="font-hand text-xl text-faded-ink leading-tight transform -rotate-1">
+                    "Pigments derived from natural earth tones. Click to sample the ink."
+                </p>
+<!-- Pin Graphic -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-sanguine shadow-sm border border-ink/20"></div>
+</div>
+<!-- Swatch List -->
+<div class="flex flex-col gap-6">
+<!-- Item 1: Carbon Black -->
+<details class="group open:bg-wash/20 rounded-lg transition-colors duration-300">
+<summary class="flex items-center gap-5 p-3 cursor-pointer select-none">
+<!-- Paint Swatch -->
+<div class="relative shrink-0 group/swatch" onclick="copyToClipboard('#1b100e', this)">
+<div class="w-16 h-16 bg-[#1b100e] paint-swatch group-hover:scale-105 transition-transform duration-300"></div>
+<div class="absolute -bottom-2 -right-2 bg-parchment rounded-full p-1 border border-graphite/20 opacity-0 group-hover/swatch:opacity-100 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-ink block">colorize</span>
+</div>
+</div>
+<!-- Label -->
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-3xl font-display italic text-ink leading-none mb-1 group-open:text-sanguine transition-colors">Carbon Black</h2>
+<p class="font-body text-sm text-faded-ink tracking-widest">#1B100E</p>
+</div>
+<!-- Expand Icon -->
+<div class="material-symbols-outlined text-graphite group-open:rotate-180 transition-transform">expand_more</div>
+</summary>
+<!-- Hidden Technical Data -->
+<div class="px-4 pb-4 pt-2 ml-[5.25rem]">
+<div class="grid grid-cols-2 gap-2 text-xs font-body text-faded-ink border-l-2 border-graphite/30 pl-3">
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">CMYK</span>
+<span>60 / 40 / 40 / 100</span>
+</div>
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">RGB</span>
+<span>27 / 16 / 14</span>
+</div>
+<div class="col-span-2 pt-2 border-t border-graphite/10 mt-1">
+<span class="font-hand text-lg text-sanguine">Primary Ink &amp; Linework</span>
+</div>
+</div>
+</div>
+</details>
+<!-- Item 2: Deep Sepia -->
+<details class="group open:bg-wash/20 rounded-lg transition-colors duration-300">
+<summary class="flex items-center gap-5 p-3 cursor-pointer select-none">
+<div class="relative shrink-0 group/swatch" onclick="copyToClipboard('#2A231E', this)">
+<div class="w-16 h-16 bg-[#2A231E] paint-swatch group-hover:scale-105 transition-transform duration-300"></div>
+<div class="absolute -bottom-2 -right-2 bg-parchment rounded-full p-1 border border-graphite/20 opacity-0 group-hover/swatch:opacity-100 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-ink block">colorize</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-3xl font-display italic text-ink leading-none mb-1 group-open:text-sanguine transition-colors">Deep Sepia</h2>
+<p class="font-body text-sm text-faded-ink tracking-widest">#2A231E</p>
+</div>
+<div class="material-symbols-outlined text-graphite group-open:rotate-180 transition-transform">expand_more</div>
+</summary>
+<div class="px-4 pb-4 pt-2 ml-[5.25rem]">
+<div class="grid grid-cols-2 gap-2 text-xs font-body text-faded-ink border-l-2 border-graphite/30 pl-3">
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">CMYK</span>
+<span>50 / 60 / 70 / 80</span>
+</div>
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">RGB</span>
+<span>42 / 35 / 30</span>
+</div>
+<div class="col-span-2 pt-2 border-t border-graphite/10 mt-1">
+<span class="font-hand text-lg text-sanguine">Secondary Text &amp; Shadows</span>
+</div>
+</div>
+</div>
+</details>
+<!-- Item 3: Sanguine -->
+<details class="group open:bg-wash/20 rounded-lg transition-colors duration-300" open="">
+<summary class="flex items-center gap-5 p-3 cursor-pointer select-none">
+<div class="relative shrink-0 group/swatch" onclick="copyToClipboard('#8A3324', this)">
+<div class="w-16 h-16 bg-[#8A3324] paint-swatch group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-sanguine/20"></div>
+<div class="absolute -bottom-2 -right-2 bg-parchment rounded-full p-1 border border-graphite/20 opacity-0 group-hover/swatch:opacity-100 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-ink block">colorize</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-3xl font-display italic text-ink leading-none mb-1 group-open:text-sanguine transition-colors">Sanguine</h2>
+<p class="font-body text-sm text-faded-ink tracking-widest">#8A3324</p>
+</div>
+<div class="material-symbols-outlined text-graphite group-open:rotate-180 transition-transform">expand_more</div>
+</summary>
+<div class="px-4 pb-4 pt-2 ml-[5.25rem]">
+<div class="grid grid-cols-2 gap-2 text-xs font-body text-faded-ink border-l-2 border-sanguine/50 pl-3">
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">CMYK</span>
+<span>25 / 85 / 90 / 25</span>
+</div>
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">RGB</span>
+<span>138 / 51 / 36</span>
+</div>
+<div class="col-span-2 pt-2 border-t border-graphite/10 mt-1">
+<span class="font-hand text-lg text-sanguine">Highlights &amp; Annotations</span>
+</div>
+</div>
+</div>
+</details>
+<!-- Item 4: Aged Vellum -->
+<details class="group open:bg-wash/20 rounded-lg transition-colors duration-300">
+<summary class="flex items-center gap-5 p-3 cursor-pointer select-none">
+<div class="relative shrink-0 group/swatch" onclick="copyToClipboard('#F0EAD6', this)">
+<!-- Added border to make visible on parchment bg -->
+<div class="w-16 h-16 bg-[#F0EAD6] paint-swatch border border-graphite/20 group-hover:scale-105 transition-transform duration-300"></div>
+<div class="absolute -bottom-2 -right-2 bg-parchment rounded-full p-1 border border-graphite/20 opacity-0 group-hover/swatch:opacity-100 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-ink block">colorize</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-3xl font-display italic text-ink leading-none mb-1 group-open:text-sanguine transition-colors">Aged Vellum</h2>
+<p class="font-body text-sm text-faded-ink tracking-widest">#F0EAD6</p>
+</div>
+<div class="material-symbols-outlined text-graphite group-open:rotate-180 transition-transform">expand_more</div>
+</summary>
+<div class="px-4 pb-4 pt-2 ml-[5.25rem]">
+<div class="grid grid-cols-2 gap-2 text-xs font-body text-faded-ink border-l-2 border-graphite/30 pl-3">
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">CMYK</span>
+<span>4 / 4 / 14 / 0</span>
+</div>
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">RGB</span>
+<span>240 / 234 / 214</span>
+</div>
+<div class="col-span-2 pt-2 border-t border-graphite/10 mt-1">
+<span class="font-hand text-lg text-sanguine">Paper Substrate</span>
+</div>
+</div>
+</div>
+</details>
+<!-- Item 5: Graphite (Bonus from PRD colors) -->
+<details class="group open:bg-wash/20 rounded-lg transition-colors duration-300">
+<summary class="flex items-center gap-5 p-3 cursor-pointer select-none">
+<div class="relative shrink-0 group/swatch" onclick="copyToClipboard('#8C8276', this)">
+<div class="w-16 h-16 bg-[#8C8276] paint-swatch group-hover:scale-105 transition-transform duration-300"></div>
+<div class="absolute -bottom-2 -right-2 bg-parchment rounded-full p-1 border border-graphite/20 opacity-0 group-hover/swatch:opacity-100 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-ink block">colorize</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h2 class="text-3xl font-display italic text-ink leading-none mb-1 group-open:text-sanguine transition-colors">Graphite</h2>
+<p class="font-body text-sm text-faded-ink tracking-widest">#8C8276</p>
+</div>
+<div class="material-symbols-outlined text-graphite group-open:rotate-180 transition-transform">expand_more</div>
+</summary>
+<div class="px-4 pb-4 pt-2 ml-[5.25rem]">
+<div class="grid grid-cols-2 gap-2 text-xs font-body text-faded-ink border-l-2 border-graphite/30 pl-3">
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">CMYK</span>
+<span>45 / 40 / 40 / 10</span>
+</div>
+<div class="flex flex-col">
+<span class="uppercase tracking-widest text-[10px] text-graphite">RGB</span>
+<span>140 / 130 / 118</span>
+</div>
+<div class="col-span-2 pt-2 border-t border-graphite/10 mt-1">
+<span class="font-hand text-lg text-sanguine">Construction Lines</span>
+</div>
+</div>
+</div>
+</details>
+</div>
+</main>
+<!-- Bottom Navigation (Consistent with context) -->
+<nav class="fixed bottom-0 w-full max-w-md bg-parchment border-t border-sanguine/30 z-40 pb-4 pt-3 px-6 shadow-[0_-4px_20px_rgba(42,35,30,0.1)]">
+<div class="flex justify-between items-end">
+<a class="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity group" href="#">
+<span class="material-symbols-outlined text-ink group-hover:text-sanguine text-[24px]">hexagon</span>
+<span class="text-[10px] font-body text-ink tracking-widest uppercase">Emblem</span>
+</a>
+<a class="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity group" href="#">
+<span class="material-symbols-outlined text-ink group-hover:text-sanguine text-[24px]">circle</span>
+<span class="text-[10px] font-body text-ink tracking-widest uppercase">Mark</span>
+</a>
+<a class="flex flex-col items-center gap-1 relative group" href="#">
+<div class="absolute -top-12 bg-sanguine text-white text-[10px] px-2 py-0.5 rounded-full font-body opacity-0 group-hover:opacity-100 transition-opacity">Active</div>
+<div class="bg-sanguine/10 p-2 rounded-full -mt-2 mb-1">
+<span class="material-symbols-outlined text-sanguine text-[28px] fill-current">water_drop</span>
+</div>
+<span class="text-[10px] font-body text-sanguine font-bold tracking-widest uppercase border-b border-sanguine">Palette</span>
+</a>
+<a class="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity group" href="#">
+<span class="material-symbols-outlined text-ink group-hover:text-sanguine text-[24px]">text_fields</span>
+<span class="text-[10px] font-body text-ink tracking-widest uppercase">Type</span>
+</a>
+</div>
+</nav>
+<!-- Toast Notification Element (Hidden by default) -->
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-0 transition-opacity duration-500 z-50" id="toast">
+<div class="relative">
+<!-- Scribble SVG background for the toast -->
+<svg class="absolute -top-6 -left-8 text-parchment drop-shadow-xl" height="80" style="z-index: -1;" viewbox="0 0 200 80" width="200">
+<path d="M4.5,45.5C12.5,22.5,58.5-4.5,108.5,3.5s86,34,88,48s-22,33-54,26s-133-14-138-32Z" fill="currentColor"></path>
+</svg>
+<div class="transform -rotate-6">
+<p class="font-hand text-2xl text-sanguine" id="toast-text">Pigment Copied</p>
+<div class="h-0.5 w-full bg-sanguine/50 mt-1 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        function copyToClipboard(text, element) {
+            // In a real app, this would copy to clipboard
+            // navigator.clipboard.writeText(text);
+
+            // Visual Feedback: Pulse the clicked element
+            element.classList.add('scale-90');
+            setTimeout(() => {
+                element.classList.remove('scale-90');
+            }, 150);
+
+            // Show handwritten toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            
+            // Randomize slight rotation for organic feel
+            const rotation = Math.random() * 10 - 5;
+            toast.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 1500);
+        }
+    </script>
+</body></html>

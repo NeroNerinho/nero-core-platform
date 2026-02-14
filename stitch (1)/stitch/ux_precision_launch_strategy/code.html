@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 UX Precision - Roadmap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .timeline-line {
+            width: 2px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #4c09aa 0,
+                #4c09aa 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#130d1c] dark:text-white antialiased min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded text-white">
+<span class="material-symbols-outlined text-xl">account_tree</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-tight text-primary uppercase">Nero 27</h1>
+<p class="text-[10px] text-primary/60 font-medium">UX PRECISION DASHBOARD</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</header>
+<!-- Strategy Toggle -->
+<nav class="bg-background-light dark:bg-background-dark px-4 pt-4">
+<div class="flex bg-primary/5 p-1 rounded-lg border border-primary/10">
+<button class="flex-1 py-2 text-xs font-bold bg-primary text-white rounded shadow-sm transition-all">
+                Product Launch
+            </button>
+<button class="flex-1 py-2 text-xs font-bold text-primary/60 hover:text-primary transition-all">
+                Corporate Integration
+            </button>
+</div>
+</nav>
+<main class="flex-1 pb-24">
+<!-- Integration Metrics Grid -->
+<section class="p-4 grid grid-cols-3 gap-3">
+<div class="bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded shadow-sm">
+<p class="text-[10px] font-medium text-primary/60 uppercase">Adoption</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-xl font-bold">72%</span>
+<span class="text-[10px] text-green-600 font-bold">+12%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded shadow-sm">
+<p class="text-[10px] font-medium text-primary/60 uppercase">Coverage</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-xl font-bold">85%</span>
+<span class="text-[10px] text-green-600 font-bold">+5%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded shadow-sm">
+<p class="text-[10px] font-medium text-primary/60 uppercase">Migration</p>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-xl font-bold">40%</span>
+<span class="text-[10px] text-green-600 font-bold">+8%</span>
+</div>
+</div>
+</section>
+<!-- Roadmap Title -->
+<div class="px-4 pb-2 flex items-center justify-between">
+<h2 class="text-lg font-bold tracking-tight">Design System Rollout</h2>
+<span class="text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded uppercase">Q3 2024 - Q2 2025</span>
+</div>
+<!-- Vertical Progress Timeline -->
+<section class="px-4 py-4 relative">
+<div class="absolute left-7 top-6 bottom-6 timeline-line opacity-20"></div>
+<!-- Phase 1: Completed -->
+<div class="relative flex gap-4 mb-8">
+<div class="z-10 bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex-1 bg-white dark:bg-primary/5 border border-primary/10 p-4 rounded shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Phase 1 • Q3 Foundation</span>
+<span class="text-[9px] font-bold bg-green-100 text-green-700 px-1.5 py-0.5 rounded">COMPLETED</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Design System Core</h3>
+<p class="text-xs text-primary/60 leading-relaxed">Tokens, typography, and atomic grids established for Nero 27 framework.</p>
+</div>
+</div>
+<!-- Phase 2: Active -->
+<div class="relative flex gap-4 mb-8">
+<div class="z-10 bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1 ring-4 ring-primary/10">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+</div>
+<div class="flex-1 bg-white dark:bg-primary/5 border-2 border-primary p-4 rounded shadow-md">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase">Phase 2 • Q4 Pilot</span>
+<span class="text-[9px] font-bold bg-primary text-white px-1.5 py-0.5 rounded animate-pulse">IN PROGRESS</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Flagship Deployment</h3>
+<p class="text-xs text-primary/80 leading-relaxed mb-3">Active rollout to Nero 27 core components. Internal beta testing in progress.</p>
+<div class="w-full bg-primary/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Phase 3: Upcoming -->
+<div class="relative flex gap-4 mb-8">
+<div class="z-10 bg-white border-2 border-primary/20 text-primary/40 w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm">corporate_fare</span>
+</div>
+<div class="flex-1 bg-white dark:bg-primary/5 border border-primary/10 p-4 rounded shadow-sm opacity-60">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Phase 3 • Q1 Integration</span>
+<span class="text-[9px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded uppercase">Pending</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Corporate Integration</h3>
+<p class="text-xs text-primary/60 leading-relaxed">Cross-departmental training and API documentation release.</p>
+</div>
+</div>
+<!-- Phase 4: Long Term -->
+<div class="relative flex gap-4">
+<div class="z-10 bg-white border-2 border-primary/20 text-primary/40 w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+<div class="flex-1 bg-white dark:bg-primary/5 border border-primary/10 p-4 rounded shadow-sm opacity-60">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary/40 uppercase">Phase 4 • Q2 Global</span>
+<span class="text-[9px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded uppercase">Planned</span>
+</div>
+<h3 class="font-bold text-sm mb-1">Full Precision Migration</h3>
+<p class="text-xs text-primary/60 leading-relaxed">Global legacy system audit and complete system-wide asset synchronization.</p>
+</div>
+</div>
+</section>
+<!-- Strategic Objectives -->
+<section class="p-4 mt-2">
+<h3 class="text-xs font-bold text-primary uppercase mb-3 tracking-widest">Strategic Objectives</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded">
+<span class="material-symbols-outlined text-primary/40">speed</span>
+<span class="text-xs font-medium">40% Increase in Dev Velocity</span>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded">
+<span class="material-symbols-outlined text-primary/40">security</span>
+<span class="text-xs font-medium">100% Accessibility Compliance</span>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-primary/5 p-3 border border-primary/10 rounded">
+<span class="material-symbols-outlined text-primary/40">palette</span>
+<span class="text-xs font-medium">Global Brand Consistency Control</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer Navigation -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-primary/10 px-4 pb-6 pt-3 z-50">
+<div class="flex justify-around items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">map</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Roadmap</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Strategy</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Team</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-colors relative" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Updates</span>
+<span class="absolute top-0 -right-1 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</a>
+</div>
+</footer>
+</body></html>

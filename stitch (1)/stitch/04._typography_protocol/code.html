@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DATA_FONT_PROTOCOL | Cyberpunk Brand Manual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Space Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glow-text {
+            text-shadow: 0 0 10px rgba(6, 232, 249, 0.5);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(6, 232, 249, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+        .border-glow {
+            box-shadow: 0 0 5px rgba(6, 232, 249, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary selection:text-background-dark overflow-x-hidden">
+<!-- Terminal Scanline Overlay -->
+<div class="fixed inset-0 pointer-events-none scanline z-50 opacity-30"></div>
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto border-x border-primary/20 bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- TOP NAV / STATUS BAR -->
+<div class="flex items-center bg-[#0a1617] p-4 border-b border-primary/30 justify-between sticky top-0 z-40">
+<div class="text-primary flex size-8 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined !text-[24px]">terminal</span>
+</div>
+<h2 class="text-primary text-sm font-bold leading-tight tracking-[0.2em] flex-1 text-center font-mono">DATA_FONT_PROTOCOL</h2>
+<div class="flex items-center justify-end gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<p class="text-primary/70 text-[10px] font-bold leading-normal tracking-widest shrink-0 font-mono">DECRYPTING</p>
+</div>
+</div>
+<!-- HERO SECTION -->
+<div class="p-6 border-b border-primary/10 bg-gradient-to-b from-primary/5 to-transparent">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] bg-primary text-background-dark px-1 font-bold">L-01</span>
+<span class="text-primary/50 text-[10px] font-mono tracking-tighter">PRIMARY_HEADER_SYNC [H1]</span>
+</div>
+<h1 class="text-white tracking-tight text-5xl font-bold leading-none glow-text uppercase border-l-4 border-primary pl-4">
+                SIGNAL_STRENGTH_MAX
+            </h1>
+<div class="mt-4 flex gap-4 text-[10px] font-mono text-primary/60">
+<p>SIZE: 32PX</p>
+<p>WEIGHT: 700</p>
+<p>KERN: AUTO</p>
+</div>
+</div>
+<!-- WATERFALL DECRYPTION STREAM -->
+<div class="px-6 py-8 bg-[#0d1d1f] relative overflow-hidden group">
+<div class="absolute right-4 top-4 text-primary/20 font-mono text-[8px] flex flex-col items-end">
+<p>OFFSET: 0x4F2A</p>
+<p>BUFFER: 100%</p>
+</div>
+<div class="space-y-4 font-mono">
+<!-- Row 1 -->
+<div class="flex items-baseline gap-4 opacity-40">
+<span class="text-primary/40 text-[10px]">001</span>
+<p class="text-xs break-all">01011001 01010100 01010011 5F 41 4C 50 48 41</p>
+</div>
+<!-- Row 2 -->
+<div class="flex items-baseline gap-4">
+<span class="text-primary/40 text-[10px]">002</span>
+<p class="text-lg font-display text-primary glow-text transition-all group-hover:tracking-[0.2em]">DECRYPTING_FONT_FACE</p>
+</div>
+<!-- Row 3 -->
+<div class="flex items-baseline gap-4 opacity-60">
+<span class="text-primary/40 text-[10px]">003</span>
+<p class="text-sm font-display text-white">Space Grotesk - Adaptive Weight 400</p>
+</div>
+<!-- Row 4 -->
+<div class="flex items-baseline gap-4">
+<span class="text-primary/40 text-[10px]">004</span>
+<p class="text-2xl font-display font-bold text-white border-b-2 border-primary/50 pb-1">PROTOCOL_ACTIVE</p>
+</div>
+<!-- Row 5 -->
+<div class="flex items-baseline gap-4 opacity-30">
+<span class="text-primary/40 text-[10px]">005</span>
+<p class="text-xs italic">Loading secondary sub-routine: Monospace v2.0</p>
+</div>
+</div>
+</div>
+<!-- SECONDARY HEADER SECTION -->
+<div class="p-6 border-y border-primary/20">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-8 h-[1px] bg-primary"></span>
+<h2 class="text-primary text-sm font-bold tracking-[0.3em] font-mono uppercase">Sub_Routine_Alpha</h2>
+</div>
+<h2 class="text-white text-2xl font-bold leading-tight tracking-tight uppercase mb-4">
+                Global_Data_Grid
+            </h2>
+<p class="text-primary/80 text-sm leading-relaxed mb-6 font-display">
+                This is the <span class="text-primary font-bold">DATA_STREAM_CONTENT</span>. Optimized for low-light environments and high-velocity information processing. Space Grotesk ensures legibility even when signals are fragmented.
+            </p>
+<!-- TECHNICAL SPEC CARD -->
+<div class="bg-primary/5 border border-primary/30 p-4 rounded-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary/10 rotate-45 translate-x-10 -translate-y-10"></div>
+<div class="flex justify-between items-center mb-4 border-b border-primary/20 pb-2">
+<span class="text-[10px] font-mono text-primary">CORE_SPECS</span>
+<span class="material-symbols-outlined text-primary !text-[14px]">settings_input_component</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-mono">FONT_FAMILY</p>
+<p class="text-white text-[12px] font-medium">Space Grotesk</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-mono">TRACKING</p>
+<div class="flex items-center gap-2">
+<div class="w-16 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<p class="text-white text-[12px] font-medium">+5%</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-primary/60 text-[10px] font-mono">GLOW_FX</p>
+<p class="text-primary text-[12px] font-bold">1px_CYAN_#06E8F9</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CALIBRATION SECTION -->
+<div class="p-6 bg-[#0a1617]">
+<h3 class="text-primary/40 text-[10px] font-mono mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined !text-[14px]">tune</span> HARDWARE_CALIBRATION
+            </h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-primary/10 border border-primary/40 py-3 flex flex-col items-center justify-center gap-1 hover:bg-primary/20 transition-colors">
+<span class="text-[8px] text-primary/60 font-mono">GLYPH_SET</span>
+<span class="text-xs font-bold text-white uppercase">Extended</span>
+</button>
+<button class="bg-primary border border-primary py-3 flex flex-col items-center justify-center gap-1">
+<span class="text-[8px] text-background-dark font-mono font-bold">SYNC_STATUS</span>
+<span class="text-xs font-bold text-background-dark uppercase">Encrypted</span>
+</button>
+</div>
+</div>
+<!-- DECRYPTION IMAGE PLACEHOLDER -->
+<div class="px-6 pb-8">
+<div class="relative h-40 w-full border border-primary/20 rounded-sm overflow-hidden">
+<img class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Abstract cyber circuit board pattern with blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQqrEQbsqfijJ25tmtu19vWOyiJY_5zLqnFU7TmU-zkWAYGcu7aZ3-6IK-AMLTaU_MqHuTqSgnYrR5M7w20eZCdQrZwO2ANcOckbxz0mZViqy-47fFVoN43D8WvWWhzgIrUqeT1ukiWpUQqmVwqbFjlYDfy2Pga20m2Bya28ebuGUXV1i6V_2aivIQbnD0nqTyNNk9kI1KaLKMJG5BsROPEzucAQ84yBS6a7Z5N_vwAH430Z6M06brn6uh08DBin6sWLEKMzTcrlA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex flex-col">
+<span class="text-primary text-[10px] font-mono">VISUAL_ID: 08-X2</span>
+<span class="text-white text-xs font-bold tracking-widest">SYSTEM_TOPOLOGY_MAP</span>
+</div>
+<div class="absolute top-2 right-2 flex gap-1">
+<div class="w-1 h-1 bg-primary"></div>
+<div class="w-1 h-1 bg-primary/30"></div>
+<div class="w-1 h-1 bg-primary/30"></div>
+</div>
+</div>
+</div>
+<!-- SPACER -->
+<div class="h-20"></div>
+<!-- BOTTOM NAV BAR -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50">
+<div class="flex gap-1 border-t border-primary/30 bg-[#0a1617] px-4 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-sm text-primary group" href="#">
+<div class="text-primary flex h-8 items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined !text-[24px]">description</span>
+</div>
+<p class="text-[9px] font-bold leading-normal tracking-widest font-mono">SPEC</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 group" href="#">
+<div class="text-primary/40 flex h-8 items-center justify-center transition-transform group-hover:scale-110 group-hover:text-primary">
+<span class="material-symbols-outlined !text-[24px]">grid_view</span>
+</div>
+<p class="text-[9px] font-bold leading-normal tracking-widest font-mono">GLYPH</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 group" href="#">
+<div class="text-primary/40 flex h-8 items-center justify-center transition-transform group-hover:scale-110 group-hover:text-primary">
+<span class="material-symbols-outlined !text-[24px]">play_circle</span>
+</div>
+<p class="text-[9px] font-bold leading-normal tracking-widest font-mono">EXEC</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 group" href="#">
+<div class="text-primary/40 flex h-8 items-center justify-center transition-transform group-hover:scale-110 group-hover:text-primary">
+<span class="material-symbols-outlined !text-[24px]">settings</span>
+</div>
+<p class="text-[9px] font-bold leading-normal tracking-widest font-mono">SYS</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

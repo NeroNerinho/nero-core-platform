@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UX Studio Precision v2 - Nero 27</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk for Neo-Grotesque feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            nero: {
+              black: '#0A0A0A',
+              white: '#F5F5F5',
+              accent: '#FF3B00', // Precision Orange
+              grid: 'rgba(255, 255, 255, 0.05)',
+              guide: 'rgba(0, 255, 255, 0.3)', // Cyan Blueprint Color
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scanline': 'scanline 8s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scanline: {
+              '0%': { top: '0%' },
+              '100%': { top: '100%' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="global-layout">
+    body {
+      background-color: #0A0A0A;
+      color: #F5F5F5;
+      overflow: hidden;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Swiss Grid Background */
+    .swiss-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    }
+
+    .micro-grid {
+      background-size: 8px 8px;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    }
+
+    /* UI Measurement Lines */
+    .guide-line-h {
+      height: 1px;
+      background: rgba(0, 255, 255, 0.2);
+      position: absolute;
+      width: 100%;
+    }
+    
+    .guide-line-v {
+      width: 1px;
+      background: rgba(0, 255, 255, 0.2);
+      position: absolute;
+      height: 100%;
+    }
+
+    .pixel-dot {
+      width: 4px;
+      height: 4px;
+      background: #FF3B00;
+      position: absolute;
+    }
+  </style>
+<style data-purpose="component-animations">
+    .measure-indicator {
+      font-size: 8px;
+      font-family: monospace;
+      color: #00FFFF;
+      padding: 2px 4px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      white-space: nowrap;
+    }
+
+    .box-sizing-anim {
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    /* Animation for the margin/padding indicators */
+    @keyframes grow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .animate-grow {
+      animation: grow 2s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen relative">
+<!-- BEGIN: BackgroundGridLayer -->
+<div class="fixed inset-0 swiss-grid pointer-events-none" data-purpose="background-base"></div>
+<div class="fixed inset-0 micro-grid pointer-events-none" data-purpose="background-detail"></div>
+<div class="fixed inset-0 opacity-20 pointer-events-none" data-purpose="scanline-effect">
+<div class="absolute w-full h-[1px] bg-cyan-400 animate-scanline"></div>
+</div>
+<!-- END: BackgroundGridLayer -->
+<!-- BEGIN: NavigationGuides -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden" data-purpose="ui-guides">
+<!-- Screen center crosshair -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10"></div>
+<div class="absolute left-1/2 top-0 h-full w-[1px] bg-white/10"></div>
+<!-- Top Left Coordinates -->
+<div class="absolute top-4 left-4 font-mono text-[10px] text-white/40">
+      X: 0.00<br/>Y: 0.00
+    </div>
+<!-- Bottom Right Version -->
+<div class="absolute bottom-4 right-4 font-mono text-[10px] text-white/40 text-right">
+      VER: 2.0.27<br/>TYPE: NERO_PRIME
+    </div>
+</div>
+<!-- END: NavigationGuides -->
+<!-- BEGIN: MainContent -->
+<main class="relative z-10 w-full max-w-md px-6 flex flex-col items-center">
+<!-- BEGIN: BrandLogoContainer -->
+<div class="relative mb-16 animate-float" data-purpose="logo-study">
+<!-- Layout Constraints Indicators -->
+<div class="absolute -top-12 -left-12 w-24 h-24 border-t border-l border-cyan-500/30">
+<span class="measure-indicator absolute top-0 left-0">48.00px</span>
+</div>
+<div class="absolute -bottom-12 -right-12 w-24 h-24 border-b border-r border-cyan-500/30">
+<span class="measure-indicator absolute bottom-0 right-0">SEC_ALPHA</span>
+</div>
+<!-- Actual Logo -->
+<div class="relative bg-white text-black p-8 group overflow-hidden" style="width: 160px; height: 160px;">
+<!-- Inner Border Simulation -->
+<div class="absolute inset-0 border-[8px] border-black/5"></div>
+<div class="h-full w-full flex flex-col justify-between relative z-10">
+<div class="text-4xl font-bold tracking-tighter leading-none">N27</div>
+<div class="text-[10px] font-medium tracking-[0.2em] uppercase opacity-60">Precision UX</div>
+</div>
+<!-- Animated Hover State Overlay (Visual only) -->
+<div class="absolute inset-0 bg-nero-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<!-- Proportions Labels -->
+<div class="absolute top-1/2 -left-20 -translate-y-1/2 flex flex-col items-end space-y-1">
+<div class="h-[1px] w-12 bg-nero-accent"></div>
+<span class="text-[8px] text-nero-accent uppercase tracking-widest">Alignment</span>
+</div>
+</div>
+<!-- END: BrandLogoContainer -->
+<!-- BEGIN: InterfaceElements -->
+<section class="w-full space-y-12" data-purpose="interactive-ui-elements">
+<!-- Typography Section -->
+<div class="relative" data-purpose="typography-showcase">
+<div class="flex justify-between items-end mb-4">
+<h1 class="text-4xl font-light tracking-tight leading-none">Nero 27</h1>
+<span class="text-[10px] font-mono text-cyan-400">TYPE: GROTESK_V2</span>
+</div>
+<div class="w-full h-[1px] bg-white/20 mb-2"></div>
+<p class="text-sm text-white/50 leading-relaxed max-w-[280px]">
+          Engineering digital experiences through the lens of absolute geometric harmony and functional aesthetics.
+        </p>
+</div>
+<!-- Animated Padding Indicator Box -->
+<div class="relative p-6 border border-white/10 group overflow-hidden" data-purpose="ui-component-demo">
+<!-- Visual Padding Indicators -->
+<div class="absolute inset-0 border-[16px] border-nero-accent/5 pointer-events-none group-hover:border-nero-accent/10 transition-all duration-500"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="space-y-1">
+<div class="text-[10px] font-mono text-white/30 uppercase">Component Status</div>
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 rounded-full bg-nero-accent animate-pulse"></div>
+<div class="text-sm font-medium">OPTIMIZED</div>
+</div>
+</div>
+<button class="px-4 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-nero-accent hover:text-white transition-colors duration-300">
+            Execute
+          </button>
+</div>
+<!-- Measurement lines that appear on "component" -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+<div class="absolute top-2 left-1/2 -translate-x-1/2 w-px h-2 bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-px h-2 bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<!-- Micro-Data Stream -->
+<div class="grid grid-cols-3 gap-4" data-purpose="performance-metrics">
+<div class="border-l border-white/20 pl-2">
+<div class="text-[10px] text-white/40">LATENCY</div>
+<div class="text-lg font-light">0.02ms</div>
+</div>
+<div class="border-l border-white/20 pl-2">
+<div class="text-[10px] text-white/40">ACCURACY</div>
+<div class="text-lg font-light">99.9%</div>
+</div>
+<div class="border-l border-white/20 pl-2">
+<div class="text-[10px] text-white/40">UX_FLOW</div>
+<div class="text-lg font-light italic">FLAWLESS</div>
+</div>
+</div>
+</section>
+<!-- END: InterfaceElements -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: FooterDecals -->
+<footer class="fixed bottom-12 w-full flex justify-center px-12 pointer-events-none">
+<div class="flex items-center space-x-8 text-[9px] font-mono tracking-widest opacity-30">
+<span>GRID_ACTIVE</span>
+<div class="w-8 h-[1px] bg-white"></div>
+<span>SYS_READY</span>
+<div class="w-8 h-[1px] bg-white"></div>
+<span>SYNC_09</span>
+</div>
+</footer>
+<!-- END: FooterDecals -->
+<!-- BEGIN: CanvasOverlay -->
+<!-- Subtle particle or cursor follow effect could be handled here if needed -->
+<canvas class="fixed inset-0 pointer-events-none z-50" id="precision-canvas"></canvas>
+<!-- END: CanvasOverlay -->
+<script data-purpose="canvas-setup">
+    const canvas = document.getElementById('precision-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Small interactive highlight on mouse move
+    let mouse = { x: -100, y: -100 };
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw a precision crosshair at mouse position
+      if (mouse.x > 0) {
+        ctx.strokeStyle = 'rgba(255, 59, 0, 0.4)';
+        ctx.lineWidth = 0.5;
+        
+        // Vertical line
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, 0);
+        ctx.lineTo(mouse.x, canvas.height);
+        ctx.stroke();
+        
+        // Horizontal line
+        ctx.beginPath();
+        ctx.moveTo(0, mouse.y);
+        ctx.lineTo(canvas.width, mouse.y);
+        ctx.stroke();
+
+        // Coordinates text
+        ctx.fillStyle = 'rgba(255, 59, 0, 0.8)';
+        ctx.font = '10px monospace';
+        ctx.fillText(`${Math.round(mouse.x)}px , ${Math.round(mouse.y)}px`, mouse.x + 10, mouse.y - 10);
+      }
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body></html>

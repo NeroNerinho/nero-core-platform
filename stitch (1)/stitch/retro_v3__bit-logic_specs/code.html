@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Retro Geometry V3 | Bit-Logic Documentation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .grid-overlay {
+            background-image: linear-gradient(to right, rgba(236, 91, 19, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(236, 91, 19, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(236, 91, 19, 0.03);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .pixel-text { font-family: monospace; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen relative overflow-x-hidden">
+<!-- Grid Background -->
+<div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-72 bg-white dark:bg-[#1a110c] border-r border-primary/10 flex flex-col sticky top-0 h-screen z-20">
+<div class="p-6 flex flex-col h-full justify-between">
+<div class="space-y-8">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-sm font-black uppercase tracking-tighter text-primary">Retro Geometry V3</h1>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold">Bit-Logic System</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span class="text-sm font-semibold uppercase tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined text-[20px]">polyline</span>
+<span class="text-sm font-semibold uppercase tracking-tight">Logo Anatomy</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">text_fields</span>
+<span class="text-sm font-semibold uppercase tracking-tight">Typography Protocols</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-sm font-semibold uppercase tracking-tight">Asset Library</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">architecture</span>
+<span class="text-sm font-semibold uppercase tracking-tight">Alignment Diagrams</span>
+</a>
+</nav>
+</div>
+<div class="space-y-4">
+<div class="p-3 rounded-lg bg-background-light dark:bg-[#2d1e16] border border-primary/10">
+<p class="text-[10px] uppercase font-bold text-slate-400 mb-1">System Status</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-mono text-primary">LOGIC_UPTIME: 100%</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-2.5 rounded-lg text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-primary/20">
+                        Terminal v1.0.4
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-8 lg:p-12 relative z-10 max-w-6xl">
+<!-- Breadcrumbs & Header -->
+<div class="mb-12">
+<nav class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
+<a class="hover:text-primary" href="#">Documentation</a>
+<span>/</span>
+<span class="text-primary">Logo Anatomy</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-4">
+                            Logo Anatomy <span class="text-primary underline decoration-4 underline-offset-8">Protocols</span>
+</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl leading-relaxed">
+                            Deconstruction of 8-bit visual identifiers, bitmask alignment rules, and pixel-perfect scaling for high-fidelity retro interfaces.
+                        </p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-white dark:bg-white/5 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-black uppercase tracking-widest text-sm rounded-lg">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Schematics
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-primary/20 mb-12 flex gap-8">
+<button class="px-2 py-4 border-b-4 border-primary text-primary text-sm font-black uppercase tracking-widest">8x8 Grid Schematics</button>
+<button class="px-2 py-4 border-b-4 border-transparent text-slate-400 hover:text-primary text-sm font-black uppercase tracking-widest transition-colors">Color Ratios</button>
+<button class="px-2 py-4 border-b-4 border-transparent text-slate-400 hover:text-primary text-sm font-black uppercase tracking-widest transition-colors">Bitmask Values</button>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Diagram Card -->
+<div class="bg-white dark:bg-[#1a110c] border border-primary/20 rounded-xl overflow-hidden shadow-sm group">
+<div class="p-4 border-b border-primary/10 flex justify-between items-center bg-primary/5">
+<span class="text-xs font-mono font-bold text-primary">DIAGRAM_REF: LOGO_V3_GRID</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Scale: 1:1</span>
+</div>
+<div class="p-8 aspect-square relative flex items-center justify-center bg-[#fdfdfd] dark:bg-[#140d0a]">
+<!-- SVG Grid Placeholder -->
+<div class="w-64 h-64 border-2 border-primary/30 relative grid grid-cols-8 grid-rows-8">
+<!-- Simulated Pixel Logo Construction -->
+<div class="col-start-3 col-span-4 row-start-3 row-span-4 bg-primary/20 border border-primary/40 flex items-center justify-center">
+<span class="text-primary font-mono text-[10px]">0xFF</span>
+</div>
+<div class="col-start-2 col-span-2 row-start-2 row-span-2 bg-primary border border-primary/60"></div>
+<div class="col-start-6 col-span-2 row-start-6 row-span-2 bg-primary border border-primary/60"></div>
+<!-- Grid Markers -->
+<div class="absolute -top-6 left-0 w-full flex justify-between text-[8px] font-mono text-slate-400">
+<span>00</span><span>04</span><span>08</span>
+</div>
+<div class="absolute top-0 -left-6 h-full flex flex-col justify-between text-[8px] font-mono text-slate-400">
+<span>00</span><span>04</span><span>08</span>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<h3 class="text-xl font-black uppercase tracking-tight">Core Symbol Construction</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            The primary identifier is built on a 16px safe-zone with an 8x8 active bitmask. Each pixel cell corresponds to a specific memory address in the Bit-Logic engine.
+                        </p>
+</div>
+</div>
+<!-- Specs Card -->
+<div class="space-y-6">
+<div class="bg-white dark:bg-[#1a110c] border border-primary/20 rounded-xl p-6 shadow-sm">
+<h4 class="text-sm font-black uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">data_object</span>
+                            Bitmask Logic Tables
+                        </h4>
+<div class="space-y-4 font-mono">
+<div class="flex justify-between items-center py-2 border-b border-primary/5">
+<span class="text-xs text-slate-500 uppercase font-bold">Vector.X_Origin</span>
+<span class="text-sm text-slate-900 dark:text-white font-bold">0x0002A</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-primary/5">
+<span class="text-xs text-slate-500 uppercase font-bold">Vector.Y_Origin</span>
+<span class="text-sm text-slate-900 dark:text-white font-bold">0x0002A</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-primary/5">
+<span class="text-xs text-slate-500 uppercase font-bold">Pixel_Density</span>
+<span class="text-sm text-slate-900 dark:text-white font-bold">72 PPI</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-xs text-slate-500 uppercase font-bold">Hex_Signature</span>
+<span class="text-sm text-primary font-bold">#EC5B13FF</span>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6">
+<h4 class="text-sm font-black uppercase tracking-widest text-primary mb-4">Protocol Warnings</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-lg">warning</span>
+<span>Avoid anti-aliasing on borders below 16px scale.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-lg">warning</span>
+<span>Padding must strictly follow the 2^n power rule.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Asset Gallery Section -->
+<section class="mt-16">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-black uppercase tracking-tight">Game Asset Samples</h3>
+<a class="text-primary text-xs font-black uppercase tracking-widest hover:underline" href="#">View All Library</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="group relative aspect-square bg-white dark:bg-[#1a110c] border border-primary/10 rounded-lg p-4 flex flex-col items-center justify-center hover:border-primary/40 transition-all cursor-pointer">
+<div class="w-16 h-16 bg-primary/10 rounded mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">SPR_DROID_01</span>
+</div>
+<div class="group relative aspect-square bg-white dark:bg-[#1a110c] border border-primary/10 rounded-lg p-4 flex flex-col items-center justify-center hover:border-primary/40 transition-all cursor-pointer">
+<div class="w-16 h-16 bg-primary/10 rounded mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">token</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">ITM_COIN_V3</span>
+</div>
+<div class="group relative aspect-square bg-white dark:bg-[#1a110c] border border-primary/10 rounded-lg p-4 flex flex-col items-center justify-center hover:border-primary/40 transition-all cursor-pointer">
+<div class="w-16 h-16 bg-primary/10 rounded mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">security</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">UI_SHIELD_V3</span>
+</div>
+<div class="group relative aspect-square bg-white dark:bg-[#1a110c] border border-primary/10 rounded-lg p-4 flex flex-col items-center justify-center hover:border-primary/40 transition-all cursor-pointer">
+<div class="w-16 h-16 bg-primary/10 rounded mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">FX_THUNDER_08</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Persistent Terminal Command Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 p-4 pointer-events-none">
+<div class="max-w-4xl mx-auto pointer-events-auto">
+<div class="bg-slate-900/95 dark:bg-[#1a110c]/95 backdrop-blur-md border border-primary/30 rounded-xl shadow-2xl p-2 flex items-center gap-4">
+<div class="bg-primary/20 text-primary px-3 py-1 rounded-lg text-xs font-mono font-bold border border-primary/30">
+                    SYS.CMD
+                </div>
+<div class="flex-1 flex items-center gap-2">
+<span class="text-primary font-mono text-sm">&gt;</span>
+<input class="bg-transparent border-none focus:ring-0 text-primary font-mono text-sm w-full placeholder:text-primary/30" placeholder="Type command (e.g., search logo_anatomy, download svg)..." type="text"/>
+</div>
+<div class="hidden md:flex items-center gap-3 text-[10px] font-mono text-primary/50 px-4">
+<span>ESC: CANCEL</span>
+<span>ENTER: EXECUTE</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

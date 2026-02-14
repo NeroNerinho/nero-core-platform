@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Retro Geometry V3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                        "arcade-blue": "#00f0ff",
+                        "arcade-pink": "#ff00ff",
+                        "arcade-green": "#39ff14",
+                        "arcade-yellow": "#fff000",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanlines::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.2) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.03),
+                rgba(0, 255, 0, 0.01),
+                rgba(0, 0, 255, 0.03)
+            );
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .pixel-bg {
+            background-image: 
+                linear-gradient(45deg, #ec5b13 25%, transparent 25%), 
+                linear-gradient(-45deg, #ec5b13 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #ec5b13 75%), 
+                linear-gradient(-45deg, transparent 75%, #ec5b13 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            opacity: 0.1;
+        }
+        .crt-glow {
+            text-shadow: 0 0 10px rgba(236, 91, 19, 0.8), 0 0 20px rgba(236, 91, 19, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col bg-background-dark overflow-x-hidden scanlines">
+<!-- Status Bar -->
+<div class="flex items-center bg-black/40 backdrop-blur-sm p-4 justify-between border-b border-primary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">videogame_asset</span>
+<h2 class="text-white text-lg font-black leading-tight tracking-tighter uppercase italic">Nero 27</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col items-end">
+<p class="text-primary/60 text-[10px] font-bold leading-none uppercase tracking-widest">Hi-Score</p>
+<p class="text-primary text-base font-black leading-tight tabular-nums crt-glow">99999</p>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-arcade-blue/60 text-[10px] font-bold leading-none uppercase tracking-widest">Credit</p>
+<p class="text-arcade-blue text-base font-black leading-tight crt-glow">01</p>
+</div>
+</div>
+</div>
+<!-- Main Hero Area -->
+<main class="flex-1 flex flex-col items-center justify-center relative px-6 py-12">
+<!-- Decorative Pixel Background Layer -->
+<div class="absolute inset-0 pixel-bg pointer-events-none"></div>
+<!-- Floating Geometry Background Elements -->
+<div class="absolute top-20 left-10 w-16 h-16 border-4 border-arcade-green opacity-20 rotate-12"></div>
+<div class="absolute bottom-40 right-10 w-24 h-24 border-4 border-arcade-pink opacity-20 -rotate-45"></div>
+<div class="absolute top-1/2 left-1/4 w-8 h-8 bg-arcade-yellow opacity-10"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Large Logo Container -->
+<div class="mb-8 relative group">
+<div class="absolute -inset-4 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/40 transition-all"></div>
+<div class="relative bg-black/60 p-8 border-4 border-primary rounded-xl shadow-[0_0_30px_rgba(236,91,19,0.3)]">
+<h1 class="text-primary text-7xl sm:text-9xl font-black italic tracking-tighter crt-glow select-none">
+                            N27
+                        </h1>
+<div class="absolute -top-3 -left-3 bg-primary text-black px-2 py-0.5 text-[10px] font-bold uppercase">System: OK</div>
+<div class="absolute -bottom-3 -right-3 bg-arcade-blue text-black px-2 py-0.5 text-[10px] font-bold uppercase">ver: 3.0</div>
+</div>
+</div>
+<!-- Subtitle -->
+<div class="mb-12 space-y-2">
+<p class="text-white text-2xl sm:text-3xl font-black tracking-[0.2em] uppercase italic">
+                        Retro Geometry
+                        <span class="text-primary">V3</span>
+</p>
+<div class="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<p class="text-primary/80 text-sm font-bold uppercase tracking-[0.4em]">Official Brand Manual</p>
+</div>
+<!-- CTA Button -->
+<a class="group relative px-12 py-5 overflow-hidden rounded-lg bg-primary shadow-[0_0_20px_rgba(236,91,19,0.5)] active:scale-95 transition-all" href="#">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+<span class="relative text-black text-xl font-black uppercase tracking-widest flex items-center gap-3">
+<span class="material-symbols-outlined">play_arrow</span>
+                        Press Start
+                    </span>
+</a>
+<div class="mt-8 flex gap-4 text-primary/40">
+<span class="material-symbols-outlined text-sm">square</span>
+<span class="material-symbols-outlined text-sm">change_history</span>
+<span class="material-symbols-outlined text-sm">circle</span>
+</div>
+</div>
+</main>
+<!-- Technical Specs / Footer Info -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1 p-1 bg-primary/10 border-t border-primary/20">
+<div class="bg-black/40 p-4 backdrop-blur-sm flex items-center gap-4">
+<div class="bg-primary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">palette</span>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase font-bold">Palette</p>
+<p class="text-xs text-white font-bold tracking-tight">VIBRANT ARCADE 08</p>
+</div>
+</div>
+<div class="bg-black/40 p-4 backdrop-blur-sm flex items-center gap-4">
+<div class="bg-arcade-blue/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-arcade-blue">grid_view</span>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase font-bold">Layout</p>
+<p class="text-xs text-white font-bold tracking-tight">8-BIT GEOMETRIC V3</p>
+</div>
+</div>
+<div class="bg-black/40 p-4 backdrop-blur-sm flex items-center gap-4">
+<div class="bg-arcade-green/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-arcade-green">terminal</span>
+</div>
+<div>
+<p class="text-[10px] text-white/40 uppercase font-bold">Protocol</p>
+<p class="text-xs text-white font-bold tracking-tight">NERO_CORE_STABLE_3</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="flex gap-2 border-t border-primary/20 bg-black/80 backdrop-blur-xl px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">house</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">book_2</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">palette</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/40 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Hidden decorative images for structure -->
+<div class="hidden">
+<img data-alt="Pixel art arcade background with bright orange and blue geometry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTYAQA6qN5T-3wc-RPZgCqBZaA0oSZmZrcUK07pDEj_ksBlfBh1DoO3dSr3PKbyqkeAzU8tvWeeERarnsT4Hr9OqJK_sgbofuT5VWfzBn5mJdLQESXnwv8MoUlA9rZxzfwwVtCfBD7EcOOz9tk8zuVqhHoqJNChsvZRrOiT2pLyc10tbZT8azFoorqEdMrhk2PM93-uD1npWNVhWNwUH7CIoehl1WyjmH44TaSwPBHQ2UyNPxZfc63rQ1SIzBFdEC450gRbDBsDa8"/>
+<img data-alt="Close up of CRT scanline texture with pixel artifacts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcH1avJlf8obVds1OUrdPnNjw-yEE84fvQ-1Enk6ABicEZyaP4EseWZZNorhjiYRhz8RDkbio2erfR1cvIpbW_2eJ0O-Sd9UF75c7xv-6G6EYHe_yOY1m8BYjicD47MyGlKwsZbAEGz8SUWReit6kol65DblX3nr_jvlcj6b6_tvZCAVzJHByjO5SvtzZ9eItLaQQfU3b3heq3b1NCCczDEgBkfc01A_45BZl-GYgW0oTSxZN5mHkisp-4BN45xh2OE8u5CLDg4M"/>
+</div>
+</body></html>

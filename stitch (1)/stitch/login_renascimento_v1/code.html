@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login Renascimento V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4c025",
+                        "background-light": "#f8f8f5", // Creamy off-white
+                        "background-dark": "#221e10",
+                        "charcoal": "#1a1a1a",
+                        "paper": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'stationery': '0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 10px -2px rgba(0, 0, 0, 0.02)',
+                        'stationery-hover': '0 20px 40px -5px rgba(0, 0, 0, 0.08), 0 8px 15px -4px rgba(0, 0, 0, 0.04)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom noise texture for paper feel */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        
+        /* Smooth input autofill styling */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+<!-- Background Texture Layer -->
+<div class="absolute inset-0 bg-noise pointer-events-none z-0"></div>
+<!-- Decorative Gold Accents -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<!-- Main Container -->
+<main class="w-full max-w-md relative z-10 flex flex-col items-center">
+<!-- Logo Section -->
+<div class="mb-12 relative group cursor-pointer">
+<div class="w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center bg-white shadow-stationery relative overflow-hidden">
+<!-- Abstract Gold Leaf Representation -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<span class="material-icons text-primary text-4xl relative z-10" style="text-shadow: 0 2px 4px rgba(244, 192, 37, 0.4);">spa</span>
+</div>
+<!-- Subtle glow behind logo -->
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+</div>
+<!-- Header Text -->
+<div class="text-center mb-10 space-y-2">
+<h2 class="text-xs uppercase tracking-[0.3em] text-stone-500 font-semibold">Renascimento Técnico</h2>
+<h1 class="text-4xl md:text-5xl text-charcoal dark:text-white italic font-light tracking-tight">Welcome Back</h1>
+</div>
+<!-- Form Section -->
+<form class="w-full space-y-6" onsubmit="event.preventDefault()">
+<!-- Email Input -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg blur opacity-0 group-focus-within:opacity-100 transition duration-500"></div>
+<div class="relative bg-white dark:bg-stone-800 rounded-lg shadow-stationery transition-shadow duration-300 group-hover:shadow-stationery-hover">
+<label class="sr-only" for="email">Email Address</label>
+<div class="flex items-center px-4 py-4">
+<span class="material-icons text-stone-400 text-xl mr-3">mail_outline</span>
+<input class="block w-full border-0 p-0 text-charcoal dark:text-stone-200 placeholder:text-stone-400 focus:ring-0 bg-transparent text-lg font-light leading-6" id="email" name="email" placeholder="Email Address" required="" type="email"/>
+</div>
+</div>
+</div>
+<!-- Password Input -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg blur opacity-0 group-focus-within:opacity-100 transition duration-500"></div>
+<div class="relative bg-white dark:bg-stone-800 rounded-lg shadow-stationery transition-shadow duration-300 group-hover:shadow-stationery-hover">
+<label class="sr-only" for="password">Password</label>
+<div class="flex items-center px-4 py-4">
+<span class="material-icons text-stone-400 text-xl mr-3">lock_outline</span>
+<input class="block w-full border-0 p-0 text-charcoal dark:text-stone-200 placeholder:text-stone-400 focus:ring-0 bg-transparent text-lg font-light leading-6" id="password" name="password" placeholder="Password" required="" type="password"/>
+</div>
+</div>
+</div>
+<!-- Forgot Password Link -->
+<div class="flex justify-end">
+<a class="text-sm text-stone-500 hover:text-primary transition-colors duration-200 italic border-b border-transparent hover:border-primary/50 pb-0.5" href="#">
+                    Forgot Password?
+                </a>
+</div>
+<!-- Sign In Button -->
+<button class="w-full flex justify-center py-4 px-4 border border-primary/50 rounded-lg text-lg text-primary bg-charcoal hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg shadow-charcoal/20 transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden group" type="submit">
+<!-- Subtle sheen effect on hover -->
+<div class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-[shimmer_1.5s_infinite]"></div>
+<span class="relative font-medium tracking-wide">Sign In</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="mt-10 mb-8 w-full flex items-center justify-center">
+<div class="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent w-2/3"></div>
+</div>
+<!-- Footer / Sign Up -->
+<div class="text-center">
+<p class="text-stone-500 text-base">
+                Not a member? 
+                <a class="font-medium text-charcoal dark:text-primary hover:text-primary dark:hover:text-primary/80 ml-1 transition-colors duration-200 border-b border-charcoal/20 dark:border-primary/20 hover:border-primary pb-0.5" href="#">
+                    Join the Atelier
+                </a>
+</p>
+</div>
+<!-- Decorative Bottom Element -->
+<div class="mt-12 opacity-30">
+<img alt="Renascimento Técnico Monogram" class="h-8 mix-blend-multiply dark:mix-blend-screen" data-alt="Minimalist monogram watermark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtvRT7cSzsMPKwEvmzIq9bU6nCBZ6g3Bk8EP33h8AvQhBYMHtTj0fgleh6iS91b1mEETANCk0JiKyjM_LsmTOxG_TP59vS_thhsHrJTYgpQS5-Z3hxEC4ny5m2CLm1h5y-6c-9nsozMGNs3gB8EspkI3TuWh7sD8Yy7p92rSYpTiVaEjWHNUO59VW2dlt9qaM3sPm11xgk3sza5ykeVVEnudmaM1aGslFnXdnQohzYrGS3jfRX-TD1bEasP94sf_NUsqPdN_KCu6c"/>
+</div>
+</main>
+<script>
+        // Simple shimmer animation keyframes added via JS to keep CSS clean
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shimmer {
+                0% { left: -100%; }
+                100% { left: 200%; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>

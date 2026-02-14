@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quantum Nucleus V3 | Research Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050505",
+                        "card-dark": "#0f0f0f",
+                        "border-dark": "#1a1a1a",
+                        "accent-success": "#0bda50",
+                        "accent-warning": "#fa5c38"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glow-primary { box-shadow: 0 0 15px rgba(6, 232, 249, 0.15); }
+        .glow-text { text-shadow: 0 0 8px rgba(6, 232, 249, 0.5); }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(6, 232, 249, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen selection:bg-primary/30">
+<!-- Main Layout Container -->
+<div class="flex h-screen overflow-hidden">
+<!-- Slim Sidebar Navigation -->
+<aside class="w-16 lg:w-64 border-r border-border-dark bg-card-dark flex flex-col items-center lg:items-start py-6 transition-all duration-300">
+<div class="px-4 mb-10 flex items-center gap-3">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">hub</span>
+</div>
+<h1 class="hidden lg:block text-xl font-bold tracking-tighter text-white">QN-V3 <span class="text-primary">CORE</span></h1>
+</div>
+<nav class="flex-1 w-full space-y-2 px-2">
+<a class="flex items-center gap-4 px-3 py-3 rounded bg-primary/10 text-primary border-l-2 border-primary group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="hidden lg:block text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 rounded hover:bg-white/5 text-slate-400 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="hidden lg:block text-sm font-medium">Simulations</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 rounded hover:bg-white/5 text-slate-400 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="hidden lg:block text-sm font-medium">Data Logs</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 rounded hover:bg-white/5 text-slate-400 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="hidden lg:block text-sm font-medium">Nucleus Health</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 rounded hover:bg-white/5 text-slate-400 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="hidden lg:block text-sm font-medium">Quantum Grid</span>
+</a>
+</nav>
+<div class="px-4 w-full mt-auto space-y-4">
+<div class="hidden lg:block p-3 rounded bg-white/5 border border-white/10">
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">System Load</p>
+<div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[64%]"></div>
+</div>
+<p class="text-[10px] text-right mt-1 text-primary">64.2%</p>
+</div>
+<button class="flex items-center justify-center lg:justify-start gap-4 w-full px-3 py-3 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="hidden lg:block text-sm font-medium">Configuration</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto scanline">
+<!-- Top Status Header -->
+<header class="h-16 border-b border-border-dark bg-card-dark/50 backdrop-blur-md px-8 flex items-center justify-between sticky top-0 z-10">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold tracking-widest text-primary uppercase">Quantum Sync: Active</span>
+</div>
+<div class="hidden md:flex items-center gap-2 text-xs text-slate-500 border-l border-white/10 pl-6 uppercase tracking-wider">
+<span>Uptime: 142:12:04</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<input class="bg-background-dark border-border-dark rounded-sm text-xs px-4 py-2 w-64 focus:ring-1 focus:ring-primary focus:border-primary transition-all text-slate-300" placeholder="Search parameters..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-slate-500 text-sm">search</span>
+</div>
+<div class="flex items-center gap-3 border-l border-white/10 pl-4">
+<div class="text-right">
+<p class="text-xs font-bold text-white">Dr. Aris Thorne</p>
+<p class="text-[10px] text-primary">Lead Researcher</p>
+</div>
+<div class="size-10 rounded-sm bg-primary/20 border border-primary/40 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a scientist avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5xiBHY-FvMoLafYVE5XyjHTalxmKko2VHayhGqyx9BN-NdRKYPYK4Os6FYerPuy8U3Y0LVbrPUz9fvH8-VfwnSojgaNKEYwhOBlrsr9EmeXb0aBuxHjsIzjKdHEE7f0-ynQVruwOzrfpjCTdRyG0D1s6y7o5ND0HIq_PZxmHUxlHECm7l8UhYQ5Gidxxdlfo7oXHXCOVN660MzliQD1TN-yWtM5eYmluJctUoKj3BurO3neIEZlATXKJBQY82NV9CgOFjVdQ3JMg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+<!-- Section 1: Modular Constants Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-card-dark p-4 rounded-sm border border-border-dark hover:border-primary/40 transition-colors glow-primary">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Planck Constant (h)</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">LIVE</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-1 glow-text">6.62607015</h3>
+<p class="text-[10px] text-slate-400">× 10⁻³⁴ J⋅Hz⁻¹</p>
+<div class="mt-4 h-8 w-full bg-gradient-to-r from-primary/5 to-primary/20 rounded flex items-end overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 15 Q 10 5, 20 18 T 40 10 T 60 15 T 80 5 T 100 15" fill="none" stroke="#06e8f9" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+<div class="bg-card-dark p-4 rounded-sm border border-border-dark hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Speed of Light (c)</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-slate-500 border border-white/10">STABLE</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-1">299,792,458</h3>
+<p class="text-[10px] text-slate-400">m/s (In Vacuo)</p>
+<div class="mt-4 h-8 w-full bg-white/5 rounded flex items-center justify-center">
+<div class="w-full border-t border-dashed border-slate-700"></div>
+</div>
+</div>
+<div class="bg-card-dark p-4 rounded-sm border border-border-dark hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Reduced Planck (ħ)</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-accent-warning/10 text-accent-warning border border-accent-warning/20">DRIFT</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-1">1.05457181</h3>
+<p class="text-[10px] text-slate-400">× 10⁻³⁴ J⋅s</p>
+<div class="mt-4 h-8 w-full bg-accent-warning/5 rounded flex items-end overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 10 L 10 12 L 20 8 L 30 15 L 40 10 L 50 18 L 60 12 L 70 5 L 80 10 L 90 8 L 100 12" fill="none" stroke="#fa5c38" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+<div class="bg-card-dark p-4 rounded-sm border border-border-dark hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Core Temperature</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-accent-success/10 text-accent-success border border-accent-success/20">OPTIMAL</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-1">0.00124</h3>
+<p class="text-[10px] text-slate-400">Kelvin (Cryogenic)</p>
+<div class="mt-4 flex gap-1">
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+</div>
+</div>
+</div>
+<!-- Section 2: Large Particle Accelerator path Telemetry -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-card-dark rounded-sm border border-border-dark overflow-hidden flex flex-col">
+<div class="p-6 border-b border-border-dark flex justify-between items-center bg-white/[0.02]">
+<div>
+<h2 class="text-sm font-bold text-white uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">cyclone</span>
+                                    Main Accelerator path Telemetry
+                                </h2>
+<p class="text-xs text-slate-500">Live Beam Positioning &amp; Collision Dynamics</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-background-dark border border-border-dark text-[10px] font-bold text-slate-400 hover:text-white transition-colors">RAW</button>
+<button class="px-3 py-1 bg-primary text-background-dark text-[10px] font-bold rounded-sm">EXPORT</button>
+</div>
+</div>
+<div class="flex-1 min-h-[400px] relative p-8 flex items-center justify-center">
+<!-- SVG Accelerator Path Visualization -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+</div>
+<div class="relative w-80 h-80 flex items-center justify-center">
+<!-- Outer Ring -->
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full"></div>
+<!-- Inner Ring -->
+<div class="absolute inset-10 border border-primary/40 rounded-full border-dashed animate-spin" style="animation-duration: 10s;"></div>
+<!-- Collision Point -->
+<div class="absolute size-4 bg-primary rounded-full blur-[2px] animate-pulse"></div>
+<div class="absolute size-1 bg-white rounded-full z-10"></div>
+<!-- Particle Lines -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="rgba(6, 232, 249, 0.1)" stroke-width="0.5"></circle>
+<line stroke="#06e8f9" stroke-width="0.5" x1="50" x2="50" y1="5" y2="25"></line>
+<line stroke="#06e8f9" stroke-width="0.5" x1="50" x2="50" y1="75" y2="95"></line>
+<line stroke="#06e8f9" stroke-width="0.5" x1="5" x2="25" y1="50" y2="50"></line>
+<line stroke="#06e8f9" stroke-width="0.5" x1="75" x2="95" y1="50" y2="50"></line>
+</svg>
+<div class="absolute -top-4 text-[10px] text-primary font-mono font-bold">12.4 TeV</div>
+<div class="absolute -bottom-4 text-[10px] text-slate-500 font-mono">STABLE BEAM</div>
+</div>
+<!-- Floating Data Points -->
+<div class="absolute bottom-6 left-6 space-y-2">
+<div class="flex items-center gap-2 text-[10px]">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-slate-400">Proton Stream A:</span>
+<span class="text-white font-mono">6.2 TeV</span>
+</div>
+<div class="flex items-center gap-2 text-[10px]">
+<span class="w-2 h-2 rounded-full bg-accent-warning"></span>
+<span class="text-slate-400">Proton Stream B:</span>
+<span class="text-white font-mono">6.2 TeV</span>
+</div>
+</div>
+<div class="absolute top-6 right-6 p-4 border border-white/5 bg-white/5 backdrop-blur-sm rounded-sm max-w-40">
+<p class="text-[10px] font-bold text-slate-300 uppercase mb-2">Luminosity</p>
+<div class="text-lg font-bold text-primary glow-text">1.4E34</div>
+<p class="text-[8px] text-slate-500 mt-1 italic">cm⁻²s⁻¹ ± 0.2%</p>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Collision Feed -->
+<div class="bg-card-dark rounded-sm border border-border-dark flex flex-col h-[300px]">
+<div class="p-4 border-b border-border-dark bg-white/[0.02]">
+<h3 class="text-xs font-bold text-white tracking-widest uppercase">Collision Feed</h3>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-3 font-mono text-[10px]">
+<div class="flex justify-between items-center text-accent-success border-b border-white/5 pb-2">
+<span>[14:22:04] EVENT_4492</span>
+<span>7.2 GeV</span>
+</div>
+<div class="flex justify-between items-center text-slate-400 border-b border-white/5 pb-2">
+<span>[14:22:01] EVENT_4491</span>
+<span>1.4 GeV</span>
+</div>
+<div class="flex justify-between items-center text-slate-400 border-b border-white/5 pb-2">
+<span>[14:21:58] EVENT_4490</span>
+<span>3.8 GeV</span>
+</div>
+<div class="flex justify-between items-center text-slate-400 border-b border-white/5 pb-2">
+<span>[14:21:55] EVENT_4489</span>
+<span>0.9 GeV</span>
+</div>
+<div class="flex justify-between items-center text-accent-warning border-b border-white/5 pb-2">
+<span>[14:21:52] EVENT_4488</span>
+<span>12.1 GeV</span>
+</div>
+<div class="flex justify-between items-center text-slate-400 border-b border-white/5 pb-2">
+<span>[14:21:49] EVENT_4487</span>
+<span>4.4 GeV</span>
+</div>
+</div>
+</div>
+<!-- System Diagnostics -->
+<div class="bg-card-dark rounded-sm border border-border-dark p-4">
+<h3 class="text-xs font-bold text-white tracking-widest uppercase mb-4">Diagnostics</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span class="text-slate-500 uppercase">Quantum Core Temp</span>
+<span class="text-primary">2.4mK</span>
+</div>
+<div class="h-1 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span class="text-slate-500 uppercase">Cooling Pressure</span>
+<span class="text-accent-success">3.2 Bar</span>
+</div>
+<div class="h-1 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-accent-success w-[72%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span class="text-slate-500 uppercase">Magnetic Alignment</span>
+<span class="text-primary">±0.002μ</span>
+</div>
+<div class="h-1 w-full bg-white/10 overflow-hidden">
+<div class="h-full bg-primary w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Quantum Grid Imagery -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-card-dark border border-border-dark rounded-sm overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" data-alt="Abstract blue energy wave pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbk068fd_9GeoUlwOvnK5lzvbhVcI-9_ipe35mI7Pkr0HF59ENjwMpX7Vv6ewSl6GQhKxxAgngnblMZyBWLE5YrUVoAy8ryEM83pcOWzMwnF4k_t18a9NYIDMK0NyqLwIWCA0_MLNXej_HSKcz_G7zcgo992ILdpTVjcNTJvRwQpszEPVyhrc_cCFRVapS6J80i9_i2Q9p3J2TAykhXxQWcA2wbUKBKZ6Tu9XeHDvrWCt3H1AoOVbkTeC5MvuWOrmrULvZGkn6i0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-card-dark to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-sm font-bold text-white">Wave-Particle Duality</h4>
+<p class="text-[10px] text-slate-400">Phase Variance Analysis</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center border-t border-white/5">
+<span class="text-[10px] text-primary font-mono">MOD_01</span>
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">open_in_full</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-sm overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" data-alt="Digital grid lattice with glowing connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoBPaNgpqthUSrD5djaOXEatcGexD6-_5oxeN9BwRGuASd_Fx0433hwmCLFhROiZFG29V3VAlrp59XYbMT80JtTa4JBvUlGWGIyFe5bbxWnYrZUf2k7hfo6DkUiEMPose82DkEoDqzIWjCFIAWR8fuy3JJqjtxH_2s0hETASoySIukhpC2_lQkm6Him9JfunyBLNs6CmVp2duruTik5VSv1wHCqVtT8lVBSRNyroZUM2937OlZKdgOWhbIc85AhHrxQFWjKqmxB9Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-card-dark to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-sm font-bold text-white">Entanglement Lattice</h4>
+<p class="text-[10px] text-slate-400">Bell State Calibration</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center border-t border-white/5">
+<span class="text-[10px] text-primary font-mono">MOD_02</span>
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">open_in_full</button>
+</div>
+</div>
+<div class="bg-card-dark border border-border-dark rounded-sm overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" data-alt="Dark abstract visualization of probability clouds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwcJDBWPm_GooxFy8MxhHsk6EjiQEJqFtDGVTtBLn5iutCUxtYIJmFaAsJLbhlN2pnNi_nfk4z5QfML5AvnsrlaIEKJMiH6ASO4nNXC5AvMg9Y3SHmy59780mNDk0IUK5dJcklrTGGmJ0WM-umDnoYWlPQ9DfszFgFTM-hswK83uFo4nTu-eytcMObAQY36_tWQWh-G4Onq4PdPwgpnAvo6d87PmqLZDK_Aq_8Kyaw_D9GKbpSWGbG1n7Ecr6dXRhsMvhdlXlS1xM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-card-dark to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-sm font-bold text-white">Probability Cloud</h4>
+<p class="text-[10px] text-slate-400">Schrödinger Mapping</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center border-t border-white/5">
+<span class="text-[10px] text-primary font-mono">MOD_03</span>
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">open_in_full</button>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<footer class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-border-dark gap-4">
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">© 2142 Quantum Research Division | Nucleus V3.0.4-Alpha</p>
+<div class="flex gap-6">
+<a class="text-[10px] text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="#">Security Protocol</a>
+<a class="text-[10px] text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="#">Data Integrity</a>
+<a class="text-[10px] text-slate-500 hover:text-primary uppercase tracking-widest transition-colors" href="#">Node Status</a>
+</div>
+</footer>
+</div>
+</main>
+</div>
+</body></html>

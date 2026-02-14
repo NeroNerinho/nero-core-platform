@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Corporate Brand Identity</title>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Corporate Aesthetic -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="typography">
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<style data-purpose="custom-colors">
+    /* Custom brand colors for Nero 27 */
+    :root {
+      --brand-navy: #0F172A;
+      --brand-blue: #2563EB;
+      --brand-accent: #3B82F6;
+    }
+    .bg-brand-navy { background-color: var(--brand-navy); }
+    .text-brand-blue { color: var(--brand-blue); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<!-- Logo Container -->
+<div class="flex items-center space-x-3" data-purpose="brand-logo-main">
+<!-- Abstract Geometric Mark: Connectivity and Physics -->
+<svg class="flex-shrink-0" fill="none" height="40" viewbox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg">
+<!-- Central Node -->
+<circle cx="20" cy="20" fill="#2563EB" r="5"></circle>
+<!-- Orbits/Connectivity lines representing Physics -->
+<path d="M20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35" stroke="#0F172A" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5" stroke="#3B82F6" stroke-dasharray="2 4" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Geometric Vertex -->
+<rect fill="#0F172A" height="6" rx="1" width="6" x="30" y="8"></rect>
+<rect fill="#2563EB" height="6" rx="1" width="6" x="4" y="26"></rect>
+</svg>
+<!-- Typography -->
+<span class="text-2xl font-extrabold tracking-tight text-slate-900">
+            NERO <span class="text-brand-blue">27</span>
+</span>
+</div>
+<!-- Navigation -->
+<nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+<a class="hover:text-brand-blue transition-colors" href="#">Solutions</a>
+<a class="hover:text-brand-blue transition-colors" href="#">Physics Lab</a>
+<a class="hover:text-brand-blue transition-colors" href="#">Infrastructure</a>
+<a class="bg-brand-navy text-white px-4 py-2 rounded-md hover:bg-slate-800 transition-all" href="#">Client Login</a>
+</nav>
+<!-- Mobile Menu Toggle (Simplified) -->
+<div class="md:hidden">
+<button class="p-2 text-slate-600">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="relative overflow-hidden bg-white py-16 sm:py-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center">
+<h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl mb-6">
+          Precision Connectivity. <br/>
+<span class="text-brand-blue">Defined by Physics.</span>
+</h1>
+<p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
+          Nero 27 provides trustworthy and scalable infrastructure solutions for modern corporate ecosystems, leveraging abstract geometric logic and stable networking.
+        </p>
+<div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+<button class="px-8 py-4 bg-brand-navy text-white font-bold rounded shadow-lg hover:shadow-xl transition-shadow">Explore Our Labs</button>
+<button class="px-8 py-4 border-2 border-slate-200 text-slate-700 font-bold rounded hover:bg-slate-50 transition-colors">Corporate Portfolio</button>
+</div>
+</div>
+</div>
+<!-- Decorative Grid Pattern -->
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: AssetDisplay -->
+<section class="bg-slate-100 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-8">Brand Identity Elements</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Favicon/App Icon Representation -->
+<div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center">
+<div class="w-16 h-16 bg-brand-navy rounded-xl flex items-center justify-center mb-4" data-purpose="favicon-preview">
+<svg fill="none" height="32" viewbox="0 0 40 40" width="32" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" fill="#3B82F6" r="5"></circle>
+<path d="M20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35" stroke="white" stroke-linecap="round" stroke-width="2.5"></path>
+<rect fill="#3B82F6" height="6" rx="1" width="6" x="30" y="8"></rect>
+</svg>
+</div>
+<span class="text-xs font-semibold text-slate-500">Favicon / App Icon</span>
+</div>
+<!-- Typography Sample -->
+<div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 md:col-span-2">
+<div class="flex flex-col space-y-2">
+<span class="text-4xl font-extrabold text-brand-navy">Nero 27 Corporate Bold</span>
+<span class="text-lg text-slate-500 italic">Inter Variable - Reliable. Trustworthy. Professional.</span>
+<div class="flex space-x-2 mt-4">
+<div class="w-8 h-8 rounded bg-brand-navy"></div>
+<div class="w-8 h-8 rounded bg-brand-blue"></div>
+<div class="w-8 h-8 rounded bg-brand-accent"></div>
+<div class="w-8 h-8 rounded bg-slate-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AssetDisplay -->
+<!-- BEGIN: Footer -->
+<footer class="bg-brand-navy text-slate-300 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Footer Brand -->
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center space-x-3 mb-6" data-purpose="footer-logo">
+<svg fill="none" height="32" viewbox="0 0 40 40" width="32" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" fill="#3B82F6" r="5"></circle>
+<path d="M20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35" stroke="white" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+<span class="text-xl font-bold text-white tracking-tight">NERO 27</span>
+</div>
+<p class="text-sm leading-relaxed max-w-sm">
+            Nero 27 is a leader in corporate infrastructure and physical connectivity research. We build the foundations of a more stable digital world.
+          </p>
+</div>
+<!-- Footer Links -->
+<div>
+<h4 class="text-white font-semibold mb-4 text-sm">Company</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Case Studies</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Compliance</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-4 text-sm">Legal</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Security Data</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+<p>© 2023 Nero 27 Global. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<span>Reliability First</span>
+<span>Scalable Systems</span>
+<span>Physics-Driven Design</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>

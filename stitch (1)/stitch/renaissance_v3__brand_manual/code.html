@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Renaissance Kinetic V3 | Brand Manual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                        "parchment": "#f9f7f2",
+                        "cinnabar": "#9c2816",
+                        "ochre": "#d4a373",
+                        "lapis": "#1e3a8a",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Newsreader", serif;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuACY5KveiQoSKVn-SQKbVGFLcjK6vZtrVI4bmRT9gUEQFIScwFp2S7LvT5gSIMurGcjIyQXeEcTjAjtPUkhnPhD8jKc7SyD0f5tXK_9Wl0llFbm-6a5TAZgMfBaq9lePHmU2-KpOnOLTD3Xms6IwqjkIdX-y3QkDrSj0cnv0QFvRquuVccUZuYly1l-c30uyaQZWxnK6M13kVXhMsL-bJCCve3LzNz7mxJ7xSstukwXANvNlUDzazoacto9__QOfTy_ZV_gacnYEGk)
+    }
+.golden-ratio-grid {
+    display: grid;
+    grid-template-columns: 1.618fr 1fr
+    }
+.drop-cap::first-letter {
+    float: left;
+    font-size: 4rem;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 8px;
+    color: #9c2816;
+    font-weight: 800
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b100e] selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-primary/10 bg-parchment/80 backdrop-blur-md px-6 md:px-20 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="text-xl font-extrabold leading-none tracking-tight uppercase">Renaissance</h2>
+<span class="text-[10px] tracking-[0.3em] font-medium uppercase opacity-80">Kinetic V3 Folio</span>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b border-transparent hover:border-primary/30 pb-1" href="#">The Grid</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b border-transparent hover:border-primary/30 pb-1" href="#">Alchemy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b border-transparent hover:border-primary/30 pb-1" href="#">Voice</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b border-transparent hover:border-primary/30 pb-1" href="#">Plates</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-primary/5 rounded border border-primary/10 px-3 py-1.5">
+<span class="material-symbols-outlined text-primary text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-40 placeholder:text-primary/40" placeholder="Search Manual..." type="text"/>
+</div>
+<button class="bg-primary text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded shadow-sm hover:brightness-110 transition-all">
+                    Asset Library
+                </button>
+</div>
+</header>
+<main class="flex-1 max-w-[1400px] mx-auto w-full p-6 md:p-12">
+<!-- Hero Section: The Divine Proportion -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+<div class="lg:col-span-7">
+<div class="flex items-center gap-2 text-primary font-bold mb-4 uppercase tracking-widest text-xs">
+<span class="w-8 h-[1px] bg-primary"></span>
+                        Section I. The Divine Proportion
+                    </div>
+<h1 class="text-6xl md:text-8xl font-black text-[#1b100e] leading-[0.9] tracking-tighter mb-8">
+                        The Vitruvian <br/> <span class="text-primary italic">Geometry.</span>
+</h1>
+<p class="drop-cap text-xl text-[#1b100e]/80 leading-relaxed max-w-xl mb-10">
+                        Our identity is forged in the fires of classical mathematics. By adhering to the 1.618 ratio, we ensure every digital interaction feels as balanced as a Da Vinci sketch. This grid is not a constraint, but a liberation of form and function.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-primary text-white font-bold rounded flex items-center gap-2 group">
+                            Explore the Grid
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+</button>
+<button class="px-8 py-4 border border-primary text-primary font-bold rounded hover:bg-primary/5 transition-colors">
+                            Download Specs
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative aspect-[3/4] bg-primary/5 rounded-lg overflow-hidden border border-primary/20 shadow-2xl">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPA6Zxiex-6WE5EeXHQiwLhjsvbOzmYAWFzTtY7HtNIi1zndHkxHnaAVhn-q7c9pk8r0Mbr5Dwd-4tNV55M5ZXQMzfD4I21ShpIT57wbaKVcQrHxq2K15315LcQctaCeJdYeKrp1Ha-St0P1LdelK_6DWvbZ691T7aXUOt-fFJosHsW82FVOuxycLqK4ZR428_e5YJegSVxMj_peLOhhJS7jzpN5UW2RH7KpTWoywvfhgNtqNd2BW2ky8Q5V-Q2bfLtkzK-ANiN8w');"></div>
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="Classical Renaissance drawing with golden spiral overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbbGHFUyTepWCtwMHeuioDCcqVv8K8TzrxPFw9u_RjglrWkZyrmf97thS1Kv_moWkb0z2AWoqw9-rCQVdzf_7Nhe45lhssV9wU13yTf1fexk3cYDGYGh9uJK5x29aN2wvqYt2M7_pQI0MidAjyOl6WZxaorJSN-9IzLYH4ud4Fxvk8X4DRiZ7GWcxGn-mlLgwTnpVbw17Qv68paB1DD-PV0ZQBWAdE8s7YdlK0rHTZqs2tXoCpka-V0TTurhjPpi7YZqra8dqjfc"/>
+<div class="absolute inset-0 border-[20px] border-parchment/30 pointer-events-none"></div>
+</div>
+</section>
+<!-- Table of Contents / Sidebar Component -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 border-t border-primary/10 pt-12">
+<div class="md:col-span-1">
+<h3 class="text-xs font-black uppercase tracking-[0.3em] text-primary/50 mb-8 italic">Index Rerum</h3>
+<ul class="space-y-6">
+<li>
+<a class="group flex items-center justify-between text-[#1b100e] hover:text-primary transition-colors" href="#">
+<span class="text-lg font-bold">I. Introduction</span>
+<span class="text-xs opacity-40 group-hover:opacity-100 italic">04</span>
+</a>
+</li>
+<li class="pl-4 border-l-2 border-primary">
+<a class="group flex items-center justify-between text-primary font-bold" href="#">
+<span class="text-lg">II. Divine Proportion</span>
+<span class="text-xs italic">12</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-[#1b100e] hover:text-primary transition-colors" href="#">
+<span class="text-lg font-bold">III. Pigment Studies</span>
+<span class="text-xs opacity-40 group-hover:opacity-100 italic">28</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-[#1b100e] hover:text-primary transition-colors" href="#">
+<span class="text-lg font-bold">IV. Humanist Voice</span>
+<span class="text-xs opacity-40 group-hover:opacity-100 italic">42</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-[#1b100e] hover:text-primary transition-colors" href="#">
+<span class="text-lg font-bold">V. Media Plates</span>
+<span class="text-xs opacity-40 group-hover:opacity-100 italic">56</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Alchemy of Color (Pigment Studies) -->
+<div class="md:col-span-3 space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-4xl font-black text-[#1b100e]">The Alchemy of <span class="italic text-primary">Color</span></h2>
+<p class="text-lg text-[#1b100e]/70 mt-2 italic">A study in historical pigments and digital luminance.</p>
+</div>
+<div class="text-sm font-bold uppercase tracking-widest text-primary/60 border-b border-primary/20 pb-2">
+                            Manual Reference v3.02
+                        </div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Swatch 1 -->
+<div class="bg-parchment p-6 rounded border border-primary/10 shadow-sm hover:shadow-md transition-all group">
+<div class="aspect-square bg-primary mb-6 relative overflow-hidden rounded-sm">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<div class="absolute bottom-4 right-4 text-white/40 font-mono text-xs">#9C2816</div>
+</div>
+<h4 class="text-xl font-bold mb-1">Cinnabar Red</h4>
+<p class="text-xs uppercase tracking-tighter text-primary/70 font-black mb-3 italic">Primary Branding Pigment</p>
+<p class="text-sm text-[#1b100e]/60 leading-relaxed">Derived from crushed mercuric sulfide, this hue represents the lifeblood and kinetic energy of our movement.</p>
+</div>
+<!-- Swatch 2 -->
+<div class="bg-parchment p-6 rounded border border-primary/10 shadow-sm hover:shadow-md transition-all group">
+<div class="aspect-square bg-[#d4a373] mb-6 relative overflow-hidden rounded-sm">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<div class="absolute bottom-4 right-4 text-white/40 font-mono text-xs">#D4A373</div>
+</div>
+<h4 class="text-xl font-bold mb-1">Raw Ochre</h4>
+<p class="text-xs uppercase tracking-tighter text-[#d4a373] font-black mb-3 italic">Earth &amp; Foundation</p>
+<p class="text-sm text-[#1b100e]/60 leading-relaxed">The bedrock of our palette. A natural clay earth pigment that provides warmth and historical stability.</p>
+</div>
+<!-- Swatch 3 -->
+<div class="bg-parchment p-6 rounded border border-primary/10 shadow-sm hover:shadow-md transition-all group">
+<div class="aspect-square bg-[#1e3a8a] mb-6 relative overflow-hidden rounded-sm">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<div class="absolute bottom-4 right-4 text-white/40 font-mono text-xs">#1E3A8A</div>
+</div>
+<h4 class="text-xl font-bold mb-1">Ultramarine</h4>
+<p class="text-xs uppercase tracking-tighter text-[#1e3a8a] font-black mb-3 italic">The Divine Deep</p>
+<p class="text-sm text-[#1b100e]/60 leading-relaxed">Historically more valuable than gold. Used sparingly for accents and high-priority functional elements.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Humanist Typography Section -->
+<section class="bg-[#1b100e] text-parchment rounded-xl p-8 md:p-16 mb-24 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="text-[12rem] font-black leading-none italic">Aa</span>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="text-xs font-bold uppercase tracking-[0.5em] text-primary mb-6">IV. Humanist Typography</h2>
+<h3 class="text-5xl font-extrabold mb-8 leading-tight">The <span class="italic font-normal">Newsreader</span> Specimen.</h3>
+<p class="text-lg opacity-80 mb-12 leading-relaxed">
+                        Our typeface choices reflect a humanist approach to digital reading. We utilize <span class="text-primary italic font-bold">Newsreader</span> for its calligraphic influence and modern clarity. It bridges the gap between the scribal hand and the pixel grid.
+                    </p>
+<div class="space-y-8 border-t border-white/10 pt-12">
+<div class="flex items-end gap-6">
+<span class="text-7xl font-bold">H1</span>
+<div class="flex-1 border-b border-dashed border-white/20 pb-2">
+<span class="text-4xl font-black">The Quick Brown Fox.</span>
+</div>
+</div>
+<div class="flex items-end gap-6">
+<span class="text-4xl font-bold opacity-60">H2</span>
+<div class="flex-1 border-b border-dashed border-white/20 pb-2">
+<span class="text-2xl font-bold italic">Jumps Over The Lazy Dog.</span>
+</div>
+</div>
+<div class="flex items-start gap-6 pt-4">
+<span class="text-sm font-mono opacity-40 uppercase">Body</span>
+<p class="text-base opacity-70 leading-relaxed">
+                                Experience the clarity of Renaissance humanism. Our typography is designed for deep focus, long-form reading, and timeless authority. We respect the whitespace as much as the ink.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Media Plates (Asset Grid) -->
+<section class="mb-24">
+<div class="flex items-center justify-between mb-12">
+<h2 class="text-4xl font-black">Media <span class="text-primary italic">Plates</span></h2>
+<a class="text-primary font-bold flex items-center gap-2 hover:underline" href="#">
+                        View Full Library
+                        <span class="material-symbols-outlined">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="aspect-[4/5] bg-white border border-primary/10 p-4 flex flex-col group cursor-pointer hover:border-primary/40 transition-all">
+<div class="flex-1 bg-parchment rounded-sm overflow-hidden flex items-center justify-center relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Monogram asset plate on parchment background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh8rtNoJCMMRb2jsDxmvIT0LkNGxQ2y2TfEz-mHVOjwxkMvYkWv4yZ5-uy8clgtSG33wyEdVxOnOALbzY3BTjKR2vpoEqFjSxLjNctUAHSoQznHhwnJ5w7wuxLh4Go_po7xQOsubHElYsxW9NNlmatN-whqTIWGML82QcYN7JpY68rHwWsqMcm2fEwUf5ChSljHKWWHYTEsrQW-MZLd47FglxZKe_5pyV2wmBfVhUE6D7jkO1tCN-kPPDLhNEDhXhVe_8GYBiw858"/>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<div>
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">Plate 01</p>
+<p class="font-bold">Core Monogram</p>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<div class="aspect-[4/5] bg-white border border-primary/10 p-4 flex flex-col group cursor-pointer hover:border-primary/40 transition-all">
+<div class="flex-1 bg-parchment rounded-sm overflow-hidden flex items-center justify-center relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract geometric brand mark asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRyuA9yWIgAmE7Nxhb6FKiRgVnpZW3_wHk_-9jmyNJqv2_wK-FcStbUzrRjbz4v2IR4J_-oe2DyZ2etd2vg7mxlz65KNv5a1pMqOavexSse58BWasHHXpYItMuTmnvYRF4_N0P_VUbChoxRtosrbDJ3wzPaGNcH1nuJiElfB4LANiDvg9cF2XutnSLr2mrAi4NdEXjNvGh5MrB8zmO-xsfgNcafm_sYpEDdChNdc6yDgcMRIi3SWQcurwnxyFIJsGMEwfBC1E1zzM"/>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<div>
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">Plate 02</p>
+<p class="font-bold">Geometric Seals</p>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<div class="aspect-[4/5] bg-white border border-primary/10 p-4 flex flex-col group cursor-pointer hover:border-primary/40 transition-all">
+<div class="flex-1 bg-parchment rounded-sm overflow-hidden flex items-center justify-center relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Digital icon set inspired by woodcuts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk2GLXMMdudvhJlYpdaw8PS2w6vEGsc3km2E5-HcfVTN-aG-b4JN_LAgBbtIZEhixoTRZRifuctuXPXsAgaluVmXr6XimL5VIxTvNQZ3AQfPGR3w1sBzICTIqiVOwp9QFdp3kfJT5mSETSHDLQuRNScetF-xugEdykskLq3VX6MfSWswD11TKv_T9CdtsHdFWd3ei2q85v7JFl0CkhTa4sX4hrmf-vrdxgI09aD8w6FZYMNoIs16PSUR2JqpNwYDbwi7F747C7YFw"/>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<div>
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">Plate 03</p>
+<p class="font-bold">Humanist Icons</p>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+<div class="aspect-[4/5] bg-white border border-primary/10 p-4 flex flex-col group cursor-pointer hover:border-primary/40 transition-all">
+<div class="flex-1 bg-parchment rounded-sm overflow-hidden flex items-center justify-center relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Primary and secondary logo lockups" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDLjLLoPCn_j0AEjhLotORolk613ZEPT6St5Um2zGWCcVbV_Sprw0PSJaRX9m6QnYwVziZ2ij0J3OQxRJ0ToG5zrzlFsG62TdtAOh6TAtNUqiL0VH34RJD1chQ_3HMwlTPk1JVe2I0xgZwnUXFlItQElsAJGPLO9dy_VLXerMzJLWxmy3pehZ0LCFJ7KQ84qWh-iU1HovCd7pN65oN3D9cFIgIsNhW77shM6ULS1iqQiIknk6J_IQDHpWrtoAdtKY_zhi9Llv9wKU"/>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<div>
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">Plate 04</p>
+<p class="font-bold">Logo Variants</p>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-primary/10 bg-parchment py-12 px-6 md:px-20 text-center md:text-left">
+<div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor"></path>
+</svg>
+</div>
+<p class="text-sm font-bold uppercase tracking-widest">Renaissance Kinetic © MMXXIV</p>
+</div>
+<div class="flex gap-8 text-xs font-black uppercase tracking-[0.2em] text-[#1b100e]/60">
+<a class="hover:text-primary transition-colors" href="#">Internal Portfolio</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Archive</a>
+<a class="hover:text-primary transition-colors" href="#">Legal Folio</a>
+</div>
+<div class="text-xs italic text-[#1b100e]/40">
+                    Proprietary Brand Manual. Unauthorized duplication is a violation of the Vitruvian Accord.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

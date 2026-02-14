@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contemporary Antique V3 | Heritage Documentation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#fbf9f8",
+                        "background-dark": "#211311",
+                        "stone-neutral": "#f3e9e8",
+                        "ink-dark": "#1b100e",
+                        "sepia-muted": "#955a50",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.marble-bg {
+    background-color: #fbf9f8;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAgTELLpUzRvWkzpxywFO99ZMHgXmysXqF2NDhGoBNsoC8EU4-cAOlpvyvVOygua9LsHJ5chLKw80HwpZxEHQOKb1Zr72NOzPnWt7iUMqaEYucmSnTuquED3onBBn1oCP7tIwVQN9LIujCwC86R7HK7bFVufHq70iBMsrpU9Hot3xQin1JazD6WrzFx6mZs7UU2EjQKrmoxgU1s3248Q3mA8v-G7UMqqf3FIuIhG995TPBc3VUXP6PGuHw3r-4d9vHBAnamZf8JOpk);
+    background-blend-mode: multiply
+    }
+.blueprint-grid {
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #e6d3d1 1px, transparent 1px)
+    }
+.drafting-corner {
+    position: relative
+    }
+.drafting-corner::before, .drafting-corner::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: #9c2816;
+    opacity: 0.4
+    }
+.top-left::before {
+    top: -2px;
+    left: -2px;
+    border-top: 1px solid;
+    border-left: 1px solid
+    }
+.bottom-right::after {
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 1px solid;
+    border-right: 1px solid
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-ink-dark selection:bg-primary/20">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Heritage Header -->
+<header class="sticky top-0 z-50 marble-bg border-b border-primary/20 px-6 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+<div class="flex flex-col">
+<h1 class="text-xl font-extrabold tracking-tight leading-none uppercase">Contemporary Antique</h1>
+<span class="text-[10px] tracking-[0.2em] text-sepia-muted font-bold uppercase">Heritage Documentation V3</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-widest text-sepia-muted">
+<a class="hover:text-primary transition-colors border-b-2 border-primary" href="#">Archive</a>
+<a class="hover:text-primary transition-colors border-b-2 border-transparent" href="#">Drawings</a>
+<a class="hover:text-primary transition-colors border-b-2 border-transparent" href="#">Material Library</a>
+<a class="hover:text-primary transition-colors border-b-2 border-transparent" href="#">Chronicle</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sepia-muted text-sm">search</span>
+<input class="bg-stone-neutral/50 border-none rounded-sm pl-10 pr-4 py-2 text-xs font-bold tracking-widest focus:ring-1 focus:ring-primary w-64 placeholder:text-sepia-muted/50" placeholder="SEARCH ARCHIVE..." type="text"/>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-primary/90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+                    Export Dossier
+                </button>
+<div class="w-8 h-8 rounded-full border border-primary/20 bg-stone-neutral overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="User profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVFwlw4jSvFKLYQMzA4r2aTvETLWoYnTzvQUr-SLqb3NpSLyLGuS03u-829WrNiKNUi9lu7zeZHRhq02vYGQeus0xUJkPkHqWNPFXZA0dzhMAK6j_qOxDCiGN9alWKAghat3CCYSNjiNlxigZvvDy-Q7NAERQpkT5LsZ_F50JJz1FTCnD9w-ZIj7LOcf0OgzWMQtdagYAivG3oPFON1k0Ki2vKp2Ejh0nDK-jfVAJh2HjH432SfZXkh7tPDOHvSvDjQazM_Y9FSOY"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1">
+<!-- Main Content Area: Blueprint Viewer -->
+<div class="flex-1 flex flex-col blueprint-grid bg-white relative">
+<!-- Project Breadcrumbs & Actions -->
+<div class="p-6 flex justify-between items-start border-b border-stone-neutral/80 bg-background-light/80 backdrop-blur-sm">
+<div>
+<nav class="flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-sepia-muted mb-2">
+<a href="#">Projects</a>
+<span class="text-primary">/</span>
+<span>Villa S. Palladio Reconstruction</span>
+</nav>
+<h2 class="text-5xl font-black text-ink-dark italic">Floor Plan: Piano Nobile</h2>
+<p class="text-sepia-muted mt-1 max-w-xl">Architectural precision drawing focusing on load-bearing masonry and vaulted ceiling structural nodes.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-stone-neutral bg-white hover:border-primary transition-colors rounded-sm shadow-sm group">
+<span class="material-symbols-outlined text-sepia-muted group-hover:text-primary">layers</span>
+</button>
+<button class="p-2 border border-stone-neutral bg-white hover:border-primary transition-colors rounded-sm shadow-sm group">
+<span class="material-symbols-outlined text-sepia-muted group-hover:text-primary">straighten</span>
+</button>
+<button class="p-2 border border-stone-neutral bg-white hover:border-primary transition-colors rounded-sm shadow-sm group">
+<span class="material-symbols-outlined text-sepia-muted group-hover:text-primary">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Drawing Canvas -->
+<div class="flex-1 relative overflow-hidden flex items-center justify-center p-12">
+<div class="relative max-w-4xl w-full aspect-[4/3] bg-white shadow-2xl border border-stone-neutral drafting-corner top-left bottom-right">
+<!-- Simulated Blueprint Drawing -->
+<div class="absolute inset-0 p-8 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-32 h-32 border-l border-t border-primary/40 relative">
+<span class="absolute -top-1 -left-1 w-2 h-2 bg-primary"></span>
+<p class="absolute top-2 left-2 text-[8px] font-bold text-primary tracking-tighter uppercase">Datum Point A-1</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold tracking-widest text-sepia-muted uppercase">Sheet No.</p>
+<p class="text-3xl font-black text-primary italic leading-none">A-102</p>
+</div>
+</div>
+<!-- Placeholder for Architectural Drawing -->
+<div class="flex-1 flex items-center justify-center opacity-80">
+<img class="max-h-full grayscale contrast-150 object-contain mix-blend-multiply" data-alt="Architectural floor plan drawing with technical annotations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI9s-TRanjrf3KIK9cedO61q3DzgE7HtTckVwslRKVkRr0kctekkXn2IoYAT3oF20zDBw2Lw9SkflSNM_E9za-gHoATQ45b-j-qrD3h-r1sZwtob9xzqWVcmCcuM7ndBIAgyBzMLZ_RcpWFhZHk3J_gyHHQf_xDDeh2XvvdQGngCzNmER0-W_cYRX6XkQ_WTGni53LFvFlJAS55xCCuO9lifCJvxYPZmFnLr5K6tDtnD20FJh47ymDMNSIM9FyMUyuRPsSe8vvGAM"/>
+</div>
+<!-- Technical Stamp Area -->
+<div class="flex justify-between items-end border-t border-stone-neutral pt-4">
+<div class="text-[9px] uppercase tracking-widest font-bold text-sepia-muted">
+<p>Scale: 1:50 @ A3</p>
+<p>Drawn: Jan 1884 | Revised: Nov 2023</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 border border-primary flex items-center justify-center rotate-45 opacity-40">
+<span class="material-symbols-outlined text-primary -rotate-45 text-lg">verified</span>
+</div>
+<p class="text-[8px] font-bold uppercase leading-tight max-w-[80px]">Heritage Commission Certified V3</p>
+</div>
+</div>
+</div>
+<!-- Precision Tooltips (Simulated) -->
+<div class="absolute top-1/3 left-1/4 bg-ink-dark text-white p-2 rounded-sm shadow-xl flex flex-col gap-1 z-10">
+<p class="text-[9px] font-bold tracking-widest uppercase text-sepia-muted">Material Note</p>
+<p class="text-xs italic">Carrara Statuario Marble</p>
+<div class="w-3 h-3 bg-ink-dark rotate-45 absolute -bottom-1 left-4"></div>
+</div>
+</div>
+</div>
+<!-- Animated Timeline / Version Scrubber -->
+<div class="h-16 border-t border-stone-neutral bg-white flex items-center px-6">
+<span class="text-[10px] font-bold uppercase tracking-widest text-sepia-muted mr-8">Chronology</span>
+<div class="flex-1 flex items-center gap-1">
+<div class="h-[2px] w-full bg-stone-neutral relative flex justify-between">
+<button class="w-3 h-3 rounded-full bg-sepia-muted -mt-[5px] hover:scale-125 transition-transform" title="Original Foundation (1742)"></button>
+<button class="w-3 h-3 rounded-full bg-sepia-muted -mt-[5px] hover:scale-125 transition-transform" title="Expansion (1884)"></button>
+<button class="w-5 h-5 rounded-full bg-primary -mt-[9px] shadow-lg border-4 border-white" title="Current State (V3)"></button>
+<button class="w-3 h-3 rounded-full bg-stone-neutral border border-sepia-muted -mt-[5px] hover:scale-125 transition-transform" title="Future Proposal"></button>
+</div>
+</div>
+<div class="ml-8 flex items-center gap-4">
+<span class="text-sm font-black italic text-primary">2023 Present</span>
+<button class="material-symbols-outlined text-sepia-muted">play_arrow</button>
+</div>
+</div>
+</div>
+<!-- Contextual Sidebar: Historical & Materials -->
+<aside class="w-96 border-l border-primary/10 marble-bg flex flex-col">
+<!-- Material Study Section -->
+<div class="p-6 border-b border-primary/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-sepia-muted">Material Study</h3>
+<span class="material-symbols-outlined text-primary text-sm">science</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group cursor-pointer">
+<div class="aspect-square bg-stone-neutral mb-2 overflow-hidden border border-transparent group-hover:border-primary transition-all">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Carrara marble texture detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzk4Ple9TGGEcKy_jcElQDSGs5Bn-csrj6TQVRwgL8sB5bBmtz9ZTwDv6mwAFm47P5HAZuFSYGgSJMmDwX6yKWwtsaj8LXX4zDNFETBnPr_nigA_pp6PVhLIH1vzE0Y3Ps9FbKXYqqhioq4-0_T6S-Bcnln6giWlnmuQEWAudf9eqt7YJYOkog_QpZv0j5pNodEaz2Eb2IT9jX7BP_JeWBs8EyDkGztSJUsX2wDquFIIH2wEatJyFBXi10eyilbA1AFikuJH-tjvg"/>
+</div>
+<p class="text-[10px] font-bold tracking-wider uppercase leading-none">Statuario Marble</p>
+<p class="text-[8px] text-sepia-muted mt-1">Ref: CM-04-A</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square bg-stone-neutral mb-2 overflow-hidden border border-transparent group-hover:border-primary transition-all">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Rough limestone masonry texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAID_TVXwHccLcv5i8kK1ujZHsj5qnc_ghNlEh19f-OQufOG1zMu5zUXIA2f_fswUgaWTUWSdy00Nsx6oMJzWKK9OMWjEArsGr-zD8IqUUmm65HfAw8fgywVOv0KL0VrxbgmvQcNX8gED0GM5MiqDz_05IZ69D-YsrhMiHKC12NTrXThw3IiCu08Cb2MEkyNpx3LmrGQRHBtKCYk8--YtQPLDQL7rjU-cN5aYniEVmxkS2R80x38VkYOgCvQEwBer-VC88dvrA5aPQ"/>
+</div>
+<p class="text-[10px] font-bold tracking-wider uppercase leading-none">Vicenza Stone</p>
+<p class="text-[8px] text-sepia-muted mt-1">Ref: VS-02-B</p>
+</div>
+</div>
+</div>
+<!-- Historical Context Section -->
+<div class="p-6 flex-1 overflow-y-auto">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-sepia-muted">Historical Context</h3>
+<span class="material-symbols-outlined text-primary text-sm">history_edu</span>
+</div>
+<div class="relative pl-6 border-l border-primary/20 flex flex-col gap-8">
+<div>
+<span class="absolute left-[-5px] top-0 w-[10px] h-[10px] bg-primary rotate-45"></span>
+<h4 class="text-lg font-black italic text-ink-dark mb-2">The Palladian Influence</h4>
+<p class="text-sm leading-relaxed text-sepia-muted">
+<span class="text-4xl float-left mr-2 mt-1 leading-none font-black text-primary italic">A</span>
+                                s observed in the original drawings from the mid-18th century, the structure follows a rigorous geometric layout based on the harmonic proportions defined by Andrea Palladio. The central axis remains the primary organizing element...
+                            </p>
+</div>
+<div class="bg-primary/5 p-4 border-l-2 border-primary italic text-xs leading-relaxed">
+                            "The architecture of the V3 restoration seeks not to mimic the old, but to resonate with its underlying mathematical precision." 
+                            <span class="block mt-2 font-bold not-italic">— Dr. Julian Thorne, Lead Archivist</span>
+</div>
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest text-ink-dark mb-3">Weathering Analysis</h4>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-[10px] font-bold">
+<span class="text-sepia-muted uppercase tracking-widest">Erosion Rate</span>
+<span>0.2mm / Dec</span>
+</div>
+<div class="w-full h-1 bg-stone-neutral rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%]"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] font-bold">
+<span class="text-sepia-muted uppercase tracking-widest">Structural Integrity</span>
+<span>94% Optimal</span>
+</div>
+<div class="w-full h-1 bg-stone-neutral rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="p-6 bg-stone-neutral/30 border-t border-primary/10">
+<button class="w-full py-3 border-2 border-primary text-primary text-xs font-bold tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all">
+                        Open Full Chronicle
+                    </button>
+</div>
+</aside>
+</main>
+<!-- Utility Bar Footer -->
+<footer class="h-10 bg-ink-dark text-stone-neutral/60 px-6 flex items-center justify-between text-[9px] font-bold uppercase tracking-widest">
+<div class="flex items-center gap-6">
+<span>Latitude: 45.4408° N</span>
+<span>Longitude: 12.3155° E</span>
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> System Live</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-white" href="#">Legal Information</a>
+<span class="text-primary">|</span>
+<span>© 2024 Heritage Documentation V3</span>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home Abstração V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "dark-surface": "#162f32",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        "glow": "0 0 15px rgba(6, 232, 249, 0.3)",
+                        "glow-sm": "0 0 8px rgba(6, 232, 249, 0.2)",
+                        "glow-lg": "0 0 30px rgba(6, 232, 249, 0.4)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Styles for Quantum Effects */
+        .glass-panel {
+            background: rgba(22, 47, 50, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 232, 249, 0.1);
+        }
+        
+        .orb-glow {
+            background: radial-gradient(circle at 30% 30%, rgba(6, 232, 249, 0.1) 0%, rgba(6, 232, 249, 0.05) 40%, transparent 70%);
+            box-shadow: inset 0 0 20px rgba(6, 232, 249, 0.2), 0 0 20px rgba(6, 232, 249, 0.1);
+        }
+
+        .liquid-fill {
+            background: linear-gradient(180deg, rgba(6, 232, 249, 0.6) 0%, rgba(6, 232, 249, 0.2) 100%);
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.4);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 5px rgba(6, 232, 249, 0.5);
+        }
+
+        /* Abstract Background Pattern */
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .bottom-blur-overlay {
+            background: linear-gradient(to top, #0f2123 10%, transparent 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-white h-screen overflow-hidden flex flex-col relative">
+<!-- Abstract Background Elements -->
+<div class="absolute inset-0 z-0 bg-grid-pattern pointer-events-none opacity-20"></div>
+<div class="absolute top-[-10%] left-[-20%] w-[80%] h-[50%] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+<!-- Main Content Container -->
+<div class="flex-1 flex flex-col relative z-10 overflow-y-auto pb-24 no-scrollbar">
+<!-- Header -->
+<header class="px-6 pt-12 pb-4 flex justify-between items-center w-full">
+<div>
+<p class="text-primary/70 text-sm tracking-widest uppercase font-bold">System Online</p>
+<h1 class="text-2xl font-bold tracking-tight text-white mt-1">Command Deck</h1>
+</div>
+<div class="glass-panel p-2 rounded-full relative">
+<span class="absolute top-0 right-0 w-3 h-3 bg-primary rounded-full animate-pulse shadow-glow"></span>
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover border border-primary/30" data-alt="Futuristic portrait of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_oRqEslskeNMPBAC3c2NiDhXpPVuDWjg-ZlUWtwoNFogfZvfC2UAxxuo-XfSidkntc8gOBYymvGQ2-r8RqjjNYSWv90mFB8p8RaKIkM2uY9jCIwjkunEjoXZL9xLXsgZtLALIo7S4T3CCX26F_VGdJbS8EXpMCDFgWY3VS49KvR6rwS4hV9OceLYPjWEyW-5uYD7_zdF75kbQAibz3US-BxWYeNM9saKf0LRlEwnBpT_3zxTnBBEeufDhz0Q8_buY-qsRRyfSfHE"/>
+</div>
+</header>
+<!-- Main Metric Visualization (The Quantum Orb) -->
+<section class="px-6 py-6 flex flex-col items-center justify-center relative">
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Outer Rings -->
+<div class="absolute inset-0 border border-primary/10 rounded-full scale-110"></div>
+<div class="absolute inset-0 border border-primary/20 rounded-full border-dashed animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-4 border-2 border-primary/30 rounded-full border-t-transparent -rotate-45"></div>
+<!-- The Core Orb -->
+<div class="w-48 h-48 rounded-full orb-glow flex flex-col items-center justify-center backdrop-blur-sm relative overflow-hidden group">
+<!-- Liquid Level -->
+<div class="absolute bottom-0 left-0 right-0 h-[72%] liquid-fill opacity-20 group-hover:opacity-30 transition-opacity duration-700 w-full"></div>
+<span class="text-5xl font-light text-white z-10 neon-text">98<span class="text-2xl text-primary">%</span></span>
+<span class="text-xs uppercase tracking-[0.2em] text-primary/80 z-10 mt-2">Stability</span>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<span class="h-1.5 w-1.5 rounded-full bg-primary/40"></span>
+<span class="h-1.5 w-1.5 rounded-full bg-primary shadow-glow"></span>
+<span class="h-1.5 w-1.5 rounded-full bg-primary/40"></span>
+</div>
+</section>
+<!-- Secondary Metrics Grid -->
+<section class="px-6 py-4 grid grid-cols-3 gap-4">
+<!-- Metric 1 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col items-center justify-center aspect-square relative group">
+<div class="absolute inset-x-4 bottom-0 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] shadow-glow"></div>
+</div>
+<span class="material-icons text-primary/80 mb-2 text-xl">memory</span>
+<span class="text-2xl font-bold text-white">85</span>
+<span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">CPU Load</span>
+</div>
+<!-- Metric 2 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col items-center justify-center aspect-square relative group">
+<div class="absolute inset-x-4 bottom-0 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[42%] shadow-glow"></div>
+</div>
+<span class="material-icons text-primary/80 mb-2 text-xl">wifi_tethering</span>
+<span class="text-2xl font-bold text-white">42ms</span>
+<span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Latency</span>
+</div>
+<!-- Metric 3 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col items-center justify-center aspect-square relative group">
+<div class="absolute inset-x-4 bottom-0 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[91%] shadow-glow"></div>
+</div>
+<span class="material-icons text-primary/80 mb-2 text-xl">bolt</span>
+<span class="text-2xl font-bold text-white">91%</span>
+<span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1">Battery</span>
+</div>
+</section>
+<!-- Recent Activity Stream -->
+<section class="px-6 pt-2 pb-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-medium text-white">Quantum Flux Stream</h2>
+<button class="text-xs text-primary border border-primary/30 px-3 py-1 rounded hover:bg-primary/10 transition-colors">View Logs</button>
+</div>
+<div class="space-y-3">
+<!-- Activity Item 1 -->
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 shadow-glow-sm">
+<span class="material-icons text-primary text-sm">hub</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white group-hover:text-primary transition-colors">Node 4 Connected</h3>
+<p class="text-xs text-gray-400">Sector 7-G synchronization complete</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-primary/60">08:41:22</span>
+</div>
+<!-- Activity Item 2 -->
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 shadow-glow-sm">
+<span class="material-icons text-primary text-sm">security</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white group-hover:text-primary transition-colors">Firewall Update</h3>
+<p class="text-xs text-gray-400">Protocol v4.2 patched successfully</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-primary/60">08:35:10</span>
+</div>
+<!-- Activity Item 3 -->
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 shadow-glow-sm">
+<span class="material-icons text-primary text-sm">waves</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white group-hover:text-primary transition-colors">Wave Anomaly</h3>
+<p class="text-xs text-gray-400">Minor fluctuation detected in core</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-primary/60">08:12:05</span>
+</div>
+</div>
+</section>
+<!-- Info Card Carousel Hint -->
+<section class="px-6 pb-6">
+<div class="glass-panel rounded-xl p-5 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+<div class="relative z-10">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-primary font-bold text-sm tracking-wider uppercase mb-1">System Insight</h4>
+<p class="text-xs text-gray-300 max-w-[80%] leading-relaxed">
+                                 Optimization algorithms suggest a 12% efficiency increase by rerouting data through Node 9.
+                             </p>
+</div>
+<span class="material-icons text-primary/50">auto_awesome</span>
+</div>
+<button class="mt-4 w-full py-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 rounded text-xs text-primary font-semibold transition-all uppercase tracking-wide">
+                         Apply Optimization
+                     </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Navigation Bar -->
+<div class="fixed bottom-0 w-full z-50">
+<!-- Blur Gradient for smoothness -->
+<div class="absolute bottom-0 w-full h-32 bottom-blur-overlay pointer-events-none"></div>
+<!-- Dock -->
+<nav class="relative mx-6 mb-6 glass-panel rounded-2xl h-16 flex items-center justify-around shadow-glow-lg border-primary/20">
+<!-- Nav Item: Home (Active) -->
+<button class="flex flex-col items-center justify-center w-12 h-full relative group">
+<span class="material-icons text-primary text-2xl drop-shadow-[0_0_5px_rgba(6,232,249,0.8)]">home</span>
+<span class="absolute bottom-2 w-1 h-1 rounded-full bg-primary shadow-glow"></span>
+<span class="absolute bottom-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-100 shadow-glow"></span>
+</button>
+<!-- Nav Item: Analytics -->
+<button class="flex flex-col items-center justify-center w-12 h-full relative group">
+<span class="material-icons text-gray-400 text-2xl group-hover:text-primary/70 transition-colors">equalizer</span>
+<!-- Hover State Trail -->
+<span class="absolute bottom-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</button>
+<!-- Floating Action Button (Center) -->
+<div class="relative -top-6">
+<button class="w-14 h-14 rounded-xl bg-background-dark border border-primary flex items-center justify-center shadow-glow group hover:scale-105 transition-transform">
+<div class="absolute inset-0 bg-primary/20 blur-md rounded-xl"></div>
+<span class="material-icons text-primary text-3xl relative z-10 group-hover:rotate-90 transition-transform duration-500">qr_code_scanner</span>
+</button>
+</div>
+<!-- Nav Item: Settings -->
+<button class="flex flex-col items-center justify-center w-12 h-full relative group">
+<span class="material-icons text-gray-400 text-2xl group-hover:text-primary/70 transition-colors">tune</span>
+<span class="absolute bottom-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</button>
+<!-- Nav Item: Profile -->
+<button class="flex flex-col items-center justify-center w-12 h-full relative group">
+<span class="material-icons text-gray-400 text-2xl group-hover:text-primary/70 transition-colors">person</span>
+<span class="absolute bottom-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Brand Codex</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                        "leather": "#1A1510",
+                        "gold": "#C5A059",
+                        "gold-light": "#E6C985",
+                        "parchment": "#F0EAD6",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "fell": ['"IM Fell English SC"', "serif"],
+                        "hand": ['"Reenie Beanie"', "cursive"],
+                    },
+                    backgroundImage: {
+                        'leather-texture': "url('https://www.transparenttextures.com/patterns/black-leather.png')",
+                    },
+                    boxShadow: {
+                        'embossed': 'inset 2px 2px 4px rgba(0,0,0,0.8), inset -1px -1px 2px rgba(255,255,255,0.1)',
+                        'gold-glow': '0 0 15px rgba(197, 160, 89, 0.2)',
+                        'wax-seal': '0 4px 6px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(0,0,0,0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for immersive feel */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Gold Foil Text Effect */
+        .text-gold-gradient {
+            background: linear-gradient(to bottom right, #C5A059 20%, #E6C985 50%, #9e7d40 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; 
+        }
+
+        /* Leather texture overlay */
+        .bg-leather-pattern {
+            background-color: #1A1510;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<!-- Screen 01: Splash / Cover -->
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-leather-pattern group/design-root">
+<!-- Decorative Border Frame -->
+<div class="absolute inset-4 border-2 border-[#3E3429] rounded-lg opacity-40 pointer-events-none z-10"></div>
+<div class="absolute inset-5 border border-[#3E3429] rounded-lg opacity-30 pointer-events-none z-10"></div>
+<!-- Main Content Area -->
+<div class="flex flex-1 flex-col items-center justify-center relative z-20 px-8">
+<!-- Embossed Logo Container -->
+<div class="relative mb-8 p-10 rounded-xl shadow-embossed bg-[#15110d] border border-white/5 w-full max-w-xs flex flex-col items-center justify-center aspect-[3/4]">
+<!-- Ornamental Top Flourish -->
+<span class="material-symbols-outlined text-[#3E3429] text-4xl mb-6 opacity-50">
+                    all_inclusive
+                </span>
+<!-- Logo Text: Nero 27 -->
+<h1 class="text-6xl font-bold tracking-tighter text-center leading-none mb-2">
+<span class="text-gold-gradient drop-shadow-sm font-display italic block">Nero</span>
+<span class="text-gold-gradient text-5xl font-display block mt-1">27</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-fell text-[#8C8276] text-lg opacity-80 mt-6 tracking-widest uppercase text-center">
+                    Brand Codex<br/>
+<span class="text-xs tracking-[0.2em] opacity-60">Vol. 1.0</span>
+</p>
+<!-- Ornamental Bottom Flourish -->
+<span class="material-symbols-outlined text-[#3E3429] text-4xl mt-6 opacity-50 rotate-180">
+                    all_inclusive
+                </span>
+<!-- Corner Accents for the 'pressed' area -->
+<div class="absolute top-2 left-2 w-4 h-4 border-t border-l border-[#3E3429] opacity-30"></div>
+<div class="absolute top-2 right-2 w-4 h-4 border-t border-r border-[#3E3429] opacity-30"></div>
+<div class="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-[#3E3429] opacity-30"></div>
+<div class="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[#3E3429] opacity-30"></div>
+</div>
+<!-- Contextual Hint -->
+<p class="text-[#5C4E43] font-hand text-xl opacity-0 animate-pulse delay-1000 duration-[3000ms] fill-mode-forwards">
+                Proprietary &amp; Confidential
+            </p>
+</div>
+<!-- Bottom Action Area: Wax Seal -->
+<div class="relative z-30 flex flex-col items-center justify-end pb-12 w-full">
+<!-- Wax Seal Button -->
+<!-- The button simulates a wax seal using the primary red color, round shape, and irregular border radius -->
+<button class="group relative flex items-center justify-center w-24 h-24 transition-transform active:scale-95 duration-200">
+<!-- Wax Blobs (Irregular edges) -->
+<div class="absolute inset-0 bg-primary rounded-full blur-[1px] scale-110 opacity-90"></div>
+<!-- Main Seal Body -->
+<div class="relative w-20 h-20 bg-primary rounded-full shadow-wax-seal flex items-center justify-center border-4 border-[#7a1f11]">
+<!-- Inner Ring -->
+<div class="absolute inset-2 border border-[#b54632] rounded-full opacity-50"></div>
+<!-- Icon / Monogram -->
+<div class="flex flex-col items-center justify-center text-[#591409] drop-shadow-md">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 40;">
+                            lock_open
+                        </span>
+</div>
+<!-- Highlight (Glossy wax effect) -->
+<div class="absolute top-2 left-3 w-6 h-3 bg-white opacity-20 rounded-full blur-[2px] rotate-[-20deg]"></div>
+</div>
+</button>
+<p class="text-[#8C8276] font-fell text-sm mt-4 tracking-widest uppercase opacity-60">Tap to Open</p>
+</div>
+<!-- Texture overlay for age/wear -->
+<div class="absolute inset-0 pointer-events-none mix-blend-overlay opacity-20 bg-[url('https://www.transparenttextures.com/patterns/scratches.png')]"></div>
+</div>
+</body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 | Quantum Stability Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "secondary": "#a855f7",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "deep-space": "#050a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #050a0a;
+            color: #ffffff;
+        }
+        .quantum-grid {
+            background-image: 
+                linear-gradient(to right, rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.4);
+        }
+        .purple-glow {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+        .glass-panel {
+            background: rgba(15, 33, 35, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(6, 232, 249, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-deep-space text-white min-h-screen selection:bg-primary/30 selection:text-primary">
+<!-- HUD Navigation -->
+<nav class="fixed top-0 w-full z-50 border-b border-primary/10 glass-panel">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">unfold_more_double</span>
+</div>
+<h1 class="text-xl font-bold tracking-[0.2em] text-white">NERO <span class="text-primary">27</span></h1>
+</div>
+<div class="hidden md:flex items-center gap-8 text-[10px] uppercase tracking-[0.3em] font-medium text-primary/70">
+<a class="hover:text-primary transition-colors" href="#">Core_Logs</a>
+<a class="hover:text-primary transition-colors" href="#">Flux_Mapping</a>
+<a class="hover:text-primary transition-colors" href="#">Neural_Sync</a>
+<a class="hover:text-primary transition-colors" href="#">Protocol_X</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-3 py-1 border border-primary/20 rounded hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span>
+<span class="text-[10px] tracking-widest uppercase">Console</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="relative pt-16 overflow-hidden">
+<!-- Background Orbits -->
+<div class="absolute inset-0 quantum-grid opacity-30 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
+<div class="absolute inset-0 border border-primary/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-10 border border-secondary/10 rounded-full"></div>
+<div class="absolute inset-32 border border-primary/5 rounded-full"></div>
+</div>
+<div class="relative max-w-7xl mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 mb-8">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary">System Integrity: 99.8%</span>
+</div>
+<h2 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
+                STABILIZING THE<br/>
+<span class="text-primary">QUANTUM VOID</span>
+</h2>
+<p class="max-w-2xl text-lg md:text-xl text-primary/60 font-light leading-relaxed mb-12">
+                Harness particle-grade computing for next-generation data analysis and core stability management in hyper-complex environments.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-deep-space px-8 py-4 rounded font-bold tracking-widest uppercase text-sm neon-glow hover:scale-105 transition-transform">
+                    Initialize Core
+                </button>
+<button class="bg-transparent border border-white/20 text-white px-8 py-4 rounded font-bold tracking-widest uppercase text-sm hover:bg-white/5 transition-colors">
+                    View Flux Data
+                </button>
+</div>
+</div>
+</main>
+<!-- Metrics Grid -->
+<section class="py-12 px-4 relative">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="glass-panel p-6 rounded relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">cyclone</span>
+</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-primary/50 mb-2 font-bold">Active Orbits</p>
+<div class="flex items-end gap-3">
+<h3 class="text-4xl font-bold tracking-tight">1,024</h3>
+<span class="text-green-400 text-xs font-bold mb-1">+12% Sync</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 65%"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded relative group overflow-hidden border-secondary/20">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary">hub</span>
+</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-secondary/50 mb-2 font-bold">Entanglement Ratio</p>
+<div class="flex items-end gap-3">
+<h3 class="text-4xl font-bold tracking-tight text-white">99.8<span class="text-lg opacity-50">%</span></h3>
+<span class="text-secondary text-xs font-bold mb-1">STABLE</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 92%"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-primary/50 mb-2 font-bold">Quantum Flux</p>
+<div class="flex items-end gap-3">
+<h3 class="text-4xl font-bold tracking-tight">1.21<span class="text-lg opacity-50">GW</span></h3>
+<span class="text-orange-500 text-xs font-bold mb-1">-5% Variance</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Stability Indicators Section -->
+<section class="py-20 px-4">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-bold tracking-tight mb-6">System Integrity <span class="text-primary">Indicators</span></h2>
+<div class="space-y-8">
+<div class="space-y-3">
+<div class="flex justify-between text-xs tracking-widest uppercase font-bold text-primary/70">
+<span>Core Thermal Stability</span>
+<span>88%</span>
+</div>
+<div class="h-2 bg-primary/10 rounded-full border border-primary/20 p-0.5">
+<div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+</div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest">Optimal range: 85% - 95%</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs tracking-widest uppercase font-bold text-secondary/70">
+<span>Particle Collision Probability</span>
+<span>0.002%</span>
+</div>
+<div class="h-2 bg-secondary/10 rounded-full border border-secondary/20 p-0.5">
+<div class="h-full bg-secondary rounded-full" style="width: 12%"></div>
+</div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest">Safety Threshold: 0.05%</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs tracking-widest uppercase font-bold text-primary/70">
+<span>Neural Bridge Latency</span>
+<span>0.4ms</span>
+</div>
+<div class="h-2 bg-primary/10 rounded-full border border-primary/20 p-0.5">
+<div class="h-full bg-primary rounded-full" style="width: 4ms"></div>
+</div>
+<p class="text-[10px] text-white/40 uppercase tracking-widest">Sub-atomic speed verified</p>
+</div>
+</div>
+</div>
+<div class="relative glass-panel aspect-square rounded-xl overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<div class="h-full w-full quantum-grid"></div>
+</div>
+<div class="relative w-64 h-64">
+<!-- Central Core Visual -->
+<div class="absolute inset-0 rounded-full border-2 border-primary/40 animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-4 rounded-full border-2 border-secondary/30 animate-[spin_7s_linear_infinite_reverse]"></div>
+<div class="absolute inset-8 rounded-full border border-primary/20 animate-[pulse_3s_ease-in-out_infinite]"></div>
+<div class="absolute inset-12 rounded-full bg-gradient-to-tr from-primary/20 to-secondary/20 blur-xl"></div>
+<div class="absolute inset-[45%] bg-primary rounded-full neon-glow"></div>
+</div>
+<!-- Data Readouts Overlay -->
+<div class="absolute bottom-6 left-6 text-[10px] font-mono text-primary/40 leading-tight">
+                    REC: 0x99281-STABLE<br/>
+                    FLUX: 12.9928 mSv/h<br/>
+                    SYNC: ACTIVE
+                </div>
+<div class="absolute top-6 right-6 text-[10px] font-mono text-secondary/40 leading-tight text-right">
+                    VER: 27.0.9<br/>
+                    MODE: QUANTUM_LOCKED
+                </div>
+</div>
+</div>
+</section>
+<!-- Lab Feature Cards -->
+<section class="py-20 bg-background-dark/50 border-y border-white/5">
+<div class="max-w-7xl mx-auto px-4">
+<div class="text-center mb-16">
+<p class="text-xs uppercase tracking-[0.4em] text-primary mb-2 font-bold">Research Modules</p>
+<h2 class="text-4xl font-bold tracking-tight">Particle-Grade <span class="text-white/40">Capabilities</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group">
+<div class="mb-4 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">science</span>
+</div>
+<h4 class="text-xl font-bold mb-2 tracking-tight">Atomic-Scale Optimization</h4>
+<p class="text-white/60 text-sm leading-relaxed">Refine data structures at the sub-atomic level for unparalleled processing efficiency and zero-loss storage protocols.</p>
+</div>
+<div class="group">
+<div class="mb-4 text-secondary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">memory</span>
+</div>
+<h4 class="text-xl font-bold mb-2 tracking-tight">Synthetic Intelligence Core</h4>
+<p class="text-white/60 text-sm leading-relaxed">Self-evolving neural architectures that adapt to quantum fluctuations in real-time, preventing void collapses before they occur.</p>
+</div>
+<div class="group">
+<div class="mb-4 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl">radar</span>
+</div>
+<h4 class="text-xl font-bold mb-2 tracking-tight">Real-time Flux Monitoring</h4>
+<p class="text-white/60 text-sm leading-relaxed">A persistent HUD for every orbital movement within your data cloud, ensuring 100% visibility into the quantum void.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Terminal -->
+<section class="py-32 px-4 relative">
+<div class="max-w-4xl mx-auto glass-panel p-12 rounded-xl text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<h2 class="text-4xl font-bold mb-6 tracking-tight">Ready to Initialize <span class="text-primary">Protocol 27?</span></h2>
+<p class="text-white/60 mb-10 max-w-lg mx-auto">Join the leading laboratories worldwide in stabilizing their quantum environments with Nero 27's proprietary flux algorithms.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-primary rounded opacity-30 group-hover:opacity-100 blur transition duration-300"></div>
+<button class="relative bg-deep-space text-white px-10 py-4 rounded font-bold uppercase tracking-widest text-sm border border-primary/50">
+                        Begin Synchronization
+                    </button>
+</div>
+<button class="bg-white/5 hover:bg-white/10 text-white px-10 py-4 rounded font-bold uppercase tracking-widest text-sm border border-white/10 transition-all">
+                    Request Lab Access
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-white/5 py-12 px-4 bg-deep-space">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">unfold_more_double</span>
+<span class="font-bold tracking-[0.2em] uppercase text-sm">Nero 27 <span class="opacity-40">Lab Terminal</span></span>
+</div>
+<div class="flex gap-8 text-[10px] uppercase tracking-[0.2em] font-medium text-white/40">
+<a class="hover:text-primary transition-colors" href="#">Privacy_Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">System_Status</a>
+<a class="hover:text-primary transition-colors" href="#">Neural_Network</a>
+</div>
+<p class="text-[10px] text-white/20 tracking-widest uppercase">
+                © 2024 NERO SYSTEMS CORP. QUANTUM PROTECTED.
+            </p>
+</div>
+</footer>
+</body></html>

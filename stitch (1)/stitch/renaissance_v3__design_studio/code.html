@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#fdfaf6",
+                        "background-dark": "#211311",
+                        "neutral-wash": "#f3e9e8",
+                        "vellum": "#f8f1e9",
+                        "ink": "#1b100e",
+                        "sanguine": "#955a50",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Newsreader", serif
+    }
+.canvas-grid {
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #e6d3d1 1px, transparent 1px)
+    }
+.vellum-texture {
+    background-color: #fdfaf6;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBlIi2hDkGG8OYUPTf1QP4hI0OCWKXgnXgI-6fsRq5dcXYUWyKC4oouAi0BfOIhRuuN4ZvOxgtfqqrvzFW3rGY2jkPaEChTFtHKJQ9BNTD5D1GgzzIA89pRp2s9aSAUnUWHVY5B8vldRJMUgeppiQMRAt46eLNc8c-_kgX9vv4mtnQ83ibB0Om9qrA1yfnV_wi0HISXDTlDua9F4gr4hSRdSxHihuzs9a38PWcvjav3RxKGg_7vmVtJ19qKaRhauU10a3LtGX3LFa4)
+    }</style>
+<title>Renaissance Kinetic V3 Studio</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-ink font-display overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-neutral-wash px-6 py-3 bg-background-light/80 backdrop-blur-sm z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-ink">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Renaissance Kinetic</h2>
+<p class="text-[10px] uppercase tracking-widest text-sanguine font-semibold">Studio Version 3.4.1</p>
+</div>
+</div>
+<div class="h-8 w-px bg-neutral-wash"></div>
+<div class="flex items-center gap-6">
+<a class="text-ink text-sm font-medium hover:text-primary transition-colors" href="#">Drafting Canvas</a>
+<a class="text-sanguine text-sm font-medium hover:text-primary transition-colors" href="#">Historical Archives</a>
+<a class="text-sanguine text-sm font-medium hover:text-primary transition-colors" href="#">Kinetic Simulations</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-sanguine text-lg">search</span>
+<input class="h-9 w-64 rounded bg-neutral-wash/50 border-none pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/30 placeholder:text-sanguine/60" placeholder="Search codex..."/>
+</div>
+<button class="flex items-center justify-center rounded h-9 px-4 bg-primary text-white text-sm font-bold tracking-wide hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-lg mr-2">play_arrow</span>
+                Run Simulation
+            </button>
+<button class="flex items-center justify-center rounded h-9 w-9 bg-neutral-wash text-ink hover:bg-neutral-wash/80">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<div class="size-9 rounded-full bg-cover bg-center border border-neutral-wash" data-alt="Portrait of a studio administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCaEB3zMENJkO2p1ZPIKSlQPD9aR6Pw5HZLimwmMDGPWazWMb-iq4r42t-8uDzwa_lJtA56yWPiPQhhkgHufKE1CMTOf7EaCjf6GRmtq02EtowmMlED39eNAo_CUrOIJHXWpIcZRw-r3hvrxdCOkWjYn-ZzS6_8kxteInPMCOfwn1iw6N6TiAsWQoZSXMWHsgVK9aAESQ-C4sRWZ_tfOglZuGL1GTN_YigwdVcn9zp95bQtuY_qoBSy6Z1a9yKdb-HGe9YrzyiZOxA");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Historical Archives -->
+<aside class="w-64 border-r border-neutral-wash flex flex-col bg-background-light/50 vellum-texture">
+<div class="p-4 border-b border-neutral-wash bg-background-light">
+<p class="text-xs font-bold uppercase tracking-widest text-sanguine mb-4">Studio Archives</p>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded bg-primary/10 text-primary group cursor-pointer">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="text-sm font-bold">Leonardo Collection</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-sanguine hover:bg-neutral-wash rounded cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-lg">face</span>
+<span class="text-sm font-medium">Anatomical Sketches</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-sanguine hover:bg-neutral-wash rounded cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-lg">grid_4x4</span>
+<span class="text-sm font-medium">Proportional Grids</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-sanguine hover:bg-neutral-wash rounded cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="text-sm font-medium">Mechanical Assets</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-sanguine hover:bg-neutral-wash rounded cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-lg">description</span>
+<span class="text-sm font-medium">Vellum Documents</span>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-sanguine/60">Recent Schematics</p>
+<div class="group cursor-pointer">
+<div class="aspect-[4/3] rounded bg-neutral-wash border border-neutral-wash overflow-hidden mb-2 relative">
+<div class="absolute inset-0 bg-cover bg-center grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Sketch of a mechanical wing design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXi23_NZAdznkAvb-gcXeFNIF39H21kq7lauUnG4Zub7AmmULu0N_nPi1W9Bfm4p4JEalxSqw7QeQuKXrtk27fG0_7ZAIOqVheYIXdGfWWeKZESS7FJ7zioeJwRzcvIz1wrLwswlyBmp48-NapQqaonrhXLjkOdUDUoD9dPJm8iptyzlEThJeQwqbEbwL89z4HwdnXEBiKdEg7jP2j4YblkG9BlTCwrLJaOxYEL8brAIp3p1gtEur6WS6PZS42omlqVShwSZtoxP0')"></div>
+</div>
+<p class="text-xs font-bold text-ink">Ornithopter Wing v2</p>
+<p class="text-[10px] text-sanguine">Circa 1485 • Ink on Vellum</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/3] rounded bg-neutral-wash border border-neutral-wash overflow-hidden mb-2 relative">
+<div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:opacity-100 transition-opacity" data-alt="Anatomical study of human arm musculature" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAk-lMAvexvX-a2FbMPr8vpM3eK9a2LC8j-nnI6uHJ_Wo1kpHpvk0-FIF-TQrRHbtWGFFdKo6OXi0tVnNTsfPXxztMyMtfUVCzdaMyEYv2Hi8kFW27KkXj9t1aqPz7b3aFUHcFxLWXb1txVFvfr556rIkIQ2MObgmgk7LxtXnmPGfwIAJhjZPP33mhVEQlIJZKexECcCYl3sgBCtZ0sQ03ZAp4_MIiYd6N_svA638bfzgw4eawuGkOThLDRzVULmksg1i1ifI6fB8k')"></div>
+</div>
+<p class="text-xs font-bold text-ink">Shoulder Articulation</p>
+<p class="text-[10px] text-sanguine">Anatomy Vol. IV • Red Chalk</p>
+</div>
+</div>
+<div class="p-4 border-t border-neutral-wash bg-neutral-wash/30">
+<div class="flex items-center justify-between text-sanguine mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter">Export Format</span>
+<span class="material-symbols-outlined text-xs">info</span>
+</div>
+<div class="flex gap-1">
+<button class="flex-1 text-[10px] font-bold py-1 border border-sanguine/30 rounded hover:bg-primary hover:text-white transition-colors">VELLUM</button>
+<button class="flex-1 text-[10px] font-bold py-1 border border-sanguine/30 rounded hover:bg-primary hover:text-white transition-colors">SCHEMATIC</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area: Drafting Canvas -->
+<main class="flex-1 flex flex-col bg-background-light canvas-grid relative overflow-hidden">
+<!-- Canvas Toolbar -->
+<div class="h-14 border-b border-neutral-wash flex items-center justify-between px-6 bg-background-light/95 backdrop-blur-md z-10">
+<div class="flex items-center gap-4">
+<nav class="flex gap-1 bg-neutral-wash/40 p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-bold rounded bg-white shadow-sm border border-neutral-wash text-ink">Original Sketch</button>
+<button class="px-3 py-1 text-xs font-bold rounded text-sanguine hover:bg-white/50">Wireframe</button>
+<button class="px-3 py-1 text-xs font-bold rounded text-sanguine hover:bg-white/50">Kinetic Rig</button>
+</nav>
+<div class="h-4 w-px bg-neutral-wash"></div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded hover:bg-neutral-wash text-sanguine" title="Golden Ratio Overlay">
+<span class="material-symbols-outlined text-lg">pentagon</span>
+</button>
+<button class="p-1.5 rounded bg-primary/10 text-primary border border-primary/20" title="Proportional Grid">
+<span class="material-symbols-outlined text-lg">grid_on</span>
+</button>
+<button class="p-1.5 rounded hover:bg-neutral-wash text-sanguine" title="Measurement Tool">
+<span class="material-symbols-outlined text-lg">straighten</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<p class="text-xs font-bold text-ink">Silverpoint Series #12</p>
+<p class="text-[10px] text-sanguine font-medium italic">Internal Pulleys Study</p>
+</div>
+<button class="flex items-center gap-2 px-3 py-1.5 border border-neutral-wash rounded text-xs font-bold text-ink hover:bg-neutral-wash transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+                        New Schematic
+                    </button>
+</div>
+</div>
+<!-- The Drawing Canvas -->
+<div class="flex-1 relative flex items-center justify-center p-12 overflow-hidden">
+<!-- Background Watermark -->
+<div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+<span class="material-symbols-outlined text-[600px] leading-none">man</span>
+</div>
+<!-- Main Study Image/Canvas -->
+<div class="relative max-w-4xl w-full aspect-[16/10] bg-vellum shadow-2xl rounded-sm border border-neutral-wash p-8 overflow-hidden vellum-texture">
+<!-- Overlay Grid Layers -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(#955a50 1px, transparent 1px), linear-gradient(90deg, #955a50 1px, transparent 1px); background-size: 100px 100px;"></div>
+<div class="relative h-full w-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="border-l-2 border-t-2 border-primary/30 w-12 h-12"></div>
+<div class="border-r-2 border-t-2 border-primary/30 w-12 h-12"></div>
+</div>
+<div class="flex-1 flex items-center justify-center relative">
+<!-- Central Sketch Image -->
+<img class="max-h-full object-contain mix-blend-multiply opacity-80" data-alt="Technical sketch of mechanical pulleys and anatomical movement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfzXbY8TFsB3j_6S3JZ8Hsfbperh_8DYxXsI80B2Qg9podSK2wxN_4l48V8Zk7nKFsC2YlzoHTgcgMFvaq407pSp-jwl_n2NTQ1kzxs0CPPKGqtp4or5eh4YhfaK13yg5V_4skBMWQkgQIrJnJJJdBk4H9uyH5sobi1HdSYsoqmbkVDIgR8jbeHTKR0sUB0MMGlvDYcMfUBTOP9yr8gjzGRGDYG_ZMfmbnV4hPXAozh6095A9NCe9Wj9cTmk9n1vfrk46xqlfFZTA"/>
+<!-- Kinetic Overlay Elements (Simulated) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[400px] h-[400px] border border-primary/40 rounded-full flex items-center justify-center">
+<div class="w-[280px] h-[280px] border border-primary/20 rounded-full flex items-center justify-center">
+<!-- Pivot Points -->
+<div class="absolute top-1/4 left-1/3 size-3 rounded-full bg-primary border-2 border-vellum shadow-sm"></div>
+<div class="absolute bottom-1/3 right-1/4 size-3 rounded-full bg-primary border-2 border-vellum shadow-sm"></div>
+<!-- Connection Lines -->
+<div class="absolute top-1/4 left-1/3 w-[150px] h-px bg-primary/40 rotate-[45deg] origin-left"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-end mt-4">
+<div class="border-l-2 border-b-2 border-primary/30 w-12 h-12"></div>
+<div class="text-[10px] text-sanguine/60 font-serif max-w-[200px] text-right">
+                                "La natura è piena di infinite ragioni, che non furon mai in isperienza."
+                            </div>
+<div class="border-r-2 border-b-2 border-primary/30 w-12 h-12"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Canvas Bottom Status -->
+<div class="h-10 border-t border-neutral-wash bg-background-light/95 flex items-center justify-between px-6 z-10">
+<div class="flex gap-6 items-center">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-green-600"></span>
+<span class="text-[10px] font-bold text-sanguine uppercase tracking-wider">Engine: Ready</span>
+</div>
+<div class="text-[10px] text-sanguine font-medium">Resolution: 600 DPI (Archival)</div>
+<div class="text-[10px] text-sanguine font-medium">Last Sync: 2m ago</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-32 h-1.5 bg-neutral-wash rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 w-[65%]"></div>
+</div>
+<span class="text-[10px] font-bold text-ink">Zoom: 140%</span>
+</div>
+</div>
+</main>
+<!-- Right Sidebar: Simulation & Parameters -->
+<aside class="w-80 border-l border-neutral-wash flex flex-col bg-background-light/50">
+<div class="p-5 border-b border-neutral-wash bg-background-light">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-ink">Kinetic Control</h3>
+<span class="material-symbols-outlined text-sanguine text-lg">analytics</span>
+</div>
+<div class="space-y-6">
+<!-- Control Sliders -->
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="text-[10px] font-bold uppercase text-sanguine">Mechanical Torque</label>
+<span class="text-xs font-bold text-ink">42.5 Nm</span>
+</div>
+<input class="w-full h-1 bg-neutral-wash rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="text-[10px] font-bold uppercase text-sanguine">Pivot Friction</label>
+<span class="text-xs font-bold text-ink">0.12 μ</span>
+</div>
+<input class="w-full h-1 bg-neutral-wash rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="text-[10px] font-bold uppercase text-sanguine">Spring Tension</label>
+<span class="text-xs font-bold text-ink">128 kgf</span>
+</div>
+<input class="w-full h-1 bg-neutral-wash rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+</div>
+<div class="h-px bg-neutral-wash"></div>
+<!-- Toggles -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-ink">Gravitational Influence</span>
+<button class="w-8 h-4 rounded-full bg-primary relative transition-colors">
+<span class="absolute right-1 top-1 size-2 rounded-full bg-white"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-ink">Anatomical Limits</span>
+<button class="w-8 h-4 rounded-full bg-primary relative transition-colors">
+<span class="absolute right-1 top-1 size-2 rounded-full bg-white"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-ink">Air Resistance</span>
+<button class="w-8 h-4 rounded-full bg-neutral-wash relative transition-colors">
+<span class="absolute left-1 top-1 size-2 rounded-full bg-sanguine/40"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Simulation Stats -->
+<div class="flex-1 overflow-y-auto p-5 space-y-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-sanguine">Real-time Readouts</p>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-neutral-wash/40 rounded border border-neutral-wash">
+<p class="text-[10px] text-sanguine font-medium mb-1 uppercase">Efficiency</p>
+<p class="text-lg font-bold text-ink">94.2%</p>
+</div>
+<div class="p-3 bg-neutral-wash/40 rounded border border-neutral-wash">
+<p class="text-[10px] text-sanguine font-medium mb-1 uppercase">Torque Peak</p>
+<p class="text-lg font-bold text-ink">8.4k</p>
+</div>
+</div>
+<div class="p-4 rounded bg-primary/5 border border-primary/20">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm">warning</span>
+<p class="text-[10px] font-bold text-primary uppercase">Structural Stress Alert</p>
+</div>
+<p class="text-xs text-ink/80 leading-relaxed italic">
+                        The current tension on the secondary pulley assembly exceeds the historical structural integrity of standard vellum-rigged oak. Consider reinforcing the pivot axis.
+                    </p>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-wash">
+<p class="text-[10px] font-bold uppercase tracking-widest text-sanguine mb-4">Anatomical Torque Graph</p>
+<div class="h-24 w-full flex items-end gap-1">
+<div class="flex-1 bg-primary/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/50 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[50%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/20 h-[25%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<div class="p-5 border-t border-neutral-wash">
+<button class="w-full flex items-center justify-center gap-2 rounded bg-ink text-white py-2.5 text-sm font-bold hover:bg-black transition-all">
+<span class="material-symbols-outlined text-lg">save</span>
+                    Store in Archives
+                </button>
+</div>
+</aside>
+</div>
+</div>
+</body></html>

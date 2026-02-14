@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 | UX Precision Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#4c09aa",
+                "background-light": "#f7f5f8",
+                "background-dark": "#171022",
+                "grid-line": "#e5e1e9",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #e5e1e9 1px, transparent 1px), linear-gradient(to bottom, #e5e1e9 1px, transparent 1px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-[#130d1c] antialiased">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 w-full border-b border-grid-line bg-white/80 backdrop-blur-md">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter uppercase">Nero 27</span>
+<div class="hidden md:flex items-center gap-6 text-sm font-medium uppercase tracking-widest text-[#130d1c]/60">
+<a class="hover:text-primary transition-colors" href="#">Work</a>
+<a class="hover:text-primary transition-colors" href="#">Services</a>
+<a class="hover:text-primary transition-colors" href="#">Studio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-xs font-bold uppercase tracking-widest border border-grid-line px-4 py-2 hover:bg-primary hover:text-white transition-all">Start Project</button>
+<span class="material-symbols-outlined cursor-pointer md:hidden">menu</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative border-b border-grid-line bg-white overflow-hidden">
+<div class="grid-bg absolute inset-0 opacity-20"></div>
+<div class="relative mx-auto max-w-7xl px-6 py-24 md:py-40">
+<div class="max-w-4xl">
+<span class="mb-6 inline-block text-xs font-bold uppercase tracking-[0.3em] text-primary">Precision Engineering</span>
+<h1 class="text-5xl font-bold leading-[1.1] tracking-tighter md:text-8xl">
+                    Engineering Digital Experiences through <span class="text-primary">UX Precision.</span>
+</h1>
+<p class="mt-8 max-w-2xl text-lg font-normal leading-relaxed text-[#130d1c]/70 md:text-xl">
+                    A minimalist Swiss design studio focusing on functional clarity and rigid grid alignment. We build interfaces that perform at scale.
+                </p>
+<div class="mt-12 flex flex-wrap gap-4">
+<button class="bg-primary text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">View Case Studies</button>
+<button class="border border-grid-line px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-background-light transition-colors">Our Process</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Stats Bar -->
+<section class="border-b border-grid-line bg-white">
+<div class="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
+<div class="border-r border-grid-line p-8 md:p-12">
+<p class="text-sm font-medium text-primary uppercase tracking-widest">Delivered</p>
+<p class="mt-2 text-4xl font-bold tracking-tighter">150+</p>
+</div>
+<div class="border-r border-grid-line p-8 md:p-12">
+<p class="text-sm font-medium text-primary uppercase tracking-widest">Systems</p>
+<p class="mt-2 text-4xl font-bold tracking-tighter">40+</p>
+</div>
+<div class="border-r border-grid-line p-8 md:p-12">
+<p class="text-sm font-medium text-primary uppercase tracking-widest">Experience</p>
+<p class="mt-2 text-4xl font-bold tracking-tighter">10Y</p>
+</div>
+<div class="p-8 md:p-12">
+<p class="text-sm font-medium text-primary uppercase tracking-widest">Growth</p>
+<p class="mt-2 text-4xl font-bold tracking-tighter">+12%</p>
+</div>
+</div>
+</section>
+<!-- Services -->
+<section class="mx-auto max-w-7xl px-6 py-24">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+<h2 class="text-4xl font-bold tracking-tighter uppercase">Capabilities</h2>
+<p class="max-w-md text-[#130d1c]/60">Our multidisciplinary approach combines technical rigor with visual elegance to solve complex business challenges.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-grid-line border border-grid-line">
+<div class="bg-white p-8 group hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:text-white transition-colors" style="font-size: 32px;">monitor</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">UI/UX Design</h3>
+<p class="text-sm leading-relaxed text-[#130d1c]/60 group-hover:text-white/80 transition-colors">User-centric interfaces engineered for performance and scalability across platforms.</p>
+</div>
+<div class="bg-white p-8 group hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:text-white transition-colors" style="font-size: 32px;">layers</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Design Systems</h3>
+<p class="text-sm leading-relaxed text-[#130d1c]/60 group-hover:text-white/80 transition-colors">Scalable component libraries and documentation for high-velocity product teams.</p>
+</div>
+<div class="bg-white p-8 group hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:text-white transition-colors" style="font-size: 32px;">bolt</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Rapid Prototyping</h3>
+<p class="text-sm leading-relaxed text-[#130d1c]/60 group-hover:text-white/80 transition-colors">High-fidelity interactive models for validation and stakeholder alignment.</p>
+</div>
+<div class="bg-white p-8 group hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:text-white transition-colors" style="font-size: 32px;">token</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Brand Identity</h3>
+<p class="text-sm leading-relaxed text-[#130d1c]/60 group-hover:text-white/80 transition-colors">Strategic visual narratives that bridge the gap between product and marketing.</p>
+</div>
+</div>
+</section>
+<!-- Work Showcase -->
+<section class="bg-white border-y border-grid-line">
+<div class="mx-auto max-w-7xl px-6 py-24">
+<div class="mb-16">
+<h2 class="text-4xl font-bold tracking-tighter uppercase">Selected Work</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-video w-full overflow-hidden border border-grid-line mb-6">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist dashboard interface design with purple accents" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCi6Ke09UBgq3ke8RE0_5rFnpq9gQLQd6XBDG_pHu8F3xrCSFTaYD-8-PP18eEYELgAoOu8FLTbNjtqiNPRqr55fCcT6xMcrjxqy96JUS8NwkMf3eeBFZNulRgW7jKC8YCOjwB8XFiXtCBRp0cYzbHCLaZVKEkNGnMXZPIeCrIHDLAJZRd_R5M-FWDDsyWai9o9LapRVY13DXU56gIdRWexi99r7hol4HsXrk2xaA0jv_QGBnX1cS45sUW0wmTq2vS1NI5xLqIaLs')"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Fintech • 2024</p>
+<h3 class="text-2xl font-bold tracking-tight group-hover:underline">Quantum Interface</h3>
+</div>
+<span class="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">arrow_outward</span>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-video w-full overflow-hidden border border-grid-line mb-6">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Clean mobile application interface layout design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXEVv4xDt7MWchk02MaDK88ICd8edmZGp_EQjfTOCyhdFGhtMFmzss0Q57jDHFkRDlPd1UbGoP9GdKsrzPDDIwHp2DbYgYqCsW-xIulY_zqFS3VBjIw2cMWmN6tC1Dk-R1kdJ9_r1C9iLE1prZ355jmOVG_8RH7lDfduT86kgE5nz4CrDcnt03WdrJF833JryIHmMRyXNzZhx5Xj8-vuHES3H19yrK74uBpSfexgx3U9iOZCQH49zvoHfo1DiLuBhANZbvzk8DLyA')"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Logistics • 2023</p>
+<h3 class="text-2xl font-bold tracking-tight group-hover:underline">Veloce Mobile Ecosystem</h3>
+</div>
+<span class="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="mx-auto max-w-7xl px-6 py-24 md:py-32">
+<div class="border border-grid-line p-12 md:p-24 text-center bg-white relative">
+<div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-primary -ml-1 -mt-1"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-primary -mr-1 -mb-1"></div>
+<h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-8">Ready to engineer your next project?</h2>
+<p class="text-lg text-[#130d1c]/60 max-w-xl mx-auto mb-12">We are currently accepting new partnerships for Q3 2024. Let's discuss your product goals.</p>
+<a class="inline-block text-2xl md:text-4xl font-bold tracking-tight text-primary hover:underline underline-offset-8" href="mailto:hello@nero27.studio">hello@nero27.studio</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-grid-line bg-white py-12 px-6">
+<div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<span class="text-xl font-bold tracking-tighter uppercase">Nero 27</span>
+<p class="mt-4 max-w-xs text-sm text-[#130d1c]/60 leading-relaxed">
+                    A design engineering studio built on the principles of Swiss minimalism and technical precision.
+                </p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Social</h4>
+<ul class="space-y-4 text-sm font-medium">
+<li><a class="hover:text-primary" href="#">LinkedIn</a></li>
+<li><a class="hover:text-primary" href="#">Dribbble</a></li>
+<li><a class="hover:text-primary" href="#">Instagram</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Office</h4>
+<p class="text-sm text-[#130d1c]/60 leading-relaxed">
+                    Löwenstrasse 27<br/>
+                    8001 Zürich<br/>
+                    Switzerland
+                </p>
+</div>
+</div>
+<div class="mx-auto max-w-7xl mt-12 pt-8 border-t border-grid-line flex flex-col md:flex-row justify-between gap-4">
+<p class="text-xs text-[#130d1c]/40 uppercase tracking-widest">© 2024 Nero 27 Studio. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-[#130d1c]/40 uppercase tracking-widest hover:text-[#130d1c]" href="#">Privacy</a>
+<a class="text-xs text-[#130d1c]/40 uppercase tracking-widest hover:text-[#130d1c]" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

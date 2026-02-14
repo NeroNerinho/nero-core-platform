@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home Geometria V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "surface-dark": "#162a2d",
+                        "surface-darker": "#112022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    spacing: {
+                        '18': '4.5rem',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for raw industrial feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f2123; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f3a3d; 
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06e8f9; 
+        }
+        
+        .grid-bg {
+            background-image: linear-gradient(rgba(6, 232, 249, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6, 232, 249, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .chart-line {
+            fill: none;
+            stroke: #06e8f9;
+            stroke-width: 2;
+            stroke-dasharray: 4, 2;
+        }
+        
+        .chart-fill {
+            fill: rgba(6, 232, 249, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex flex-col antialiased selection:bg-primary selection:text-black">
+<!-- Mobile Container -->
+<div class="max-w-md mx-auto w-full flex-grow flex flex-col relative bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden border-x border-primary/10">
+<!-- Background Grid Pattern -->
+<div class="absolute inset-0 grid-bg pointer-events-none z-0"></div>
+<!-- Header -->
+<header class="relative z-10 p-4 border-b border-primary/20 bg-background-light/80 dark:bg-background-dark/90 backdrop-blur-md sticky top-0">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded border border-primary/30 flex items-center justify-center">
+<span class="material-icons text-primary text-xl">grid_view</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400">Main_Hub</h1>
+<div class="text-lg font-bold uppercase tracking-tight leading-none">Geometria <span class="text-primary">V1</span></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-mono text-primary uppercase">Sys_Optimal</span>
+<div class="w-8 h-8 rounded bg-surface-dark border border-primary/20 ml-2 overflow-hidden relative">
+<img alt="User profile avatar" class="w-full h-full object-cover opacity-80" data-alt="User profile avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVZ7g539fTK3OaT1S5wqNBLIMbgcog7IuAMDsj4FeRm7wPXu3sb86Chj7wVBgcRFMGBWJj6tkXqvZBTcgYZ-MK_PriKyXEmKvQ_1Yt70zllLtgAtCCKEtYA174SM657sb3NIpBkNEvk_00pzgqKpcetlp0PFn5sZHDemIRDq73MekxgN1r-P_FH7yek4flIreXva0hloGWvm1eEvJJOvKh76N-lcOeR6PcH22KsUIFxPWPZG-_1xwthhSdVowKL9EfXB_HEgHNcUI"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="relative z-10 flex-grow p-4 flex flex-col gap-4 overflow-y-auto pb-24">
+<!-- Hero Chart Section -->
+<section class="w-full">
+<div class="bg-surface-darker border border-primary/20 rounded-lg p-1 relative overflow-hidden group">
+<!-- Decorative Corner -->
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
+<div class="bg-surface-dark rounded p-4 relative">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-xs uppercase tracking-widest text-slate-400 mb-1">Structural Stress</h2>
+<div class="text-3xl font-bold font-mono text-white flex items-baseline gap-2">
+                                    42% <span class="text-xs text-primary font-normal">▲ +2.4%</span>
+</div>
+</div>
+<button class="p-1.5 rounded bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
+<span class="material-icons text-sm">settings_overscan</span>
+</button>
+</div>
+<!-- SVG Chart -->
+<div class="h-32 w-full relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 300 100">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#06e8f9" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#06e8f9" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path class="chart-fill" d="M0,80 L30,70 L60,85 L90,50 L120,60 L150,40 L180,55 L210,30 L240,45 L270,20 L300,35 V100 H0 Z"></path>
+<polyline class="chart-line" points="0,80 30,70 60,85 90,50 120,60 150,40 180,55 210,30 240,45 270,20 300,35"></polyline>
+</svg>
+<!-- Grid Overlay Lines -->
+<div class="absolute inset-0 border-t border-b border-dashed border-white/5 pointer-events-none flex flex-col justify-between">
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+</div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-slate-500 font-mono uppercase">
+<span>00:00</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span>16:00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stat Blocks Grid (Bento Box Style) -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Block A -->
+<div class="bg-surface-dark border border-white/5 rounded-lg p-4 flex flex-col justify-between h-32 hover:border-primary/40 transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="material-icons text-primary/70 text-lg">thermostat</span>
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+</div>
+<div>
+<div class="text-xs uppercase text-slate-400 mb-1">Core Temp</div>
+<div class="text-2xl font-bold text-white font-mono">64<span class="text-sm text-slate-500">°C</span></div>
+</div>
+</div>
+<!-- Block B -->
+<div class="bg-surface-dark border border-white/5 rounded-lg p-4 flex flex-col justify-between h-32 hover:border-primary/40 transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="material-icons text-primary/70 text-lg">router</span>
+<span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div>
+<div class="text-xs uppercase text-slate-400 mb-1">Network</div>
+<div class="text-2xl font-bold text-white font-mono">1.2<span class="text-sm text-slate-500">GB/s</span></div>
+</div>
+</div>
+<!-- Block C (Wide) -->
+<div class="col-span-2 bg-surface-dark border border-white/5 rounded-lg p-4 flex items-center justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background-dark transition-colors text-primary">
+<span class="material-icons">hub</span>
+</div>
+<div>
+<div class="text-xs uppercase text-slate-400">Active Nodes</div>
+<div class="text-xl font-bold text-white font-mono">14 / 16 <span class="text-xs text-green-400 font-normal ml-2">ONLINE</span></div>
+</div>
+</div>
+<span class="material-icons text-slate-600 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</section>
+<!-- Action Matrix -->
+<section class="mt-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3 ml-1">Control_Matrix</h3>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-surface-dark hover:bg-surface-darker border border-white/5 hover:border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors text-xl">radar</span>
+<span class="text-[10px] uppercase font-bold text-slate-300">Scan</span>
+</button>
+<button class="bg-surface-dark hover:bg-surface-darker border border-white/5 hover:border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors text-xl">tune</span>
+<span class="text-[10px] uppercase font-bold text-slate-300">Calibrate</span>
+</button>
+<button class="bg-surface-dark hover:bg-surface-darker border border-white/5 hover:border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors text-xl">bug_report</span>
+<span class="text-[10px] uppercase font-bold text-slate-300">Logs</span>
+</button>
+<button class="bg-surface-dark hover:bg-surface-darker border border-white/5 hover:border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors text-xl">security</span>
+<span class="text-[10px] uppercase font-bold text-slate-300">Security</span>
+</button>
+<button class="bg-surface-dark hover:bg-surface-darker border border-white/5 hover:border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors text-xl">storage</span>
+<span class="text-[10px] uppercase font-bold text-slate-300">Storage</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-background-dark border border-primary rounded-lg p-3 flex flex-col items-center gap-2 transition-all active:scale-95 group shadow-[0_0_15px_rgba(6,232,249,0.3)]">
+<span class="material-icons text-xl">power_settings_new</span>
+<span class="text-[10px] uppercase font-bold">Reboot</span>
+</button>
+</div>
+</section>
+<!-- Map/Location Module -->
+<section class="mt-2 w-full">
+<div class="bg-surface-dark border border-white/5 rounded-lg overflow-hidden h-32 relative">
+<img alt="City map view" class="w-full h-full object-cover opacity-30 grayscale mix-blend-luminosity" data-alt="Dark stylized map of Chicago city grid" data-location="Chicago" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmghp_ZZXth_aNiFjHsoZjk9YSHPtUGbI-ffBR62AbKXp06Zp31pc-UIB36QJWpzVlr0GzKRtm0-HtQGbNhwfckHoXdr_kpDAwkZK9wVlH1ZOky_D-5xke94ad-BiU9Jox8vgIswp2jwL0V8YZHyc9T6Czgjst2Luq3W7AoUNCrwlYa6VUiy4WGlws5CcQ9rR1LUEaY2nV8uZDW41cxLN7_y8s-oxvRgYIIHeuuN560TJCddhqC57iRk7tyWhR6HUyAYAu_toTHlc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<div class="text-xs uppercase text-slate-400 mb-0.5">Physical Location</div>
+<div class="text-sm font-bold text-white flex items-center gap-1">
+<span class="material-icons text-primary text-xs">place</span>
+                             Chicago, Grid Sector 7
+                         </div>
+</div>
+<div class="absolute top-3 right-3">
+<div class="bg-black/50 backdrop-blur px-2 py-1 rounded border border-white/10 text-[10px] font-mono text-primary">
+                             GPS_ACTV
+                         </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Ticker -->
+<footer class="absolute bottom-0 w-full z-20 bg-surface-darker border-t border-primary/20 backdrop-blur-lg">
+<!-- Ticker Strip -->
+<div class="w-full bg-primary/5 py-1 px-4 overflow-hidden whitespace-nowrap border-b border-primary/10">
+<div class="inline-block animate-marquee text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+<span class="mr-8">:: SYSTEM_LOG_ID_992 :: CONNECTION STABLE ::</span>
+<span class="mr-8">:: UPDATE PACKET RECEIVED :: VALIDATING SIGNATURE... ::</span>
+<span class="mr-8">:: THERMAL REGULATION ACTIVE ::</span>
+<span class="mr-8">:: NEW DEVICE DETECTED ON PORT 8080 ::</span>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="flex justify-around items-center p-3 pb-6">
+<button class="flex flex-col items-center gap-1 text-primary group">
+<div class="w-10 h-8 rounded flex items-center justify-center bg-primary/10 group-hover:bg-primary/20 transition-colors">
+<span class="material-icons text-xl">dashboard</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+<div class="w-10 h-8 rounded flex items-center justify-center">
+<span class="material-icons text-xl">analytics</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Data</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+<div class="w-10 h-8 rounded flex items-center justify-center">
+<span class="material-icons text-xl">notifications</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+<div class="w-10 h-8 rounded flex items-center justify-center">
+<span class="material-icons text-xl">settings</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Conf</span>
+</button>
+</div>
+</footer>
+</div>
+<script>
+        // Simple marquee animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+            .animate-marquee {
+                animation: marquee 20s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>

@@ -1,0 +1,24 @@
+{
+    "name": "nero-core-platform",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Nero Core Platform Monorepo",
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev": "npm run dev --workspace=nero27",
+        "dev:main": "npm run dev --workspace=nero27",
+        "dev:approval": "npm run start --workspace=approval-panel",
+        "install:all": "npm install",
+        "build": "npm run build --workspaces",
+        "test": "npm test --workspaces"
+    },
+    "keywords": [
+        "nero27",
+        "media-checking",
+        "monorepo"
+    ],
+    "author": "Nero",
+    "license": "MIT"
+}

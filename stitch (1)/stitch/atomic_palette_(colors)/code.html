@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Atomic Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00F0FF", // Neon Cyan
+                        "secondary": "#7000FF", // Plasma Purple
+                        "void": "#030304", // Void
+                        "matter": "#0F1115", // Surface
+                        "border-dark": "#2A2F3A", // Event Horizon
+                        "text-white": "#F0F2F5", // Quantum White
+                        "text-muted": "#8890A0", // Carbon
+                        "error": "#FF003C", // Error
+                        "success": "#00FF94", // Success
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        "neon": "0 0 15px rgba(0, 240, 255, 0.4)",
+                        "neon-sm": "0 0 8px rgba(0, 240, 255, 0.3)",
+                    },
+                    backgroundImage: {
+                        "scanlines": "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2))",
+                    },
+                    backgroundSize: {
+                        "scanlines": "100% 4px",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for a more technical feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030304; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2F3A; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF; 
+        }
+
+        /* Scanline Overlay */
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 50;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-void text-text-white font-body antialiased overflow-x-hidden relative scanlines min-h-screen flex flex-col">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-40 w-full bg-void/90 backdrop-blur-md border-b border-border-dark flex items-center justify-between px-5 py-4">
+<div class="flex items-center gap-3">
+<button class="text-text-muted hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-display font-bold text-xl tracking-wide uppercase">Chromatics</h1>
+</div>
+<div class="h-2 w-2 rounded-full bg-primary shadow-neon animate-pulse"></div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-5 py-6 flex flex-col gap-8 pb-32">
+<!-- Introduction -->
+<section class="mb-4">
+<p class="font-mono text-xs text-primary mb-2">:: SYSTEM.COLORS.INIT</p>
+<p class="text-text-muted text-sm leading-relaxed">
+                The atomic structure of Nero 27. Primary wavelengths define energy sources, while dark matter voids provide infinite depth.
+            </p>
+</section>
+<!-- Quantum Shift (Gradient) -->
+<section class="space-y-3">
+<div class="flex justify-between items-baseline border-b border-border-dark pb-2 mb-4">
+<h2 class="font-display font-bold text-lg">Quantum Shift</h2>
+<span class="font-mono text-[10px] text-text-muted">GRAD_01</span>
+</div>
+<div class="w-full h-32 rounded-lg relative overflow-hidden group border border-border-dark">
+<!-- Gradient Background -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#00F0FF] to-[#7000FF]" data-alt="Smooth gradient transitioning from bright cyan neon to deep plasma purple"></div>
+<!-- Overlay details -->
+<div class="absolute inset-0 p-4 flex flex-col justify-between">
+<div class="flex justify-between font-mono text-[10px] text-white/80 mix-blend-overlay uppercase tracking-widest">
+<span>Start: Neon Cyan</span>
+<span>End: Plasma Purple</span>
+</div>
+<div class="w-full h-[1px] bg-white/30"></div>
+</div>
+</div>
+<div class="flex gap-2 font-mono text-[10px] text-text-muted uppercase">
+<span>Usage:</span>
+<span class="text-text-white">Primary Buttons, Hero Glows</span>
+</div>
+</section>
+<!-- Primary Swatches -->
+<section class="space-y-4">
+<div class="flex justify-between items-baseline border-b border-border-dark pb-2 mb-2">
+<h2 class="font-display font-bold text-lg">Primary Matter</h2>
+<span class="font-mono text-[10px] text-text-muted">CORE_VALS</span>
+</div>
+<!-- Neon Cyan -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-primary/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#00F0FF] shadow-neon border border-white/10 shrink-0 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Neon Cyan</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Core Energy</span>
+</div>
+</div>
+<button class="font-mono text-xs text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #00F0FF
+                </button>
+</div>
+<!-- Plasma Purple -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-secondary/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#7000FF] shadow-[0_0_15px_rgba(112,0,255,0.4)] border border-white/10 shrink-0 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Plasma Purple</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Accent State</span>
+</div>
+</div>
+<button class="font-mono text-xs text-[#7000FF] border border-[#7000FF]/30 rounded-full px-3 py-1.5 hover:bg-[#7000FF]/10 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #7000FF
+                </button>
+</div>
+</section>
+<!-- Neutral / Utility -->
+<section class="space-y-4">
+<div class="flex justify-between items-baseline border-b border-border-dark pb-2 mb-2">
+<h2 class="font-display font-bold text-lg">Dark Matter</h2>
+<span class="font-mono text-[10px] text-text-muted">SYS_BASE</span>
+</div>
+<!-- Void -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-text-muted/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#030304] border border-border-dark shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Void</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Background</span>
+</div>
+</div>
+<button class="font-mono text-xs text-text-muted border border-border-dark rounded-full px-3 py-1.5 hover:bg-white/5 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #030304
+                </button>
+</div>
+<!-- Matter -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-text-muted/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#0F1115] border border-border-dark shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Matter</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Surface / Cards</span>
+</div>
+</div>
+<button class="font-mono text-xs text-text-muted border border-border-dark rounded-full px-3 py-1.5 hover:bg-white/5 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #0F1115
+                </button>
+</div>
+<!-- Event Horizon -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-text-muted/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#2A2F3A] border border-border-dark shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Event Horizon</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Borders</span>
+</div>
+</div>
+<button class="font-mono text-xs text-text-muted border border-border-dark rounded-full px-3 py-1.5 hover:bg-white/5 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #2A2F3A
+                </button>
+</div>
+</section>
+<!-- Semantic -->
+<section class="space-y-4">
+<div class="flex justify-between items-baseline border-b border-border-dark pb-2 mb-2">
+<h2 class="font-display font-bold text-lg">System State</h2>
+<span class="font-mono text-[10px] text-text-muted">UI_FB</span>
+</div>
+<!-- Quantum White -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-text-white/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#F0F2F5] border border-border-dark shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Quantum White</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Primary Text</span>
+</div>
+</div>
+<button class="font-mono text-xs text-text-white border border-border-dark rounded-full px-3 py-1.5 hover:bg-white/10 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #F0F2F5
+                </button>
+</div>
+<!-- Carbon -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-text-muted/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#8890A0] border border-border-dark shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">Carbon</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Secondary Text</span>
+</div>
+</div>
+<button class="font-mono text-xs text-text-muted border border-border-dark rounded-full px-3 py-1.5 hover:bg-white/5 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #8890A0
+                </button>
+</div>
+<!-- Error -->
+<div class="group relative bg-matter border border-border-dark rounded-lg p-4 flex items-center justify-between hover:border-error/50 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-[#FF003C] shadow-[0_0_10px_rgba(255,0,60,0.3)] border border-white/10 shrink-0"></div>
+<div class="flex flex-col">
+<h3 class="font-display font-bold text-base text-white tracking-wide">System Error</h3>
+<span class="font-mono text-xs text-text-muted uppercase tracking-wider">Critical Alert</span>
+</div>
+</div>
+<button class="font-mono text-xs text-error border border-error/30 rounded-full px-3 py-1.5 hover:bg-error/10 active:bg-success active:text-void active:border-success transition-colors duration-200">
+                    #FF003C
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Component from list) -->
+<div class="fixed bottom-0 w-full z-50">
+<div class="flex gap-2 border-t border-[#2A2F3A] bg-[#0F1115]/95 backdrop-blur-md px-4 pb-6 pt-3">
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-text-muted hover:text-primary transition-colors group" href="#">
+<div class="group-hover:text-primary flex h-8 items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[24px]">science</span>
+</div>
+<p class="text-[10px] font-mono font-medium leading-normal tracking-wider uppercase">Nucleus</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-primary relative" href="#">
+<div class="absolute -top-3 w-8 h-[1px] bg-primary shadow-neon"></div>
+<div class="text-primary flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[24px] fill-current">palette</span>
+</div>
+<p class="text-primary text-[10px] font-mono font-medium leading-normal tracking-wider uppercase">Colors</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-text-muted hover:text-primary transition-colors group" href="#">
+<div class="group-hover:text-primary flex h-8 items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[24px]">text_fields</span>
+</div>
+<p class="text-[10px] font-mono font-medium leading-normal tracking-wider uppercase">Type</p>
+</a>
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-text-muted hover:text-primary transition-colors group" href="#">
+<div class="group-hover:text-primary flex h-8 items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[24px]">folder_open</span>
+</div>
+<p class="text-[10px] font-mono font-medium leading-normal tracking-wider uppercase">Assets</p>
+</a>
+</div>
+</div>
+<!-- Toast Notification (Hidden by default, concept only) -->
+<!-- In a real app this would be triggered by JS. Positioned for preview -->
+<div class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-matter border border-success text-success px-4 py-2 rounded shadow-lg flex items-center gap-2 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="font-mono text-xs">HEX COPIED TO CLIPBOARD</span>
+</div>
+</body></html>

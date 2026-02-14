@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 // NEURAL UPLINK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "accent-yellow": "#f9e806",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050a0a",
+                        "neutral-dark": "#0f2123",
+                        "border-cyan": "rgba(6, 232, 249, 0.3)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050a0a;
+            background-image: 
+                linear-gradient(rgba(6, 232, 249, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 232, 249, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .crt-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+        }
+        .glitch-text:hover {
+            text-shadow: 2px 0 #f9e806, -2px 0 #06e8f9;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display text-white selection:bg-primary selection:text-black min-h-screen relative overflow-x-hidden">
+<!-- CRT Overlay -->
+<div class="fixed inset-0 crt-overlay z-50 pointer-events-none"></div>
+<!-- Top Navigation -->
+<header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur-md border-b border-primary/20">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<div>
+<h1 class="font-bold text-xl tracking-tighter glitch-text">NERO <span class="text-primary">27</span></h1>
+<p class="text-[10px] text-primary/60 font-mono uppercase tracking-[0.2em]">Core OS v1.0.27</p>
+</div>
+</div>
+<div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-primary/70">
+<a class="hover:text-primary transition-colors" href="#">Neural Uplink</a>
+<a class="hover:text-primary transition-colors" href="#">Decryption</a>
+<a class="hover:text-primary transition-colors" href="#">Protocol</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-[10px] text-accent-yellow font-mono">ENCRYPTION: ACTIVE</span>
+<span class="text-[10px] text-primary font-mono">LATENCY: 0.002MS</span>
+</div>
+<button class="bg-primary/10 border border-primary/40 p-2 rounded hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary">settings_input_component</span>
+</button>
+</div>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center p-4 border-b border-primary/10">
+<!-- Decorative Corners -->
+<div class="absolute top-10 left-10 size-20 border-t-2 border-l-2 border-primary/30"></div>
+<div class="absolute top-10 right-10 size-20 border-t-2 border-r-2 border-primary/30"></div>
+<div class="absolute bottom-10 left-10 size-20 border-b-2 border-l-2 border-primary/30"></div>
+<div class="absolute bottom-10 right-10 size-20 border-b-2 border-r-2 border-primary/30"></div>
+<div class="relative w-full max-w-4xl mx-auto text-center z-20">
+<div class="inline-block px-3 py-1 bg-primary/20 border border-primary/50 text-primary text-[10px] font-bold tracking-[0.3em] uppercase mb-8">
+                    Biometric Identity Confirmed
+                </div>
+<!-- Vitruvian Man Placeholder with Scan Overlays -->
+<div class="relative mx-auto size-64 md:size-96 mb-8 group">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<img class="w-full h-full object-contain opacity-80" data-alt="Technical blueprint of a Vitruvian Man with digital data overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDVFsrkGxgx4Fk3IzDmARN_mt6btnCLnTDM5N_JZyRcLQ24dMFJJ2HbeiNoF6Rc6UIqxKR7yctY7-w_nw2ubTGFxhkd_GqnmP2-OqGIo60vFqR9pA0db3YXF0IImw3oNnLTvJU2M3fb4TLqkANc8XHW_krCgds9w5XqeAx99EuNzOMRVMbpPMRe8RrQQpbPLe-Nx_NYd5hXUqlMb4CSrWeZmgzLBYJt5G61u1wvtxiMrQjb6YxkRUmCbC86GMkg-W_MATK7R9bODw"/>
+<!-- Floating Data Points -->
+<div class="absolute top-0 left-0 font-mono text-[10px] text-primary/60">X: 192.29<br/>Y: 482.01</div>
+<div class="absolute bottom-0 right-0 font-mono text-[10px] text-primary/60">ALPHA_V: 0.992<br/>SIGMA_K: 1.02</div>
+<!-- Scanning Bar -->
+<div class="absolute inset-x-0 h-0.5 bg-primary shadow-[0_0_15px_rgba(6,232,249,1)] opacity-50 top-1/2 -translate-y-1/2 animate-pulse"></div>
+</div>
+<h2 class="text-4xl md:text-7xl font-black mb-6 tracking-tighter uppercase italic leading-none">
+                    Initialize <span class="text-primary">Neural Link</span>
+</h2>
+<p class="max-w-xl mx-auto text-primary/60 text-sm md:text-base font-medium leading-relaxed mb-10">
+                    Bypassing local hardware constraints. Establishing a direct symbiotic connection between cognitive architecture and the Nero 27 global grid.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="group relative px-8 py-4 bg-primary text-black font-black uppercase tracking-widest text-sm rounded-sm hover:bg-white transition-all overflow-hidden">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span>
+                            Execute Uplink
+                        </span>
+</button>
+<button class="px-8 py-4 border border-primary/30 text-primary font-bold uppercase tracking-widest text-sm rounded-sm hover:bg-primary/10 transition-all">
+                        View Diagnostics
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 border-b border-primary/10 bg-primary/5">
+<div class="p-6 border-r border-primary/10 flex flex-col gap-1">
+<span class="text-[10px] text-primary/50 uppercase font-bold">Uplink Speed</span>
+<span class="text-2xl font-black text-primary">1.2 TB/S</span>
+</div>
+<div class="p-6 border-r border-primary/10 flex flex-col gap-1">
+<span class="text-[10px] text-primary/50 uppercase font-bold">Decryption Rate</span>
+<span class="text-2xl font-black text-primary">99.9%</span>
+</div>
+<div class="p-6 border-r border-primary/10 flex flex-col gap-1">
+<span class="text-[10px] text-primary/50 uppercase font-bold">Latency</span>
+<span class="text-2xl font-black text-accent-yellow">0.002ms</span>
+</div>
+<div class="p-6 flex flex-col gap-1">
+<span class="text-[10px] text-primary/50 uppercase font-bold">Nodes Connected</span>
+<span class="text-2xl font-black text-primary">4,812</span>
+</div>
+</div>
+<!-- System Services Section -->
+<section class="py-24 px-4 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-md">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="h-px w-8 bg-primary"></span>
+<span class="text-[10px] font-bold tracking-[.4em] uppercase">Modules</span>
+</div>
+<h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">System Services</h3>
+</div>
+<p class="text-primary/40 text-xs font-mono max-w-xs text-right hidden md:block">
+                    OPERATIONAL_STATUS: OPTIMAL<br/>
+                    MEM_ALLOCATION: 82% RESERVED<br/>
+                    THREAD_PRIORITY: REALTIME
+                </p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Service 1 -->
+<div class="group relative p-8 bg-neutral-dark border border-primary/20 hover:border-primary/60 transition-all">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">hub</span>
+</div>
+<h4 class="text-2xl font-black mb-4 text-primary group-hover:translate-x-2 transition-transform">NEURAL UPLINK</h4>
+<p class="text-primary/70 leading-relaxed mb-8">
+                        Direct cerebral-to-cloud data transfer protocol. Zero-latency synchronization with neural mesh networks for hyper-responsive digital interaction.
+                    </p>
+<div class="flex justify-between items-center">
+<div class="flex gap-1">
+<div class="size-1 bg-primary"></div>
+<div class="size-1 bg-primary"></div>
+<div class="size-1 bg-primary/20"></div>
+</div>
+<span class="text-[10px] font-mono text-primary/40 uppercase">Protocol 01: Establish</span>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group relative p-8 bg-neutral-dark border border-primary/20 hover:border-primary/60 transition-all">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-primary">enhanced_encryption</span>
+</div>
+<h4 class="text-2xl font-black mb-4 text-primary group-hover:translate-x-2 transition-transform">DATA DECRYPTION</h4>
+<p class="text-primary/70 leading-relaxed mb-8">
+                        Advanced algorithmic breaking of quantum-shielded archives. Real-time extraction of high-priority intelligence across fragmented sectors.
+                    </p>
+<div class="flex justify-between items-center">
+<div class="flex gap-1">
+<div class="size-1 bg-primary"></div>
+<div class="size-1 bg-primary"></div>
+<div class="size-1 bg-primary"></div>
+</div>
+<span class="text-[10px] font-mono text-primary/40 uppercase">Protocol 02: Extract</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Philosophy / Protocol 27 -->
+<section class="py-24 border-t border-primary/10 relative overflow-hidden">
+<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-primary/5 skew-x-12 translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto px-4 relative z-10">
+<div class="grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7">
+<span class="text-accent-yellow text-[10px] font-bold tracking-[.5em] uppercase mb-4 block">Core Directives</span>
+<h3 class="text-4xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter leading-[0.9]">
+                            Beyond Human <br/> <span class="text-primary">Architecture</span>
+</h3>
+<div class="space-y-6 text-lg text-primary/80 font-medium">
+<p>Nero 27 is not a tool; it is an evolution. We operate in the spaces between traditional silicon and biological potential.</p>
+<p>Our goal is the total eradication of data friction. Through the Neural Uplink, we redefine the boundary of 'user' and 'system'.</p>
+</div>
+</div>
+<div class="md:col-span-5 flex flex-col gap-4">
+<div class="p-6 border border-primary/10 bg-black/40 backdrop-blur-sm">
+<span class="font-mono text-[10px] text-primary/60 block mb-2">THREAD_01</span>
+<p class="text-sm italic">"The ghost in the machine is now the pilot."</p>
+</div>
+<div class="p-6 border border-primary/10 bg-black/40 backdrop-blur-sm ml-8">
+<span class="font-mono text-[10px] text-primary/60 block mb-2">THREAD_02</span>
+<p class="text-sm italic">"Data is the only absolute truth in a world of variables."</p>
+</div>
+<div class="p-6 border border-primary/10 bg-black/40 backdrop-blur-sm">
+<span class="font-mono text-[10px] text-primary/60 block mb-2">THREAD_03</span>
+<p class="text-sm italic">"Upgrade or become obsolete. There is no middle ground."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 px-4 text-center">
+<div class="max-w-3xl mx-auto border-2 border-primary p-12 relative">
+<!-- Corner Accents -->
+<div class="absolute -top-1 -left-1 size-4 bg-primary"></div>
+<div class="absolute -top-1 -right-1 size-4 bg-primary"></div>
+<div class="absolute -bottom-1 -left-1 size-4 bg-primary"></div>
+<div class="absolute -bottom-1 -right-1 size-4 bg-primary"></div>
+<h3 class="text-4xl font-black uppercase mb-6 tracking-tighter">Ready for Integration?</h3>
+<p class="text-primary/70 mb-10 font-bold uppercase tracking-widest text-xs">Awaiting primary authentication signal...</p>
+<button class="w-full max-w-sm mx-auto group relative flex items-center justify-center gap-4 py-5 bg-primary text-black font-black uppercase tracking-[.3em] text-sm hover:shadow-[0_0_30px_rgba(6,232,249,0.5)] transition-all">
+<span>Initialize Link</span>
+<span class="material-symbols-outlined">sensors</span>
+</button>
+<div class="mt-8 flex justify-center gap-2">
+<div class="h-1 w-12 bg-primary"></div>
+<div class="h-1 w-12 bg-primary/30"></div>
+<div class="h-1 w-12 bg-primary/30"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-primary/20 py-12 px-4">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-black text-xl tracking-tighter uppercase">Nero 27</span>
+</div>
+<p class="text-[10px] text-primary/40 font-mono">© 2027 NERO_CORP // ALL RIGHTS RESERVED</p>
+</div>
+<div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-primary/60">
+<a class="hover:text-primary transition-colors" href="#">Safety Protocols</a>
+<a class="hover:text-primary transition-colors" href="#">Neural Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Legal Override</a>
+</div>
+<div class="flex gap-4">
+<div class="size-8 rounded border border-primary/20 flex items-center justify-center hover:bg-primary/10 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">share</span>
+</div>
+<div class="size-8 rounded border border-primary/20 flex items-center justify-center hover:bg-primary/10 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">public</span>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1 border border-accent-yellow/30 bg-accent-yellow/5 text-accent-yellow text-[9px] font-mono uppercase">
+<span class="animate-pulse">●</span> System Status: 100% Operational // Encryption Level: Delta-9
+            </div>
+</div>
+</footer>
+<!-- Bottom Mobile Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-lg border-t border-primary/30">
+<div class="flex justify-around items-center h-16 px-4">
+<button class="text-primary flex flex-col items-center">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="text-primary/50 flex flex-col items-center">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+<button class="size-12 -mt-8 bg-primary text-black rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(6,232,249,0.4)]">
+<span class="material-symbols-outlined">bolt</span>
+</button>
+<button class="text-primary/50 flex flex-col items-center">
+<span class="material-symbols-outlined">shield</span>
+</button>
+<button class="text-primary/50 flex flex-col items-center">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ecosystem Pulse Abstração</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f0df2",
+                        "primary-light": "#9d4bf6",
+                        "secondary-cyan": "#00FFFF",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#191022", // Deep violet-black based on theme config
+                        "dark-deep": "#05010a", // Even deeper for contrast
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for specific glowing effects and glassmorphism */
+        .glass-panel {
+            background: rgba(25, 16, 34, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(127, 13, 242, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-pulse {
+            box-shadow: 0 0 15px rgba(127, 13, 242, 0.5), 0 0 30px rgba(127, 13, 242, 0.2);
+        }
+
+        .node-pulse-cyan {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased overflow-hidden h-screen w-screen relative selection:bg-primary selection:text-white">
+<!-- Background Elements (Simulating particles and depth) -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[100px] opacity-40 mix-blend-screen"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-secondary-cyan/10 rounded-full blur-[120px] opacity-30 mix-blend-screen"></div>
+<div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-primary/10 rounded-full blur-[80px] opacity-20"></div>
+<!-- Subtle Grid Overlay -->
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+</div>
+<!-- Main Content Container (iOS SafeArea simulation) -->
+<div class="relative z-10 flex flex-col h-full max-w-md mx-auto w-full pt-12 pb-8 px-4">
+<!-- Header: Ecosystem Status -->
+<header class="flex justify-between items-center mb-6">
+<div>
+<h1 class="text-sm font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">Ecosystem Pulse</h1>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-cyan opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary-cyan"></span>
+</span>
+<span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">System Healthy</span>
+</div>
+</div>
+<button class="glass-panel p-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-icons text-white/80">notifications_none</span>
+</button>
+</header>
+<!-- KPI Cards Row -->
+<div class="flex gap-3 mb-8 overflow-x-auto no-scrollbar pb-2">
+<!-- Card 1 -->
+<div class="glass-panel rounded-xl p-4 min-w-[140px] flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons text-primary text-sm">bolt</span>
+<span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Total Energy</span>
+</div>
+<div class="text-2xl font-bold text-white">98.4%</div>
+<div class="text-xs text-green-400 mt-1 flex items-center">
+<span class="material-icons text-[10px] mr-1">arrow_upward</span> +2.4%
+                </div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-xl p-4 min-w-[140px] flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons text-secondary-cyan text-sm">hub</span>
+<span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Active Nodes</span>
+</div>
+<div class="text-2xl font-bold text-white">24</div>
+<div class="text-xs text-secondary-cyan mt-1 flex items-center">
+                    3 idle
+                </div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-xl p-4 min-w-[140px] flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons text-pink-500 text-sm">favorite</span>
+<span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Engagement</span>
+</div>
+<div class="text-2xl font-bold text-white">12k</div>
+<div class="text-xs text-pink-400 mt-1 flex items-center">
+                    / hr
+                </div>
+</div>
+</div>
+<!-- Main Visualization Area: The "Map" -->
+<div class="flex-grow relative w-full mb-6">
+<!-- This container holds the absolute positioned nodes and SVG lines -->
+<div class="absolute inset-0 w-full h-full">
+<!-- SVG Connections Background -->
+<svg class="absolute inset-0 w-full h-full overflow-visible pointer-events-none z-0">
+<defs>
+<lineargradient id="grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#7f0df2;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#00FFFF;stop-opacity:1"></stop>
+</lineargradient>
+<filter id="glow">
+<fegaussianblur result="coloredBlur" stddeviation="2.5"></fegaussianblur>
+<femerge>
+<femergenode in="coloredBlur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Connection: Social to Web -->
+<path class="opacity-80" d="M 80 120 Q 150 180 260 250" fill="none" filter="url(#glow)" stroke="url(#grad1)" stroke-width="2"></path>
+<!-- Connection: Web to Email -->
+<path class="opacity-50" d="M 260 250 Q 200 350 100 380" fill="none" stroke="#7f0df2" stroke-width="1.5"></path>
+<!-- Connection: Social to Events -->
+<path class="opacity-30" d="M 80 120 Q 250 100 300 150" fill="none" stroke="#7f0df2" stroke-dasharray="4" stroke-width="1"></path>
+</svg>
+<!-- Floating Info Card (Simulated Active State) -->
+<div class="absolute top-[30%] right-0 z-30 transform translate-x-2 w-48 glass-panel p-3 rounded-lg border-l-4 border-l-primary shadow-2xl animate-pulse">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-sm font-bold text-white">Instagram</h3>
+<span class="bg-primary/20 text-primary text-[10px] px-1.5 py-0.5 rounded uppercase font-bold">Live</span>
+</div>
+<div class="text-xs text-gray-300 mb-2">High traffic detected.</div>
+<div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary-cyan h-full w-[85%]"></div>
+</div>
+</div>
+<!-- Node: Social (Top Left) -->
+<div class="absolute top-[100px] left-[60px] z-20 flex flex-col items-center">
+<div class="relative group cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-light flex items-center justify-center node-pulse border-2 border-white/20">
+<span class="material-icons text-white text-2xl">share</span>
+</div>
+<div class="absolute inset-0 rounded-full border border-primary animate-ping opacity-75"></div>
+</div>
+<span class="mt-2 text-xs font-bold tracking-widest text-white uppercase bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">Social</span>
+</div>
+<!-- Node: Web (Center Right) -->
+<div class="absolute top-[230px] right-[40px] z-20 flex flex-col items-center">
+<div class="relative group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center border border-secondary-cyan node-pulse-cyan">
+<span class="material-icons text-secondary-cyan text-xl">language</span>
+</div>
+</div>
+<span class="mt-2 text-xs font-bold tracking-widest text-gray-300 uppercase bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">Web</span>
+</div>
+<!-- Node: Email (Bottom Left) -->
+<div class="absolute top-[360px] left-[80px] z-20 flex flex-col items-center">
+<div class="relative group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-background-dark flex items-center justify-center border border-primary/50 shadow-lg">
+<span class="material-icons text-primary/70 text-lg">mail</span>
+</div>
+</div>
+<span class="mt-2 text-[10px] font-bold tracking-widest text-gray-500 uppercase">Email</span>
+</div>
+<!-- Node: Events (Top Right - Small) -->
+<div class="absolute top-[130px] right-[20px] z-10 flex flex-col items-center opacity-60">
+<div class="relative group cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-background-dark flex items-center justify-center border border-white/10">
+<span class="material-icons text-gray-400 text-sm">event</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Ticker -->
+<div class="glass-panel w-full rounded-lg py-2 px-3 mb-6 overflow-hidden flex items-center gap-3">
+<span class="material-icons text-secondary-cyan text-sm animate-pulse">radio_button_checked</span>
+<div class="whitespace-nowrap overflow-hidden w-full relative">
+<div class="inline-block text-xs font-mono text-gray-300 animate-marquee">
+                    New Lead Acquired (BR) • Campaign 'Quantum Leap' +12% CTR • Server Load: 34% • User #8921 Online • New Lead Acquired (US) •
+                </div>
+</div>
+</div>
+<!-- Bottom Navigation (Floating) -->
+<nav class="glass-panel rounded-2xl p-1.5 flex justify-between items-center shadow-2xl relative z-40 mx-2">
+<button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl bg-primary/20 text-primary">
+<span class="material-icons text-xl mb-0.5">hub</span>
+<span class="text-[10px] font-bold">Live Map</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-icons text-xl mb-0.5">analytics</span>
+<span class="text-[10px] font-medium">History</span>
+</button>
+<button class="relative -top-6 bg-gradient-to-tr from-primary to-secondary-cyan p-4 rounded-full shadow-lg border-4 border-background-dark flex items-center justify-center">
+<span class="material-icons text-white">add</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-icons text-xl mb-0.5">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-icons text-xl mb-0.5">settings</span>
+<span class="text-[10px] font-medium">Config</span>
+</button>
+</nav>
+<!-- Decorative Image Overlay (Simulated holographic texture on bottom) -->
+<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background-dark to-transparent z-0 pointer-events-none"></div>
+</div>
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Structural Blueprint v2</title>
+<!-- Load Space Grotesk Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: '#4c09aa',
+          },
+          borderRadius: {
+            'custom': '16px', // ROUND_FOUR implementation
+          },
+          animation: {
+            'grid-scroll': 'grid-scroll 20s linear infinite',
+            'draw-line': 'draw-line 2s ease-out forwards',
+            'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+            'rotate-slow': 'rotate-slow 15s linear infinite',
+          },
+          keyframes: {
+            'grid-scroll': {
+              '0%': { transform: 'translateY(0)' },
+              '100%': { transform: 'translateY(40px)' },
+            },
+            'draw-line': {
+              '0%': { strokeDashoffset: '1000' },
+              '100%': { strokeDashoffset: '0' },
+            },
+            'pulse-soft': {
+              '0%, 100%': { opacity: '0.3' },
+              '50%': { opacity: '0.7' },
+            },
+            'rotate-slow': {
+              'from': { transform: 'rotate(0deg)' },
+              'to': { transform: 'rotate(360deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="industrial-textures">
+    /* Blueprint Paper Texture */
+    .blueprint-bg {
+      background-color: #f8f9fa;
+      background-image: 
+        radial-gradient(circle at 2px 2px, rgba(76, 9, 170, 0.05) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    /* Living CAD Grid Overlay */
+    .cad-grid {
+      position: absolute;
+      inset: -100%;
+      background-image: 
+        linear-gradient(to right, rgba(76, 9, 170, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(76, 9, 170, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 0;
+    }
+
+    /* Sketchy Line Style */
+    .blueprint-line {
+      stroke: #4c09aa;
+      stroke-width: 1;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-linecap: round;
+    }
+
+    /* Phi / Golden Ratio Spirals */
+    .phi-overlay {
+      stroke: rgba(76, 9, 170, 0.2);
+      stroke-dasharray: 5, 5;
+    }
+
+    .technical-annotation {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(76, 9, 170, 0.6);
+    }
+  </style>
+</head>
+<body class="font-sans text-brand bg-white h-screen overflow-hidden flex flex-col items-center justify-center">
+<!-- BEGIN: Structural Canvas -->
+<main class="relative w-full h-full flex items-center justify-center overflow-hidden blueprint-bg">
+<!-- Moving Background Grid -->
+<div class="cad-grid animate-grid-scroll"></div>
+<!-- BEGIN: Engineering Overlays -->
+<div class="absolute inset-0 pointer-events-none" data-purpose="ui-decorations">
+<!-- Top Left Label -->
+<div class="absolute top-8 left-8 border-l-2 border-t-2 border-brand/30 p-2">
+<p class="technical-annotation">Scale: 1:1.618</p>
+<p class="technical-annotation">Project: NERO_27_EVO</p>
+</div>
+<!-- Bottom Right Label -->
+<div class="absolute bottom-8 right-8 border-r-2 border-b-2 border-brand/30 p-2 text-right">
+<p class="technical-annotation">System Status: CALIBRATING</p>
+<p class="technical-annotation">Ref: STR_BLUEPRINT_V2</p>
+</div>
+<!-- Rotating Compass Element -->
+<div class="absolute -bottom-20 -left-20 w-64 h-64 animate-rotate-slow opacity-20">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="48" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.5"></circle>
+<line stroke="currentColor" stroke-width="0.5" x1="0" x2="100" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-width="0.5" x1="50" x2="50" y1="0" y2="100"></line>
+</svg>
+</div>
+</div>
+<!-- END: Engineering Overlays -->
+<!-- BEGIN: Central Assembly -->
+<div class="relative z-10 flex flex-col items-center" data-purpose="brand-assembly">
+<!-- Logo Drawing Animation Container -->
+<div class="relative w-64 h-64 mb-8 flex items-center justify-center" id="logo-container">
+<!-- Golden Ratio Arc Overlay -->
+<svg class="absolute inset-0 w-full h-full phi-overlay animate-pulse-soft" viewbox="0 0 100 100">
+<path d="M 0,100 A 100,100 0 0,1 100,0" fill="none" stroke-width="0.5"></path>
+<path d="M 100,0 A 61.8,61.8 0 0,1 38.2,61.8" fill="none" stroke-width="0.5"></path>
+<path d="M 38.2,61.8 A 38.2,38.2 0 0,1 76.4,100" fill="none" stroke-width="0.5"></path>
+</svg>
+<!-- Animated Logo Construction -->
+<svg class="w-48 h-48" id="main-blueprint-svg" viewbox="0 0 200 200">
+<!-- The 'N' Structure -->
+<path class="blueprint-line animate-draw-line" d="M 40,160 L 40,40 L 160,160 L 160,40"></path>
+<!-- Outer Structural Frame -->
+<rect class="blueprint-line animate-draw-line" height="160" style="animation-delay: 0.5s;" width="160" x="20" y="20"></rect>
+<!-- Cross-bracing lines (CAD style) -->
+<line class="blueprint-line animate-draw-line" style="stroke: rgba(76, 9, 170, 0.2); animation-delay: 1s;" x1="0" x2="200" y1="0" y2="200"></line>
+<line class="blueprint-line animate-draw-line" style="stroke: rgba(76, 9, 170, 0.2); animation-delay: 1.2s;" x1="200" x2="0" y1="0" y2="200"></line>
+</svg>
+<!-- Dynamic Dimension Lines -->
+<div class="absolute -top-6 left-0 w-full flex justify-between items-center technical-annotation">
+<div class="w-1 h-3 border-l border-brand"></div>
+<div class="flex-grow border-t border-dashed border-brand/50 mx-1"></div>
+<span class="px-2">Φ 1.618</span>
+<div class="flex-grow border-t border-dashed border-brand/50 mx-1"></div>
+<div class="w-1 h-3 border-r border-brand"></div>
+</div>
+</div>
+<!-- Title and Subtitle -->
+<div class="text-center space-y-2 px-6">
+<h1 class="text-4xl font-bold tracking-tighter uppercase mb-1">
+          Nero <span class="text-brand/50">27</span>
+</h1>
+<div class="h-[1px] w-full bg-brand/30 relative">
+<div class="absolute top-0 left-0 h-full bg-brand animate-[draw-line_3s_ease-in-out_infinite]" style="width: 40%"></div>
+</div>
+<p class="text-sm technical-annotation mt-4 opacity-0 animate-[fade-in_1s_ease-out_forwards]" style="animation-delay: 1.5s;">
+          Structural Engineering &amp; Geometric Design
+        </p>
+</div>
+</div>
+<!-- END: Central Assembly -->
+<!-- BEGIN: Interaction Area -->
+<div class="absolute bottom-12 w-full max-w-xs px-6 flex flex-col gap-4">
+<button class="w-full py-4 border border-brand bg-brand text-white text-sm font-bold tracking-widest rounded-custom hover:bg-transparent hover:text-brand transition-all duration-300 uppercase shadow-lg shadow-brand/20 active:scale-95">
+        Initialize Sequence
+      </button>
+<div class="flex justify-between items-center px-2">
+<span class="technical-annotation text-[8px]">Ver: 2.0.4-α</span>
+<div class="flex gap-1">
+<div class="w-1 h-1 bg-brand rounded-full animate-ping"></div>
+<div class="w-1 h-1 bg-brand/40 rounded-full"></div>
+<div class="w-1 h-1 bg-brand/40 rounded-full"></div>
+</div>
+<span class="technical-annotation text-[8px]">M01-TYPE-B</span>
+</div>
+</div>
+<!-- END: Interaction Area -->
+</main>
+<!-- END: Structural Canvas -->
+<script data-purpose="canvas-effects">
+    /**
+     * Minimal interaction script to add 'glitch' effect or reset animations
+     * periodically to simulate refreshing blueprint data.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainSvg = document.getElementById('main-blueprint-svg');
+      
+      // Simple loop to restart line animations for a living feel
+      setInterval(() => {
+        const paths = mainSvg.querySelectorAll('.blueprint-line');
+        paths.forEach(p => {
+          p.style.animation = 'none';
+          p.offsetHeight; // trigger reflow
+          p.style.animation = null;
+        });
+      }, 10000);
+    });
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</body></html>

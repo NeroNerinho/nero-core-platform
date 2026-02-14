@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creative Studio Abstração</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                        "surface-dark": "#162e31",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(6, 232, 249, 0.5), 0 0 20px rgba(6, 232, 249, 0.3)',
+                        'neon-sm': '0 0 5px rgba(6, 232, 249, 0.4)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Spiral Calendar Styles using CSS Grid/Transform approximations */
+        .spiral-container {
+            position: relative;
+            height: 320px;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .spiral-track {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280px;
+            height: 280px;
+            border: 1px dashed rgba(6, 232, 249, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .spiral-track-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            height: 180px;
+            border: 1px dashed rgba(6, 232, 249, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .date-node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(15, 33, 35, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(6, 232, 249, 0.1);
+        }
+
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex justify-center items-center">
+<!-- Mobile Frame Simulation -->
+<div class="w-full max-w-md h-screen relative bg-background-light dark:bg-background-dark overflow-hidden flex flex-col relative shadow-2xl">
+<!-- Abstract Background Glows -->
+<div class="absolute top-[-20%] left-[-20%] w-[80%] h-[50%] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+<!-- Header -->
+<header class="relative z-20 px-6 pt-12 pb-4 flex justify-between items-center glass-panel border-b-0 rounded-b-2xl">
+<div>
+<h1 class="text-xl font-bold tracking-tight text-white">Studio Abstração</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs text-primary tracking-widest uppercase">Quantum Sync: Active</span>
+</div>
+</div>
+<button class="relative p-2 rounded-full hover:bg-white/5 transition-colors group">
+<span class="material-icons text-white/80 group-hover:text-primary">segment</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 relative overflow-y-auto no-scrollbar pb-24">
+<!-- Quantum Scheduler Section -->
+<section class="relative py-8 flex flex-col items-center justify-center">
+<div class="text-center mb-4">
+<h2 class="text-sm uppercase tracking-[0.2em] text-white/50">Timeline Spiral</h2>
+</div>
+<div class="spiral-container">
+<!-- Decorative Spiral Tracks -->
+<div class="spiral-track border-primary/20"></div>
+<div class="spiral-track-inner border-primary/10"></div>
+<!-- Calendar Nodes (Simulated Spiral Positioning) -->
+<!-- Center Active Node -->
+<div class="date-node top-1/2 left-1/2 z-20">
+<div class="w-16 h-16 rounded-full bg-primary shadow-neon flex flex-col items-center justify-center text-background-dark font-bold border-2 border-white">
+<span class="text-xs opacity-70">WED</span>
+<span class="text-xl">14</span>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-primary text-xs font-medium whitespace-nowrap">Today</div>
+</div>
+<!-- Outer Nodes (Past/Future) -->
+<div class="date-node top-[25%] left-[50%] opacity-40 scale-75">
+<div class="w-12 h-12 rounded-full glass-card flex flex-col items-center justify-center text-white border border-white/20">
+<span class="text-[10px]">THU</span>
+<span class="text-sm">15</span>
+</div>
+</div>
+<div class="date-node top-[35%] left-[80%] opacity-30 scale-75">
+<div class="w-12 h-12 rounded-full glass-card flex flex-col items-center justify-center text-white border border-white/20">
+<span class="text-[10px]">FRI</span>
+<span class="text-sm">16</span>
+</div>
+</div>
+<div class="date-node top-[65%] left-[80%] opacity-20 scale-50">
+<div class="w-12 h-12 rounded-full glass-card flex flex-col items-center justify-center text-white border border-white/20">
+<span class="text-[10px]">SAT</span>
+<span class="text-sm">17</span>
+</div>
+</div>
+<div class="date-node top-[75%] left-[30%] opacity-40 scale-75">
+<div class="w-12 h-12 rounded-full glass-card flex flex-col items-center justify-center text-white border border-white/20">
+<span class="text-[10px]">TUE</span>
+<span class="text-sm">13</span>
+</div>
+</div>
+<div class="date-node top-[40%] left-[15%] opacity-20 scale-50">
+<div class="w-12 h-12 rounded-full glass-card flex flex-col items-center justify-center text-white border border-white/20">
+<span class="text-[10px]">MON</span>
+<span class="text-sm">12</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Asset Cards -->
+<section class="px-6 mb-8">
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-lg font-semibold text-white">Upcoming Assets</h3>
+<button class="text-xs text-primary hover:text-white transition-colors">View All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x">
+<!-- Card 1 -->
+<div class="snap-center shrink-0 w-48 relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-xl opacity-30 group-hover:opacity-70 blur transition duration-500"></div>
+<div class="relative glass-card rounded-xl p-3 h-64 flex flex-col justify-between overflow-hidden">
+<!-- Asset Thumbnail -->
+<div class="w-full h-32 rounded-lg overflow-hidden relative mb-3 bg-surface-dark">
+<img alt="Abstract flowing liquid metal in blue and purple" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Abstract flowing liquid metal in blue and purple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqtvFPMqycjfZ37I8gbI4kvB75vZvG2DnETXPFCSvQXIu6E-OnKbbB5EMql0D6pHGTNtQnCAZfpzjcq05bBSdV912CrTb6LTcuiPrYV6TVG64spHxjXKaEVeTmtmnEzHTcIZLl5fPgQjnDi55No06bpKKLBgFznpkdDW952UJG0nUhrtVVdH_9hRyfW8GWGPkK2FcBFR3aUSSD1AOzgZJ29HnU0cgKCIS_-rbkypeIkIwBTbuL3q9X-0EDInHsMqETfVdCsWLD5D4"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded px-1.5 py-0.5 text-[10px] text-white">VID</div>
+</div>
+<div>
+<h4 class="text-white text-sm font-medium mb-1 truncate">Quantum Flux.mp4</h4>
+<div class="flex items-center gap-2 text-[10px] text-gray-400 mb-3">
+<span class="material-icons text-[10px]">schedule</span> 14:00 PM
+                                </div>
+</div>
+<!-- AI Node Suggestion -->
+<div class="mt-auto">
+<button class="w-full py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-primary text-xs">auto_awesome</span>
+<span class="text-xs text-primary font-medium">Generate Copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-center shrink-0 w-48 relative group">
+<div class="relative glass-card rounded-xl p-3 h-64 flex flex-col justify-between overflow-hidden">
+<!-- Asset Thumbnail -->
+<div class="w-full h-32 rounded-lg overflow-hidden relative mb-3 bg-surface-dark">
+<img alt="Dark futuristic 3D geometric shapes with neon lights" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Dark futuristic 3D geometric shapes with neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCasut3pZt4jhFjfc-fP0FIkSo7Eg4sbaME0X2MWzLwUWauzLt0uNaPxLloFcGvnBcs-zit2TIasnDXOVs_WkocZ22kDZonh-LXx0czW50tNq3KmYt3PlPENpxCfD4-GAfbivLxSZjgiXBmoG0PApu7b4ZIujNfh1RWpQZjtbU-IxXUeFODOQwgKC3h2UQaP9ezfwBaFZ5ZRlvB0DOma1pswORBrkcCablxVoYNKzlf4yy4yyQPTgQ2vcm5K6bueeWeQkrEKoDgr_w"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded px-1.5 py-0.5 text-[10px] text-white">IMG</div>
+</div>
+<div>
+<h4 class="text-white text-sm font-medium mb-1 truncate">Neon Dream.png</h4>
+<div class="flex items-center gap-2 text-[10px] text-gray-400 mb-3">
+<span class="material-icons text-[10px]">schedule</span> 16:30 PM
+                                </div>
+</div>
+<!-- AI Node Suggestion (Active State) -->
+<div class="mt-auto relative group/tooltip">
+<div class="w-full py-2 px-3 rounded-lg bg-surface-dark border border-white/10 flex items-start gap-2">
+<span class="material-icons text-primary text-xs mt-0.5">bolt</span>
+<p class="text-[10px] text-gray-300 leading-tight line-clamp-2">"Step into the void where digital dreams..."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="snap-center shrink-0 w-48 relative group opacity-60">
+<div class="relative glass-card rounded-xl p-3 h-64 flex flex-col justify-between overflow-hidden border-dashed border-white/20">
+<div class="flex-1 flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3">
+<span class="material-icons text-white/30">add</span>
+</div>
+<span class="text-xs text-white/40">Add Slot</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Insight Section -->
+<section class="px-6 mb-24">
+<div class="glass-card rounded-2xl p-5 relative overflow-hidden">
+<!-- Background decoration -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-icons text-primary text-sm animate-pulse">psychology</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">AI Insight</h3>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed mb-4 italic border-l-2 border-primary/50 pl-3">
+                        "The multiverse awaits those who dare to dream in code. Share your abstraction today."
+                    </p>
+<div class="flex gap-3">
+<button class="flex-1 py-2 rounded-lg bg-primary text-background-dark text-xs font-bold hover:bg-primary/90 transition-colors shadow-neon-sm">
+                            Accept
+                        </button>
+<button class="flex-1 py-2 rounded-lg bg-transparent border border-white/10 text-white text-xs hover:bg-white/5 transition-colors">
+                            Regenerate
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Create Button -->
+<div class="absolute bottom-24 left-1/2 -translate-x-1/2 z-30">
+<button class="w-14 h-14 rounded-full bg-primary text-background-dark shadow-neon flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-icons text-2xl">add</span>
+</button>
+</div>
+<!-- Glass Navigation Bar -->
+<nav class="absolute bottom-0 w-full glass-panel pt-4 pb-8 px-8 flex justify-between items-center z-20 rounded-t-3xl border-t border-white/10">
+<button class="flex flex-col items-center gap-1 text-primary group">
+<span class="material-icons group-hover:scale-110 transition-transform">dashboard</span>
+<span class="text-[10px] font-medium opacity-100">Studio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors group mr-8">
+<span class="material-icons group-hover:scale-110 transition-transform">calendar_today</span>
+<span class="text-[10px] font-medium">Schedule</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors group ml-8">
+<span class="material-icons group-hover:scale-110 transition-transform">insights</span>
+<span class="text-[10px] font-medium">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors group">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-white/20 group-hover:border-primary transition-colors">
+<img alt="User profile portrait" class="w-full h-full object-cover" data-alt="User profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZM2DsMcQSKMpJEIQh_DHWOlsUNxjqnD9npSmSJ1IkHTPfIQ-p0uQiklaWmuM2nhGpck-gMetmMCl_UsKauWNhbTdI8JAgtJ3qhxDh6VXDA6LqJUfsp_ky_tTZDOwS-lDJxdUqq5AU2MflHpi5ofK-plNQA9Lf39WrspbQpgNadGtT7qJMsVMsJMQMRCmH2eeRPVJnSk4MOK40mERT0xVcdY3Cz1-6CI5_awQUyd55YTf6L9_GJjw35pCWm2-wFm2ktUfy8EL6sbU"/>
+</div>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 | Little Darkness</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Gothic/Modern Aesthetic -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Inter:wght@300;400&amp;family=Montserrat:wght@100;300&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="typography">
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050505;
+      color: #e5e5e5;
+    }
+    .gothic-title {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    .math-accent {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 100;
+    }
+  </style>
+<style data-purpose="atmospherics">/* Subtle grain effect for the moody aesthetic */
+.grainy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBoGhjVY4MCi7fnr_UCbb4UDUarbxnlBgGMADMStZM4f6ZPT6wbLAlkpw3nmOR6cRkYJUY49SnhKYA2PM6p-926KF5sHcMdIx6bUtAcGfNE-evE2BT-dzgGky20aN6WhA45kHBC7kTLTgzw6RJPSkzOYQXDFEdhFdtyKIu7ymqp4zy7Z-4Lr4hi2w0n1au09gmokVtwhUCN9zHQkt7K20i1DxXcUEt7DaLAvDLfbBFzEp3w5FF4uyCyjOcZ5BwcyP25zSwVaLnFOdk)
+    }
+/* Occult mathematics glowing line effect */
+.geometry-line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    height: 1px
+    }
+.glow-hover:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease
+    }</style>
+</head>
+<body class="overflow-x-hidden">
+<div class="grainy-overlay"></div>
+<!-- BEGIN: MainHeader -->
+<header class="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-6 pt-12 text-center" data-purpose="hero-section">
+<!-- Occult Mathematics Background Elements -->
+<div class="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+<div class="geometry-line w-full top-1/4 left-0 rotate-1"></div>
+<div class="geometry-line w-full top-2/3 left-0 -rotate-1"></div>
+<div class="absolute border border-white/10 rounded-full w-[500px] h-[500px] -top-20 -left-20"></div>
+</div>
+<!-- Favicon Concept / Small Logo -->
+<div class="mb-8" data-purpose="favicon-concept">
+<div class="relative inline-block w-16 h-16 border border-white/20 group">
+<div class="absolute inset-0 flex items-center justify-center text-white font-light text-xl gothic-title group-hover:scale-110 transition-transform">
+          N27
+        </div>
+<!-- Decorative corners -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60"></div>
+</div>
+</div>
+<!-- Main Logo Composition -->
+<div class="relative z-10" data-purpose="main-logo">
+<h1 class="text-5xl md:text-7xl gothic-title font-bold tracking-[0.3em] text-white mb-2">
+        NERO 27
+      </h1>
+<p class="text-xs md:text-sm math-accent tracking-[0.8em] text-neutral-500 uppercase">
+        Little Darkness
+      </p>
+<!-- Mathematical/Occult Underline -->
+<div class="mt-6 flex items-center justify-center gap-4">
+<div class="h-[1px] w-12 bg-neutral-800"></div>
+<span class="text-[10px] text-neutral-600 font-mono tracking-tighter">φ = 1.618... ∑27</span>
+<div class="h-[1px] w-12 bg-neutral-800"></div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ContentSection -->
+<main class="relative z-10 max-w-lg mx-auto px-8 py-16" data-purpose="aesthetic-showcase">
+<section class="space-y-12">
+<div class="border-l border-neutral-800 pl-6 py-2">
+<h2 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-4">The Philosophy</h2>
+<p class="text-sm leading-relaxed text-neutral-500 italic">
+          "The void is not empty; it is merely waiting for the geometry of the mind to define it. Nero 27 represents the intersection of digital precision and gothic shadow."
+        </p>
+</div>
+<!-- Feature Grid -->
+<div class="grid grid-cols-1 gap-8" data-purpose="branding-elements">
+<div class="bg-neutral-900/40 p-6 border border-white/5 rounded-sm">
+<span class="block text-[10px] text-neutral-600 mb-4">01 // VISUAL IDENTITY</span>
+<p class="text-sm text-neutral-300">Monochromatic black and charcoal tones designed to evoke deep shadows and mysterious depths.</p>
+</div>
+<div class="bg-neutral-900/40 p-6 border border-white/5 rounded-sm">
+<span class="block text-[10px] text-neutral-600 mb-4">02 // GEOMETRY</span>
+<p class="text-sm text-neutral-300">Thin white lines represent the 'Occult Mathematics' underlying the Nero aesthetic.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- END: ContentSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="relative z-10 mt-20 pb-12 px-8 border-t border-neutral-900" data-purpose="site-footer">
+<div class="max-w-4xl mx-auto pt-12 flex flex-col items-center">
+<!-- Footer Logo Variant -->
+<div class="mb-8 opacity-60 hover:opacity-100 transition-opacity duration-700">
+<div class="flex items-center gap-3">
+<div class="w-8 h-[1px] bg-white/30"></div>
+<span class="gothic-title text-sm tracking-[0.4em]">NERO 27</span>
+<div class="w-8 h-[1px] bg-white/30"></div>
+</div>
+</div>
+<nav class="flex flex-wrap justify-center gap-6 mb-8 text-[10px] uppercase tracking-[0.2em] text-neutral-500" data-purpose="footer-navigation">
+<a class="glow-hover" href="#">Archives</a>
+<a class="glow-hover" href="#">The Void</a>
+<a class="glow-hover" href="#">Contact</a>
+<a class="glow-hover" href="#">Mathematical Constants</a>
+</nav>
+<p class="text-[9px] text-neutral-700 font-mono text-center">
+        © MMXXIV NERO 27. ALL SECRETS RESERVED. <br/>
+        PROCESSED VIA LITTLE_DARKNESS_ENGINE.V1
+      </p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<script data-purpose="canvas-background-effect">
+    /**
+     * Optional small script to add interactive subtle movement 
+     * to background elements if needed for 'Atmospheric' feel.
+     */
+    document.addEventListener('mousemove', (e) => {
+      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+      const header = document.querySelector('header');
+      if(header) {
+        header.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+      }
+    });
+  </script>
+</body></html>

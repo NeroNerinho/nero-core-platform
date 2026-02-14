@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Initialization</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c09aa",
+                        "primary-dark": "#320670",
+                        "accent": "#FF4500",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#171022",
+                        "grid-light": "#e5e0eb",
+                        "grid-dark": "#2d2438",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, var(--tw-gradient-stops) 1px, transparent 1px), linear-gradient(to bottom, var(--tw-gradient-stops) 1px, transparent 1px)",
+                    },
+                    keyframes: {
+                        draw: {
+                            '0%': { strokeDashoffset: '1000' },
+                            '100%': { strokeDashoffset: '0' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    },
+                    animation: {
+                        draw: 'draw 2s ease-in-out forwards',
+                        fadeIn: 'fadeIn 0.5s ease-out 1.5s forwards',
+                        blink: 'blink 1s step-end infinite',
+                        scan: 'scan 2.5s linear infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for grid background implementation since Tailwind arbitrary values in config can be tricky with vars */
+        .bg-grid-light {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #e5e0eb 1px, transparent 1px), linear-gradient(to bottom, #e5e0eb 1px, transparent 1px);
+        }
+        .dark .bg-grid-dark {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #2d2438 1px, transparent 1px), linear-gradient(to bottom, #2d2438 1px, transparent 1px);
+        }
+        
+        /* Precision crosshairs */
+        .crosshair::before, .crosshair::after {
+            content: '';
+            position: absolute;
+            background-color: currentColor;
+        }
+        .crosshair::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+        .crosshair::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-hidden relative selection:bg-primary selection:text-white">
+<!-- Grid Background -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-40 bg-grid-light dark:bg-grid-dark"></div>
+<!-- Vignette / Scanline Effect -->
+<div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-background-light/80 dark:to-background-dark/80 h-full w-full"></div>
+<!-- Scanning Line (Decorative) -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-10">
+<div class="w-full h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-scan"></div>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-20 flex-1 flex flex-col items-center justify-center p-6 w-full max-w-md mx-auto h-screen">
+<!-- Logo Construction Area -->
+<div class="relative w-full aspect-square flex items-center justify-center mb-12">
+<!-- Construction Guides (Circles) -->
+<div class="absolute inset-0 border border-primary/10 rounded-full scale-[0.8] opacity-0 animate-[fadeIn_0.5s_ease-out_0.2s_forwards]"></div>
+<div class="absolute inset-0 border border-primary/10 rounded-full scale-[0.5] opacity-0 animate-[fadeIn_0.5s_ease-out_0.4s_forwards]"></div>
+<div class="absolute inset-0 border border-dotted border-primary/20 rounded-full scale-[0.3] opacity-0 animate-[fadeIn_0.5s_ease-out_0.6s_forwards]"></div>
+<!-- Horizontal/Vertical Axis Lines -->
+<div class="absolute w-full h-[1px] bg-primary/10 top-1/2 left-0 transform -translate-y-1/2 opacity-0 animate-[fadeIn_0.5s_ease-out_0.1s_forwards]"></div>
+<div class="absolute h-full w-[1px] bg-primary/10 left-1/2 top-0 transform -translate-x-1/2 opacity-0 animate-[fadeIn_0.5s_ease-out_0.1s_forwards]"></div>
+<!-- Golden Ratio Spiral SVG -->
+<svg class="w-64 h-64 text-primary relative z-10" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Golden Spiral Path -->
+<path class="animate-draw" d="M50 50 C 50 20, 80 20, 80 50 C 80 90, 20 90, 20 50 C 20 -10, 90 -10, 90 50" stroke="currentColor" stroke-dasharray="1000" stroke-dashoffset="1000" stroke-linecap="square" stroke-width="1.5"></path>
+<!-- Final Logo "N" Mark (Hidden initially, fades in) -->
+<path class="opacity-0 animate-fadeIn" d="M35 30 V 70 L 65 30 V 70" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter" stroke-width="6" style="animation-delay: 2s;"></path>
+</svg>
+<!-- Coordinate Markers -->
+<div class="absolute top-0 left-0 -mt-2 -ml-2 text-primary/40 crosshair w-4 h-4"></div>
+<div class="absolute top-0 right-0 -mt-2 -mr-2 text-primary/40 crosshair w-4 h-4"></div>
+<div class="absolute bottom-0 left-0 -mb-2 -ml-2 text-primary/40 crosshair w-4 h-4"></div>
+<div class="absolute bottom-0 right-0 -mb-2 -mr-2 text-primary/40 crosshair w-4 h-4"></div>
+</div>
+<!-- Brand Lockup Text -->
+<div class="text-center space-y-2 opacity-0 animate-fadeIn relative" style="animation-delay: 1.8s;">
+<h1 class="text-4xl font-bold tracking-tighter text-gray-900 dark:text-white">
+                NERO <span class="text-primary font-normal">27</span>
+</h1>
+<div class="flex items-center justify-center gap-2 text-xs font-mono tracking-[0.2em] text-primary/70">
+<span>SYSTEM_READY</span>
+<span class="block w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+</div>
+</div>
+</main>
+<!-- Bottom Status Bar (HUD) -->
+<footer class="fixed bottom-0 left-0 right-0 p-6 z-30">
+<div class="max-w-md mx-auto w-full flex items-end justify-between border-t border-primary/20 pt-4 relative">
+<!-- Corner Accents -->
+<div class="absolute top-0 left-0 w-px h-3 bg-primary"></div>
+<div class="absolute top-0 right-0 w-px h-3 bg-primary"></div>
+<!-- Coordinates Data Block -->
+<div class="flex flex-col gap-1 font-mono text-[10px] leading-tight text-primary/80">
+<div class="flex gap-4">
+<span class="text-gray-400 dark:text-gray-500">COORDS.X</span>
+<span class="w-16 tabular-nums text-primary font-medium" id="coord-x">104.22</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-400 dark:text-gray-500">COORDS.Y</span>
+<span class="w-16 tabular-nums text-primary font-medium" id="coord-y">040.01</span>
+</div>
+<div class="flex gap-4 mt-1 text-accent">
+<span>STATUS</span>
+<span class="animate-pulse">INITIALIZING...</span>
+</div>
+</div>
+<!-- Version Tag -->
+<div class="text-right">
+<div class="font-mono text-[10px] text-gray-400 dark:text-gray-600 mb-1">BUILD_VER</div>
+<div class="font-display font-bold text-sm text-gray-900 dark:text-white tracking-widest">
+                    v1.0<span class="animate-blink text-primary">_</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Background Decoration Image (Abstract Texture) -->
+<!-- Description: Abstract geometric noise texture to add grit to the technical background without overwhelming the clean lines -->
+<div class="fixed inset-0 z-[-1] opacity-[0.03] mix-blend-multiply pointer-events-none" data-alt="Abstract subtle noise texture overlay for industrial feel" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPlX5FsaH5N5cGJax0cRByefqtbUmxiz42YSUjbowCKL31ZQ32PMO1AqWPwIcg4j6boPrVOfFRoViufZ6KZcaWpoJyiwaPkTfx9YoCHqSUkjE5sSjnSEk5XGWb8JXv4EMSVTgP5-kwDftQBs5NUEXHj87dLYyRtSUL_Q8SQ8vCfDE925c19BzpJF7pFC0GKNbnn3oqM8IBCetMn0dsieDF2cSe_1ztxaZfLP_DqD_nNilpQxKWZNX4zJD3FAgx-Big0ehUeT__6sM'); background-size: cover;">
+</div>
+<script>
+        // Simple script to simulate the rapid changing coordinates
+        const xEl = document.getElementById('coord-x');
+        const yEl = document.getElementById('coord-y');
+        
+        // Update coordinates every 50ms for 2 seconds
+        const interval = setInterval(() => {
+            xEl.innerText = (Math.random() * 200).toFixed(2);
+            yEl.innerText = (Math.random() * 100).toFixed(2);
+        }, 50);
+
+        // Stop updates and lock final values to match the "Lockup" moment
+        setTimeout(() => {
+            clearInterval(interval);
+            xEl.innerText = "104.22"; // Locked value
+            yEl.innerText = "040.01"; // Locked value
+            
+            // In a real app, this would redirect
+            // window.location.href = '/dashboard';
+        }, 2200);
+    </script>
+</body></html>

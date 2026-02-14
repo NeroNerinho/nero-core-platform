@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_CHROMATICS | Brand Manual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "neon-yellow": "#FDF500",
+                        "deep-void": "#030304",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #030304;
+            background-image: 
+                linear-gradient(rgba(6, 232, 249, 0.03) 1px, transparent 1px),
+                linear-gradient(90px, rgba(6, 232, 249, 0.03) 1px, transparent 1px);
+            background-size: 100% 4px, 4px 100%;
+        }
+        .glitch-bg {
+            background: linear-gradient(180deg, rgba(3,3,4,1) 0%, rgba(15,33,35,1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 10;
+        }
+        .battery-glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 232, 249, 0.4), inset 0 0 15px rgba(6, 232, 249, 0.2);
+        }
+        .battery-glow-yellow {
+            box-shadow: 0 0 20px rgba(253, 245, 0, 0.4), inset 0 0 15px rgba(253, 245, 0, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display text-white selection:bg-primary/30 min-h-screen flex flex-col">
+<!-- Header Navigation Component -->
+<header class="border-b border-primary/20 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center p-4 justify-between max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center border border-primary/30 rounded">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</div>
+<div>
+<h1 class="text-white text-xl font-bold leading-tight tracking-wider uppercase">NEURAL_CHROMATICS</h1>
+<div class="flex items-center gap-2">
+<span class="size-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-[10px] text-primary/70 font-bold tracking-widest uppercase">Kernel Revision 8.0.4</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="hidden md:flex flex-col items-end px-3 border-r border-primary/20">
+<span class="text-[10px] text-primary/50 uppercase">Sync Frequency</span>
+<span class="text-xs font-mono text-primary">5.2 GHZ</span>
+</div>
+<button class="flex items-center justify-center rounded border border-primary/40 h-10 w-10 bg-primary/10 text-primary hover:bg-primary hover:text-deep-void transition-colors">
+<span class="material-symbols-outlined">dangerous</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-8 space-y-12">
+<!-- System Status Banner -->
+<section class="relative overflow-hidden rounded-lg border border-primary/20 bg-primary/5 p-6">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-6xl">sensors</span>
+</div>
+<div class="relative z-10">
+<h2 class="text-primary text-sm font-bold tracking-[0.2em] mb-2 uppercase">Core Diagnostics</h2>
+<h3 class="text-white text-3xl font-bold leading-tight tracking-tight mb-4">SYSTEM STATUS: <span class="text-primary">ONLINE</span></h3>
+<div class="flex flex-wrap gap-4">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded bg-background-dark/60 border border-primary/10 p-4">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Voltage Level</p>
+<p class="text-white text-xl font-bold">440V</p>
+<div class="w-full bg-primary/10 h-1 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[88%]"></div>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded bg-background-dark/60 border border-primary/10 p-4">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Chromat. Sync</p>
+<p class="text-white text-xl font-bold">98.2%</p>
+<div class="w-full bg-primary/10 h-1 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[98%]"></div>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded bg-background-dark/60 border border-primary/10 p-4">
+<p class="text-primary/60 text-[10px] font-bold tracking-widest uppercase">Data Flux</p>
+<p class="text-white text-xl font-bold">1.2 TB/s</p>
+<div class="w-full bg-primary/10 h-1 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Color Palette Section -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-white text-lg font-bold leading-tight tracking-widest uppercase py-2 border-l-4 border-primary pl-4">Primary Energy Modules</h3>
+<div class="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Cyan Module -->
+<div class="group relative flex flex-col bg-background-dark border border-primary/20 rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] text-primary font-bold uppercase tracking-widest">Core Flux</span>
+<h4 class="text-xl font-bold text-white uppercase">Electric Cyan</h4>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:rotate-90 transition-transform">bolt</span>
+</div>
+<div class="relative h-48 w-full rounded-md mb-6 overflow-hidden flex flex-col justify-end p-4 border border-primary/10 battery-glow-cyan bg-[#06E8F9]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<p class="relative z-10 text-deep-void font-bold text-lg tracking-tighter">#06E8F9</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-primary/60">Voltage level</span>
+<span class="text-white">440V [MAX]</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-primary/60">Luminance</span>
+<span class="text-white">92%</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-primary/60">Usage Case</span>
+<span class="text-white">UI_INTERACTION</span>
+</div>
+</div>
+</div>
+<!-- Yellow Module -->
+<div class="group relative flex flex-col bg-background-dark border border-neon-yellow/20 rounded-lg p-6 hover:border-neon-yellow/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] text-neon-yellow font-bold uppercase tracking-widest">Warning Grid</span>
+<h4 class="text-xl font-bold text-white uppercase">Neon Yellow</h4>
+</div>
+<span class="material-symbols-outlined text-neon-yellow">warning</span>
+</div>
+<div class="relative h-48 w-full rounded-md mb-6 overflow-hidden flex flex-col justify-end p-4 border border-neon-yellow/10 battery-glow-yellow bg-[#FDF500]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<p class="relative z-10 text-deep-void font-bold text-lg tracking-tighter">#FDF500</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-neon-yellow/60">Voltage level</span>
+<span class="text-white">220V [STABLE]</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-neon-yellow/60">Luminance</span>
+<span class="text-white">96%</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-neon-yellow/60">Usage Case</span>
+<span class="text-white">CRITICAL_ALERT</span>
+</div>
+</div>
+</div>
+<!-- Void Module -->
+<div class="group relative flex flex-col bg-background-dark border border-white/10 rounded-lg p-6 hover:border-white/30 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Sub-Layer</span>
+<h4 class="text-xl font-bold text-white uppercase">Deep Void</h4>
+</div>
+<span class="material-symbols-outlined text-white/40">dark_mode</span>
+</div>
+<div class="relative h-48 w-full rounded-md mb-6 overflow-hidden flex flex-col justify-end p-4 border border-white/5 bg-[#030304]">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 16px 16px;"></div>
+<p class="relative z-10 text-white font-bold text-lg tracking-tighter">#030304</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-white/40">Voltage level</span>
+<span class="text-white">0V [NULL]</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-white/40">Luminance</span>
+<span class="text-white">1%</span>
+</div>
+<div class="flex justify-between text-[11px] font-mono uppercase">
+<span class="text-white/40">Usage Case</span>
+<span class="text-white">BG_INFINITE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Typography Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-white text-lg font-bold leading-tight tracking-widest uppercase py-2 border-l-4 border-primary pl-4">Neural Glyphs</h3>
+<div class="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent"></div>
+</div>
+<div class="bg-background-dark border border-primary/20 rounded-lg p-8 space-y-6">
+<div class="border-b border-primary/10 pb-4">
+<p class="text-primary/50 text-[10px] uppercase tracking-widest mb-2 font-mono">Weight: 700 / Bold</p>
+<h2 class="text-4xl font-bold">ABCDEFGHIJKLMNOP</h2>
+</div>
+<div class="border-b border-primary/10 pb-4">
+<p class="text-primary/50 text-[10px] uppercase tracking-widest mb-2 font-mono">Weight: 400 / Regular</p>
+<p class="text-2xl">The quick brown fox jumps over the lazy dog.</p>
+</div>
+<div>
+<p class="text-primary/50 text-[10px] uppercase tracking-widest mb-2 font-mono">Weight: 300 / Light</p>
+<p class="text-lg opacity-80 leading-relaxed italic">Neural architecture requires precise monochromatic alignment to sustain long-term visual processing stability.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-white text-lg font-bold leading-tight tracking-widest uppercase py-2 border-l-4 border-neon-yellow pl-4">Visual Interference</h3>
+<div class="flex-1 h-px bg-gradient-to-r from-neon-yellow/30 to-transparent"></div>
+</div>
+<div class="relative rounded-lg overflow-hidden border border-neon-yellow/20 h-full min-h-[300px] flex items-center justify-center bg-background-dark">
+<!-- Abstract Image as Brand Pattern -->
+<img alt="Cyberpunk tech patterns and glitch aesthetics" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen" data-alt="Abstract cyberpunk digital noise and circuit patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd-2xfDgeNCt2brSMh51erP4vWWFJkFFDrOHF90YwkTWvv00ntY894JksBxHzkbtYgc6HVM1AeZ1NkesFVQrYvbW4koU2zCPsnM1kXZnD3B6S5QPRA2sO8RNI_rxSr_2T6pSINTsymEsKWPT6Ng6gBW96P2WjTDe7LlMdP_h6bBNFbuLpPgpPN571_I0a1F_E3iViIPNa11WRwo96xgjEZJQgft8A8gp0qsN26hjvlUF7w9VfMmTYbGhC53EA76g_2ikSbJS1AXH8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/20 to-deep-void"></div>
+<div class="relative z-20 text-center px-6">
+<span class="material-symbols-outlined text-5xl text-neon-yellow mb-4 animate-pulse">noise_aware</span>
+<h4 class="text-white text-xl font-bold tracking-widest mb-2">GLITCH_RECOVERY_PROTOCOL</h4>
+<p class="text-neon-yellow/70 text-sm max-w-xs mx-auto font-mono">Randomize sub-pixel density when overlaying core modules over background noise.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="border-t border-primary/20 bg-background-dark/90 backdrop-blur-md sticky bottom-0 z-50">
+<div class="max-w-7xl mx-auto flex items-center gap-2 px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 rounded bg-primary/10 text-primary py-2" href="#">
+<span class="material-symbols-outlined">computer</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Core</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/50 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">hard_drive</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Storage</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/50 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">multiline_chart</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Charts</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/50 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Neural</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/50 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Config</span>
+</a>
+</div>
+</footer>
+</body></html>

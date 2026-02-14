@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 Retro Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 0 #000,
+                0 4px 0 0 #000,
+                -4px 0 0 0 #000,
+                4px 0 0 0 #000;
+        }
+        .pixel-button-shadow {
+            box-shadow: inset -4px -4px 0px 0px rgba(0,0,0,0.3);
+        }
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        .d-pad-btn {
+            width: 44px;
+            height: 44px;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white min-h-screen flex flex-col">
+<!-- Header / Top Bar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark border-b-4 border-black p-4 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary flex items-center justify-center pixel-border">
+<span class="material-symbols-outlined text-white">bolt</span>
+</div>
+<h1 class="text-xl font-black uppercase tracking-widest italic">Nero 27</h1>
+</div>
+<div class="ml-auto flex gap-4">
+<button class="bg-primary/20 p-2 border-2 border-primary text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary p-2 border-2 border-black pixel-button-shadow">
+<span class="material-symbols-outlined text-white">person</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto relative">
+<!-- Scanline Overlay Effect -->
+<div class="absolute inset-0 scanlines opacity-20 z-10"></div>
+<!-- Hero / Stats Section -->
+<section class="p-4 space-y-6 relative z-20">
+<div class="bg-white dark:bg-[#1a1a1a] p-6 rounded-lg border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex justify-between items-end mb-4">
+<div>
+<p class="text-xs font-bold uppercase tracking-tighter text-primary">System Status</p>
+<h2 class="text-3xl font-black uppercase italic">Operational</h2>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold uppercase">LVL 27</p>
+<p class="text-primary font-black">S-TIER</p>
+</div>
+</div>
+<!-- 8-Bit Health Bar -->
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+<span>Energy Core</span>
+<span>75/100 HP</span>
+</div>
+<div class="h-8 border-4 border-black bg-gray-200 dark:bg-gray-800 flex p-1 gap-1">
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary/20"></div>
+<div class="flex-1 bg-primary/20"></div>
+</div>
+<p class="text-[10px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-widest">&gt;&gt; SYSTEM STABLE_</p>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-primary p-4 border-4 border-black pixel-button-shadow flex flex-col gap-1">
+<span class="material-symbols-outlined text-white text-3xl">token</span>
+<p class="text-white/80 text-[10px] font-black uppercase">XP Total</p>
+<p class="text-white text-xl font-black">12,450</p>
+</div>
+<div class="bg-white dark:bg-[#1a1a1a] p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">trending_up</span>
+<p class="text-gray-500 text-[10px] font-black uppercase">Growth</p>
+<p class="text-gray-900 dark:text-white text-xl font-black">+15%</p>
+</div>
+</div>
+<!-- D-Pad Control Concept -->
+<div class="py-8 flex flex-col items-center justify-center">
+<p class="text-[10px] font-black uppercase tracking-widest mb-6 text-gray-400">Quick Interface Control</p>
+<div class="relative w-40 h-40">
+<!-- Cross Shape -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 d-pad-btn rounded-t-lg">
+<span class="material-symbols-outlined text-white">keyboard_arrow_up</span>
+</div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 d-pad-btn rounded-b-lg">
+<span class="material-symbols-outlined text-white">keyboard_arrow_down</span>
+</div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 d-pad-btn rounded-l-lg">
+<span class="material-symbols-outlined text-white">keyboard_arrow_left</span>
+</div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 d-pad-btn rounded-r-lg">
+<span class="material-symbols-outlined text-white">keyboard_arrow_right</span>
+</div>
+<!-- Center Circle -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary border-4 border-black flex items-center justify-center z-10">
+<div class="size-4 bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Retro Action Buttons -->
+<div class="space-y-4 pb-20">
+<button class="w-full bg-primary text-white font-black uppercase italic tracking-widest py-4 border-4 border-black pixel-button-shadow flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Initialize Protocol
+                </button>
+<div class="flex gap-4">
+<button class="flex-1 bg-white dark:bg-[#2a2a2a] text-gray-900 dark:text-white font-black uppercase text-xs py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        Sync Data
+                    </button>
+<button class="flex-1 bg-white dark:bg-[#2a2a2a] text-gray-900 dark:text-white font-black uppercase text-xs py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        Archive
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#1a1a1a] border-t-4 border-black z-50 px-4 pb-6 pt-2">
+<div class="flex justify-around items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="p-2 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">home</span>
+</div>
+<span class="text-[10px] font-black uppercase tracking-tighter text-primary">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-50 hover:opacity-100 transition-opacity" href="#">
+<div class="p-2 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">leaderboard</span>
+</div>
+<span class="text-[10px] font-black uppercase tracking-tighter">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-50 hover:opacity-100 transition-opacity" href="#">
+<div class="p-2 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">settings</span>
+</div>
+<span class="text-[10px] font-black uppercase tracking-tighter">Setup</span>
+</a>
+<a class="flex flex-col items-center gap-1 group opacity-50 hover:opacity-100 transition-opacity" href="#">
+<div class="p-2 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">joystick</span>
+</div>
+<span class="text-[10px] font-black uppercase tracking-tighter">Games</span>
+</a>
+</div>
+</nav>
+<!-- Image placeholders with data-alt -->
+<div class="hidden">
+<img data-alt="Cyberpunk retro arcade background with orange neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIljE691atmjwYOevONBWnUVN-2Gw46cEA62mvzDs44vnqhqeUs_uTrUi_oUft9XCG5xVBVkvNPBx4IaKm-Pd0q5LOxi8r0jEAhvNXF7A9XIVRo16aFhfcajJgad6mhscY1rXQ380H2ElAY-KlX4Oa5NL4LMNjP3t4qHGbT86GN0dscutM9MIhAIobbejmjj6SNojgTsQU00CTwOUlXDBMZ3Epi0CRQYGRdHL49egt_otAmP3q_Wv-NAJAjI-bt1WT7DzGii0Dsc"/>
+</div>
+</body></html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Noir Cinephile V3 | Light Control Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                        "surface-dark": "#161616",
+                        "border-dark": "#2a2a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel {
+            background: rgba(22, 22, 22, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .noir-shadow {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 24px;
+            background: #ec5b13;
+            cursor: pointer;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(236, 91, 19, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-border-dark bg-background-dark/80 px-8 py-4 backdrop-blur-md z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">movie_filter</span>
+</div>
+<div>
+<h1 class="text-lg font-black uppercase tracking-widest leading-none">Noir Cinephile <span class="text-primary">V3</span></h1>
+<p class="text-[10px] text-zinc-500 font-medium tracking-tighter uppercase">Professional Light Control Interface</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<nav class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+<a class="hover:text-primary transition-colors flex items-center gap-2 border-b-2 border-primary pb-1 text-white" href="#">
+<span class="material-symbols-outlined text-sm">tune</span> Calibration
+                </a>
+<a class="hover:text-primary transition-colors flex items-center gap-2 pb-1" href="#">
+<span class="material-symbols-outlined text-sm">layers</span> Grade
+                </a>
+<a class="hover:text-primary transition-colors flex items-center gap-2 pb-1" href="#">
+<span class="material-symbols-outlined text-sm">settings_input_component</span> Master
+                </a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-border-dark bg-surface-dark text-zinc-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg border border-border-dark bg-surface-dark text-zinc-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<button class="group relative flex h-10 items-center gap-3 overflow-hidden rounded-lg bg-primary px-6 text-[11px] font-black uppercase tracking-widest text-white transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-sm">fiber_manual_record</span>
+<span>Record</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary/30 p-0.5">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="User profile avatar portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOolTJT9-o3BpImAAOpIU6MNR-y6p2O9Ezs1_Xr_u5k1GtTeW5seJuE0xMRk-spyY3_7KA1AZbRqPpi-HvrO5sEl-HdA3ZpSvUHFvbjMCOIl247IvjKBqoT8PmpysJc6OLW8nM10_BMNURocx8zb7wr-yX6A-DxFWsO3dUpkO4k5FTfBRU9xiazOvZ_C8YNM0XRUtUjm8OSVxyX7qJ0fJSsK0ZKwUEoSpNWSQ36WemZXleIvyiHQiVELRkUgG9YOXqjiaygkrHmIc')"></div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Sidebar: Film Stocks -->
+<aside class="w-72 border-r border-border-dark bg-surface-dark/30 p-6 flex flex-col gap-6 overflow-y-auto no-scrollbar">
+<div>
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-4">Film Stocks</h3>
+<div class="space-y-3">
+<!-- Preset Item -->
+<button class="group w-full flex flex-col gap-2 p-3 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/50 transition-all text-left">
+<div class="h-20 w-full rounded-md bg-cover bg-center grayscale group-hover:grayscale-0 transition-all" data-alt="Cinematic still of a dark alleyway" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3muatRDJ4qaBaqiWWIyi8Q525B8Q_7BUiUkk3v65mp2JvnJkd431Q5tP2oeNTvXVlYXlONG-OrL7SKsIVZU1xOJvFbvVRwwhofUP8bF1ZdA9Ay5ZpphKKivnFO0ilEtGlzBBd3G1DyynY0hTcT3qCGNSbVX-hqsQAKwHB_AgfpSYXezYrskepJD2YkkoFTngJukw79MbaqgnR06ByL-RTfVWLfEUlCEdqUQnyY_ru9OY372cdcaMgcXTiRTCJoZSZio17Vo0vCEY')"></div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-zinc-300">KODAK 5219</span>
+<span class="material-symbols-outlined text-xs text-zinc-600">check_circle</span>
+</div>
+</button>
+<!-- Preset Item Active -->
+<button class="group w-full flex flex-col gap-2 p-3 rounded-lg bg-primary/10 border border-primary transition-all text-left">
+<div class="h-20 w-full rounded-md bg-cover bg-center border border-primary/20" data-alt="Noir style cinematic interior shot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuiG4kqkSBWsrNW9sLI47__lYRfFyqWZKQ3WKiHBZI3T4iJX6mpKqdbQAKDHooLc9l0CUNt3rQpopxurgNhPlZDsxzhLNOgC7m0LsYApfCb7R0YSjrPkZzm5bJk9oRPE126y6L1fFJf3hozh3ewyo7dPYYfyFoXghE2Jjb5vLzxQgdBn2idhLU559Dyaaq0AxVG6YrenoNnxEvoQw9AxTxIWETSql49qO9RN3GVcLCN6tNVvcF6aNIEx3OsFYauUyeuBI5SvaAqU4')"></div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-primary">NOIR CUSTOM V3</span>
+<span class="material-symbols-outlined text-xs text-primary">verified</span>
+</div>
+</button>
+<!-- Preset Item -->
+<button class="group w-full flex flex-col gap-2 p-3 rounded-lg bg-surface-dark border border-border-dark hover:border-primary/50 transition-all text-left opacity-60 hover:opacity-100">
+<div class="h-20 w-full rounded-md bg-cover bg-center grayscale" data-alt="High contrast black and white landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAoXZhOaPJhhRX_YtqdWggPOcGGiBPs3f89GCCnVVk5D5TppJrsclgyJxR0Zpfs0BnLA4sNHf2ApQwIgNlZoGKiqRA4_w42ZKByNDb0EeyG3r95PGp0vdh_cSQa-EvXUi0VQFW6MJsXm0AnqbfsgvJ_MDk0u1PpI4X0NSH6Vh4TzHsjpjtdFIxbI7Zowotf3xLJ1mMQWPHi27_lJyAWk5aqa0TOK3FAh_1lIe6qf-JJC3wuT4awSXrk0j2LGJtNcfk2mUi1kosDTng')"></div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-zinc-300">ILFORD HP5</span>
+</div>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-4">Session Tools</h3>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-surface-dark border border-border-dark hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-zinc-400">history</span>
+<span class="text-[9px] uppercase font-bold tracking-tighter">History</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-surface-dark border border-border-dark hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-zinc-400">content_copy</span>
+<span class="text-[9px] uppercase font-bold tracking-tighter">Copy Settings</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content: Viewport & Histograms -->
+<section class="flex-1 flex flex-col bg-background-dark p-6 overflow-y-auto no-scrollbar">
+<!-- Metadata Bar -->
+<div class="flex justify-between items-end mb-4 px-2">
+<div>
+<h2 class="text-3xl font-black uppercase tracking-tighter leading-none">Scene 42 - <span class="text-zinc-500">Night Alley</span></h2>
+<p class="text-[11px] text-primary/80 font-bold uppercase tracking-widest mt-1 flex items-center gap-2">
+                        Project: Noir Masterclass <span class="h-1 w-1 bg-primary/40 rounded-full"></span> 23.976 fps <span class="h-1 w-1 bg-primary/40 rounded-full"></span> 4K ProRes 4444
+                    </p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-dark border border-border-dark text-[10px] font-bold uppercase tracking-widest hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">compare</span>
+                        Before / After
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-dark border border-border-dark text-[10px] font-bold uppercase tracking-widest hover:border-primary transition-all">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Viewport Container -->
+<div class="relative flex-1 rounded-xl overflow-hidden noir-shadow border border-border-dark group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Dramatic noir cinematic frame with deep shadows and spotlighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfEKWSjbf2azXbHWC9WJoGFEn4DxvuBfxKLb5Ty-Bhr7kLaZ-se1_QnZCKTXH1C5lAoIft_ClXkyP7CwfoRGt6aOEIxHofJ01Y2N6Q4iK8ANiC3RYHrGUJ38U1p1klWFRQQXfseCfRAcv192Ma2_bQ3L7cvdCCNLDkVAhzB6kYKzKSr8hQdUdX5FR8sEnzdigFSva7YJwCj-rOUMw0z7eapOfFOyOcj3oRi6fa8K50Ay0wynmu6ly-KM_fHcuQ-7xmzj2oSB4om-Q')"></div>
+<!-- Center Playback -->
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
+<button class="h-20 w-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl fill-current">play_arrow</span>
+</button>
+</div>
+<!-- Playback Control Bar -->
+<div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-mono font-bold text-zinc-400">00:14:22:04</span>
+<div class="flex-1 h-1.5 bg-zinc-800 rounded-full overflow-hidden relative">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-primary"></div>
+</div>
+<span class="text-[10px] font-mono font-bold text-zinc-400">00:48:10:00</span>
+</div>
+</div>
+<!-- Floating Shutter Info -->
+<div class="absolute top-6 right-6 glass-panel p-4 rounded-xl flex flex-col gap-3">
+<div class="flex flex-col">
+<span class="text-[9px] font-black text-zinc-400 uppercase tracking-widest">Shutter Angle</span>
+<span class="text-2xl font-black text-primary">172.8°</span>
+</div>
+<div class="h-px w-full bg-white/10"></div>
+<div class="flex flex-col">
+<span class="text-[9px] font-black text-zinc-400 uppercase tracking-widest">Shutter Speed</span>
+<span class="text-lg font-black text-zinc-200">1/48</span>
+</div>
+</div>
+</div>
+<!-- Bottom Data Layer -->
+<div class="mt-6 flex gap-6 h-48">
+<!-- Histogram -->
+<div class="flex-1 bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Luminance Waveform</span>
+<div class="flex gap-2 text-[9px] font-bold uppercase text-zinc-500">
+<span class="flex items-center gap-1"><span class="h-1.5 w-1.5 bg-primary rounded-full"></span> Highlights</span>
+<span class="flex items-center gap-1"><span class="h-1.5 w-1.5 bg-zinc-600 rounded-full"></span> Shadows</span>
+</div>
+</div>
+<div class="flex-1 relative mt-2">
+<svg class="h-full w-full" preserveaspectratio="none" viewbox="0 0 500 100">
+<defs>
+<lineargradient id="waveGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ec5b13" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#ec5b13" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q50,20 100,60 T200,40 T300,90 T400,20 T500,70 L500,100 L0,100 Z" fill="url(#waveGradient)"></path>
+<path d="M0,80 Q50,20 100,60 T200,40 T300,90 T400,20 T500,70" fill="none" stroke="#ec5b13" stroke-width="1.5"></path>
+</svg>
+<div class="absolute inset-0 flex justify-between px-2 text-[8px] font-mono text-zinc-700 pointer-events-none items-end pb-1">
+<span>0 IRE</span>
+<span>25</span>
+<span>50</span>
+<span>75</span>
+<span>100 IRE</span>
+</div>
+</div>
+</div>
+<!-- Mini Status Tiles -->
+<div class="w-64 grid grid-cols-2 gap-4">
+<div class="bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col justify-between">
+<span class="text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-none">Contrast</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-zinc-100">+1.4</span>
+<span class="text-[10px] text-primary">S-CRV</span>
+</div>
+</div>
+<div class="bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col justify-between">
+<span class="text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-none">Exposure</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-zinc-100">-0.2</span>
+<span class="text-[10px] text-zinc-400">EV</span>
+</div>
+</div>
+<div class="bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col justify-between">
+<span class="text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-none">Noise Red.</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-zinc-100">12</span>
+<span class="text-[10px] text-zinc-400">%</span>
+</div>
+</div>
+<div class="bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col justify-between">
+<span class="text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-none">Kelvin</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-zinc-100">3200</span>
+<span class="text-[10px] text-zinc-400">K</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Tactile Controls -->
+<aside class="w-80 border-l border-border-dark bg-surface-dark/30 p-8 flex flex-col gap-10 overflow-y-auto no-scrollbar">
+<h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 text-center">Tactile Precision</h3>
+<!-- ISO Control -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<span class="text-[10px] font-black text-zinc-400 uppercase tracking-widest">ISO Speed</span>
+<span class="text-xl font-black text-primary">800</span>
+</div>
+<div class="flex justify-between gap-1">
+<button class="flex-1 py-1.5 rounded bg-surface-dark border border-border-dark text-[10px] font-bold text-zinc-500 hover:text-white">400</button>
+<button class="flex-1 py-1.5 rounded bg-primary text-[10px] font-bold text-white shadow-lg shadow-primary/20">800</button>
+<button class="flex-1 py-1.5 rounded bg-surface-dark border border-border-dark text-[10px] font-bold text-zinc-500 hover:text-white">1600</button>
+<button class="flex-1 py-1.5 rounded bg-surface-dark border border-border-dark text-[10px] font-bold text-zinc-500 hover:text-white">3200</button>
+</div>
+</div>
+<!-- Exposure Slider -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<span class="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Exposure EV</span>
+<span class="text-xl font-black text-zinc-200">+0.35</span>
+</div>
+<div class="relative py-4">
+<input class="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="-5" step="0.01" type="range" value="0.35"/>
+<div class="absolute inset-x-0 bottom-0 flex justify-between px-1 text-[9px] font-bold text-zinc-700">
+<span>-5.0</span>
+<span>0.0</span>
+<span>+5.0</span>
+</div>
+</div>
+</div>
+<!-- Contrast Slider -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<span class="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Dynamic Range</span>
+<span class="text-xl font-black text-zinc-200">1.2x</span>
+</div>
+<div class="relative py-4">
+<input class="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary" max="2.0" min="0.5" step="0.05" type="range" value="1.2"/>
+<div class="absolute inset-x-0 bottom-0 flex justify-between px-1 text-[9px] font-bold text-zinc-700">
+<span>SOFT</span>
+<span>NOM</span>
+<span>HARD</span>
+</div>
+</div>
+</div>
+<!-- Hue/Sat Wheels Mini -->
+<div class="flex flex-col gap-4 mt-4">
+<span class="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Shadow Tint</span>
+<div class="flex justify-center">
+<div class="relative h-32 w-32 rounded-full border-4 border-zinc-800 flex items-center justify-center overflow-hidden">
+<!-- Simulated Color Wheel -->
+<div class="absolute inset-0 bg-[conic-gradient(at_center,_var(--tw-gradient-stops))] from-blue-500 via-teal-500 via-green-500 via-yellow-500 via-red-500 to-purple-500 opacity-30"></div>
+<div class="h-2 w-2 bg-primary rounded-full absolute" style="top: 30%; left: 40%; box-shadow: 0 0 10px #ec5b13;"></div>
+<div class="h-10 w-10 border-2 border-white/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400 text-xs">colorize</span>
+</div>
+</div>
+</div>
+<div class="flex justify-between text-[9px] font-bold text-zinc-500 uppercase tracking-widest px-4">
+<span class="text-blue-400">Cyan</span>
+<span class="text-red-400">Warm</span>
+</div>
+</div>
+<div class="mt-auto">
+<button class="w-full py-4 rounded-xl border border-zinc-700 bg-transparent text-[11px] font-black uppercase tracking-widest text-zinc-400 hover:text-white hover:border-zinc-500 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-lg">save</span>
+                    Export LUT Profile
+                </button>
+</div>
+</aside>
+</main>
+<!-- Footer Meta -->
+<footer class="h-8 bg-zinc-950 border-t border-border-dark flex items-center justify-between px-8 text-[9px] font-bold text-zinc-600 uppercase tracking-widest">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 bg-green-500 rounded-full animate-pulse"></span> Linked to Camera 1</span>
+<span>Signal: 12-Bit RAW</span>
+</div>
+<div class="flex items-center gap-6">
+<span>Storage: 1.4TB Remaining</span>
+<span>Uptime: 04:22:18</span>
+</div>
+</footer>
+</div>
+</body></html>

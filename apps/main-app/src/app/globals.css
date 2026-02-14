@@ -147,3 +147,5 @@
     @apply bg-background text-foreground;
   }
 }
+
+@import "./themes.css";

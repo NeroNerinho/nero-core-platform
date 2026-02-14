@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quantum Nucleus v2 - Nero 27</title>
+<!-- Google Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#06e8f9',
+              plasma: '#9d00ff',
+              deep: '#020617',
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'none': '0',
+            'sm': '0.125rem',
+            DEFAULT: '4px',
+            'md': '0.375rem',
+            'lg': '0.5rem',
+            'full': '9999px',
+          },
+          animation: {
+            'orbit-slow': 'orbit 20s linear infinite',
+            'orbit-fast': 'orbit 12s linear infinite reverse',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            'spin-slow': 'spin 10s linear infinite',
+          },
+          keyframes: {
+            orbit: {
+              '0%': { transform: 'rotate(0deg) translateX(80px) rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg) translateX(80px) rotate(-360deg)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0) scale(1)' },
+              '50%': { transform: 'translateY(-20px) scale(1.05)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: 0.4, filter: 'blur(8px)' },
+              '50%': { opacity: 0.8, filter: 'blur(12px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes rotate-shell {
+      from { transform: rotateX(70deg) rotateZ(0deg); }
+      to { transform: rotateX(70deg) rotateZ(360deg); }
+    }
+    
+    .quantum-shell {
+      position: absolute;
+      border: 1px solid rgba(6, 232, 249, 0.3);
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      animation: rotate-shell var(--duration) linear infinite;
+    }
+
+    .particle {
+      position: absolute;
+      background: #06e8f9;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #06e8f9;
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    }
+  </style>
+<style data-purpose="background-plasma">
+    .bg-plasma-mesh {
+      background-color: #020617;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(157, 0, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(6, 232, 249, 0.15) 0%, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-plasma-mesh text-white font-sans overflow-hidden h-screen w-screen flex flex-col items-center justify-center">
+<!-- BEGIN: Particle Canvas Background -->
+<!-- Low-opacity canvas for particle simulations -->
+<canvas class="absolute inset-0 pointer-events-none opacity-40" data-purpose="quantum-particle-layer" id="particleCanvas"></canvas>
+<!-- END: Particle Canvas Background -->
+<!-- BEGIN: Background Decorative Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<!-- Floating Constants -->
+<div class="absolute top-10 left-10 text-brand-primary/20 text-xs font-mono animate-float" style="animation-delay: 0s;">ħ = 1.0545718 × 10⁻³⁴ J·s</div>
+<div class="absolute bottom-20 right-10 text-brand-plasma/20 text-xs font-mono animate-float" style="animation-delay: 2s;">ψ(x,t) = Ae^(i(kx-ωt))</div>
+<div class="absolute top-1/4 right-20 text-brand-primary/10 text-xl font-bold animate-pulse">27</div>
+<!-- Large Blur Orbs -->
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-plasma rounded-full blur-[120px] opacity-20"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-primary rounded-full blur-[120px] opacity-20"></div>
+</div>
+<!-- END: Background Decorative Elements -->
+<!-- BEGIN: Main Content Container -->
+<main class="relative z-10 w-full max-w-md px-6 flex flex-col items-center text-center">
+<!-- BEGIN: Quantum Nucleus Visual -->
+<div class="relative w-64 h-64 mb-12 flex items-center justify-center" data-purpose="brand-visual-anchor">
+<!-- Rotating Quantum Shells -->
+<div class="quantum-shell w-full h-full" style="--duration: 8s;"></div>
+<div class="quantum-shell w-4/5 h-4/5" style="--duration: 5s; border-color: rgba(157, 0, 255, 0.4);"></div>
+<div class="quantum-shell w-3/5 h-3/5" style="--duration: 12s; border-color: rgba(6, 232, 249, 0.6);"></div>
+<!-- Core Logo -->
+<div class="relative z-20 flex flex-col items-center justify-center animate-pulse-glow">
+<div class="text-6xl font-bold tracking-tighter text-brand-primary">N<span class="text-brand-plasma">27</span></div>
+<div class="h-1 w-12 bg-gradient-to-r from-brand-primary to-brand-plasma mt-2 rounded-full"></div>
+</div>
+<!-- Orbiting Particles (Manual CSS Orbits) -->
+<div class="absolute w-2 h-2 bg-brand-primary rounded-full blur-[1px] animate-orbit-slow"></div>
+<div class="absolute w-1.5 h-1.5 bg-brand-plasma rounded-full blur-[1px] animate-orbit-fast" style="animation-delay: -3s;"></div>
+</div>
+<!-- END: Quantum Nucleus Visual -->
+<!-- BEGIN: Branding Info -->
+<section class="space-y-4" data-purpose="title-section">
+<h1 class="text-4xl font-bold tracking-tight text-white uppercase">
+        Quantum <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-plasma">Nucleus</span>
+</h1>
+<p class="text-slate-400 text-sm tracking-widest uppercase font-medium">v2.0 // Neural Infrastructure</p>
+<!-- Glassmorphic Status Bar -->
+<div class="glass-card mt-8 p-4 rounded-lg flex items-center justify-between gap-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+<span class="text-xs font-mono text-slate-300">CORE_STABLE</span>
+</div>
+<div class="h-4 w-px bg-slate-700"></div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-slate-300">ENTROPY: 0.002%</span>
+</div>
+</div>
+</section>
+<!-- END: Branding Info -->
+<!-- BEGIN: Action Controls -->
+<section class="mt-12 w-full space-y-4" data-purpose="navigation">
+<button class="w-full py-4 glass-card rounded-lg font-bold text-brand-primary border border-brand-primary/30 hover:bg-brand-primary/10 transition-all duration-300 uppercase tracking-widest active:scale-95">
+        Initialize Sequence
+      </button>
+<div class="flex gap-4">
+<button class="flex-1 py-3 glass-card rounded-lg text-xs font-bold uppercase tracking-wider text-slate-400 border border-white/5 hover:text-white transition-colors">
+          Protocol
+        </button>
+<button class="flex-1 py-3 glass-card rounded-lg text-xs font-bold uppercase tracking-wider text-slate-400 border border-white/5 hover:text-white transition-colors">
+          Security
+        </button>
+</div>
+</section>
+<!-- END: Action Controls -->
+</main>
+<!-- END: Main Content Container -->
+<!-- BEGIN: Footer Signature -->
+<footer class="absolute bottom-8 text-[10px] text-slate-600 tracking-[0.3em] uppercase" data-purpose="footer">
+    Designated by Nero 27 Labs © 2024
+  </footer>
+<!-- END: Footer Signature -->
+<!-- BEGIN: Particle System Logic -->
+<script data-purpose="canvas-simulation">
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2;
+        this.color = Math.random() > 0.5 ? '#06e8f9' : '#9d00ff';
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      resize();
+      for (let i = 0; i < 60; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    init();
+    animate();
+  </script>
+<!-- END: Particle System Logic -->
+</body></html>

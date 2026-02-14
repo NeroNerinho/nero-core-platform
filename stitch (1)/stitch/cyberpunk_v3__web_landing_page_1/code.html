@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL SYNC V3 | Evolve Your Consciousness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "accent-yellow": "#f9e806",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050505",
+                        "surface-dark": "#0f2123",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .scanlines {
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(6, 232, 249, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 232, 249, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            perspective: 1000px;
+            transform: rotateX(60deg);
+            transform-origin: top;
+        }
+        .glitch-text {
+            position: relative;
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0.04em 0 #fffc00;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display selection:bg-primary selection:text-background-dark overflow-x-hidden">
+<!-- Scanline & Noise Overlay -->
+<div class="fixed inset-0 z-50 pointer-events-none scanlines opacity-30"></div>
+<!-- Top Status Ticker -->
+<div class="w-full bg-primary/10 border-b border-primary/30 py-1 overflow-hidden whitespace-nowrap z-40 relative">
+<div class="flex gap-10 text-[10px] font-mono tracking-widest text-primary/80 uppercase">
+<span>[ SYSTEM_READY ]</span>
+<span>NEURAL_UPLINK: ACTIVE</span>
+<span>STABILITY: 99.98%</span>
+<span>LATENCY: 0.003MS</span>
+<span>BUFFER_STATUS: OPTIMAL</span>
+<span>ENCRYPTION: AES-4096-BIO</span>
+<span>[ SYSTEM_READY ]</span>
+<span>NEURAL_UPLINK: ACTIVE</span>
+<span>STABILITY: 99.98%</span>
+<span>LATENCY: 0.003MS</span>
+<span>BUFFER_STATUS: OPTIMAL</span>
+</div>
+</div>
+<div class="relative min-h-screen flex flex-col">
+<!-- Grid Background Container -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute bottom-0 w-full h-[50vh] grid-bg opacity-40"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-background-dark"></div>
+</div>
+<!-- Navigation -->
+<header class="relative z-40 border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 md:px-12 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tighter text-white glitch-text">NEURAL SYNC <span class="text-primary">V3</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs tracking-widest">
+<a class="text-primary hover:text-white transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span> SYSTEM_STATUS
+                    </a>
+<a class="text-white/60 hover:text-primary transition-colors" href="#">INTERFACE</a>
+<a class="text-white/60 hover:text-primary transition-colors" href="#">DIAGNOSTICS</a>
+<a class="text-white/60 hover:text-primary transition-colors" href="#">PROTOCOLS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 px-3 py-1.5 border border-primary/30 rounded bg-primary/5 hover:bg-primary/20 transition-all text-xs font-mono">
+<span class="material-symbols-outlined text-sm">search</span>
+<span class="opacity-50 text-white">SEARCH_GRID...</span>
+</button>
+<button class="bg-primary text-background-dark px-4 py-2 font-bold text-xs tracking-tighter hover:bg-accent-yellow transition-colors flex items-center gap-2 rounded-sm uppercase">
+                        Connect_Link
+                        <span class="material-symbols-outlined text-sm">sensors</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="relative z-10 flex-grow max-w-7xl mx-auto w-full px-6 md:px-12 py-12 md:py-20">
+<!-- Hero Section -->
+<div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+<div class="space-y-8">
+<div class="inline-block px-3 py-1 bg-accent-yellow text-background-dark text-[10px] font-bold tracking-[0.2em] rounded-sm uppercase">
+                        Protocol Revision 3.0.4-Delta
+                    </div>
+<h2 class="text-5xl md:text-7xl font-black leading-none tracking-tight uppercase glitch-text">
+                        Evolve Your <br/>
+<span class="text-primary">Consciousness</span>
+</h2>
+<p class="text-white/70 text-lg max-w-md leading-relaxed border-l-2 border-primary/50 pl-6">
+                        High-fidelity neural interface synchronization. Establish a direct link to the global grid with sub-zero latency and near-perfect synaptic stability.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="group relative px-8 py-4 bg-primary text-background-dark font-black tracking-widest rounded-sm overflow-hidden uppercase">
+<span class="relative z-10 flex items-center gap-3">
+                                Establish_Link
+                                <span class="material-symbols-outlined">bolt</span>
+</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+</button>
+<button class="px-8 py-4 border border-primary/50 text-primary font-bold tracking-widest rounded-sm hover:bg-primary/10 transition-all uppercase">
+                            View_Docs
+                        </button>
+</div>
+</div>
+<!-- Neural Diagram Hero Image -->
+<div class="relative aspect-square">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-[100px] animate-pulse"></div>
+<div class="relative w-full h-full border border-primary/20 rounded-xl overflow-hidden bg-surface-dark/40 backdrop-blur-sm group">
+<div class="absolute top-4 left-4 font-mono text-[10px] text-primary/50 z-20">
+                            [NEURAL_SCAN_001.JPG]
+                        </div>
+<img class="w-full h-full object-cover mix-blend-screen opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic biomechanical neural network interface diagram with glowing blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNrneyu5il59S4vLeAfoQ_v1CeD9L1rCZG3ydBRzMAThzJhL44wZ8m6usUY4sQ4gkEZe1D5VNxbh6L59fD-FWCYXpdBt47YJbp5xtHKVvD6vvNJlxOaAst77sQYsZueUalDUWTKbX7kkhLYPwa39YGSpIUI-oYu93FigkKdrhKn8V9JdbFuRjpXu7RqPq8OAocnfT7gKH9hAIVKc9oDo_i9bf5ZukAfnBpoVBVH9Fn1e9GNnfZgqPox_vLXUp0EXwFrM-feQ0tEYM"/>
+<!-- Overlay UI elements -->
+<div class="absolute inset-0 p-8 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between items-start">
+<div class="w-16 h-16 border-t border-l border-primary/60"></div>
+<div class="w-16 h-16 border-t border-r border-primary/60"></div>
+</div>
+<div class="flex justify-center">
+<div class="px-4 py-2 border border-primary bg-background-dark/80 text-primary font-mono text-[10px] tracking-widest flex items-center gap-2">
+<span class="size-2 bg-primary rounded-full animate-ping"></span>
+                                    LIVE_FEED: BRAIN_STEM_ALPHA
+                                </div>
+</div>
+<div class="flex justify-between items-end">
+<div class="w-16 h-16 border-b border-l border-primary/60"></div>
+<div class="w-16 h-16 border-b border-r border-primary/60"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+<div class="p-8 border border-primary/20 bg-surface-dark/30 rounded-lg hover:border-primary/50 transition-colors group">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-mono text-primary uppercase tracking-widest">Sync Stability</span>
+<span class="material-symbols-outlined text-primary text-xl">insights</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-bold">99.9</span>
+<span class="text-primary text-xl font-bold">%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 overflow-hidden">
+<div class="h-full bg-primary w-[99%]" data-alt="Progress bar at 99 percent"></div>
+</div>
+<p class="mt-4 text-xs font-mono text-white/40 group-hover:text-primary transition-colors">+0.1% Since last cycle</p>
+</div>
+<div class="p-8 border border-primary/20 bg-surface-dark/30 rounded-lg hover:border-primary/50 transition-colors group">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-mono text-primary uppercase tracking-widest">Neural Load</span>
+<span class="material-symbols-outlined text-primary text-xl">database</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-bold">42.0</span>
+<span class="text-primary text-xl font-bold">TF/s</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 overflow-hidden">
+<div class="h-full bg-accent-yellow w-[42%]" data-alt="Progress bar at 42 percent"></div>
+</div>
+<p class="mt-4 text-xs font-mono text-accent-yellow/60">+5.2% System Stress</p>
+</div>
+<div class="p-8 border border-primary/20 bg-surface-dark/30 rounded-lg hover:border-primary/50 transition-colors group">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-mono text-primary uppercase tracking-widest">Uplink Latency</span>
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-bold">0.003</span>
+<span class="text-primary text-xl font-bold">MS</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 overflow-hidden">
+<div class="h-full bg-primary w-[15%]" data-alt="Progress bar at 15 percent"></div>
+</div>
+<p class="mt-4 text-xs font-mono text-green-400">-0.001% Optimal path found</p>
+</div>
+</div>
+<!-- Features Grid -->
+<section class="space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-primary/20 pb-8">
+<div class="space-y-2">
+<h3 class="text-3xl font-bold tracking-tight uppercase">System Diagnostics</h3>
+<p class="text-white/60 font-mono text-sm uppercase">Real-time telemetry from your biomechanical uplink.</p>
+</div>
+<div class="font-mono text-[10px] text-primary uppercase tracking-widest flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="size-2 bg-primary rounded-full"></span> NOMINAL</span>
+<span class="flex items-center gap-1"><span class="size-2 bg-accent-yellow rounded-full"></span> WARNING</span>
+<span class="flex items-center gap-1 text-white/20"><span class="size-2 bg-white/20 rounded-full"></span> OFFLINE</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video mb-6 overflow-hidden rounded-lg border border-primary/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" data-alt="Abstract 3D rendering of complex crystalline neural structures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdp_0iZnOm4yME_UC4GPJlU3YIatjN3ChixEb7yHoFTqWw-J7bsNkV4Y3HnrpeZSRCMYFvuddzfmSd2sNC3o6W1mhZzq3ngWsehAXZytuLqRrKwxqheebpXEYD_xLLporwXVDFt0w7YPmXt8ZsnP5H9JzdKdhtKaPSD24SigA74tBBl_oE8njbylFW4AK540x46iOtIUtLtCQEforwzuftgErvGNd1QLLBhOC6YyuUa2T4XzjNK2JpNoKU7R_XUXVc_C_8QO3fk1I"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-primary bg-background-dark/80 p-1 rounded-sm">psychology</span>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Cortex Mapping</h4>
+<p class="text-white/50 text-sm leading-relaxed">Full 3D rendering of synaptic pathways using next-gen photonic sensors. Map every thought in real-time.</p>
+</div>
+<!-- Feature 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video mb-6 overflow-hidden rounded-lg border border-primary/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" data-alt="Glowy digital hardware circuit board with neon blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2NLynU9m08M3LDM8OxcULjAHjhplAxg_-f1ORWHjgeEzitBess42HKzyRin2imKBKSmX_ohgAveitTMgFauZ7wOBl_WxpjVWy7ib9bzncexXJ7UFjSbN64QvvuUlsvcajMXKpztEs_ED8wPiwx7u7upxbbnFrpoLjw33A5ZwiNPBz_OT-Gpf-jjlKNyQByj3NCjNpy0osJkQqp3y2J7mgSpgxRkKvdZFUt-4S3jH-qYxP_CquhKFuF5vYX6KeKmBWtm6nzZ3HPGA"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-primary bg-background-dark/80 p-1 rounded-sm">bolt</span>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Synaptic Override</h4>
+<p class="text-white/50 text-sm leading-relaxed">Bypass organic limiters for peak processing. Unlock 300% cognitive acceleration via hardware bridge.</p>
+</div>
+<!-- Feature 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video mb-6 overflow-hidden rounded-lg border border-primary/20">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" data-alt="Technical schematic showing high speed data streams and nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAE-PBFb4Wv4wXmoMzffDVfXpSMQlF6jM823TscoIl1_PRNpsqnsP0-xU-w6ZXG83J0-1crZ-FWdZPR3pOnYKcsFKInWd6Sdi027iOEUaFkjyvyUVRyiI2j9tjPvCcMobkZxzzXBP-t-DMxGjw3qUAO2-tDVeIrOc2PQq2Dw241yG4FJU8mZxFB9K28nJE0SL8eY6liYgzZohPMdHDlHWu2uzr4afQZkVt7HstsPr-1U6Md6QPZfgaR6ZlIrzRho3HSOGHduznBvo"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-primary bg-background-dark/80 p-1 rounded-sm">filter_alt</span>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Data Filtration</h4>
+<p class="text-white/50 text-sm leading-relaxed">AI-driven noise reduction for clean sync. Filter out biological distractions and stay focused on the grid.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="relative z-40 border-t border-primary/20 bg-background-dark px-6 md:px-12 py-12 font-mono">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-bold tracking-tighter">NEURAL_SYNC_CONSOLE_V3</span>
+</div>
+<p class="text-[10px] text-white/40 leading-tight">
+                        © 2077 NEURAL SYNC SYSTEMS INC.<br/>
+                        RESERVED_RIGHTS_ENFORCED<br/>
+                        MADE_IN_ORBITAL_STATION_B4
+                    </p>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary text-[10px] tracking-widest font-bold uppercase">Directories</h5>
+<ul class="text-[10px] space-y-2 text-white/60">
+<li><a class="hover:text-primary" href="#">/ROOT/ABOUT_US</a></li>
+<li><a class="hover:text-primary" href="#">/ROOT/HARDWARE</a></li>
+<li><a class="hover:text-primary" href="#">/ROOT/SECURITY</a></li>
+<li><a class="hover:text-primary" href="#">/ROOT/EULA_LEGAL</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary text-[10px] tracking-widest font-bold uppercase">Uplinks</h5>
+<ul class="text-[10px] space-y-2 text-white/60">
+<li><a class="hover:text-primary" href="#">X_COMM_LINK</a></li>
+<li><a class="hover:text-primary" href="#">GITHUB_SOURCE</a></li>
+<li><a class="hover:text-primary" href="#">DISCORD_GRID</a></li>
+<li><a class="hover:text-primary" href="#">NEURAL_NET_P2P</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary text-[10px] tracking-widest font-bold uppercase">Connection_Info</h5>
+<div class="bg-primary/5 border border-primary/20 p-3 rounded text-[10px]">
+<div class="flex justify-between mb-1">
+<span class="text-white/40 uppercase">Server_Time:</span>
+<span class="text-primary">23:59:59 UTC</span>
+</div>
+<div class="flex justify-between mb-1">
+<span class="text-white/40 uppercase">IP_Mask:</span>
+<span class="text-primary">192.168.0.X</span>
+</div>
+<div class="flex justify-between">
+<span class="text-white/40 uppercase">Status:</span>
+<span class="text-green-500">CONNECTED</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex gap-4">
+<div class="size-6 bg-primary/20 rounded flex items-center justify-center text-primary text-sm">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div class="size-6 bg-primary/20 rounded flex items-center justify-center text-primary text-sm">
+<span class="material-symbols-outlined">vpn_lock</span>
+</div>
+<div class="size-6 bg-primary/20 rounded flex items-center justify-center text-primary text-sm">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+</div>
+<div class="text-[8px] text-white/20 tracking-[0.4em] uppercase">
+                    Sync_Established_ID: 9982-AX-992-DELTA
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

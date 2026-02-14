@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO-27 | Quantum Nucleus Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050a0a",
+                        "surface-dark": "#0f2123",
+                        "accent-red": "#ff3b30",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #050a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+        .glow-cyan {
+            text-shadow: 0 0 10px rgba(6, 232, 249, 0.5);
+        }
+        .border-glow {
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.2);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .glass-panel {
+            background: rgba(15, 33, 35, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(6, 232, 249, 0.2);
+        }
+        .orbit {
+            border: 1px solid rgba(6, 232, 249, 0.15);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display selection:bg-primary/30">
+<!-- Top Status Bar -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-primary/10 bg-background-dark/80 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">memory</span>
+<h1 class="text-xl font-bold tracking-widest text-white uppercase">Nero<span class="text-primary">-27</span></h1>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-primary/60">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">signal_cellular_alt</span>
+<span>SYNC ACTIVE</span>
+</div>
+<div class="px-2 py-0.5 border border-primary/30 rounded text-[10px] bg-primary/5">
+                12:44:09 UTC
+            </div>
+</div>
+</header>
+<main class="pb-24">
+<!-- Hero: Quantum Core Visualization -->
+<section class="relative h-[420px] w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-background-dark to-surface-dark/40">
+<!-- Background Orbits (Decorative) -->
+<div class="orbit w-[280px] h-[280px]"></div>
+<div class="orbit w-[360px] h-[360px] rotate-45"></div>
+<div class="orbit w-[440px] h-[440px] -rotate-12"></div>
+<!-- Central Nucleus -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="relative">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-150"></div>
+<div class="w-32 h-32 rounded-full border-4 border-primary flex items-center justify-center bg-background-dark relative z-10 shadow-[0_0_40px_rgba(6,232,249,0.4)]">
+<span class="material-symbols-outlined text-primary text-6xl font-light">grain</span>
+</div>
+<!-- Electrons / Particles (Represented as small glows) -->
+<div class="absolute top-0 left-0 w-3 h-3 bg-primary rounded-full blur-[2px] shadow-[0_0_10px_#06e8f9]"></div>
+<div class="absolute bottom-4 -right-2 w-2 h-2 bg-primary rounded-full blur-[1px] shadow-[0_0_10px_#06e8f9]"></div>
+</div>
+<div class="mt-8 text-center px-4">
+<p class="text-primary text-xs tracking-[0.3em] font-semibold uppercase mb-1">Containment Field 100%</p>
+<h2 class="text-3xl font-bold text-white tracking-tight">QUANTUM NUCLEUS ACTIVE</h2>
+<div class="flex items-center justify-center gap-2 mt-3">
+<span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+<span class="h-1.5 w-1.5 rounded-full bg-primary/40"></span>
+<span class="h-1.5 w-1.5 rounded-full bg-primary/40"></span>
+<span class="text-[10px] text-primary/60 tracking-widest uppercase ml-2">Real-time Stream</span>
+</div>
+</div>
+</div>
+<!-- Overlay Data -->
+<div class="absolute bottom-6 left-6 text-left">
+<p class="text-[10px] text-primary/40 uppercase">Vibration Delta</p>
+<p class="text-lg font-mono text-white">0.00042 λ</p>
+</div>
+<div class="absolute bottom-6 right-6 text-right">
+<p class="text-[10px] text-primary/40 uppercase">Core Load</p>
+<p class="text-lg font-mono text-white">42.8%</p>
+</div>
+</section>
+<!-- Main Metrics Grid -->
+<section class="px-4 -mt-8 relative z-20">
+<div class="grid grid-cols-3 gap-3">
+<div class="glass-panel p-4 rounded flex flex-col gap-1 border-glow">
+<p class="text-[10px] text-primary/60 uppercase font-bold tracking-wider">Output</p>
+<p class="text-xl font-bold text-white">1.21 <span class="text-xs text-primary">GW</span></p>
+<div class="text-[10px] text-primary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                        +0.02%
+                    </div>
+</div>
+<div class="glass-panel p-4 rounded flex flex-col gap-1 border-glow">
+<p class="text-[10px] text-primary/60 uppercase font-bold tracking-wider">Stability</p>
+<p class="text-xl font-bold text-white">99.8<span class="text-xs text-primary">%</span></p>
+<div class="text-[10px] text-primary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                        STABLE
+                    </div>
+</div>
+<div class="glass-panel p-4 rounded flex flex-col gap-1 border-glow">
+<p class="text-[10px] text-primary/60 uppercase font-bold tracking-wider">Temp</p>
+<p class="text-xl font-bold text-white">2.4 <span class="text-xs text-primary">K</span></p>
+<div class="text-[10px] text-accent-red flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[12px]">trending_down</span>
+                        -0.1%
+                    </div>
+</div>
+</div>
+</section>
+<!-- System Stability Gauges -->
+<section class="px-4 mt-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold tracking-widest text-primary/80 uppercase">System Integrity Gauges</h3>
+<span class="material-symbols-outlined text-primary/40">settings_input_component</span>
+</div>
+<div class="space-y-6">
+<!-- Gauge 1 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter">
+<span class="text-white/60">Nucleus Cohesion</span>
+<span class="text-primary font-mono">98.4%</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden flex gap-0.5">
+<div class="h-full bg-primary w-[98%] shadow-[0_0_8px_rgba(6,232,249,0.5)]"></div>
+<div class="h-full bg-primary/20 flex-1"></div>
+</div>
+</div>
+<!-- Gauge 2 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter">
+<span class="text-white/60">Particle Spin Resonance</span>
+<span class="text-primary font-mono">0.82 Hz</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden flex gap-0.5">
+<div class="h-full bg-primary w-[72%] shadow-[0_0_8px_rgba(6,232,249,0.5)]"></div>
+<div class="h-full bg-primary/20 flex-1"></div>
+</div>
+</div>
+<!-- Gauge 3 -->
+<div class="space-y-2">
+<div class="flex justify-between text-[11px] uppercase tracking-tighter">
+<span class="text-white/60">Magnetic Bottle Pressure</span>
+<span class="text-primary font-mono">HIGH</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden flex gap-0.5">
+<div class="h-full bg-primary w-[88%] shadow-[0_0_8px_rgba(6,232,249,0.5)]"></div>
+<div class="h-full bg-primary/20 flex-1"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="px-4 mt-10">
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-primary hover:bg-primary/90 text-background-dark font-bold py-4 rounded transition-all flex items-center justify-center gap-2 border border-primary">
+<span class="material-symbols-outlined text-lg">settings_suggest</span>
+<span class="text-xs uppercase tracking-widest">Calibrate Orbits</span>
+</button>
+<button class="bg-transparent hover:bg-primary/10 text-primary font-bold py-4 rounded transition-all flex items-center justify-center gap-2 border border-primary/30">
+<span class="material-symbols-outlined text-lg">air</span>
+<span class="text-xs uppercase tracking-widest">Vent Energy</span>
+</button>
+<button class="col-span-2 bg-transparent hover:bg-accent-red/10 text-accent-red font-bold py-4 rounded transition-all flex items-center justify-center gap-2 border border-accent-red/30 mt-2">
+<span class="material-symbols-outlined text-lg">dangerous</span>
+<span class="text-xs uppercase tracking-widest">Emergency Shutdown</span>
+</button>
+</div>
+</section>
+<!-- Terminal Log -->
+<section class="px-4 mt-10">
+<div class="glass-panel rounded-lg overflow-hidden border border-primary/10">
+<div class="bg-primary/5 px-4 py-2 border-b border-primary/10 flex justify-between items-center">
+<span class="text-[10px] font-mono text-primary/60 uppercase">System Terminal</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="p-4 font-mono text-[10px] text-primary/80 space-y-1.5 bg-black/40">
+<p><span class="text-primary/40">[12:43:55]</span> <span class="text-white">INIT</span> PHASE_LOCK_ENGAGED</p>
+<p><span class="text-primary/40">[12:43:58]</span> <span class="text-primary">CORE</span> STABILITY NOMINAL (99.8%)</p>
+<p><span class="text-primary/40">[12:44:01]</span> <span class="text-white">SYNC</span> HANDSHAKE COMPLETE WITH NERO-CENTRAL</p>
+<p><span class="text-primary/40">[12:44:05]</span> <span class="text-primary">DATA</span> PARTICLE STREAM_BUFFER_CLEARED</p>
+<div class="flex items-center gap-1">
+<span class="text-primary/40">[12:44:09]</span>
+<span class="w-1.5 h-3 bg-primary animate-pulse"></span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Holographic Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-[60] pb-6 px-6">
+<div class="max-w-md mx-auto glass-panel rounded-full h-16 flex items-center justify-around px-2 shadow-2xl border-glow">
+<a class="w-12 h-12 flex items-center justify-center rounded-full text-primary bg-primary/20" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">security</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center rounded-full text-primary/40 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+</nav>
+<!-- Scanline Effect Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+<!-- Hero Background Image (Fallback/Styling) -->
+<div class="hidden">
+<img data-alt="Abstract cyan particle energy flow and atomic orbits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeL4h1ImMAXuIePiJrh_zfjTFH5G1FPX9PinCeeOk9nweijEoX1iNtcX5I7QoTJYdSFszubWvl0GKVty1wsbnluXMwtf0Q6pbBThjX-PYmBRvzy3uP2OuRwgqGI5tcztG7qLccoXeZ2eojbhaIo2wqOx3lDcFvhjX7JWst2NxDVLu56yn3QCdKThBewKrfb37_XrQqE3jDMpeJFLFRMMLbxw7KzBDtVBwM00tdkZg9Lt-6QkINt2YKffF2z4g0D5Oi6b_If2Fx5Os"/>
+</div>
+</body></html>

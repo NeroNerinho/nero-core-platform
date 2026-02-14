@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Strategy Builder Renascimento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen antialiased flex justify-center">
+<!-- Mobile Container -->
+<div class="w-full max-w-md bg-white dark:bg-[#151c2b] min-h-screen shadow-2xl relative flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-white/90 dark:bg-[#151c2b]/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 px-6 py-4 flex items-center justify-between">
+<button class="p-2 -ml-2 text-gray-500 hover:text-primary transition-colors rounded-full">
+<span class="material-icons text-xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-xl font-medium italic tracking-wide text-gray-900 dark:text-white">Renascimento</h1>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 transition-colors uppercase tracking-wider">
+                Save
+            </button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 space-y-10 pb-24">
+<!-- Title Section -->
+<section>
+<span class="text-xs uppercase tracking-[0.2em] text-primary/80 font-bold mb-2 block">Project 04</span>
+<h2 class="text-4xl font-light italic text-gray-900 dark:text-white leading-tight">Campaign<br/>Strategy</h2>
+</section>
+<!-- Section 1: The Manifesto -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
+<h3 class="text-lg font-medium italic">The Manifesto</h3>
+<span class="text-xs text-gray-400 font-sans">01</span>
+</div>
+<div class="group relative">
+<label class="block text-sm text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide text-[10px] font-bold" for="core-narrative">Core Narrative</label>
+<textarea class="w-full bg-transparent border-0 border-b border-gray-300 dark:border-gray-700 focus:border-primary focus:ring-0 text-xl leading-relaxed resize-none p-0 placeholder-gray-300 dark:placeholder-gray-600 transition-colors duration-300 italic" id="core-narrative" placeholder="Define the soul of the campaign..." rows="4"></textarea>
+</div>
+<div class="group relative pt-2">
+<label class="block text-sm text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide text-[10px] font-bold" for="key-message">Key Message</label>
+<input class="w-full bg-transparent border-0 border-b border-gray-300 dark:border-gray-700 focus:border-primary focus:ring-0 text-lg p-0 placeholder-gray-300 dark:placeholder-gray-600 transition-colors duration-300" id="key-message" placeholder="Single minded proposition..." type="text"/>
+</div>
+</section>
+<!-- Section 2: Visual Language -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">
+<h3 class="text-lg font-medium italic">Visual Language</h3>
+<span class="text-xs text-gray-400 font-sans">02</span>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+                    Curate the mood. Select imagery that speaks to the technical renaissance.
+                </p>
+<!-- Horizontal Scroll Moodboard -->
+<div class="flex space-x-4 overflow-x-auto hide-scrollbar pb-4 -mx-6 px-6 snap-x">
+<!-- Add New Card -->
+<button class="snap-start flex-shrink-0 w-32 h-44 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all group">
+<span class="material-icons text-3xl group-hover:scale-110 transition-transform">add_photo_alternate</span>
+<span class="text-[10px] uppercase mt-2 tracking-widest">Add Asset</span>
+</button>
+<!-- Image 1 -->
+<div class="snap-start flex-shrink-0 w-32 h-44 rounded-lg overflow-hidden relative shadow-md group">
+<img alt="Renaissance architectural detail with columns" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Close up of classic renaissance architecture columns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD_p038ku513hwIlKJCeM8znwbcs8nft8nmE3fka2P6ZfNp92x69o7ITOm0nTVQfHLDgwtfHDBwR74Kzdi0u2gHrbyE--nQE0U5zr9lS1gsXcrHJndmyzTNd637HfmAn-jHm4tTvlmN2RAHcqeZ6cxOhQc-tVBZHS9CAkH3A0zOdtXBHRpunFaj2ri1e0p9VMqlnxSwX49YOuuZr-OeMb9PJ7GyBNXtIipom9H-UySXdZqfoFRNPjYC_FGe2WG6FXC68aYLnoaLLM"/>
+<div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent">
+<span class="text-[10px] text-white font-bold tracking-wider uppercase">Texture</span>
+</div>
+</div>
+<!-- Image 2 -->
+<div class="snap-start flex-shrink-0 w-32 h-44 rounded-lg overflow-hidden relative shadow-md group">
+<img alt="Minimalist beige fabric texture" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Beige fabric texture detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKwJfSr7UL8uoZFRAqhmfYOkATFOLGjxjJP5Cl9SXwPfFpnDqdMepG74qUbpjUZ2VQnm_BYq3P906ccYfq207aEb7I1OHFz_vgP00rIPgj-ifGjO7931bItlUCbjiR-y1PnXGtkAsSa2Eb9zjqzQEztct4xgv8oitbn11k48tOhol5KM6xKbObA4fehfbH0ewttbGjJMu5aYq_xh_D3ENk5l1VnvMLfS38Gm5FKd8Fk-B1tBPuwfxhQYxHi-ONq7JRfhDl0AGueJU"/>
+<div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent">
+<span class="text-[10px] text-white font-bold tracking-wider uppercase">Tone</span>
+</div>
+</div>
+<!-- Image 3 -->
+<div class="snap-start flex-shrink-0 w-32 h-44 rounded-lg overflow-hidden relative shadow-md group">
+<img alt="Abstract light and shadow play on wall" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Light and shadow abstract geometry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDprDSXr3893NSpAoEGWu9rmKgmAT7R-EI9Qe39WqFzHZNtZ22AYVpGstWmW9ZvL_1Xa_Gmkvz4rct25wSu8U_ol4kABfi53_TUSia8HHtWLjY4lyWsN0UPw4n7UvtQKKXbHjbeEdqdfBkhdhApF_r7PRBbcRwGTV-7TKF1fKEcir577m7g0Sr5B2KKlKD02-6PK75Kk1RmrPEjxZWNSfn4dJaLCPR4O4g2gK-pwOKOHqH-jnoNdGPzZECLUxAQBUZKF349YcL2ll0"/>
+<div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent">
+<span class="text-[10px] text-white font-bold tracking-wider uppercase">Light</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: The Roadmap -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">
+<h3 class="text-lg font-medium italic">Strategic Timeline</h3>
+<span class="text-xs text-gray-400 font-sans">03</span>
+</div>
+<div class="relative pl-4 border-l border-gray-200 dark:border-gray-800 space-y-10">
+<!-- Timeline Item 1 -->
+<div class="relative pl-6 group">
+<!-- Dot -->
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-white dark:bg-[#151c2b] border-2 border-primary ring-4 ring-white dark:ring-[#151c2b]"></div>
+<div class="flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-base font-semibold text-gray-900 dark:text-white">Awareness</h4>
+<span class="text-xs font-sans text-primary bg-primary/10 px-2 py-0.5 rounded">Q1 2024</span>
+</div>
+<input class="text-sm text-gray-500 dark:text-gray-400 border-none p-0 bg-transparent focus:ring-0 w-full placeholder-gray-300 italic" placeholder="Phase description..." type="text" value="Market seeding &amp; PR Launch"/>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-6 group">
+<!-- Dot -->
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-white dark:bg-[#151c2b] border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary transition-colors ring-4 ring-white dark:ring-[#151c2b]"></div>
+<div class="flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-base font-semibold text-gray-900 dark:text-white">Engagement</h4>
+<span class="text-xs font-sans text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">May 15</span>
+</div>
+<input class="text-sm text-gray-500 dark:text-gray-400 border-none p-0 bg-transparent focus:ring-0 w-full placeholder-gray-300 italic" placeholder="Activation events..." type="text"/>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-6 group opacity-70">
+<!-- Dot -->
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-white dark:bg-[#151c2b] border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary transition-colors ring-4 ring-white dark:ring-[#151c2b]"></div>
+<div class="flex flex-col">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-base font-semibold text-gray-900 dark:text-white">Conversion</h4>
+<span class="text-xs font-sans text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">Jul 01</span>
+</div>
+<input class="text-sm text-gray-500 dark:text-gray-400 border-none p-0 bg-transparent focus:ring-0 w-full placeholder-gray-300 italic" placeholder="Sales kickoff..." type="text"/>
+</div>
+</div>
+<!-- Add Item Button -->
+<div class="relative pl-6 pt-2">
+<div class="absolute -left-[21px] top-3 h-3 w-3 rounded-full bg-gray-200 dark:bg-gray-800"></div>
+<button class="text-sm text-primary flex items-center gap-2 hover:text-primary/80 transition-colors">
+<span class="material-icons text-base">add</span>
+<span class="italic">Add Phase</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="absolute bottom-6 right-6 z-30">
+<button class="h-14 w-14 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center hover:bg-primary/90 transition-all active:scale-95">
+<span class="material-icons">edit</span>
+</button>
+</div>
+<!-- Tab Bar (Optional context filler for app feel) -->
+<nav class="bg-white dark:bg-[#151c2b] border-t border-gray-100 dark:border-gray-800 px-6 py-3 flex justify-between items-center text-xs font-sans z-20">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">architecture</span>
+<span>Strategy</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons">view_quilt</span>
+<span>Assets</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+<span class="material-icons">groups</span>
+<span>Team</span>
+</button>
+</nav>
+</div>
+</body></html>

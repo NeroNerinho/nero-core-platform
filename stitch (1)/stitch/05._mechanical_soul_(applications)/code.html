@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #9c2816 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1b100e] transition-colors duration-300">
+<!-- Main Container -->
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation / Header -->
+<div class="flex items-center bg-background-light/80 backdrop-blur-md sticky top-0 z-50 p-4 border-b border-primary/10 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back</span>
+</div>
+<h2 class="text-primary text-lg font-bold leading-tight tracking-tight flex-1 text-center italic uppercase">Mechanical Soul</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<!-- Hero Section -->
+<header class="px-6 pt-12 pb-8 text-center bg-gradient-to-b from-white to-background-light">
+<div class="mb-4 inline-block px-3 py-1 border border-primary/20 rounded-full text-[10px] uppercase tracking-[0.2em] text-primary font-bold">
+                Chapter V: Application
+            </div>
+<h1 class="text-primary tracking-tight text-5xl md:text-6xl font-bold leading-none mb-6">Renaissance<br/><span class="italic font-normal">Kinetic</span></h1>
+<p class="max-w-xl mx-auto text-lg text-[#4a3a38] leading-relaxed">
+                Visualizing the <span class="font-bold">N27 Identity</span> across centuries. From the tactile permanence of stone to the ethereal precision of the digital grid.
+            </p>
+</header>
+<!-- The Showcase: Three Pillars -->
+<main class="flex-1 px-4 py-8 space-y-16">
+<!-- 1. The Wax Seal -->
+<section class="group">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg shadow-2xl border border-primary/10">
+<img alt="N27 Logo on Red Wax Seal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Macro shot of a deep red wax seal with N27 logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBp4nqYB9AMMjRt7uPWtPng4aTpWgIjeibWhf9KHIynxs2E-XzAMACmySFDuN7dwnauYyg1AE61vGWCJYuUw-PhP7j2sROtUidkjUQ-CRJWcAIYsGf9Tp5JARZbU2l3pT5WpV9bjfcROX31grcQ0IjPgGTpyMid6OAZrQa_qs6-DZOfgobmvQa_8vIMSObJntjEFSA9AJW98Ct4xOOHjcBidzCh2vJ5-Ml2U0BR_mJtXvOv2vGDZvD4Ex8ett6HTzLawPKVZ3Xq0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+<span class="text-white/70 text-xs uppercase tracking-widest mb-2 italic">Physicality</span>
+<h3 class="text-white text-3xl font-bold">The Wax Seal</h3>
+</div>
+</div>
+<div class="mt-6 px-2">
+<p class="text-sm leading-relaxed text-[#4a3a38] italic">
+                        The primary N27 mark rendered in high-viscosity pigment. A symbol of authority and authenticity, harkening back to the Florentine guilds of the 15th century.
+                    </p>
+<div class="mt-4 flex gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-primary font-bold">Material</span>
+<span class="text-sm font-medium">Vermillion Beeswax</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-primary font-bold">Technique</span>
+<span class="text-sm font-medium">Heat-Press Intaglio</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. The Stone Engraving -->
+<section class="group">
+<div class="relative aspect-[16/9] overflow-hidden rounded-lg shadow-xl border border-primary/5">
+<img alt="Logo engraved in aged stone" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Weathered stone surface with chiseled logo engraving" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYntKvFvmIbJpnAGz4mwhYmPMMMTS0MLnwd04PuAzOZxH2yjxosYhbyZ049wj0RbLkUumnH0runY2ZBtbJJr1ss0AVYZQoBE9c5l_RkJaqIqRC9GuR7lLjagvqsEOM9e287UpeWwJoXRCNpgiUaSp4vnKidPQqqNMnuq7CDcCtKqoX4LTNnUQabfI0cymib0wYzsY_pHuBL0AV4HV4knbsiRvYuj0QmsgcTX7ycESPAqgoKU5dMBJOw_WHb-GA8Tn_H5mh4cDG-CU"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+<div class="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+<h3 class="text-white text-3xl font-bold drop-shadow-md">Stone Carving</h3>
+<span class="material-symbols-outlined text-white text-3xl">architecture</span>
+</div>
+</div>
+<div class="mt-6 px-2 flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<p class="text-sm leading-relaxed text-[#4a3a38]">
+                            Endurance through entropy. The geometric purity of the N27 mark allows for deep chiseling without losing legibility, even as the medium weathers over decades.
+                        </p>
+</div>
+<div class="w-full md:w-48 p-4 bg-primary/5 rounded border-l-2 border-primary italic text-xs leading-snug">
+                        "Engineering is the bridge between the transient thought and the eternal structure."
+                    </div>
+</div>
+</section>
+<!-- 3. The Digital Blueprint -->
+<section class="group bg-background-dark p-8 rounded-xl shadow-inner relative overflow-hidden">
+<div class="blueprint-grid absolute inset-0 opacity-10"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-12">
+<div>
+<span class="text-primary text-[10px] font-bold uppercase tracking-widest">Protocol 27-B</span>
+<h3 class="text-white text-4xl font-bold mt-2 font-display italic">Digital Soul</h3>
+</div>
+<div class="p-2 border border-primary/30 rounded">
+<span class="material-symbols-outlined text-primary text-4xl">precision_manufacturing</span>
+</div>
+</div>
+<div class="relative aspect-square md:aspect-video w-full border border-primary/20 flex items-center justify-center overflow-hidden">
+<!-- Abstract Blueprint SVG Pattern Representation -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-64 h-64 border-2 border-primary/40 rounded-full animate-pulse flex items-center justify-center">
+<div class="w-48 h-48 border border-primary/60 rotate-45 flex items-center justify-center">
+<span class="text-white text-6xl font-bold">N27</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 font-mono text-[8px] text-primary uppercase">
+                            Coord: 43.7696° N, 11.2558° E<br/>
+                            Vector Rendering: 1:1 Scale
+                        </div>
+</div>
+<div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="border-t border-primary/20 pt-2">
+<p class="text-[10px] text-primary font-bold uppercase">Grid Unit</p>
+<p class="text-white text-sm">0.25mm</p>
+</div>
+<div class="border-t border-primary/20 pt-2">
+<p class="text-[10px] text-primary font-bold uppercase">Tolerance</p>
+<p class="text-white text-sm">± 0.001</p>
+</div>
+<div class="border-t border-primary/20 pt-2">
+<p class="text-[10px] text-primary font-bold uppercase">Color Space</p>
+<p class="text-white text-sm">HEX #9C2816</p>
+</div>
+<div class="border-t border-primary/20 pt-2">
+<p class="text-[10px] text-primary font-bold uppercase">Platform</p>
+<p class="text-white text-sm">Neural Engine</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<footer class="mt-auto border-t border-primary/10 bg-background-light">
+<div class="flex gap-2 px-4 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/60 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Manifesto</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/60 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">fingerprint</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Identity</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary scale-110" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">architecture</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Application</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary/60 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Standards</p>
+</a>
+</div>
+<!-- Bottom Indicator -->
+<div class="h-1 w-24 bg-primary/20 mx-auto rounded-full mb-2"></div>
+</footer>
+</div>
+</body></html>

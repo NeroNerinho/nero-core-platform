@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Renaissance Kinetic V3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9c2816",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311",
+                        "sepia-paper": "#e8dec9",
+                        "ink-charcoal": "#2d2a26",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Newsreader", serif
+    }
+.parchment-texture {
+    background-color: #f4ecd8;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCNe6s8ITSYJ2VB9pTrORAbw2UiIDUld67vq6MbCY_TO2uFCp7ZCgJ15y6akPavtoSYd3WwF0H6k_o1rjXz4L2DMx0STf1H6EkMwEbYTUc-88zbdt4dRa4JbEMRf0xfEKBOKTWVmisIMBsm55UxweJorC_mu_eYFlBn95WPgALG9ZfUBnyyD6S6eBeVO3Chp5jB41CWmc7xsB_tEVeyEp0HwmAow3S6xAj25jwki3eYnAedzEDOsm-WVl8yFTSGBCmpYxE1pBSxIDU)
+    }
+.golden-ratio-line {
+    stroke: rgba(156, 40, 22, 0.3);
+    stroke-width: 0.5;
+    fill: none
+    }
+.sketch-line {
+    stroke: #2d2a26;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    fill: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-ink-charcoal transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 p-4 border-b border-primary/10 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-ink-charcoal dark:text-background-light text-sm font-medium tracking-[0.3em] uppercase opacity-60 leading-none mb-1">Renaissance Kinetic</h2>
+<h1 class="text-ink-charcoal dark:text-background-light text-xl font-bold leading-tight tracking-tight">NERO 27 — V3</h1>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded h-10 w-10 bg-primary/5 hover:bg-primary/10 text-primary transition-colors">
+<span class="material-symbols-outlined">menu_book</span>
+</button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col">
+<!-- Canvas Area -->
+<div class="relative w-full aspect-square md:aspect-video flex items-center justify-center p-4 @container">
+<div class="relative w-full h-full parchment-texture rounded-lg shadow-inner overflow-hidden flex items-center justify-center border border-primary/10">
+<!-- Golden Ratio Background Overlay -->
+<svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewbox="0 0 100 100">
+<path class="golden-ratio-line" d="M0,0 Q100,0 100,100 Q100,0 0,0"></path>
+<circle class="golden-ratio-line" cx="50" cy="50" r="40"></circle>
+<line class="golden-ratio-line" x1="0" x2="100" y1="0" y2="100"></line>
+<line class="golden-ratio-line" x1="100" x2="0" y1="0" y2="100"></line>
+</svg>
+<!-- Main Kinetic Logo Representation -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Outer Gear Sketch -->
+<svg class="absolute inset-0 w-full h-full animate-[spin_20s_linear_infinite]" viewbox="0 0 100 100">
+<path class="sketch-line" d="M50,10 L55,5 L65,5 L60,15 L75,20 L85,15 L90,25 L80,35 L95,50 L95,60 L85,55 L75,80 L85,90 L75,95 L65,85 L50,90 L35,95 L25,85 L25,75 L15,85 L5,75 L15,65 L5,50 L15,35 L5,25 L15,15 L25,25 L35,15 Z"></path>
+<circle class="sketch-line" cx="50" cy="50" r="30" stroke-dasharray="2 4"></circle>
+</svg>
+<!-- Inner Logo NERO -->
+<div class="text-5xl font-bold tracking-tighter text-ink-charcoal flex flex-col items-center select-none">
+<span class="italic font-light text-2xl mb-[-10px] opacity-70">Nero</span>
+<span class="text-6xl font-black">27</span>
+<div class="w-12 h-0.5 bg-primary mt-1"></div>
+</div>
+</div>
+<!-- Floating Latin Annotations -->
+<div class="absolute -top-4 -right-8 italic text-xs text-primary/70 max-w-[80px] leading-tight">
+                            "Motus perpetuus in aequale"
+                        </div>
+<div class="absolute -bottom-8 -left-4 italic text-xs text-primary/70 max-w-[100px] leading-tight text-right">
+                            "Proportio divina et machina"
+                        </div>
+</div>
+<!-- Texture Overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-30 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')]"></div>
+</div>
+<!-- Interaction Overlay Controls -->
+<div class="absolute bottom-8 right-8 flex flex-col gap-2">
+<button class="bg-primary text-white p-3 rounded-full shadow-lg hover:scale-105 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">filter_center_focus</span>
+</button>
+</div>
+</div>
+<!-- Content Details -->
+<section class="px-6 py-8 space-y-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-2xl mx-auto text-center">
+<h3 class="text-primary font-bold text-2xl mb-3">Ancient Engineering Meets Modern Brand</h3>
+<p class="text-ink-charcoal/80 dark:text-background-light/80 text-lg leading-relaxed font-light">
+                        A harmonious blend of 15th-century draftsmanship and modern brand kineticism. The Nero 27 V3 explores the geometry of movement through charcoal lines and sepia tones.
+                    </p>
+</div>
+<!-- Schematic Controls -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+<div class="bg-primary/5 dark:bg-primary/10 p-6 rounded-xl border border-primary/20">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">settings_motion_mode</span>
+<h4 class="font-bold text-ink-charcoal dark:text-background-light uppercase tracking-wider text-sm">Kinetic Velocity</h4>
+</div>
+<input class="w-full accent-primary bg-primary/20 h-1.5 rounded-full appearance-none cursor-pointer" type="range"/>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-primary uppercase opacity-60">
+<span>Lentus</span>
+<span>Velox</span>
+</div>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-6 rounded-xl border border-primary/20">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">layers</span>
+<h4 class="font-bold text-ink-charcoal dark:text-background-light uppercase tracking-wider text-sm">Drafting Layers</h4>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 px-3 bg-primary text-white text-xs rounded font-bold uppercase tracking-tighter">Golden Ratio</button>
+<button class="flex-1 py-2 px-3 bg-primary/10 text-primary text-xs rounded font-bold uppercase tracking-tighter hover:bg-primary/20">Charcoal</button>
+</div>
+</div>
+</div>
+<!-- Project Manifesto / Details Card -->
+<div class="max-w-4xl mx-auto parchment-texture p-8 rounded shadow-md border border-sepia-paper relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 opacity-10 rotate-12">
+<span class="material-symbols-outlined text-9xl text-primary">history_edu</span>
+</div>
+<h4 class="text-primary italic text-xl mb-4 font-bold">The Manifesto</h4>
+<div class="space-y-4 text-ink-charcoal/90 leading-relaxed italic">
+<p>In the pursuit of timelessness, we looked to the sketches of the masters. Nero 27 is not just a mark, but a machine of visual logic. Every stroke follows the divine proportion, every curve a result of calculated tension.</p>
+<p>We invite the observer to look beyond the ink, into the mechanical soul of the brand—where the gear of history turns the wheel of the future.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-primary/20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-serif italic text-xl">N</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-ink-charcoal tracking-widest">Authenticated</p>
+<p class="text-xs italic text-primary">Master Architect, Nero Studio</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary/40">fingerprint</span>
+<span class="material-symbols-outlined text-primary/40">verified</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="sticky bottom-0 z-50 flex gap-2 border-t border-primary/10 bg-background-light dark:bg-background-dark px-4 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined fill-[1]">explore</span>
+</div>
+<p class="text-xs font-bold leading-normal tracking-widest uppercase">Studio</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-ink-charcoal/40 dark:text-background-light/40" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">edit_square</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-widest uppercase">Drafts</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center -mt-6" href="#">
+<div class="size-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-ink-charcoal/40 dark:text-background-light/40" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">book_4</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-widest uppercase">Archive</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-ink-charcoal/40 dark:text-background-light/40" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-widest uppercase">Engine</p>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nero 27 - Brand OS</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "void": "#030304",
+                        "surface": "#0F1115",
+                        "border-dim": "#2A2F3A",
+                        "neon-cyan": "#00F0FF",
+                        "plasma-purple": "#7000FF",
+                        "text-main": "#F0F2F5",
+                        "text-muted": "#8890A0",
+                        "error": "#FF003C",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    backgroundImage: {
+                        'scanlines': 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))',
+                        'grid-pattern': 'linear-gradient(to right, #2A2F3A 1px, transparent 1px), linear-gradient(to bottom, #2A2F3A 1px, transparent 1px)'
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'spin-reverse': 'spin 12s linear infinite reverse',
+                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '0.8', filter: 'drop-shadow(0 0 15px rgba(0, 240, 255, 0.4))' },
+                            '50%': { opacity: '1', filter: 'drop-shadow(0 0 25px rgba(0, 240, 255, 0.7))' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #030304;
+            color: #F0F2F5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Scanline effect */
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* Ambient Particle effects - CSS only representation */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.3);
+            pointer-events: none;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .border-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            border-color: #00F0FF;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-screen w-full overflow-hidden relative font-body selection:bg-neon-cyan selection:text-void">
+<!-- Ambient Background Layer -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<!-- Grid Floor (Perspective) -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(to right, #2A2F3A 1px, transparent 1px), linear-gradient(to bottom, #2A2F3A 1px, transparent 1px); background-size: 40px 40px;">
+</div>
+<!-- Deep Glow gradients -->
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-neon-cyan/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-plasma-purple/5 rounded-full blur-[120px]"></div>
+<!-- Floating Particles -->
+<div class="particle w-1 h-1 top-[20%] left-[10%] animate-float" style="animation-delay: 0s;"></div>
+<div class="particle w-1.5 h-1.5 top-[70%] left-[80%] animate-float" style="animation-delay: 2s;"></div>
+<div class="particle w-1 h-1 top-[40%] right-[20%] animate-float" style="animation-delay: 4s;"></div>
+</div>
+<!-- Scanline Overlay -->
+<div class="scanlines absolute inset-0 z-50 pointer-events-none"></div>
+<!-- Main Content Container -->
+<div class="relative z-10 flex flex-col h-full max-w-md mx-auto px-6 py-8">
+<!-- Header / Top Status -->
+<div class="flex justify-between items-center opacity-60 mb-8">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-neon-cyan rounded-full animate-pulse"></div>
+<span class="font-mono text-[10px] tracking-widest text-neon-cyan uppercase">System Online</span>
+</div>
+<span class="font-mono text-[10px] text-text-muted">SECURE_CONNECTION_V4</span>
+</div>
+<!-- Hero Section -->
+<div class="flex-1 flex flex-col items-center justify-center -mt-10">
+<!-- Animated Logo Entity -->
+<div class="relative w-[180px] h-[180px] mb-12 flex items-center justify-center">
+<!-- Outer Ring -->
+<div class="absolute inset-0 border border-neon-cyan/20 rounded-full animate-spin-slow"></div>
+<!-- Inner Ring -->
+<div class="absolute inset-4 border border-plasma-purple/30 rounded-full animate-spin-reverse"></div>
+<!-- Electron Paths (SVG) -->
+<svg class="absolute inset-0 w-full h-full text-neon-cyan animate-pulse-glow" fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<!-- Orbit 1 -->
+<ellipse cx="100" cy="100" rx="90" ry="30" stroke="currentColor" stroke-opacity="0.6" stroke-width="1" transform="rotate(45 100 100)"></ellipse>
+<circle class="animate-ping" cx="163.6" cy="163.6" fill="currentColor" r="3"></circle>
+<!-- Orbit 2 -->
+<ellipse cx="100" cy="100" rx="90" ry="30" stroke="currentColor" stroke-opacity="0.6" stroke-width="1" transform="rotate(-45 100 100)"></ellipse>
+<!-- Orbit 3 -->
+<ellipse cx="100" cy="100" rx="90" ry="10" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" transform="rotate(90 100 100)"></ellipse>
+</svg>
+<!-- Core Geometry (Vitruvian Abstract) -->
+<div class="relative z-10 text-white">
+<svg fill="none" height="64" viewbox="0 0 64 64" width="64" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 4L32 60" stroke="currentColor" stroke-width="2"></path>
+<path d="M4 32L60 32" stroke="currentColor" stroke-width="2"></path>
+<rect height="32" stroke="currentColor" stroke-width="1.5" width="32" x="16" y="16"></rect>
+<circle cx="32" cy="32" fill="#00F0FF" fill-opacity="0.1" r="12" stroke="#00F0FF"></circle>
+</svg>
+</div>
+</div>
+<!-- Brand Typography -->
+<div class="text-center space-y-2 mb-16 relative">
+<h1 class="font-display text-4xl font-bold tracking-[0.2em] text-white glow-text relative z-10">NERO 27</h1>
+<div class="flex items-center justify-center gap-3">
+<div class="h-[1px] w-8 bg-gradient-to-r from-transparent to-text-muted"></div>
+<p class="font-mono text-xs text-text-muted tracking-widest">BRAND OS v1.0</p>
+<div class="h-[1px] w-8 bg-gradient-to-l from-transparent to-text-muted"></div>
+</div>
+<!-- Decorative background elements behind text -->
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 bg-neon-cyan/5 blur-3xl -z-10"></div>
+</div>
+<!-- Navigation Matrix -->
+<div class="w-full grid grid-cols-2 gap-4 max-w-xs">
+<!-- Card 1: Palette -->
+<button class="group relative flex flex-col items-center justify-center aspect-square bg-surface border border-border-dim rounded hover:border-neon-cyan/50 hover:bg-surface/80 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl mb-3 text-text-muted group-hover:text-neon-cyan transition-colors">palette</span>
+<span class="font-display text-sm font-medium tracking-wide text-text-main">PALETTE</span>
+<!-- Corner accent -->
+<div class="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<svg height="6" viewbox="0 0 6 6" width="6"><path d="M0 0H6V6" fill="none" stroke="#00F0FF"></path></svg>
+</div>
+</button>
+<!-- Card 2: Typography -->
+<button class="group relative flex flex-col items-center justify-center aspect-square bg-surface border border-border-dim rounded hover:border-neon-cyan/50 hover:bg-surface/80 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl mb-3 text-text-muted group-hover:text-neon-cyan transition-colors">text_fields</span>
+<span class="font-display text-sm font-medium tracking-wide text-text-main">TYPE</span>
+<!-- Corner accent -->
+<div class="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<svg height="6" viewbox="0 0 6 6" width="6"><path d="M0 0H6V6" fill="none" stroke="#00F0FF"></path></svg>
+</div>
+</button>
+<!-- Card 3: Logos -->
+<button class="group relative flex flex-col items-center justify-center aspect-square bg-surface border border-border-dim rounded hover:border-neon-cyan/50 hover:bg-surface/80 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl mb-3 text-text-muted group-hover:text-neon-cyan transition-colors">category</span>
+<span class="font-display text-sm font-medium tracking-wide text-text-main">ASSETS</span>
+<!-- Corner accent -->
+<div class="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<svg height="6" viewbox="0 0 6 6" width="6"><path d="M0 0H6V6" fill="none" stroke="#00F0FF"></path></svg>
+</div>
+</button>
+<!-- Card 4: Grid -->
+<button class="group relative flex flex-col items-center justify-center aspect-square bg-surface border border-border-dim rounded hover:border-neon-cyan/50 hover:bg-surface/80 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl mb-3 text-text-muted group-hover:text-neon-cyan transition-colors">grid_4x4</span>
+<span class="font-display text-sm font-medium tracking-wide text-text-main">GRID</span>
+<!-- Corner accent -->
+<div class="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<svg height="6" viewbox="0 0 6 6" width="6"><path d="M0 0H6V6" fill="none" stroke="#00F0FF"></path></svg>
+</div>
+</button>
+</div>
+</div>
+<!-- Footer Terminal Line -->
+<div class="mt-8 border-t border-border-dim pt-4 flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<span class="font-mono text-[10px] text-text-muted uppercase">Latency: 12ms</span>
+<span class="font-mono text-[10px] text-text-muted uppercase">Region: US-East</span>
+</div>
+<div class="text-right">
+<span class="font-mono text-[10px] text-neon-cyan animate-pulse">_Waiting for input</span>
+</div>
+</div>
+</div>
+</body></html>

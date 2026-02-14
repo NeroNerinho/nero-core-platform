@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LP Retro V1 Mobile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b11ff9",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#1c0f23",
+                        "retro-green": "#39ff14",
+                        "retro-pink": "#ff00ff",
+                        "retro-cyan": "#00ffff",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "pixel": ["'Courier New'", "monospace"] // Fallback for a pixel-y look
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #b11ff9 1px, transparent 1px), linear-gradient(to bottom, #b11ff9 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scanline Effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        /* CRT Screen Glow */
+        .crt-glow {
+            box-shadow: 0 0 100px rgba(177, 31, 249, 0.15) inset;
+            animation: flicker 4s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.95; }
+            20% { opacity: 0.99; }
+            50% { opacity: 0.95; }
+            80% { opacity: 0.98; }
+            100% { opacity: 0.97; }
+        }
+
+        /* Neon Text Glow */
+        .text-glow {
+            text-shadow: 0 0 5px #b11ff9, 0 0 10px #b11ff9, 0 0 20px #b11ff9;
+        }
+        
+        .text-glow-cyan {
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+
+        /* Grid Background Animation */
+        .retro-grid {
+            background-size: 40px 40px;
+            transform: perspective(300px) rotateX(20deg) scale(1.5);
+            opacity: 0.1;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-slate-800 dark:text-slate-100 overflow-x-hidden relative">
+<!-- Scanline Overlay -->
+<div class="scanlines"></div>
+<!-- Main Container - Mobile Vertical Layout -->
+<main class="relative z-10 max-w-md mx-auto min-h-screen flex flex-col crt-glow">
+<!-- Header / Marquee -->
+<header class="p-6 text-center border-b-4 border-primary/30 bg-background-dark/80 backdrop-blur-sm sticky top-0 z-40">
+<div class="flex justify-between items-center">
+<div class="flex flex-col items-start">
+<span class="text-xs tracking-[0.2em] text-retro-cyan uppercase mb-1">System Ready</span>
+<h1 class="text-2xl font-bold tracking-tighter uppercase italic text-white text-glow">
+                        RETRO<span class="text-primary">VERSE</span>
+</h1>
+</div>
+<div class="w-10 h-10 border-2 border-primary rounded flex items-center justify-center animate-pulse">
+<span class="material-icons text-primary">videogame_asset</span>
+</div>
+</div>
+</header>
+<!-- Hero Section ("The Screen") -->
+<section class="flex-grow flex flex-col justify-center items-center p-6 relative">
+<!-- Background Decorative Grid -->
+<div class="retro-grid bg-grid-pattern absolute inset-0 pointer-events-none"></div>
+<!-- Content Card -->
+<div class="w-full relative z-10 border-2 border-primary/50 bg-background-dark/90 p-1 rounded-lg shadow-[0_0_30px_rgba(177,31,249,0.3)]">
+<!-- Inner Border -->
+<div class="border border-primary/30 p-6 rounded relative overflow-hidden">
+<!-- Decorative corner accents -->
+<div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-retro-cyan"></div>
+<div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-retro-cyan"></div>
+<div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-retro-cyan"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-retro-cyan"></div>
+<div class="text-center space-y-6">
+<div class="inline-block px-3 py-1 bg-primary/20 border border-primary text-primary text-xs tracking-widest uppercase rounded-full mb-2">
+                            v.1.0.4 Loaded
+                        </div>
+<!-- Visual Hero Element -->
+<div class="relative w-full aspect-square rounded overflow-hidden border border-primary/40 group">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent z-10"></div>
+<img alt="Neon retro futuristic city grid synthwave style" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Neon retro futuristic city grid synthwave style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4Dk3qWTI4qu54VSQHZOIoGZWZKj-g9pdxaIWeEANKlV_zP3J71c1gGKWL1AmVGNYmMgarfkwZcd2b8cHKjy55Z3_pFbQZJvdweUYOw5_6Mq6dA36QV6PeuK9k26z47V59sCVidVRU86dFxY03yslFZay-tHHST6MoxkwERuh1FKOfJhz5d4uoWAX776yUnTwSOdAHjEdt5GKKpLFtMwGmDor4viEkn3CZ9Uac9yMZYZyK4vyRXotmXlZaGqaorO6vksUImxcGU-c"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<h2 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-primary/50 drop-shadow-lg tracking-wider text-center leading-none">
+                                    INSERT<br/>COIN
+                                </h2>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-retro-cyan text-sm font-mono tracking-widest uppercase blink-animation">
+                                &gt;&gt; Press Start To Begin &lt;&lt;
+                            </p>
+<p class="text-gray-400 text-sm leading-relaxed max-w-[280px] mx-auto">
+                                Enter the grid. Reclaim the future of yesterday. High scores await.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 py-8 relative z-20">
+<button class="w-full group relative bg-primary hover:bg-primary/90 text-white font-bold py-5 px-6 rounded shadow-[0_0_20px_rgba(177,31,249,0.5)] transition-all duration-200 transform active:scale-95 active:shadow-none overflow-hidden">
+<!-- Glitch effect layers -->
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12"></div>
+<span class="relative z-10 flex items-center justify-center gap-3 text-xl tracking-widest uppercase">
+<span class="material-icons animate-pulse">play_arrow</span>
+                    START GAME
+                    <span class="material-icons animate-pulse">play_arrow</span>
+</span>
+</button>
+<p class="text-center text-xs text-primary/60 mt-3 font-mono">1 CREDIT(S) REMAINING</p>
+</section>
+<!-- Stats / High Scores List -->
+<section class="px-6 pb-12">
+<div class="bg-background-dark border-2 border-dashed border-gray-700 p-4 rounded-lg">
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-icons text-sm">leaderboard</span>
+                    Top Features
+                </h3>
+<ul class="space-y-3 font-mono text-sm">
+<li class="flex justify-between items-center p-2 bg-primary/10 rounded hover:bg-primary/20 transition-colors border-l-2 border-primary">
+<span class="text-white">LVL 1: NOSTALGIA</span>
+<span class="text-retro-green">100%</span>
+</li>
+<li class="flex justify-between items-center p-2 bg-white/5 rounded hover:bg-white/10 transition-colors border-l-2 border-gray-600">
+<span class="text-gray-300">LVL 2: NEON VIBES</span>
+<span class="text-retro-cyan">READY</span>
+</li>
+<li class="flex justify-between items-center p-2 bg-white/5 rounded hover:bg-white/10 transition-colors border-l-2 border-gray-600">
+<span class="text-gray-300">LVL 3: SYNTHWAVE</span>
+<span class="text-retro-pink">LOCKED</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-auto py-6 border-t border-gray-800 bg-black/40 text-center">
+<div class="flex justify-center items-center gap-4 mb-4">
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="text-xs font-bold">IG</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="text-xs font-bold">TW</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="text-xs font-bold">YT</span>
+</a>
+</div>
+<p class="text-[10px] text-gray-600 uppercase tracking-widest">
+                © 198X SYSTEM CORP.<br/>ALL RIGHTS RESERVED.
+            </p>
+</footer>
+</main>
+<script>
+        // Simple blink animation for the "Press Start" text
+        setInterval(() => {
+            const el = document.querySelector('.blink-animation');
+            if(el) {
+                el.style.opacity = (el.style.opacity === '0' ? '1' : '0');
+            }
+        }, 800);
+    </script>
+</body></html>

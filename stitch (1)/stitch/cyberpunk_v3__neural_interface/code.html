@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NERO 27 // NEURAL SYNC V3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06e8f9",
+                        "accent-yellow": "#f9e806",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#050505",
+                        "terminal-bg": "#0a1213",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(6, 232, 249, 0.1);
+            position: absolute;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .crt-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        .glitch-text {
+            text-shadow: 2px 0 #f9e806, -2px 0 #06e8f9;
+        }
+        .border-glow {
+            box-shadow: 0 0 15px rgba(6, 232, 249, 0.3);
+        }
+        .vitruvian-container svg {
+            filter: drop-shadow(0 0 8px #06e8f9);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary selection:text-black overflow-hidden h-screen flex flex-col">
+<!-- CRT & Scanline Effects -->
+<div class="fixed inset-0 crt-overlay z-[100] opacity-30"></div>
+<div class="fixed inset-0 pointer-events-none z-[101] bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]"></div>
+<!-- Header Navigation -->
+<header class="relative z-10 border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary animate-pulse">
+<span class="material-symbols-outlined text-4xl">
+                    memory
+                </span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter glitch-text uppercase italic">
+                    Cyberpunk Neural Sync <span class="text-accent-yellow">V3.0.27</span>
+</h1>
+<p class="text-[10px] text-primary/60 font-mono tracking-widest uppercase">
+                    Protocol: Vitruvian_Scan // User: Nero_27
+                </p>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8 text-[11px] font-bold tracking-[0.2em] text-primary/40">
+<div class="flex flex-col items-end">
+<span>SIGNAL STRENGTH</span>
+<div class="flex gap-1 mt-1">
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary/20"></div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span>SYSTEM UPTIME</span>
+<span class="text-primary">104:22:18:04</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 relative flex overflow-hidden">
+<!-- Left Data Stream Column -->
+<aside class="w-16 border-r border-primary/10 bg-background-dark/40 flex flex-col items-center py-4 gap-6 text-primary/30 overflow-hidden">
+<div class="flex flex-col gap-1 font-mono text-[8px] uppercase vertical-text transform rotate-180" style="writing-mode: vertical-rl;">
+<span>Data_Inbound_Stream_0x27</span>
+<span class="text-accent-yellow">Warning: Packet Loss Detected</span>
+<span>Buffer_Status: 92%</span>
+<span>Neural_Handshake_Pending</span>
+</div>
+<div class="flex-1 border-l border-primary/10 w-px my-4"></div>
+<span class="material-symbols-outlined text-xl">qr_code_2</span>
+<span class="material-symbols-outlined text-xl">security</span>
+</aside>
+<!-- Center Stage: The Vitruvian Scan -->
+<section class="flex-1 relative flex flex-col items-center justify-center p-8">
+<!-- Technical Callouts (Floating) -->
+<div class="absolute top-10 left-10 p-4 border-l-2 border-t-2 border-primary/30 bg-primary/5 backdrop-blur-sm">
+<p class="text-[10px] text-primary/60 mb-1">BIOMETRIC_READOUT</p>
+<h3 class="text-lg font-bold text-primary italic">STABLE_LINK</h3>
+<div class="mt-2 h-1 w-24 bg-primary/20 overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<div class="absolute bottom-20 right-10 p-4 border-r-2 border-b-2 border-accent-yellow/30 bg-accent-yellow/5 backdrop-blur-sm text-right">
+<p class="text-[10px] text-accent-yellow/60 mb-1">ANOMALY_DETECTION</p>
+<h3 class="text-lg font-bold text-accent-yellow italic">0.02ms_LATENCY</h3>
+<p class="text-[9px] text-accent-yellow/40 mt-1 uppercase font-mono">Sync_Buffer: Optimized</p>
+</div>
+<!-- Central Logo System -->
+<div class="relative group cursor-crosshair">
+<!-- Circular HUD Rings -->
+<div class="absolute inset-[-40px] border border-primary/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute inset-[-60px] border-t-2 border-b-2 border-accent-yellow/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="absolute inset-[-20px] border border-primary/40 rounded-full"></div>
+<!-- Vitruvian Silhouette SVG -->
+<div class="vitruvian-container relative z-10 w-80 h-80 flex items-center justify-center">
+<svg class="w-full h-full text-primary fill-none stroke-current stroke-1" viewbox="0 0 200 200">
+<!-- Vitruvian Frame -->
+<circle class="opacity-20" cx="100" cy="100" r="95"></circle>
+<rect class="opacity-10" height="140" width="140" x="30" y="30"></rect>
+<!-- Silhouette (Stylized Vector) -->
+<g class="animate-pulse">
+<!-- Head & Torso -->
+<circle class="opacity-80" cx="100" cy="35" fill="currentColor" r="8"></circle>
+<path d="M100,45 L100,120 M85,100 L115,100" stroke-width="2"></path>
+<!-- Arms (Multi-position for vitruvian effect) -->
+<path class="opacity-40" d="M100,55 L40,40 M100,55 L160,40"></path>
+<path d="M100,55 L35,80 M100,55 L165,80"></path>
+<!-- Legs -->
+<path d="M100,120 L75,185 M100,120 L125,185"></path>
+<path class="opacity-40" d="M100,120 L55,175 M100,120 L145,175"></path>
+</g>
+<!-- Scan Line -->
+<line class="stroke-accent-yellow stroke-2 opacity-50" x1="5" x2="195" y1="50" y2="50">
+<animate attributename="y1" dur="4s" repeatcount="indefinite" values="5;195;5"></animate>
+<animate attributename="y2" dur="4s" repeatcount="indefinite" values="5;195;5"></animate>
+</line>
+</svg>
+<!-- Centered Branding -->
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<div class="bg-background-dark/90 px-4 py-2 border border-primary border-glow">
+<span class="text-4xl font-black tracking-tighter text-white glitch-text">NERO 27</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Console Snippet -->
+<div class="mt-12 w-full max-w-2xl bg-terminal-bg/80 border border-primary/20 p-4 font-mono text-[10px] text-primary/80 overflow-hidden relative">
+<div class="flex justify-between border-b border-primary/20 pb-2 mb-2">
+<span class="text-accent-yellow font-bold uppercase tracking-widest">Live_Neural_Log</span>
+<span class="opacity-40">Session: 0x9f22</span>
+</div>
+<div class="space-y-1">
+<p><span class="text-primary/40">[0.0012]</span> Initiating handshake protocol... <span class="text-accent-yellow">SUCCESS</span></p>
+<p><span class="text-primary/40">[0.0145]</span> Calibrating ocular feedback... <span class="text-primary">OK</span></p>
+<p><span class="text-primary/40">[0.0289]</span> Neural bridge established at 98.4% capacity.</p>
+<p><span class="text-primary/40">[0.0412]</span> Warning: Minor interference detected in Sector 7.</p>
+<p class="animate-pulse">_ Awaiting user input...</p>
+</div>
+<div class="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-primary/10 to-transparent"></div>
+</div>
+</section>
+<!-- Right Side Brand Specs -->
+<aside class="w-64 border-l border-primary/10 bg-background-dark/60 p-6 flex flex-col gap-8">
+<div>
+<h4 class="text-[10px] font-bold text-primary/40 tracking-[0.3em] mb-4 uppercase italic">Palette_Matrix</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group">
+<div class="w-8 h-8 bg-primary rounded-sm border-glow"></div>
+<div class="text-[10px]">
+<p class="text-white font-bold">CYAN_NEON</p>
+<p class="text-primary/60">#06E8F9</p>
+</div>
+</div>
+<div class="flex items-center gap-3 group">
+<div class="w-8 h-8 bg-accent-yellow rounded-sm"></div>
+<div class="text-[10px]">
+<p class="text-white font-bold">CAUTION_YLW</p>
+<p class="text-accent-yellow/60">#F9E806</p>
+</div>
+</div>
+<div class="flex items-center gap-3 group">
+<div class="w-8 h-8 bg-background-dark border border-primary/20 rounded-sm"></div>
+<div class="text-[10px]">
+<p class="text-white font-bold">VOID_DEPTH</p>
+<p class="text-primary/40">#050505</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1">
+<h4 class="text-[10px] font-bold text-primary/40 tracking-[0.3em] mb-4 uppercase italic">Sync_Analysis</h4>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-primary">BRAINWAVE</span>
+<span>98.4%</span>
+</div>
+<div class="h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-accent-yellow">CORE_TEMP</span>
+<span>37.2°C</span>
+</div>
+<div class="h-1 bg-accent-yellow/20 rounded-full overflow-hidden">
+<div class="h-full bg-accent-yellow w-[65%] shadow-[0_0_5px_rgba(249,232,6,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-primary/10 pt-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">settings_input_component</span>
+<span class="text-[9px] font-bold tracking-widest text-primary/60">HARDWARE_INT</span>
+</div>
+<p class="text-[10px] leading-relaxed text-primary/40 font-mono">
+                    Model: NX-27-Core<br/>
+                    Kernel: 5.11-GLITCH<br/>
+                    State: READY
+                </p>
+</div>
+</aside>
+</main>
+<!-- Footer Stats / Brand Manual Strip -->
+<footer class="relative z-10 border-t border-primary/20 bg-background-dark/95 backdrop-blur-lg px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="text-[9px] text-primary/40 font-bold tracking-[0.2em]">VERSION</span>
+<span class="text-xs font-bold text-white tracking-widest">SYS.NERO.27.BETA</span>
+</div>
+<div class="h-8 w-px bg-primary/20"></div>
+<div class="flex flex-col">
+<span class="text-[9px] text-primary/40 font-bold tracking-[0.2em]">ENCODING</span>
+<span class="text-xs font-bold text-white tracking-widest">UTF-8 // NEURAL-X</span>
+</div>
+</div>
+<nav class="flex items-center gap-2">
+<a class="p-2 hover:bg-primary/20 rounded-sm text-primary transition-colors border border-transparent hover:border-primary/40" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="p-2 bg-primary text-black rounded-sm transition-transform hover:scale-105" href="#">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<a class="p-2 hover:bg-primary/20 rounded-sm text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">fingerprint</span>
+</a>
+<a class="p-2 hover:bg-primary/20 rounded-sm text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+<div class="hidden lg:flex items-center gap-4 bg-primary/5 px-4 py-1 border border-primary/10">
+<span class="material-symbols-outlined text-xs text-primary">circle</span>
+<span class="text-[10px] font-bold tracking-[0.3em] text-primary animate-pulse uppercase">Network_Active</span>
+<div class="flex gap-1">
+<div class="w-1 h-3 bg-primary/40"></div>
+<div class="w-1 h-3 bg-primary/60"></div>
+<div class="w-1 h-3 bg-primary"></div>
+</div>
+</div>
+</footer>
+<!-- Background Grid Effect -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-0" style="background-image: linear-gradient(#06e8f9 1px, transparent 1px), linear-gradient(90deg, #06e8f9 1px, transparent 1px); background-size: 40px 40px;">
+</div>
+</body></html>
