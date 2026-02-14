@@ -1,0 +1,11 @@
+﻿/* entry point — importa todos os partials na ordem correta */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import url('_tokens.css');
+@import url('_animations.css');
+@import url('_layout.css');
+@import url('_header.css');
+@import url('_form.css');
+@import url('_upload.css');
+@import url('_components.css');
+@import url('_footer.css');

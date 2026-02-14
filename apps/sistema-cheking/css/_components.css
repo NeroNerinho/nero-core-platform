@@ -1,0 +1,410 @@
+/* ========================================
+   regras de envio (antigo guia de meios)
+   ======================================== */
+
+.rules-guide {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 0;
+}
+
+.rules-guide:hover {
+    border-color: var(--border-input);
+}
+
+.rules-guide summary {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.2s ease;
+    user-select: none;
+}
+
+.rules-guide summary::-webkit-details-marker {
+    display: none;
+}
+
+.rules-guide summary::after {
+    content: '';
+    margin-left: auto;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg);
+    transition: transform 0.25s var(--ease-out);
+    flex-shrink: 0;
+}
+
+.rules-guide[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+.rules-guide summary:hover {
+    color: var(--text);
+}
+
+.rules-guide summary svg {
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+.rules-guide__content {
+    padding: 0 1.5rem 1.75rem;
+    border-top: 1px solid var(--border);
+    animation: slideDown 0.25s var(--ease-out);
+}
+
+/* overwritten in next step after finding location */
+/* placeholder */
+regras */ .rules-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.rules-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.625rem 0.75rem;
+    background: var(--bg-subtle);
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    transition: background 0.15s ease;
+}
+
+.rules-list li:hover {
+    background: var(--bg-inset);
+}
+
+.rules-list li svg {
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.rules-list li strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* regras por meio (dentro do details) */
+.codes-grid__heading {
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.codes-grid__code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 28px;
+    padding: 0 0.5rem;
+    background: var(--bg-inset);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text);
+    flex-shrink: 0;
+}
+
+.media-rules-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+}
+
+@media (max-width: 640px) {
+    .media-rules-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.media-rule {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    border-radius: 8px;
+    background: var(--bg-inset);
+    transition: background 0.15s ease;
+}
+
+.media-rule:hover {
+    background: var(--bg-card);
+}
+
+.media-rule__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.media-rule__info strong {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.media-rule__info span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ========================================
+   modal do easter egg
+   ======================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 640px;
+    background: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s var(--ease-out);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   dark mode toggle (botao fixo)
+   ======================================== */
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10000;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transform: translateZ(0);
+    pointer-events: auto;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+.dark-mode-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ========================================
+   warning box (aviso de formatos)
+   ======================================== */
+
+.warning-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    color: var(--warning);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.warning-box svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+body.dark .warning-box {
+    background: rgba(245, 158, 11, 0.06);
+    border-color: rgba(245, 158, 11, 0.15);
+}
+
+/* ========================================
+   barra de progresso
+   ======================================== */
+
+.progress-container {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.progress-bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-inset);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: 99px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    min-width: 3ch;
+    text-align: right;
+}
+
+/* ========================================
+   message boxes (success/error feedback)
+   ======================================== */
+
+.message-box {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 1rem;
+    animation: slideDown 0.3s var(--ease-out);
+}
+
+.message-box--success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.message-box--error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--error);
+}
+
+/* ========================================
+   campos extras condicionais
+   ======================================== */
+
+.extra-field {
+    margin-top: 1rem;
+    animation: slideDown 0.25s var(--ease-out);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-label span {
+    user-select: none;
+}

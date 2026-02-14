@@ -1,0 +1,292 @@
+/* ========================================
+   upload zones & file inputs
+   ======================================== */
+
+/* container geral de uploads */
+.upload-container {
+    margin-top: 1rem;
+}
+
+/* placeholder (quando nenhuma PI foi/* Estado vazio (bloqueado) */
+.upload-empty-state {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout */
+    align-items: center;
+    /* Vertically centered */
+    justify-content: center;
+    /* Horizontally centered */
+    gap: 1rem;
+    /* Space between icon and text */
+    padding: 3rem 2rem;
+    border: 2px dashed var(--border-input);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    transition: all 0.2s ease;
+    text-align: left;
+    /* Align text to the left relative to icon */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.upload-empty-state svg,
+.upload-empty-state i {
+    width: 28px;
+    height: 28px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.upload-empty-state p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* card de cada grupo de upload (DOOH, Radio, etc) */
+.upload-group {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    margin-bottom: 1.25rem;
+    transition: border-color 0.2s;
+    animation: cardSlide 0.3s ease forwards;
+}
+
+.upload-group:focus-within {
+    border-color: var(--primary);
+}
+
+/* titulo do grupo (ex: "DOOH — Digital Out of Home") */
+.upload-group__title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* cada par label + input dentro do grupo */
+.upload-field-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.upload-field-row:last-child {
+    margin-bottom: 0;
+}
+
+/* file input estilizado (black button style) */
+input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--bg-inset);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-input);
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.85rem;
+    transition: border-color 0.2s ease;
+}
+
+input[type="file"]:hover {
+    border-color: var(--primary);
+}
+
+input[type="file"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* webkit selector button styling */
+input[type="file"]::file-selector-button {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    margin-right: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    transform: translateY(-1px);
+    background: #1a1a1a;
+}
+
+/* OOH Addresses Section */
+#ooh-addresses-container {
+    margin-top: 1.5rem;
+    display: none;
+}
+
+.ooh-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: #1a1a1a;
+    border-radius: 99px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: cardSlide 0.4s var(--ease-out, ease-out) both;
+}
+
+/* brilho animado igual ao botao de envio */
+.ooh-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent);
+    animation: shine-sweep 3s infinite linear;
+}
+
+.ooh-header-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ooh-title {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.ooh-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Address Card Design */
+.address-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.address-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-light);
+}
+
+.address-card__content {
+    padding: 1.5rem;
+}
+
+.address-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.address-number {
+    width: 28px;
+    height: 28px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+body.dark .address-number {
+    background: var(--primary);
+    color: #fff;
+}
+
+.address-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.address-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Upload Pair Grid */
+.upload-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .upload-pair {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.upload-field-ooh {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.upload-field-ooh label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.file-info {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    min-height: 1.2em;
+}
+
+.file-info.success {
+    color: var(--success);
+}
+
+.file-info.error {
+    color: var(--error);
+    font-weight: 600;
+}

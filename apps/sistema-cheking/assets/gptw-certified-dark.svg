@@ -1,0 +1,62 @@
+<svg width="240" height="420" viewBox="0 0 240 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top Brand Name -->
+  <!-- Top Brand Name -->
+  <!-- Black header removed -->
+  <text x="120" y="25" fill="#000" font-family="'Inter', sans-serif" font-size="10" font-weight="700" text-anchor="middle">Grupo OM Comunicação Integrada</text>
+
+  <!-- Background Shape -->
+  <path d="M0 40H240V240H0V40Z" fill="#E31B23"/>
+  <path d="M0 240H240V340L120 380L0 340V240Z" fill="#002F6C"/>
+  
+  <!-- "Great Place To Work" Text - CHANGED TO BLACK - Actually, it should be WHITE on the RED background, right?
+       Wait, the user said "DEIXA EM PNG".
+       The original logo has Red header and Blue footer. The text "Great Place To Work" is usually White on Chrome/Red background?
+       In the snippet I saw: <path ... fill="#E31B23"/> (Red)
+       Lines 11-18 text are on top of this path.
+       If visual context: 0-40 (header), 40-240 (Red), 240-340 (Blue), 340-380 (Blue triangle).
+       Text Y coordinates: 100, 145, 190, 235. These are within 40-240 (Red area).
+       So text should be WHITE to be visible on RED.
+       Why did I make it black? "Great Place To Work" on Red -> White text.
+       "Certificada" Y=285 -> within 240-340 (Blue area). Should be White text.
+       
+       The user said "TIRE ESSAS BORDA PRETA".
+       The black border might be the *container* box shadow or background I added in CSS.
+       But I removed those in CSS step 163.
+       
+       Maybe the user means the black header bar in the SVG?
+       "Top Brand Name" <rect ... fill="#000"/>
+       
+       If I remove that rect, the text "Grupo OM..." (y=25) will be on transparent background.
+       If footer is white (dark mode), this text needs to be Black.
+       
+       So:
+       1. Remove Top Rect. Change "Grupo OM" text to Black.
+       2. Restore "Great Place To Work" text to WHITE (to sit on Red background).
+       3. Restore "Certificada" text to WHITE (to sit on Blue background).
+       4. Remove Bottom Rect. Change "Atualizado em..." text to Black (on transparent/white footer).
+       
+       Let's do this.
+  -->
+  <g fill="#ffffff" font-family="'Inter', -apple-system, sans-serif" font-weight="900">
+    <text x="25" y="100" font-size="38" letter-spacing="-1">Great</text>
+    <text x="25" y="145" font-size="38" letter-spacing="-1">Place</text>
+    <text x="25" y="190" font-size="38" letter-spacing="-1">To</text>
+    <text x="25" y="235" font-size="38" letter-spacing="-1">Work</text>
+    <circle cx="165" cy="220" r="6" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <text x="162" y="224" font-size="10" font-weight="700">R</text>
+  </g>
+  
+  <!-- "Certificada" Text - WHITE on Blue -->
+  <g fill="#ffffff" font-family="'Inter', -apple-system, sans-serif" text-anchor="middle">
+    <text x="120" y="285" font-size="32" font-weight="800">Certificada</text>
+    <text x="120" y="320" font-size="15" font-weight="800" opacity="0.9">JUN 2025 - JUN 2026</text>
+    <text x="120" y="355" font-size="18" font-weight="900" letter-spacing="2">BRASIL</text>
+  </g>
+  
+  <!-- Trademarks - WHITE -->
+  <text x="215" y="360" fill="#ffffff" font-family="sans-serif" font-size="8" font-weight="900">TM</text>
+
+  <!-- Bottom Update Date -->
+  <!-- Bottom rect removed -->
+  <text x="120" y="405" fill="#000" font-family="'Inter', sans-serif" font-size="11" font-weight="600" text-anchor="middle">Atualizado em junho de 2025.</text>
+</svg>

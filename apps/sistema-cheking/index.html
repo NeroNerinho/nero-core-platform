@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.ytimg.com https://*.youtube.com; connect-src 'self' https://n8n.grupoom.com.br; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;">
+    <title>Checking OpusMúltipla</title>
+
+    <!-- seo basico -->
+    <meta name="description"
+        content="Central de Checking da OpusMúltipla. Envio de comprovantes e relatórios de veiculação.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- css (entry point importa todos os partials) -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Checking OpusMúltipla",
+        "description": "Sistema de envio de comprovantes de veiculação do Grupo OM",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web"
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- gradient top -->
+    <div class="footer__gradient"></div>
+
+    <div class="app">
+
+        <!-- ===== BACKGROUND WRAPPER (bloco escuro atras dos cards) ===== -->
+        <div class="content-wrapper">
+            <!-- header card (box style) -->
+            <header class="header-card reveal">
+
+                <div class="logo-container">
+                    <img src="assets/logo.png" alt="Grupo OM" class="logo">
+                </div>
+                <h1>Central de Checking</h1>
+                <p>Envio de comprovantes de veiculação</p>
+            </header>
+
+            <main class="main">
+
+                <!-- regras de envio (antigo guia de meios) -->
+                <details class="rules-guide reveal">
+                    <summary>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        Regras de Envio
+                    </summary>
+                    <div class="rules-guide__content">
+                        <ul class="rules-list">
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span><strong>Formatos aceitos:</strong> PDF, JPG, PNG ou HEIC. Tamanho máximo de 10MB
+                                    por arquivo.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <span><strong>Busca por PI:</strong> Digite o número do PI para localizar
+                                    automaticamente os dados do pedido.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                                <span><strong>Busca por CNPJ:</strong> Use o CNPJ do veículo para listar todas as PIs
+                                    disponíveis.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span><strong>Upload:</strong> Os campos de comprovante mudam automaticamente de acordo
+                                    com o meio de comunicação da PI.</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                    </path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                <span><strong>PIs finalizadas:</strong> Pedidos com status "OK", "Falha" ou
+                                    "Complemento" não aceitam novo envio.</span>
+                            </li>
+                        </ul>
+
+                        <!-- regras por meio de comunicacao -->
+                        <h4 class="codes-grid__heading">Regras por Meio de Comunicação</h4>
+                        <div class="media-rules-list">
+                            <div class="media-rule">
+                                <span class="codes-grid__code">TV</span>
+                                <div class="media-rule__info">
+                                    <strong>TV</strong>
+                                    <span>Enviar mapa de veiculação com datas e emissoras. Inclua número de
+                                        inserções.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">RD</span>
+                                <div class="media-rule__info">
+                                    <strong>Rádio</strong>
+                                    <span>Enviar mapa de veiculação com horários e emissoras programadas.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">JO</span>
+                                <div class="media-rule__info">
+                                    <strong>Jornal</strong>
+                                    <span>Enviar página escaneada ou PDF com data da publicação visível.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">RV</span>
+                                <div class="media-rule__info">
+                                    <strong>Revista</strong>
+                                    <span>Enviar scan da página com capa ou expediente identificando edição.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">OD</span>
+                                <div class="media-rule__info">
+                                    <strong>Outdoor</strong>
+                                    <span>Enviar foto do outdoor instalado com entorno visível para localização.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">FL</span>
+                                <div class="media-rule__info">
+                                    <strong>Frontlight / Gigadoor</strong>
+                                    <span>Enviar foto do painel com iluminação ativa, preferencialmente noturna.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">ME</span>
+                                <div class="media-rule__info">
+                                    <strong>Mídia Externa</strong>
+                                    <span>Enviar foto do local + mapa de localização. Marcar veículo se
+                                        aplicável.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">MT</span>
+                                <div class="media-rule__info">
+                                    <strong>Metrô</strong>
+                                    <span>Enviar foto da veiculação na estação + relatório de exibição se
+                                        disponível.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">BD</span>
+                                <div class="media-rule__info">
+                                    <strong>Busdoor / Taxidoor</strong>
+                                    <span>Enviar relatório de veiculação com fotos e rotas dos veículos.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">DO</span>
+                                <div class="media-rule__info">
+                                    <strong>DOOH — Digital Out of Home</strong>
+                                    <span>Enviar relatório de veiculação + foto do painel + comprovante adicional.
+                                        Inclua nº de inserções.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">CI</span>
+                                <div class="media-rule__info">
+                                    <strong>Cinema</strong>
+                                    <span>Enviar relatório de exibição com salas, sessões e período.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">IN</span>
+                                <div class="media-rule__info">
+                                    <strong>Internet / Digital</strong>
+                                    <span>Enviar relatório de mídia com impressões, cliques e período de
+                                        campanha.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">AT</span>
+                                <div class="media-rule__info">
+                                    <strong>Ativação / Eventos</strong>
+                                    <span>Enviar relatório fotográfico do evento com registro de público e ações.</span>
+                                </div>
+                            </div>
+                            <div class="media-rule">
+                                <span class="codes-grid__code">MN</span>
+                                <div class="media-rule__info">
+                                    <strong>Mídia Interna</strong>
+                                    <span>Enviar comprovante de veiculação interna (painéis, TVs corporativas,
+                                        etc).</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- formulario principal -->
+                <form id="checkingForm" novalidate>
+
+                    <!-- secao 1: dados do remetente -->
+                    <section class="form-section reveal">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">Seus Dados</h2>
+                                <p class="section-subtitle">Informações de quem está enviando</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <!-- linha 1: Nome + CNPJ -->
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="cnpj_remetente">CNPJ</label>
+                                <input type="text" id="cnpj_remetente" name="cnpj_remetente"
+                                    placeholder="00.000.000/0000-00">
+                            </div>
+
+                            <!-- linha 2: Email + Telefone -->
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required placeholder="nome@empresa.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- secao 2: busca -->
+                    <section class="form-section reveal">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">Identificação do Pedido</h2>
+                                <p class="section-subtitle">Busque pela PI ou CNPJ do veículo</p>
+                            </div>
+                        </div>
+
+                        <div class="search-toggle">
+                            <button type="button" id="btn-mode-pi" class="toggle-btn active">Busca por PI</button>
+                            <button type="button" id="btn-mode-cnpj" class="toggle-btn">Busca por CNPJ</button>
+                        </div>
+
+                        <div class="form-group" style="position: relative;">
+                            <label id="search-label" for="search-input">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="9" x2="15" y2="9"></line>
+                                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                                </svg>
+                                Número do PI * </label>
+                            <input type="text" id="search-input" name="n_pi" required
+                                placeholder="Digite o número do PI (ex: 12345/24)" autocomplete="off">
+                            <span id="searchStatus" class="search-status"></span>
+                        </div>
+
+                        <select id="pi-results-select" class="pi-results-select" style="display: none;">
+                            <option value="" hidden>Selecione uma PI...</option>
+                        </select>
+                    </section>
+
+                    <!-- secao 3: dados do pedido -->
+                    <section class="form-section reveal">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">Dados do Pedido</h2>
+                                <p class="section-subtitle">Preenchido automaticamente pela busca</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="cliente">Cliente</label>
+                                <input type="text" id="cliente" name="cliente" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label for="campanha">Campanha</label>
+                                <input type="text" id="campanha" name="campanha" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label for="produto">Produto</label>
+                                <input type="text" id="produto" name="produto" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label for="periodo">Período</label>
+                                <input type="text" id="periodo" name="periodo" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label for="veiculo">Veículo</label>
+                                <input type="text" id="veiculo" name="veiculo" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <div class="input-with-badge">
+                                    <input type="hidden" id="status-checking" name="status_checking">
+                                    <span id="status-badge" class="status-badge">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid form-grid--half">
+                            <div class="form-group">
+                                <label for="meio-desc">Meio de Comunicação</label>
+                                <input type="hidden" id="meio" name="meio">
+                                <input type="text" id="meio-desc" name="meio_desc" readonly placeholder=" ">
+                            </div>
+                            <div class="form-group">
+                                <label for="observacoes">Observações</label>
+                                <textarea id="observacoes" name="observacoes" rows="3"
+                                    placeholder="Comentários ou instruções especiais..."></textarea>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- secao 4: comprovantes -->
+                    <section class="form-section reveal">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="section-title">Comprovantes</h2>
+                                <p class="section-subtitle">Envie os documentos de comprovação</p>
+                            </div>
+                        </div>
+
+                        <!-- aviso -->
+                        <div class="warning-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <span>Envie apenas arquivos PDF, JPG, PNG ou HEIC. Sem limite de tamanho.</span>
+                        </div>
+
+                        <!-- upload container -->
+                        <div class="upload-container">
+
+                            <!-- placeholder -->
+                            <!-- Empty State -->
+                            <div id="upload-empty-state" class="upload-empty-state">
+                                <i data-feather="upload-cloud"></i>
+                                <p>Busque um Pi para liberar o envio de comprovantes.</p>
+                            </div>
+
+                            <!-- DOOH -->
+                            <div class="upload-group" data-meio="DO PH" style="display: none;">
+                                <h3 class="upload-group__title">DOOH — Digital Out of Home</h3>
+                                <div class="upload-field-row">
+                                    <label for="do_anexo_1">Relatório de Veiculação *</label>
+                                    <input type="file" id="do_anexo_1" name="do_anexo_1"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                                <div class="upload-field-row">
+                                    <label for="do_anexo_2">Foto do Painel *</label>
+                                    <input type="file" id="do_anexo_2" name="do_anexo_2"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                                <div class="upload-field-row">
+                                    <label for="do_anexo_3">Comprovante Adicional</label>
+                                    <input type="file" id="do_anexo_3" name="do_anexo_3"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Midia Externa -->
+                            <div class="upload-group" data-meio="ME EP" style="display: none;">
+                                <h3 class="upload-group__title">Mídia Externa</h3>
+                                <div class="upload-field-row">
+                                    <label for="me_anexo_1">Foto do Local *</label>
+                                    <input type="file" id="me_anexo_1" name="me_anexo_1"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                                <div class="upload-field-row">
+                                    <label for="me_anexo_2">Mapa de Localização</label>
+                                    <input type="file" id="me_anexo_2" name="me_anexo_2"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Metro -->
+                            <div class="upload-group" data-meio="MT PM" style="display: none;">
+                                <h3 class="upload-group__title">Metrô</h3>
+                                <div class="upload-field-row">
+                                    <label for="mo_anexo_1">Foto da Veiculação *</label>
+                                    <input type="file" id="mo_anexo_1" name="mo_anexo_1"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                                <div class="upload-field-row">
+                                    <label for="mo_anexo_2">Relatório de Exibição</label>
+                                    <input type="file" id="mo_anexo_2" name="mo_anexo_2"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Busdoor -->
+                            <div class="upload-group" data-meio="BD BP" style="display: none;">
+                                <h3 class="upload-group__title">Busdoor / Taxidoor</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_busdoor">Relatório de Veiculação *</label>
+                                    <input type="file" id="relatorio_busdoor" name="relatorio_busdoor"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Outdoor -->
+                            <div class="upload-group" data-meio="OD PO" style="display: none;">
+                                <h3 class="upload-group__title">Outdoor</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_outdoor">Foto do Outdoor *</label>
+                                    <input type="file" id="relatorio_outdoor" name="relatorio_outdoor"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Frontlight -->
+                            <div class="upload-group" data-meio="FL PF GD" style="display: none;">
+                                <h3 class="upload-group__title">Frontlight / Gigadoor</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_frontlight">Foto do Painel *</label>
+                                    <input type="file" id="relatorio_frontlight" name="relatorio_frontlight"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Midia Interna -->
+                            <div class="upload-group" data-meio="MN PI" style="display: none;">
+                                <h3 class="upload-group__title">Mídia Interna</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_midia_interna">Comprovante de Veiculação *</label>
+                                    <input type="file" id="relatorio_midia_interna" name="relatorio_midia_interna"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Radio -->
+                            <div class="upload-group" data-meio="RD TP PD RA RF PA" style="display: none;">
+                                <h3 class="upload-group__title">Rádio</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_radio">Mapa de Veiculação *</label>
+                                    <input type="file" id="relatorio_radio" name="relatorio_radio"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Jornal / Revista -->
+                            <div class="upload-group" data-meio="JO RV JN RE PS PJ GS GO FT" style="display: none;">
+                                <h3 class="upload-group__title">Jornal / Revista</h3>
+                                <div class="upload-field-row">
+                                    <label for="material_impresso">Página Escaneada *</label>
+                                    <input type="file" id="material_impresso" name="material_impresso"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Cinema -->
+                            <div class="upload-group" data-meio="CI CN CP" style="display: none;">
+                                <h3 class="upload-group__title">Cinema</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_cinema">Relatório de Exibição *</label>
+                                    <input type="file" id="relatorio_cinema" name="relatorio_cinema"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Ativacao -->
+                            <div class="upload-group" data-meio="AT PY EV MA" style="display: none;">
+                                <h3 class="upload-group__title">Ativação / Eventos</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_ativacao">Relatório Fotográfico *</label>
+                                    <input type="file" id="relatorio_ativacao" name="relatorio_ativacao"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- TV -->
+                            <div class="upload-group" data-meio="TV TP PT PV TA" style="display: none;">
+                                <h3 class="upload-group__title">TV</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_tv">Mapa de Veiculação *</label>
+                                    <input type="file" id="relatorio_tv" name="relatorio_tv"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Internet -->
+                            <div class="upload-group" data-meio="IN PN PW IA IB ID IS IV MS" style="display: none;">
+                                <h3 class="upload-group__title">Internet / Digital</h3>
+                                <div class="upload-field-row">
+                                    <label for="relatorio_internet">Relatório de Mídia *</label>
+                                    <input type="file" id="relatorio_internet" name="relatorio_internet"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Default -->
+                            <div class="upload-group" data-meio="DEFAULT" style="display: none;">
+                                <h3 class="upload-group__title">Outros Serviços</h3>
+                                <div class="upload-field-row">
+                                    <label for="anexo_geral">Comprovante *</label>
+                                    <input type="file" id="anexo_geral" name="anexo_geral"
+                                        accept=".pdf,.jpg,.jpeg,.png,.heic" disabled>
+                                </div>
+                            </div>
+
+                            <!-- OOH container (gerado via JS) -->
+                            <div id="ooh-addresses-container" style="display: none; margin-top: 1rem;"></div>
+                        </div>
+
+                        <!-- campos extras condicionais -->
+                        <div id="field-ins-total" class="extra-field" style="display: none;">
+                            <label for="num_insercoes">Número Total de Inserções</label>
+                            <input type="number" id="num_insercoes" name="num_insercoes" placeholder="Ex: 30" min="1"
+                                disabled>
+                        </div>
+                        <div id="field-marc-veiculo" class="extra-field" style="display: none;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="marcacao_veiculo" name="marcacao_veiculo" value="sim"
+                                    disabled>
+                                <span>Marcação do veículo realizada</span>
+                            </label>
+                        </div>
+
+                        <!-- progresso -->
+                        <div id="progressContainer" class="progress-container" style="display: none;">
+                            <div class="progress-bar-track">
+                                <div id="progressBar" class="progress-bar-fill"></div>
+                            </div>
+                            <span id="progressText" class="progress-text">0%</span>
+                        </div>
+
+                        <!-- submit -->
+                        <button type="submit" class="submit-btn">
+                            <span class="submit-btn__text">Enviar Checking</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+
+                        <!-- feedback -->
+                        <div id="successMessage" class="message-box message-box--success" style="display: none;"></div>
+                        <div id="errorMessage" class="message-box message-box--error" style="display: none;"></div>
+                    </section>
+
+                </form>
+            </main>
+        </div>
+
+        <!-- ===== FOOTER ORIGINAL (Grupo OM + sub-marcas) ===== -->
+        <footer class="footer">
+            <div class="footer__gradient"></div>
+            <div class="footer__content">
+                <img src="assets/footer_logo.png" alt="Grupo OM" class="footer__logo">
+
+
+
+                <div class="footer__divider"></div>
+
+                <!-- New Footer Locations Section (3 Columns) -->
+                <div class="footer__locations">
+
+                    <!-- Col 1: Title + Socials -->
+                    <div class="footer__col-social">
+                        <h3 class="footer__title">ONDE <br> ESTAMOS <span class="footer__pin-icon"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg></span></h3>
+                        <div class="footer__socials">
+                            <a href="https://www.instagram.com/grupo_om/" target="_blank" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/grupo-om-comunicacao-integrada/" target="_blank"
+                                aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=100064394031293" target="_blank"
+                                aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCDnq1psXM336KMZ1CFbPrzw" target="_blank"
+                                aria-label="YouTube">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
+                                    </path>
+                                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer__divider-vertical"></div>
+
+                    <!-- Col 2: Locations (Address + Button per row) -->
+                    <div class="footer__col-center">
+
+                        <!-- Location 1: Alphaville -->
+                        <div class="location-row">
+                            <div class="location-info">
+                                <h4>ALPHAVILLE</h4>
+                                <p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                    </svg>
+                                    Rua Jaguariaíva, 596 – 5º andar
+                                </p>
+                                <p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    +55 (41) 3362-1919
+                                </p>
+                            </div>
+                            <div class="location-separator"></div>
+                            <div class="location-action">
+                                <a href="https://www.google.com.br/maps/place/Rua+Jaguaria%C3%ADva,+596+-+Alphaville,+Pinhais+-+PR,+83327-076/@-25.3927967,-49.1608995,17z/data=!3m1!4b1!4m6!3m5!1s0x94dceedfc690f5ed:0x7e9d3be9276af4e!8m2!3d-25.3927967!4d-49.1608995!16s%2Fg%2F11gnpdvbnk?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
+                                    target="_blank" class="btn-map">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                                            fill="#EA4335" />
+                                        <circle cx="12" cy="9" r="3" fill="#ffffff" />
+                                    </svg>
+                                    Ver no mapa
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location 2: São Paulo -->
+                        <div class="location-row">
+                            <div class="location-info">
+                                <h4>SÃO PAULO</h4>
+                                <p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                    </svg>
+                                    Rua Cardoso de Melo, 1750 – Vila Olímpia
+                                </p>
+                                <p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    +55 (11) 3044-2215
+                                </p>
+                            </div>
+                            <div class="location-separator"></div>
+                            <div class="location-action">
+                                <a href="https://www.google.com.br/maps/place/Av.+Dr.+Cardoso+de+Melo,+1750+-+Itaim+Bibi,+S%C3%A3o+Paulo+-+SP,+04548-902/@-23.5958591,-46.689802,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce57380062d25b:0x79cba6d11aabe6d8!8m2!3d-23.5958591!4d-46.689802!16s%2Fg%2F11bw3_rmdq?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D"
+                                    target="_blank" class="btn-map">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                                            fill="#EA4335" />
+                                        <circle cx="12" cy="9" r="3" fill="#ffffff" />
+                                    </svg>
+                                    Ver no mapa
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Col 3: Badge (Direita) -->
+                    <div class="footer__col-badge">
+                        <a href="https://certificadas.gptw.com.br/79213591000135" target="_blank"
+                            aria-label="Great Place to Work Certificado" class="footer-badge">
+                            <img src="assets/gptw-certified.svg" alt="Great Place To Work Certified 2025-2026">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Copyright row (preserved) -->
+
+                <!-- Copyright no final absoluto -->
+                <div class="footer__copyright-row" style="margin-top: 3rem; text-align: center; width: 100%;">
+                    <p class="footer__copy">&copy; 2026 Grupo OM Comunicação Integrada. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- modal do easter egg -->
+    <div id="easterEggModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModal" class="modal-close" aria-label="Fechar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="video-container">
+                <div id="player"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- botao dark mode fixo (movido para o final para evitar sobreposicao) -->
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Alternar tema escuro">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Main Script -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
