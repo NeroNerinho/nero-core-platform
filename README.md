@@ -1,7 +1,7 @@
 # Nero Core Platform - Sistema de Checking e Aprovação
 
 ## Visão Geral
-O Nero Core Platform é uma infraestrutura empresarial desenvolvida para o Grupo OM, projetada para gerenciar fluxos de trabalho de checking e aprovação de materiais publicitários. O sistema atua como um hub centralizado que conecta fornecedores, aprovadores e sistemas de armazenamento, eliminando processos manuais e garantindo a rastreabilidade total das operações.
+O Nero Core Platform é uma infraestrutura empresarial desenvolvida para a nero27, projetada para gerenciar fluxos de trabalho de checking e aprovação de materiais publicitários. O sistema atua como um hub centralizado que conecta fornecedores, aprovadores e sistemas de armazenamento, eliminando processos manuais e garantindo a rastreabilidade total das operações.
 
 ### Objetivos Estratégicos
 - **Centralização Operacional**: Eliminação do uso de e-mails para aprovação de materiais.
@@ -143,5 +143,5 @@ npm run dev
 
 ---
 
-© 2026 Grupo OM - Documentação Técnica Confidencial.
+© 2026 nero27 - Documentação Técnica Confidencial.
 Desenvolvido por Nero.
